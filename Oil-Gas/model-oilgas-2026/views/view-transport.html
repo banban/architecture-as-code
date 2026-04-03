@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>06 – Transportation and Storage Detail</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>06 &#8211; Transportation and Storage Detail</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-transport.png" alt="06 – Transportation and Storage Detail" usemap="#view-transportmap"/>
+			   <map name="view-transportmap">
+				  		<area shape="rect" coords="10,31,230,86" href="../elements/pu-inv.html"  target="element">
+				  		<area shape="rect" coords="10,160,230,215" href="../elements/pu-balance.html"  target="element">
+				  		<area shape="rect" coords="254,146,474,201" href="../elements/pu-proc.html"  target="element">
+				  		<area shape="rect" coords="530,116,750,171" href="../elements/pt-gtscond.html"  target="element">
+				  		<area shape="rect" coords="98,362,318,417" href="../elements/pt-gascap.html"  target="element">
+				  		<area shape="rect" coords="31,494,251,549" href="../elements/pt-gtsmode.html"  target="element">
+				  		<area shape="rect" coords="830,170,1050,225" href="../elements/pt-gasflow.html"  target="element">
+				  		<area shape="rect" coords="566,31,786,86" href="../elements/pt-gasalyt.html"  target="element">
+				  		<area shape="rect" coords="182,254,402,309" href="../elements/pt-gasdec.html"  target="element">
+				  		<area shape="rect" coords="806,470,1026,525" href="../elements/pt-gaspre.html"  target="element">
+				  		<area shape="rect" coords="818,85,1038,140" href="../elements/pt-pipeplan.html"  target="element">
+				  		<area shape="rect" coords="422,214,642,269" href="../elements/pt-prodexec.html"  target="element">
+				  		<area shape="rect" coords="98,578,318,633" href="../elements/pt-oilexec.html"  target="element">
+				  		<area shape="rect" coords="806,362,1026,417" href="../elements/pt-oilctrl.html"  target="element">
+				  		<area shape="rect" coords="806,10,1026,65" href="../elements/pt-oilflow.html"  target="element">
+				  		<area shape="rect" coords="506,494,726,549" href="../elements/pt-oilacct.html"  target="element">
+				  		<area shape="rect" coords="250,10,470,65" href="../elements/p-ugs.html"  target="element">
+				  		<area shape="rect" coords="518,362,738,417" href="../elements/p-trans.html"  target="element">
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap"></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<tr>
+											    <td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+											    <td> <a href="../elements/p-trans.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/p-ugs.html" target="element"> Underground Gas Storage </a> </td>
+											    <td> <a href="../elements/p-ugs.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-oilacct.html" target="element"> Accounting for Oil Transport </a> </td>
+											    <td> <a href="../elements/pt-oilacct.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-oilflow.html" target="element"> Oil Flow Execution and Monitoring </a> </td>
+											    <td> <a href="../elements/pt-oilflow.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-oilctrl.html" target="element"> Oil Flow Control and Monitoring </a> </td>
+											    <td> <a href="../elements/pt-oilctrl.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-oilexec.html" target="element"> Oil Transportation Execution </a> </td>
+											    <td> <a href="../elements/pt-oilexec.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-prodexec.html" target="element"> Oil Products Transportation Execution </a> </td>
+											    <td> <a href="../elements/pt-prodexec.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-pipeplan.html" target="element"> Pipeline Work Planning and Operation </a> </td>
+											    <td> <a href="../elements/pt-pipeplan.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gaspre.html" target="element"> Pre-project Gas Pipeline Design </a> </td>
+											    <td> <a href="../elements/pt-gaspre.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gasdec.html" target="element"> Decision Support for Gas Pipeline Management </a> </td>
+											    <td> <a href="../elements/pt-gasdec.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gasalyt.html" target="element"> Gas Pipeline Operational Analytics </a> </td>
+											    <td> <a href="../elements/pt-gasalyt.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gasflow.html" target="element"> Actual Gas Flow Identification in UGS </a> </td>
+											    <td> <a href="../elements/pt-gasflow.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gtsmode.html" target="element"> GTS Operating Mode Identification </a> </td>
+											    <td> <a href="../elements/pt-gtsmode.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gascap.html" target="element"> Pipeline Capacity Substantiation </a> </td>
+											    <td> <a href="../elements/pt-gascap.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pt-gtscond.html" target="element"> GTS Technical Condition Management </a> </td>
+											    <td> <a href="../elements/pt-gtscond.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pu-proc.html" target="element"> UGS Process Management </a> </td>
+											    <td> <a href="../elements/pu-proc.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pu-balance.html" target="element"> Gas Balance Control </a> </td>
+											    <td> <a href="../elements/pu-balance.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/pu-inv.html" target="element"> UGS Inventory Planning </a> </td>
+											    <td> <a href="../elements/pu-inv.html" target="element" class="i18n-elementtype-BusinessProcess">
+											    </a> </td>
+											</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+																	<tr>
+																		<td> <a href="../elements/rc-t1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-oilacct.html" target="element"> Accounting for Oil Transport </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-oilflow.html" target="element"> Oil Flow Execution and Monitoring </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-oilctrl.html" target="element"> Oil Flow Control and Monitoring </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-oilexec.html" target="element"> Oil Transportation Execution </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t5.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t5.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-prodexec.html" target="element"> Oil Products Transportation Execution </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t6.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t6.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-pipeplan.html" target="element"> Pipeline Work Planning and Operation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t7.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t7.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gaspre.html" target="element"> Pre-project Gas Pipeline Design </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t8.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t8.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gasdec.html" target="element"> Decision Support for Gas Pipeline Management </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t9.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t9.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gasalyt.html" target="element"> Gas Pipeline Operational Analytics </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t10.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t10.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gasflow.html" target="element"> Actual Gas Flow Identification in UGS </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t11.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t11.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gtsmode.html" target="element"> GTS Operating Mode Identification </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t12.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t12.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gascap.html" target="element"> Pipeline Capacity Substantiation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-t13.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-t13.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-trans.html" target="element"> Transportation </a> </td>
+																		<td> <a href="../elements/pt-gtscond.html" target="element"> GTS Technical Condition Management </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rc-u1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-u1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-ugs.html" target="element"> Underground Gas Storage </a> </td>
+																		<td> <a href="../elements/pu-proc.html" target="element"> UGS Process Management </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-u2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-u2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-ugs.html" target="element"> Underground Gas Storage </a> </td>
+																		<td> <a href="../elements/pu-balance.html" target="element"> Gas Balance Control </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rc-u3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rc-u3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/p-ugs.html" target="element"> Underground Gas Storage </a> </td>
+																		<td> <a href="../elements/pu-inv.html" target="element"> UGS Inventory Planning </a> </td>
+																	</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>
