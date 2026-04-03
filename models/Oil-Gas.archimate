@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="Oil and Gas Company" id="model-oilgas-2026" version="5.0.0">
+  <folder name="Motivation" id="folder-motivation" type="motivation">
+    <element xsi:type="archimate:Goal" name="Maximize hydrocarbon recovery and operational efficiency" id="goal1"/>
+    <element xsi:type="archimate:Goal" name="Ensure safe and reliable energy supply" id="goal2"/>
+    <element xsi:type="archimate:Goal" name="Achieve sustainability and ESG compliance" id="goal3"/>
+    <element xsi:type="archimate:Goal" name="Drive digital transformation with AI" id="goal4"/>
+    <element xsi:type="archimate:Driver" name="Volatile hydrocarbon prices" id="drv1"/>
+    <element xsi:type="archimate:Driver" name="Aging infrastructure and assets" id="drv2"/>
+    <element xsi:type="archimate:Driver" name="Regulatory and environmental pressure" id="drv3"/>
+    <element xsi:type="archimate:Driver" name="Digital innovation and AI adoption" id="drv4"/>
+    <element xsi:type="archimate:Principle" name="Data-driven decision making" id="prn1"/>
+    <element xsi:type="archimate:Principle" name="Asset integrity and safety first" id="prn2"/>
+    <element xsi:type="archimate:Principle" name="Integrated value chain optimization" id="prn3"/>
+  </folder>
+  <folder name="Strategy" id="folder-strategy" type="strategy">
+    <element xsi:type="archimate:Capability" name="Search and Prospecting" id="cap-search"/>
+    <element xsi:type="archimate:Capability" name="Exploration and Field Development" id="cap-expl"/>
+    <element xsi:type="archimate:Capability" name="Drilling" id="cap-drill"/>
+    <element xsi:type="archimate:Capability" name="Production and Monitoring" id="cap-prod"/>
+    <element xsi:type="archimate:Capability" name="Pipeline Transportation" id="cap-trans"/>
+    <element xsi:type="archimate:Capability" name="Underground Gas Storage" id="cap-ugs"/>
+    <element xsi:type="archimate:Capability" name="Logistics, Refining and Sales" id="cap-lrs"/>
+    <element xsi:type="archimate:Capability" name="Gas Distribution" id="cap-gasdist"/>
+    <element xsi:type="archimate:Capability" name="Energy Management" id="cap-energy"/>
+    <element xsi:type="archimate:Capability" name="Cross-Functional Operations" id="cap-cross"/>
+  </folder>
+  <folder name="Business" id="folder-business" type="business">
+    <element xsi:type="archimate:BusinessActor" name="Geoscience Department" id="act-geo"/>
+    <element xsi:type="archimate:BusinessActor" name="Drilling Department" id="act-drill"/>
+    <element xsi:type="archimate:BusinessActor" name="Production Operations" id="act-prod"/>
+    <element xsi:type="archimate:BusinessActor" name="Pipeline Operations" id="act-pipe"/>
+    <element xsi:type="archimate:BusinessActor" name="Refinery Operations" id="act-refine"/>
+    <element xsi:type="archimate:BusinessActor" name="Supply Chain and Procurement" id="act-scm"/>
+    <element xsi:type="archimate:BusinessActor" name="Commercial and Sales" id="act-sales"/>
+    <element xsi:type="archimate:BusinessActor" name="HSE Department" id="act-hse"/>
+    <element xsi:type="archimate:BusinessActor" name="IT and Digital Department" id="act-it"/>
+    <element xsi:type="archimate:BusinessRole" name="Geologist" id="rol-geo"/>
+    <element xsi:type="archimate:BusinessRole" name="Drilling Engineer" id="rol-drill"/>
+    <element xsi:type="archimate:BusinessRole" name="Production Engineer" id="rol-prod"/>
+    <element xsi:type="archimate:BusinessRole" name="Pipeline Dispatcher" id="rol-disp"/>
+    <element xsi:type="archimate:BusinessRole" name="Refinery Technologist" id="rol-ref"/>
+    <element xsi:type="archimate:BusinessRole" name="Logistics Coordinator" id="rol-log"/>
+    <element xsi:type="archimate:BusinessRole" name="Commercial Manager" id="rol-com"/>
+    <element xsi:type="archimate:BusinessRole" name="Data Scientist / AI Engineer" id="rol-ds"/>
+    <element xsi:type="archimate:BusinessProcess" name="Search and Prospecting" id="p-search"/>
+    <element xsi:type="archimate:BusinessProcess" name="Exploration and Field Development" id="p-expl"/>
+    <element xsi:type="archimate:BusinessProcess" name="Drilling" id="p-drill"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production and Monitoring" id="p-prod"/>
+    <element xsi:type="archimate:BusinessProcess" name="Transportation" id="p-trans"/>
+    <element xsi:type="archimate:BusinessProcess" name="Underground Gas Storage" id="p-ugs"/>
+    <element xsi:type="archimate:BusinessProcess" name="Logistics, Refining and Sales" id="p-lrs"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Distribution" id="p-gasdist"/>
+    <element xsi:type="archimate:BusinessProcess" name="Cross-Functional Operations" id="p-cross"/>
+    <element xsi:type="archimate:BusinessProcess" name="Seismic Surveying" id="ps-seismic"/>
+    <element xsi:type="archimate:BusinessProcess" name="Geological Modelling" id="ps-geomod"/>
+    <element xsi:type="archimate:BusinessProcess" name="Fluid Studies" id="ps-fluid"/>
+    <element xsi:type="archimate:BusinessProcess" name="Core Analysis" id="ps-core"/>
+    <element xsi:type="archimate:BusinessProcess" name="Magnetic and Gravity Surveying" id="ps-maggrav"/>
+    <element xsi:type="archimate:BusinessProcess" name="Electrical Surveying" id="ps-elec"/>
+    <element xsi:type="archimate:BusinessProcess" name="Basin and Palaeotectonic Modelling" id="ps-basin"/>
+    <element xsi:type="archimate:BusinessProcess" name="Prospective Reservoir Assessment" id="ps-resass"/>
+    <element xsi:type="archimate:BusinessProcess" name="Geophysical Research and Well Design" id="ps-geophys"/>
+    <element xsi:type="archimate:BusinessProcess" name="Hydrodynamic Modelling" id="ps-hydro"/>
+    <element xsi:type="archimate:BusinessProcess" name="Seismic Data Processing" id="ps-seisdat"/>
+    <element xsi:type="archimate:BusinessProcess" name="Seismic Interpretation and Analysis" id="ps-interp"/>
+    <element xsi:type="archimate:BusinessProcess" name="Field Development Design" id="pe-fielddev"/>
+    <element xsi:type="archimate:BusinessProcess" name="Hydrodynamic Field Modelling" id="pe-hydrof"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Forecast" id="pe-forecast"/>
+    <element xsi:type="archimate:BusinessProcess" name="Optimal Development System Selection" id="pe-optdev"/>
+    <element xsi:type="archimate:BusinessProcess" name="Conceptual and Integrated Engineering" id="pe-concept"/>
+    <element xsi:type="archimate:BusinessProcess" name="Integrated Modelling" id="pe-intmod"/>
+    <element xsi:type="archimate:BusinessProcess" name="Cost Engineering" id="pe-cost"/>
+    <element xsi:type="archimate:BusinessProcess" name="Oil and Gas Hydrogeology" id="pe-hydrogeo"/>
+    <element xsi:type="archimate:BusinessProcess" name="GTM Planning and EOR" id="pe-gtm"/>
+    <element xsi:type="archimate:BusinessProcess" name="Geomechanical Modelling" id="pd-geomech"/>
+    <element xsi:type="archimate:BusinessProcess" name="Well Drilling Technology Design" id="pd-welltech"/>
+    <element xsi:type="archimate:BusinessProcess" name="Real-time Drilling Operations Management" id="pd-rtdrill"/>
+    <element xsi:type="archimate:BusinessProcess" name="Drilling Operational Analytics" id="pd-analyt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Drilling Modelling and Forecasting" id="pd-forecast"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Data Preparation and Analysis" id="pp-dataprep"/>
+    <element xsi:type="archimate:BusinessProcess" name="Real-time Production Analytics" id="pp-rtalyt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Equipment Operations Optimisation" id="pp-equipopt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Modelling and Forecasting" id="pp-forecast"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Optimisation" id="pp-prodopt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Accounting for Oil Transport" id="pt-oilacct"/>
+    <element xsi:type="archimate:BusinessProcess" name="Oil Flow Execution and Monitoring" id="pt-oilflow"/>
+    <element xsi:type="archimate:BusinessProcess" name="Oil Flow Control and Monitoring" id="pt-oilctrl"/>
+    <element xsi:type="archimate:BusinessProcess" name="Oil Transportation Execution" id="pt-oilexec"/>
+    <element xsi:type="archimate:BusinessProcess" name="Oil Products Transportation Execution" id="pt-prodexec"/>
+    <element xsi:type="archimate:BusinessProcess" name="Pipeline Work Planning and Operation" id="pt-pipeplan"/>
+    <element xsi:type="archimate:BusinessProcess" name="Pre-project Gas Pipeline Design" id="pt-gaspre"/>
+    <element xsi:type="archimate:BusinessProcess" name="Decision Support for Gas Pipeline Management" id="pt-gasdec"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Pipeline Operational Analytics" id="pt-gasalyt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Actual Gas Flow Identification in UGS" id="pt-gasflow"/>
+    <element xsi:type="archimate:BusinessProcess" name="GTS Operating Mode Identification" id="pt-gtsmode"/>
+    <element xsi:type="archimate:BusinessProcess" name="Pipeline Capacity Substantiation" id="pt-gascap"/>
+    <element xsi:type="archimate:BusinessProcess" name="GTS Technical Condition Management" id="pt-gtscond"/>
+    <element xsi:type="archimate:BusinessProcess" name="UGS Process Management" id="pu-proc"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Balance Control" id="pu-balance"/>
+    <element xsi:type="archimate:BusinessProcess" name="UGS Inventory Planning" id="pu-inv"/>
+    <element xsi:type="archimate:BusinessProcess" name="Sea and River Supply Chain Management" id="pl-seatrans"/>
+    <element xsi:type="archimate:BusinessProcess" name="Procurement and Trading Operations" id="pl-procure"/>
+    <element xsi:type="archimate:BusinessProcess" name="Supply Schedule Planning" id="pl-supplan"/>
+    <element xsi:type="archimate:BusinessProcess" name="Operational-calendar Refinery Planning" id="pr-refcal"/>
+    <element xsi:type="archimate:BusinessProcess" name="Refinery Management" id="pr-refmgmt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Inventory Management" id="pr-refinv"/>
+    <element xsi:type="archimate:BusinessProcess" name="Production Balance Management" id="pr-refbal"/>
+    <element xsi:type="archimate:BusinessProcess" name="Online Refinery Optimisation" id="pr-online"/>
+    <element xsi:type="archimate:BusinessProcess" name="Product Passportisation and Quality Forecast" id="pr-passport"/>
+    <element xsi:type="archimate:BusinessProcess" name="Shipment Calendar Planning" id="plg-shipcal"/>
+    <element xsi:type="archimate:BusinessProcess" name="Shipment Management" id="plg-shipmgt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Logistics Management" id="plg-logmgt"/>
+    <element xsi:type="archimate:BusinessProcess" name="Carrier Relationship Management" id="plg-carrier"/>
+    <element xsi:type="archimate:BusinessProcess" name="Warehouse Management" id="plg-wh"/>
+    <element xsi:type="archimate:BusinessProcess" name="Counterparty Relationship Management" id="psl-counter"/>
+    <element xsi:type="archimate:BusinessProcess" name="Marketing and Pricing" id="psl-pricing"/>
+    <element xsi:type="archimate:BusinessProcess" name="Demand Forecasting and Sales Planning" id="psl-demand"/>
+    <element xsi:type="archimate:BusinessProcess" name="Non-fuel Assets Management" id="psl-nonfuel"/>
+    <element xsi:type="archimate:BusinessProcess" name="Petroleum Terminal and AZS Network" id="psl-petterm"/>
+    <element xsi:type="archimate:BusinessProcess" name="Realisation" id="psl-realise"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Distribution Network Management" id="pgd-net"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Distribution Capacity Assessment" id="pgd-cap"/>
+    <element xsi:type="archimate:BusinessProcess" name="External Communication and Gas Realisation" id="pgd-ext"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gas Distribution Modelling" id="pgd-model"/>
+    <element xsi:type="archimate:BusinessProcess" name="Retrofit and Reconstruction of Hydrogen Plants" id="pgd-hydro"/>
+    <element xsi:type="archimate:BusinessProcess" name="Reliability, Maintenance and Repair" id="pc-rmr"/>
+    <element xsi:type="archimate:BusinessProcess" name="Commercial Accounting" id="pc-comacct"/>
+    <element xsi:type="archimate:BusinessProcess" name="Customs Management" id="pc-customs"/>
+    <element xsi:type="archimate:BusinessProcess" name="Industrial and Environmental Safety" id="pc-ies"/>
+    <element xsi:type="archimate:BusinessProcess" name="Energy Management" id="pc-energy"/>
+    <element xsi:type="archimate:BusinessProcess" name="Industrial Automation and Metrology" id="pc-automet"/>
+    <element xsi:type="archimate:BusinessProcess" name="Dispatching" id="pc-dispatch"/>
+    <element xsi:type="archimate:BusinessProcess" name="Technological Process Modelling" id="pc-techmod"/>
+    <element xsi:type="archimate:BusinessProcess" name="Functional and Integrated Planning" id="pc-funcplan"/>
+    <element xsi:type="archimate:BusinessProcess" name="Hydraulic Modelling" id="pc-hydraul"/>
+    <element xsi:type="archimate:BusinessProcess" name="Economic Modelling" id="pc-econmod"/>
+    <element xsi:type="archimate:BusinessProcess" name="Surveying and Geodetic Support" id="pc-survey"/>
+    <element xsi:type="archimate:BusinessProcess" name="Capital Construction" id="pc-capcon"/>
+    <element xsi:type="archimate:BusinessService" name="Seismic Data Interpretation Service" id="bs-seismic"/>
+    <element xsi:type="archimate:BusinessService" name="Reservoir Modelling Service" id="bs-resmod"/>
+    <element xsi:type="archimate:BusinessService" name="Well Design Service" id="bs-welldes"/>
+    <element xsi:type="archimate:BusinessService" name="Production Optimisation Service" id="bs-prodopt"/>
+    <element xsi:type="archimate:BusinessService" name="Pipeline Dispatch Service" id="bs-pipedisp"/>
+    <element xsi:type="archimate:BusinessService" name="Storage Operations Service" id="bs-storage"/>
+    <element xsi:type="archimate:BusinessService" name="Refinery Planning Service" id="bs-refinery"/>
+    <element xsi:type="archimate:BusinessService" name="Logistics Planning Service" id="bs-logistic"/>
+    <element xsi:type="archimate:BusinessService" name="Commercial Sales Service" id="bs-sales"/>
+    <element xsi:type="archimate:BusinessService" name="Asset Integrity Service" id="bs-integr"/>
+    <element xsi:type="archimate:BusinessService" name="AI and Data Science Service" id="bs-ai"/>
+    <element xsi:type="archimate:BusinessObject" name="Seismic Data" id="bo-seisdat"/>
+    <element xsi:type="archimate:BusinessObject" name="Geological Model" id="bo-geomod"/>
+    <element xsi:type="archimate:BusinessObject" name="Reservoir Model" id="bo-resmod"/>
+    <element xsi:type="archimate:BusinessObject" name="Well Plan" id="bo-wellplan"/>
+    <element xsi:type="archimate:BusinessObject" name="Production Data" id="bo-proddat"/>
+    <element xsi:type="archimate:BusinessObject" name="Pipeline Flow Data" id="bo-pipedat"/>
+    <element xsi:type="archimate:BusinessObject" name="Gas Storage Parameters" id="bo-gaspar"/>
+    <element xsi:type="archimate:BusinessObject" name="Refinery Product Passport" id="bo-passport"/>
+    <element xsi:type="archimate:BusinessObject" name="Logistics Schedule" id="bo-logsched"/>
+    <element xsi:type="archimate:BusinessObject" name="Sales Contract" id="bo-contract"/>
+    <element xsi:type="archimate:BusinessObject" name="AI Model Artefact" id="bo-aimodel"/>
+    <element xsi:type="archimate:BusinessObject" name="KPI Dashboard" id="bo-kpi"/>
+  </folder>
+  <folder name="Application" id="folder-application" type="application">
+    <element xsi:type="archimate:ApplicationComponent" name="SCADA / DCS" id="app-scada"/>
+    <element xsi:type="archimate:ApplicationComponent" name="ERP System" id="app-erp"/>
+    <element xsi:type="archimate:ApplicationComponent" name="GIS Platform" id="app-gis"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Digital Twin Platform" id="app-twin"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Industrial IoT Platform" id="app-iiot"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Data Lake and Data Warehouse" id="app-lake"/>
+    <element xsi:type="archimate:ApplicationComponent" name="MLOps Platform" id="app-mlops"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Reservoir Simulator" id="app-ressim"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Pipeline Hydraulic Simulator" id="app-pipesim"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Process Simulation Software" id="app-prosim"/>
+    <element xsi:type="archimate:ApplicationComponent" name="MES / MOM System" id="app-mes"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Document Management System" id="app-dms"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Data Mining Platform" id="ai-dm"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Regression Models" id="ai-regress"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Mathematical Statistics Methods" id="ai-mathstat"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Dimensionality Reduction" id="ai-dimred"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Clustering" id="ai-cluster"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Classification" id="ai-classif"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Anomaly Detection" id="ai-anomaly"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Association and Link Discovery" id="ai-assoc"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Model Ensembling" id="ai-ensembl"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Hybrid AI Platform" id="ai-hybrid"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Physics-Informed ML (PINN)" id="ai-pinn"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Augmented Language Models" id="ai-auglm"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Physics-Math Model Augmentation" id="ai-physmat"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Physics and Data Driven Model Fusion" id="ai-fusion"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Neuro-Symbolic AI" id="ai-neurosym"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Agentic AI Platform" id="ai-agent"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Reinforcement Learning" id="ai-rl"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Human-in-the-Loop Systems" id="ai-hitl"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Multi-Agent Systems (MAS)" id="ai-mas"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Optimisation Methods Platform" id="ai-optim"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Advanced Optimisation" id="ai-advopt"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Expert Systems Platform" id="ai-expert"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Knowledge-Based Systems" id="ai-kb"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Neural Expert Systems" id="ai-nexp"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Graph Analytics Platform" id="ai-graph"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Graph Models" id="ai-graphmod"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Generative AI Platform" id="ai-genai"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Audio Generation (incl. Speech)" id="ai-audiogen"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Image and Video Generation" id="ai-imggen"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Text and Code Generation" id="ai-textgen"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Object Generation" id="ai-objgen"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Computer Vision Platform" id="ai-cv"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Object Recognition and Segmentation" id="ai-objrec"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sequential Frame Processing" id="ai-frames"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Image Modification" id="ai-imgmod"/>
+    <element xsi:type="archimate:ApplicationComponent" name="OCR" id="ai-ocr"/>
+    <element xsi:type="archimate:ApplicationComponent" name="NLP Platform" id="ai-nlp"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Semantic Analysis" id="ai-semant"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Information Extraction" id="ai-infoext"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Text Classification" id="ai-txtcls"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Search Systems" id="ai-search"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Special AI Methods Platform" id="ai-special"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Meta-Learning Algorithms" id="ai-metalearn"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Active Learning" id="ai-actlearn"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Audio Signal Analysis Platform" id="ai-audio"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Audio Signal Analysis" id="ai-audiosig"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Speech Recognition" id="ai-speech"/>
+    <element xsi:type="archimate:ApplicationService" name="Seismic Interpretation Service" id="as-seismic"/>
+    <element xsi:type="archimate:ApplicationService" name="Geological Modelling Service" id="as-geomod"/>
+    <element xsi:type="archimate:ApplicationService" name="Drilling Optimisation Service" id="as-drill"/>
+    <element xsi:type="archimate:ApplicationService" name="Production Monitoring Service" id="as-prodmon"/>
+    <element xsi:type="archimate:ApplicationService" name="Pipeline Dispatch Service" id="as-pipedisp"/>
+    <element xsi:type="archimate:ApplicationService" name="Refinery Planning Service" id="as-refinery"/>
+    <element xsi:type="archimate:ApplicationService" name="Logistics Optimisation Service" id="as-logist"/>
+    <element xsi:type="archimate:ApplicationService" name="Sales Analytics Service" id="as-sales"/>
+    <element xsi:type="archimate:ApplicationService" name="Asset Integrity Analytics Service" id="as-integr"/>
+    <element xsi:type="archimate:ApplicationService" name="AI Model Training and Inference Service" id="as-ai"/>
+    <element xsi:type="archimate:ApplicationService" name="Energy Optimisation Service" id="as-energy"/>
+    <element xsi:type="archimate:DataObject" name="Seismic Raw Data" id="do-seisraw"/>
+    <element xsi:type="archimate:DataObject" name="Interpreted Geological Data" id="do-geodata"/>
+    <element xsi:type="archimate:DataObject" name="Well Log Data" id="do-welllog"/>
+    <element xsi:type="archimate:DataObject" name="Real-time SCADA Data" id="do-scada"/>
+    <element xsi:type="archimate:DataObject" name="Pipeline Telemetry Data" id="do-pipetlm"/>
+    <element xsi:type="archimate:DataObject" name="Production Time-Series" id="do-prodts"/>
+    <element xsi:type="archimate:DataObject" name="Refinery Lab Data" id="do-labdata"/>
+    <element xsi:type="archimate:DataObject" name="Logistics and Inventory Data" id="do-logdata"/>
+    <element xsi:type="archimate:DataObject" name="Market and Contract Data" id="do-market"/>
+    <element xsi:type="archimate:DataObject" name="AI Training Dataset" id="do-aitrain"/>
+    <element xsi:type="archimate:DataObject" name="Regulatory Reporting Data" id="do-regdata"/>
+  </folder>
+  <folder name="Technology" id="folder-technology" type="technology">
+    <element xsi:type="archimate:Node" name="HPC Cluster" id="nd-hpc"/>
+    <element xsi:type="archimate:Node" name="Private Cloud" id="nd-cloud"/>
+    <element xsi:type="archimate:Node" name="GPU Servers" id="nd-gpu"/>
+    <element xsi:type="archimate:Node" name="OT Network Nodes" id="nd-ot"/>
+    <element xsi:type="archimate:Node" name="Edge Devices / PLCs" id="nd-edge"/>
+    <element xsi:type="archimate:Node" name="Enterprise Storage" id="nd-storage"/>
+    <element xsi:type="archimate:TechnologyService" name="High-Performance Computing" id="ts-hpc"/>
+    <element xsi:type="archimate:TechnologyService" name="Private Cloud Infrastructure" id="ts-cloud"/>
+    <element xsi:type="archimate:TechnologyService" name="Industrial Network (OT)" id="ts-otnet"/>
+    <element xsi:type="archimate:TechnologyService" name="Corporate Network (IT)" id="ts-itnet"/>
+    <element xsi:type="archimate:TechnologyService" name="GPU Cluster for AI" id="ts-gpu"/>
+    <element xsi:type="archimate:TechnologyService" name="IoT and Edge Computing" id="ts-edge"/>
+    <element xsi:type="archimate:TechnologyService" name="Cybersecurity Services" id="ts-cyber"/>
+  </folder>
+  <folder name="Implementation &amp; Migration" id="id-10f7da61baa04df9b72d22d67d08e36a" type="implementation_migration"/>
+  <folder name="Other" id="id-46c01e92c58a4788a38a22a70d1ca8ee" type="other"/>
+  <folder name="Relations" id="folder-relations" type="relations">
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc1" source="p-search" target="p-expl"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc2" source="p-expl" target="p-drill"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc3" source="p-drill" target="p-prod"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc4" source="p-prod" target="p-trans"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc5" source="p-trans" target="p-lrs"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="r-vc6" source="p-lrs" target="p-gasdist"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s1" source="p-search" target="ps-seismic"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s2" source="p-search" target="ps-geomod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s3" source="p-search" target="ps-fluid"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s4" source="p-search" target="ps-core"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s5" source="p-search" target="ps-maggrav"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s6" source="p-search" target="ps-elec"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s7" source="p-search" target="ps-basin"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s8" source="p-search" target="ps-resass"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s9" source="p-search" target="ps-geophys"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s10" source="p-search" target="ps-hydro"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s11" source="p-search" target="ps-seisdat"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-s12" source="p-search" target="ps-interp"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e1" source="p-expl" target="pe-fielddev"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e2" source="p-expl" target="pe-hydrof"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e3" source="p-expl" target="pe-forecast"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e4" source="p-expl" target="pe-optdev"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e5" source="p-expl" target="pe-concept"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e6" source="p-expl" target="pe-intmod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e7" source="p-expl" target="pe-cost"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e8" source="p-expl" target="pe-hydrogeo"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-e9" source="p-expl" target="pe-gtm"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-d1" source="p-drill" target="pd-geomech"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-d2" source="p-drill" target="pd-welltech"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-d3" source="p-drill" target="pd-rtdrill"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-d4" source="p-drill" target="pd-analyt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-d5" source="p-drill" target="pd-forecast"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-p1" source="p-prod" target="pp-dataprep"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-p2" source="p-prod" target="pp-rtalyt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-p3" source="p-prod" target="pp-equipopt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-p4" source="p-prod" target="pp-forecast"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-p5" source="p-prod" target="pp-prodopt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t1" source="p-trans" target="pt-oilacct"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t2" source="p-trans" target="pt-oilflow"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t3" source="p-trans" target="pt-oilctrl"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t4" source="p-trans" target="pt-oilexec"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t5" source="p-trans" target="pt-prodexec"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t6" source="p-trans" target="pt-pipeplan"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t7" source="p-trans" target="pt-gaspre"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t8" source="p-trans" target="pt-gasdec"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t9" source="p-trans" target="pt-gasalyt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t10" source="p-trans" target="pt-gasflow"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t11" source="p-trans" target="pt-gtsmode"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t12" source="p-trans" target="pt-gascap"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-t13" source="p-trans" target="pt-gtscond"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-u1" source="p-ugs" target="pu-proc"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-u2" source="p-ugs" target="pu-balance"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-u3" source="p-ugs" target="pu-inv"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l1" source="p-lrs" target="pl-seatrans"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l2" source="p-lrs" target="pl-procure"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l3" source="p-lrs" target="pl-supplan"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l4" source="p-lrs" target="pr-refcal"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l5" source="p-lrs" target="pr-refmgmt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l6" source="p-lrs" target="pr-refinv"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l7" source="p-lrs" target="pr-refbal"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l8" source="p-lrs" target="pr-online"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l9" source="p-lrs" target="pr-passport"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l10" source="p-lrs" target="plg-shipcal"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l11" source="p-lrs" target="plg-shipmgt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l12" source="p-lrs" target="plg-logmgt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l13" source="p-lrs" target="plg-carrier"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l14" source="p-lrs" target="plg-wh"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l15" source="p-lrs" target="psl-counter"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l16" source="p-lrs" target="psl-pricing"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l17" source="p-lrs" target="psl-demand"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l18" source="p-lrs" target="psl-nonfuel"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l19" source="p-lrs" target="psl-petterm"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-l20" source="p-lrs" target="psl-realise"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-g1" source="p-gasdist" target="pgd-net"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-g2" source="p-gasdist" target="pgd-cap"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-g3" source="p-gasdist" target="pgd-ext"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-g4" source="p-gasdist" target="pgd-model"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-g5" source="p-gasdist" target="pgd-hydro"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c1" source="p-cross" target="pc-rmr"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c2" source="p-cross" target="pc-comacct"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c3" source="p-cross" target="pc-customs"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c4" source="p-cross" target="pc-ies"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c5" source="p-cross" target="pc-energy"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c6" source="p-cross" target="pc-automet"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c7" source="p-cross" target="pc-dispatch"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c8" source="p-cross" target="pc-techmod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c9" source="p-cross" target="pc-funcplan"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c10" source="p-cross" target="pc-hydraul"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c11" source="p-cross" target="pc-econmod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c12" source="p-cross" target="pc-survey"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rc-c13" source="p-cross" target="pc-capcon"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm1" source="ai-dm" target="ai-regress"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm2" source="ai-dm" target="ai-mathstat"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm3" source="ai-dm" target="ai-dimred"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm4" source="ai-dm" target="ai-cluster"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm5" source="ai-dm" target="ai-classif"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm6" source="ai-dm" target="ai-anomaly"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm7" source="ai-dm" target="ai-assoc"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-dm8" source="ai-dm" target="ai-ensembl"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-hy1" source="ai-hybrid" target="ai-pinn"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-hy2" source="ai-hybrid" target="ai-auglm"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-hy3" source="ai-hybrid" target="ai-physmat"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-hy4" source="ai-hybrid" target="ai-fusion"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-hy5" source="ai-hybrid" target="ai-neurosym"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-ag1" source="ai-agent" target="ai-rl"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-ag2" source="ai-agent" target="ai-hitl"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-ag3" source="ai-agent" target="ai-mas"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-op1" source="ai-optim" target="ai-advopt"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-ex1" source="ai-expert" target="ai-kb"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-ex2" source="ai-expert" target="ai-nexp"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-gr1" source="ai-graph" target="ai-graphmod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-gn1" source="ai-genai" target="ai-audiogen"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-gn2" source="ai-genai" target="ai-imggen"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-gn3" source="ai-genai" target="ai-textgen"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-gn4" source="ai-genai" target="ai-objgen"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-cv1" source="ai-cv" target="ai-objrec"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-cv2" source="ai-cv" target="ai-frames"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-cv3" source="ai-cv" target="ai-imgmod"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-cv4" source="ai-cv" target="ai-ocr"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-nl1" source="ai-nlp" target="ai-semant"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-nl2" source="ai-nlp" target="ai-infoext"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-nl3" source="ai-nlp" target="ai-txtcls"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-nl4" source="ai-nlp" target="ai-search"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-sp1" source="ai-special" target="ai-metalearn"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-sp2" source="ai-special" target="ai-actlearn"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-au1" source="ai-audio" target="ai-audiosig"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rca-au2" source="ai-audio" target="ai-speech"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-1" source="app-scada" target="p-prod"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-2" source="app-ressim" target="p-expl"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-3" source="app-pipesim" target="p-trans"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-4" source="app-erp" target="p-lrs"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-5" source="app-prosim" target="pr-refcal"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-6" source="app-gis" target="p-search"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-7" source="app-twin" target="p-prod"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-8" source="app-mlops" target="p-cross"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-9" source="ai-dm" target="p-search"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-10" source="ai-cv" target="p-prod"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-11" source="ai-anomaly" target="pc-rmr"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-12" source="ai-pinn" target="p-expl"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-13" source="ai-advopt" target="pr-online"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-14" source="ai-genai" target="p-cross"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-15" source="ai-agent" target="pc-dispatch"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-16" source="ai-nlp" target="app-dms"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-17" source="ai-graph" target="pl-procure"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-18" source="ai-hybrid" target="p-drill"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-19" source="ai-expert" target="pt-gasdec"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-20" source="ai-optim" target="pp-prodopt"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-21" source="app-iiot" target="p-prod"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-22" source="app-mes" target="pr-refmgmt"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-23" source="app-lake" target="ai-dm"/>
+    <element xsi:type="archimate:ServingRelationship" id="rs-24" source="app-lake" target="app-mlops"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-1" source="ts-hpc" target="app-ressim"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-2" source="ts-hpc" target="app-prosim"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-3" source="ts-cloud" target="app-erp"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-4" source="ts-cloud" target="app-lake"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-5" source="ts-gpu" target="app-mlops"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-6" source="ts-gpu" target="ai-genai"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-7" source="ts-otnet" target="app-scada"/>
+    <element xsi:type="archimate:ServingRelationship" id="rt-8" source="ts-edge" target="app-iiot"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-1" source="nd-hpc" target="ts-hpc"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-2" source="nd-cloud" target="ts-cloud"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-3" source="nd-gpu" target="ts-gpu"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-4" source="nd-ot" target="ts-otnet"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-5" source="nd-edge" target="ts-edge"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rn-6" source="nd-storage" target="app-lake"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-1" source="ps-seismic" target="bs-seismic"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-2" source="ps-geomod" target="bs-resmod"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-3" source="pd-geomech" target="bs-welldes"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-4" source="pp-prodopt" target="bs-prodopt"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-5" source="pt-oilflow" target="bs-pipedisp"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-6" source="p-ugs" target="bs-storage"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-7" source="pr-refcal" target="bs-refinery"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-8" source="plg-logmgt" target="bs-logistic"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-9" source="psl-realise" target="bs-sales"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-10" source="pc-rmr" target="bs-integr"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rr-11" source="p-cross" target="bs-ai"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap1" source="p-search" target="cap-search"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap2" source="p-expl" target="cap-expl"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap3" source="p-drill" target="cap-drill"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap4" source="p-prod" target="cap-prod"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap5" source="p-trans" target="cap-trans"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap6" source="p-ugs" target="cap-ugs"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap7" source="p-lrs" target="cap-lrs"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap8" source="p-gasdist" target="cap-gasdist"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap9" source="p-cross" target="cap-cross"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rcap10" source="pc-energy" target="cap-energy"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="ri-1" source="drv1" target="goal1"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="ri-2" source="drv2" target="goal2"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="ri-3" source="drv3" target="goal3"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="ri-4" source="drv4" target="goal4"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-1" source="act-geo" target="p-search"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-2" source="act-drill" target="p-drill"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-3" source="act-prod" target="p-prod"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-4" source="act-pipe" target="p-trans"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-5" source="act-refine" target="p-lrs"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-6" source="act-scm" target="pl-procure"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-7" source="act-sales" target="psl-realise"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-8" source="act-hse" target="pc-ies"/>
+    <element xsi:type="archimate:AssociationRelationship" id="ra-9" source="act-it" target="p-cross"/>
+  </folder>
+  <folder name="Views" id="folder-views" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="01 – Motivation and Goals" id="view-motivation">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-goal1" targetConnections="conn-view-motivation-ri-1" archimateElement="goal1">
+        <bounds x="20" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-goal2" targetConnections="conn-view-motivation-ri-2" archimateElement="goal2">
+        <bounds x="260" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-goal3" targetConnections="conn-view-motivation-ri-3" archimateElement="goal3">
+        <bounds x="500" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-goal4" targetConnections="conn-view-motivation-ri-4" archimateElement="goal4">
+        <bounds x="740" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-drv1" archimateElement="drv1">
+        <bounds x="20" y="95" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-motivation-ri-1" source="dv-view-motivation-drv1" target="dv-view-motivation-goal1" archimateRelationship="ri-1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-drv2" archimateElement="drv2">
+        <bounds x="260" y="95" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-motivation-ri-2" source="dv-view-motivation-drv2" target="dv-view-motivation-goal2" archimateRelationship="ri-2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-drv3" archimateElement="drv3">
+        <bounds x="500" y="95" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-motivation-ri-3" source="dv-view-motivation-drv3" target="dv-view-motivation-goal3" archimateRelationship="ri-3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-drv4" archimateElement="drv4">
+        <bounds x="740" y="95" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-motivation-ri-4" source="dv-view-motivation-drv4" target="dv-view-motivation-goal4" archimateRelationship="ri-4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-prn1" archimateElement="prn1">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-prn2" archimateElement="prn2">
+        <bounds x="260" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-motivation-prn3" archimateElement="prn3">
+        <bounds x="500" y="170" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="02 – Business Capability Map" id="view-capabilities">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-search" targetConnections="conn-v02-rcap1" archimateElement="cap-search">
+        <bounds x="20" y="20" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-expl" targetConnections="conn-v02-rcap2" archimateElement="cap-expl">
+        <bounds x="240" y="20" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-drill" targetConnections="conn-v02-rcap3" archimateElement="cap-drill">
+        <bounds x="468" y="96" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-prod" targetConnections="conn-v02-rcap4" archimateElement="cap-prod">
+        <bounds x="680" y="20" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-trans" targetConnections="conn-v02-rcap5" archimateElement="cap-trans">
+        <bounds x="900" y="20" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-ugs" targetConnections="conn-v02-rcap6" archimateElement="cap-ugs">
+        <bounds x="132" y="100" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-lrs" targetConnections="conn-v02-rcap7" archimateElement="cap-lrs">
+        <bounds x="1164" y="12" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-gasdist" targetConnections="conn-v02-rcap8" archimateElement="cap-gasdist">
+        <bounds x="1320" y="96" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-energy" archimateElement="cap-energy">
+        <bounds x="680" y="100" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-capabilities-cap-cross" targetConnections="conn-v02-rcap9" archimateElement="cap-cross">
+        <bounds x="1044" y="96" width="200" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-search" archimateElement="p-search">
+        <bounds y="264" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc1" source="dv-view02-p-search" target="dv-view02-p-expl" archimateRelationship="r-vc1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap1" source="dv-view02-p-search" target="dv-view-capabilities-cap-search" archimateRelationship="rcap1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-expl" targetConnections="conn-v02-r-vc1" archimateElement="p-expl">
+        <bounds x="252" y="282" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc2" source="dv-view02-p-expl" target="dv-view02-p-drill" archimateRelationship="r-vc2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap2" source="dv-view02-p-expl" target="dv-view-capabilities-cap-expl" archimateRelationship="rcap2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-drill" targetConnections="conn-v02-r-vc2" archimateElement="p-drill">
+        <bounds x="504" y="336" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc3" source="dv-view02-p-drill" target="dv-view02-p-prod" archimateRelationship="r-vc3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap3" source="dv-view02-p-drill" target="dv-view-capabilities-cap-drill" archimateRelationship="rcap3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-prod" targetConnections="conn-v02-r-vc3" archimateElement="p-prod">
+        <bounds x="732" y="420" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc4" source="dv-view02-p-prod" target="dv-view02-p-trans" archimateRelationship="r-vc4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap4" source="dv-view02-p-prod" target="dv-view-capabilities-cap-prod" archimateRelationship="rcap4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-trans" targetConnections="conn-v02-r-vc4" archimateElement="p-trans">
+        <bounds x="948" y="504" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc5" source="dv-view02-p-trans" target="dv-view02-p-lrs" archimateRelationship="r-vc5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap5" source="dv-view02-p-trans" target="dv-view-capabilities-cap-trans" archimateRelationship="rcap5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-ugs" archimateElement="p-ugs">
+        <bounds x="120" y="186" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap6" source="dv-view02-p-ugs" target="dv-view-capabilities-cap-ugs" archimateRelationship="rcap6"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-lrs" targetConnections="conn-v02-r-vc5" archimateElement="p-lrs">
+        <bounds x="1152" y="576" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-r-vc6" source="dv-view02-p-lrs" target="dv-view02-p-gasdist" archimateRelationship="r-vc6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap7" source="dv-view02-p-lrs" target="dv-view-capabilities-cap-lrs" archimateRelationship="rcap7"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-gasdist" targetConnections="conn-v02-r-vc6" archimateElement="p-gasdist">
+        <bounds x="1332" y="660" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap8" source="dv-view02-p-gasdist" target="dv-view-capabilities-cap-gasdist" archimateRelationship="rcap8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view02-p-cross" archimateElement="p-cross">
+        <bounds x="1056" y="252" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-v02-rcap9" source="dv-view02-p-cross" target="dv-view-capabilities-cap-cross" archimateRelationship="rcap9"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="03 - O&amp;G Value Chain" id="view-valuechain">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-search" archimateElement="p-search">
+        <bounds x="20" y="20" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc1" source="dv-view-valuechain-p-search" target="dv-view-valuechain-p-expl" archimateRelationship="r-vc1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-expl" targetConnections="conn-view-valuechain-r-vc1" archimateElement="p-expl">
+        <bounds x="260" y="20" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc2" source="dv-view-valuechain-p-expl" target="dv-view-valuechain-p-drill" archimateRelationship="r-vc2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-drill" targetConnections="conn-view-valuechain-r-vc2" archimateElement="p-drill">
+        <bounds x="500" y="20" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc3" source="dv-view-valuechain-p-drill" target="dv-view-valuechain-p-prod" archimateRelationship="r-vc3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-prod" targetConnections="conn-view-valuechain-r-vc3" archimateElement="p-prod">
+        <bounds x="740" y="20" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc4" source="dv-view-valuechain-p-prod" target="dv-view-valuechain-p-trans" archimateRelationship="r-vc4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-trans" targetConnections="conn-view-valuechain-r-vc4" archimateElement="p-trans">
+        <bounds x="260" y="216" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc5" source="dv-view-valuechain-p-trans" target="dv-view-valuechain-p-lrs" archimateRelationship="r-vc5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-ugs" archimateElement="p-ugs">
+        <bounds x="260" y="100" width="220" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-lrs" targetConnections="conn-view-valuechain-r-vc5" archimateElement="p-lrs">
+        <bounds x="500" y="100" width="220" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-valuechain-r-vc6" source="dv-view-valuechain-p-lrs" target="dv-view-valuechain-p-gasdist" archimateRelationship="r-vc6"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-gasdist" targetConnections="conn-view-valuechain-r-vc6" archimateElement="p-gasdist">
+        <bounds x="740" y="100" width="220" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-valuechain-p-cross" archimateElement="p-cross">
+        <bounds x="20" y="180" width="220" height="60"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="04 – Search and Prospecting Detail" id="view-search">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-p-search" archimateElement="p-search">
+        <bounds x="408" y="276" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s1" source="dv-view-search-p-search" target="dv-view-search-ps-seismic" archimateRelationship="rc-s1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s2" source="dv-view-search-p-search" target="dv-view-search-ps-geomod" archimateRelationship="rc-s2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s3" source="dv-view-search-p-search" target="dv-view-search-ps-fluid" archimateRelationship="rc-s3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s4" source="dv-view-search-p-search" target="dv-view-search-ps-core" archimateRelationship="rc-s4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s5" source="dv-view-search-p-search" target="dv-view-search-ps-maggrav" archimateRelationship="rc-s5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s6" source="dv-view-search-p-search" target="dv-view-search-ps-elec" archimateRelationship="rc-s6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s7" source="dv-view-search-p-search" target="dv-view-search-ps-basin" archimateRelationship="rc-s7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s8" source="dv-view-search-p-search" target="dv-view-search-ps-resass" archimateRelationship="rc-s8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s9" source="dv-view-search-p-search" target="dv-view-search-ps-geophys" archimateRelationship="rc-s9"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s10" source="dv-view-search-p-search" target="dv-view-search-ps-hydro" archimateRelationship="rc-s10"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s11" source="dv-view-search-p-search" target="dv-view-search-ps-seisdat" archimateRelationship="rc-s11"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-search-rc-s12" source="dv-view-search-p-search" target="dv-view-search-ps-interp" archimateRelationship="rc-s12"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-seismic" targetConnections="conn-view-search-rc-s1" archimateElement="ps-seismic">
+        <bounds x="260" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-geomod" targetConnections="conn-view-search-rc-s2" archimateElement="ps-geomod">
+        <bounds x="500" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-fluid" targetConnections="conn-view-search-rc-s3" archimateElement="ps-fluid">
+        <bounds x="740" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-core" targetConnections="conn-view-search-rc-s4" archimateElement="ps-core">
+        <bounds x="20" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-maggrav" targetConnections="conn-view-search-rc-s5" archimateElement="ps-maggrav">
+        <bounds x="260" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-elec" targetConnections="conn-view-search-rc-s6" archimateElement="ps-elec">
+        <bounds x="500" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-basin" targetConnections="conn-view-search-rc-s7" archimateElement="ps-basin">
+        <bounds x="740" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-resass" targetConnections="conn-view-search-rc-s8" archimateElement="ps-resass">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-geophys" targetConnections="conn-view-search-rc-s9" archimateElement="ps-geophys">
+        <bounds x="260" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-hydro" targetConnections="conn-view-search-rc-s10" archimateElement="ps-hydro">
+        <bounds x="500" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-seisdat" targetConnections="conn-view-search-rc-s11" archimateElement="ps-seisdat">
+        <bounds x="740" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-search-ps-interp" targetConnections="conn-view-search-rc-s12" archimateElement="ps-interp">
+        <bounds x="20" y="245" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="05 – Drilling and Production Detail" id="view-proddrill">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-p-drill" archimateElement="p-drill">
+        <bounds x="740" y="324" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-r-vc3" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-p-prod" archimateRelationship="r-vc3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-d1" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-pd-geomech" archimateRelationship="rc-d1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-d2" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-pd-welltech" archimateRelationship="rc-d2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-d3" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-pd-rtdrill" archimateRelationship="rc-d3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-d4" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-pd-analyt" archimateRelationship="rc-d4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-d5" source="dv-view-proddrill-p-drill" target="dv-view-proddrill-pd-forecast" archimateRelationship="rc-d5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-p-prod" targetConnections="conn-view-proddrill-r-vc3" archimateElement="p-prod">
+        <bounds x="132" y="324" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-p1" source="dv-view-proddrill-p-prod" target="dv-view-proddrill-pp-dataprep" archimateRelationship="rc-p1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-p2" source="dv-view-proddrill-p-prod" target="dv-view-proddrill-pp-rtalyt" archimateRelationship="rc-p2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-p3" source="dv-view-proddrill-p-prod" target="dv-view-proddrill-pp-equipopt" archimateRelationship="rc-p3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-p4" source="dv-view-proddrill-p-prod" target="dv-view-proddrill-pp-forecast" archimateRelationship="rc-p4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-proddrill-rc-p5" source="dv-view-proddrill-p-prod" target="dv-view-proddrill-pp-prodopt" archimateRelationship="rc-p5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pd-geomech" targetConnections="conn-view-proddrill-rc-d1" archimateElement="pd-geomech">
+        <bounds x="500" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pd-welltech" targetConnections="conn-view-proddrill-rc-d2" archimateElement="pd-welltech">
+        <bounds x="740" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pd-rtdrill" targetConnections="conn-view-proddrill-rc-d3" archimateElement="pd-rtdrill">
+        <bounds x="1008" y="180" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pd-analyt" targetConnections="conn-view-proddrill-rc-d4" archimateElement="pd-analyt">
+        <bounds x="1044" y="276" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pd-forecast" targetConnections="conn-view-proddrill-rc-d5" archimateElement="pd-forecast">
+        <bounds x="444" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pp-dataprep" targetConnections="conn-view-proddrill-rc-p1" archimateElement="pp-dataprep">
+        <bounds x="740" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pp-rtalyt" targetConnections="conn-view-proddrill-rc-p2" archimateElement="pp-rtalyt">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pp-equipopt" targetConnections="conn-view-proddrill-rc-p3" archimateElement="pp-equipopt">
+        <bounds x="180" y="60" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pp-forecast" targetConnections="conn-view-proddrill-rc-p4" archimateElement="pp-forecast">
+        <bounds x="288" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-proddrill-pp-prodopt" targetConnections="conn-view-proddrill-rc-p5" archimateElement="pp-prodopt">
+        <bounds x="740" y="170" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="06 – Transportation and Storage Detail" id="view-transport">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-p-trans" archimateElement="p-trans">
+        <bounds x="528" y="372" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t1" source="dv-view-transport-p-trans" target="dv-view-transport-pt-oilacct" archimateRelationship="rc-t1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t2" source="dv-view-transport-p-trans" target="dv-view-transport-pt-oilflow" archimateRelationship="rc-t2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t3" source="dv-view-transport-p-trans" target="dv-view-transport-pt-oilctrl" archimateRelationship="rc-t3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t4" source="dv-view-transport-p-trans" target="dv-view-transport-pt-oilexec" archimateRelationship="rc-t4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t5" source="dv-view-transport-p-trans" target="dv-view-transport-pt-prodexec" archimateRelationship="rc-t5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t6" source="dv-view-transport-p-trans" target="dv-view-transport-pt-pipeplan" archimateRelationship="rc-t6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t7" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gaspre" archimateRelationship="rc-t7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t8" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gasdec" archimateRelationship="rc-t8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t9" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gasalyt" archimateRelationship="rc-t9"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t10" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gasflow" archimateRelationship="rc-t10"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t11" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gtsmode" archimateRelationship="rc-t11"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t12" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gascap" archimateRelationship="rc-t12"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-t13" source="dv-view-transport-p-trans" target="dv-view-transport-pt-gtscond" archimateRelationship="rc-t13"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-p-ugs" archimateElement="p-ugs">
+        <bounds x="260" y="20" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-u1" source="dv-view-transport-p-ugs" target="dv-view-transport-pu-proc" archimateRelationship="rc-u1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-u2" source="dv-view-transport-p-ugs" target="dv-view-transport-pu-balance" archimateRelationship="rc-u2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-transport-rc-u3" source="dv-view-transport-p-ugs" target="dv-view-transport-pu-inv" archimateRelationship="rc-u3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-oilacct" targetConnections="conn-view-transport-rc-t1" archimateElement="pt-oilacct">
+        <bounds x="516" y="504" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-oilflow" targetConnections="conn-view-transport-rc-t2" archimateElement="pt-oilflow">
+        <bounds x="816" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-oilctrl" targetConnections="conn-view-transport-rc-t3" archimateElement="pt-oilctrl">
+        <bounds x="816" y="372" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-oilexec" targetConnections="conn-view-transport-rc-t4" archimateElement="pt-oilexec">
+        <bounds x="108" y="588" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-prodexec" targetConnections="conn-view-transport-rc-t5" archimateElement="pt-prodexec">
+        <bounds x="432" y="224" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-pipeplan" targetConnections="conn-view-transport-rc-t6" archimateElement="pt-pipeplan">
+        <bounds x="828" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gaspre" targetConnections="conn-view-transport-rc-t7" archimateElement="pt-gaspre">
+        <bounds x="816" y="480" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gasdec" targetConnections="conn-view-transport-rc-t8" archimateElement="pt-gasdec">
+        <bounds x="192" y="264" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gasalyt" targetConnections="conn-view-transport-rc-t9" archimateElement="pt-gasalyt">
+        <bounds x="576" y="41" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gasflow" targetConnections="conn-view-transport-rc-t10" archimateElement="pt-gasflow">
+        <bounds x="840" y="180" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gtsmode" targetConnections="conn-view-transport-rc-t11" archimateElement="pt-gtsmode">
+        <bounds x="41" y="504" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gascap" targetConnections="conn-view-transport-rc-t12" archimateElement="pt-gascap">
+        <bounds x="108" y="372" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pt-gtscond" targetConnections="conn-view-transport-rc-t13" archimateElement="pt-gtscond">
+        <bounds x="540" y="126" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pu-proc" targetConnections="conn-view-transport-rc-u1" archimateElement="pu-proc">
+        <bounds x="264" y="156" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pu-balance" targetConnections="conn-view-transport-rc-u2" archimateElement="pu-balance">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-transport-pu-inv" targetConnections="conn-view-transport-rc-u3" archimateElement="pu-inv">
+        <bounds x="20" y="41" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="07 – Logistics, Refining and Sales Detail" id="view-lrs">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-p-lrs" archimateElement="p-lrs">
+        <bounds x="20" y="20" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-r-vc6" source="dv-view-lrs-p-lrs" target="dv-view-lrs-p-gasdist" archimateRelationship="r-vc6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l1" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pl-seatrans" archimateRelationship="rc-l1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l2" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pl-procure" archimateRelationship="rc-l2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l3" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pl-supplan" archimateRelationship="rc-l3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l4" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-refcal" archimateRelationship="rc-l4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l5" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-refmgmt" archimateRelationship="rc-l5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l6" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-refinv" archimateRelationship="rc-l6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l7" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-refbal" archimateRelationship="rc-l7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l8" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-online" archimateRelationship="rc-l8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l9" source="dv-view-lrs-p-lrs" target="dv-view-lrs-pr-passport" archimateRelationship="rc-l9"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l10" source="dv-view-lrs-p-lrs" target="dv-view-lrs-plg-shipcal" archimateRelationship="rc-l10"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l11" source="dv-view-lrs-p-lrs" target="dv-view-lrs-plg-shipmgt" archimateRelationship="rc-l11"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l12" source="dv-view-lrs-p-lrs" target="dv-view-lrs-plg-logmgt" archimateRelationship="rc-l12"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l13" source="dv-view-lrs-p-lrs" target="dv-view-lrs-plg-carrier" archimateRelationship="rc-l13"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l14" source="dv-view-lrs-p-lrs" target="dv-view-lrs-plg-wh" archimateRelationship="rc-l14"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l15" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-counter" archimateRelationship="rc-l15"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l16" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-pricing" archimateRelationship="rc-l16"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l17" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-demand" archimateRelationship="rc-l17"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l18" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-nonfuel" archimateRelationship="rc-l18"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l19" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-petterm" archimateRelationship="rc-l19"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-l20" source="dv-view-lrs-p-lrs" target="dv-view-lrs-psl-realise" archimateRelationship="rc-l20"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-p-gasdist" targetConnections="conn-view-lrs-r-vc6" archimateElement="p-gasdist">
+        <bounds x="260" y="20" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-g1" source="dv-view-lrs-p-gasdist" target="dv-view-lrs-pgd-net" archimateRelationship="rc-g1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-g2" source="dv-view-lrs-p-gasdist" target="dv-view-lrs-pgd-cap" archimateRelationship="rc-g2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-g3" source="dv-view-lrs-p-gasdist" target="dv-view-lrs-pgd-ext" archimateRelationship="rc-g3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-g4" source="dv-view-lrs-p-gasdist" target="dv-view-lrs-pgd-model" archimateRelationship="rc-g4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-lrs-rc-g5" source="dv-view-lrs-p-gasdist" target="dv-view-lrs-pgd-hydro" archimateRelationship="rc-g5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pl-seatrans" targetConnections="conn-view-lrs-rc-l1" archimateElement="pl-seatrans">
+        <bounds x="500" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pl-procure" targetConnections="conn-view-lrs-rc-l2" archimateElement="pl-procure">
+        <bounds x="740" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pl-supplan" targetConnections="conn-view-lrs-rc-l3" archimateElement="pl-supplan">
+        <bounds x="20" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-refcal" targetConnections="conn-view-lrs-rc-l4" archimateElement="pr-refcal">
+        <bounds x="260" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-refmgmt" targetConnections="conn-view-lrs-rc-l5" archimateElement="pr-refmgmt">
+        <bounds x="500" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-refinv" targetConnections="conn-view-lrs-rc-l6" archimateElement="pr-refinv">
+        <bounds x="740" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-refbal" targetConnections="conn-view-lrs-rc-l7" archimateElement="pr-refbal">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-online" targetConnections="conn-view-lrs-rc-l8" archimateElement="pr-online">
+        <bounds x="260" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pr-passport" targetConnections="conn-view-lrs-rc-l9" archimateElement="pr-passport">
+        <bounds x="500" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-plg-shipcal" targetConnections="conn-view-lrs-rc-l10" archimateElement="plg-shipcal">
+        <bounds x="740" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-plg-shipmgt" targetConnections="conn-view-lrs-rc-l11" archimateElement="plg-shipmgt">
+        <bounds x="20" y="245" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-plg-logmgt" targetConnections="conn-view-lrs-rc-l12" archimateElement="plg-logmgt">
+        <bounds x="260" y="245" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-plg-carrier" targetConnections="conn-view-lrs-rc-l13" archimateElement="plg-carrier">
+        <bounds x="500" y="245" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-plg-wh" targetConnections="conn-view-lrs-rc-l14" archimateElement="plg-wh">
+        <bounds x="740" y="245" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-counter" targetConnections="conn-view-lrs-rc-l15" archimateElement="psl-counter">
+        <bounds x="20" y="320" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-pricing" targetConnections="conn-view-lrs-rc-l16" archimateElement="psl-pricing">
+        <bounds x="260" y="320" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-demand" targetConnections="conn-view-lrs-rc-l17" archimateElement="psl-demand">
+        <bounds x="500" y="320" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-nonfuel" targetConnections="conn-view-lrs-rc-l18" archimateElement="psl-nonfuel">
+        <bounds x="740" y="320" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-petterm" targetConnections="conn-view-lrs-rc-l19" archimateElement="psl-petterm">
+        <bounds x="20" y="395" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-psl-realise" targetConnections="conn-view-lrs-rc-l20" archimateElement="psl-realise">
+        <bounds x="260" y="395" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pgd-net" targetConnections="conn-view-lrs-rc-g1" archimateElement="pgd-net">
+        <bounds x="500" y="395" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pgd-cap" targetConnections="conn-view-lrs-rc-g2" archimateElement="pgd-cap">
+        <bounds x="740" y="395" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pgd-ext" targetConnections="conn-view-lrs-rc-g3" archimateElement="pgd-ext">
+        <bounds x="20" y="470" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pgd-model" targetConnections="conn-view-lrs-rc-g4" archimateElement="pgd-model">
+        <bounds x="260" y="470" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-lrs-pgd-hydro" targetConnections="conn-view-lrs-rc-g5" archimateElement="pgd-hydro">
+        <bounds x="500" y="470" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="08 – Cross-Functional Processes" id="view-cross">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-p-cross" archimateElement="p-cross">
+        <bounds x="20" y="20" width="220" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c1" source="dv-view-cross-p-cross" target="dv-view-cross-pc-rmr" archimateRelationship="rc-c1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c2" source="dv-view-cross-p-cross" target="dv-view-cross-pc-comacct" archimateRelationship="rc-c2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c3" source="dv-view-cross-p-cross" target="dv-view-cross-pc-customs" archimateRelationship="rc-c3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c4" source="dv-view-cross-p-cross" target="dv-view-cross-pc-ies" archimateRelationship="rc-c4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c5" source="dv-view-cross-p-cross" target="dv-view-cross-pc-energy" archimateRelationship="rc-c5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c6" source="dv-view-cross-p-cross" target="dv-view-cross-pc-automet" archimateRelationship="rc-c6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c7" source="dv-view-cross-p-cross" target="dv-view-cross-pc-dispatch" archimateRelationship="rc-c7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c8" source="dv-view-cross-p-cross" target="dv-view-cross-pc-techmod" archimateRelationship="rc-c8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c9" source="dv-view-cross-p-cross" target="dv-view-cross-pc-funcplan" archimateRelationship="rc-c9"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c10" source="dv-view-cross-p-cross" target="dv-view-cross-pc-hydraul" archimateRelationship="rc-c10"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c11" source="dv-view-cross-p-cross" target="dv-view-cross-pc-econmod" archimateRelationship="rc-c11"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c12" source="dv-view-cross-p-cross" target="dv-view-cross-pc-survey" archimateRelationship="rc-c12"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-cross-rc-c13" source="dv-view-cross-p-cross" target="dv-view-cross-pc-capcon" archimateRelationship="rc-c13"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-rmr" targetConnections="conn-view-cross-rc-c1" archimateElement="pc-rmr">
+        <bounds x="260" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-comacct" targetConnections="conn-view-cross-rc-c2" archimateElement="pc-comacct">
+        <bounds x="500" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-customs" targetConnections="conn-view-cross-rc-c3" archimateElement="pc-customs">
+        <bounds x="740" y="20" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-ies" targetConnections="conn-view-cross-rc-c4" archimateElement="pc-ies">
+        <bounds x="20" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-energy" targetConnections="conn-view-cross-rc-c5" archimateElement="pc-energy">
+        <bounds x="260" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-automet" targetConnections="conn-view-cross-rc-c6" archimateElement="pc-automet">
+        <bounds x="500" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-dispatch" targetConnections="conn-view-cross-rc-c7" archimateElement="pc-dispatch">
+        <bounds x="740" y="95" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-techmod" targetConnections="conn-view-cross-rc-c8" archimateElement="pc-techmod">
+        <bounds x="20" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-funcplan" targetConnections="conn-view-cross-rc-c9" archimateElement="pc-funcplan">
+        <bounds x="260" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-hydraul" targetConnections="conn-view-cross-rc-c10" archimateElement="pc-hydraul">
+        <bounds x="500" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-econmod" targetConnections="conn-view-cross-rc-c11" archimateElement="pc-econmod">
+        <bounds x="740" y="170" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-survey" targetConnections="conn-view-cross-rc-c12" archimateElement="pc-survey">
+        <bounds x="20" y="245" width="220" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-cross-pc-capcon" targetConnections="conn-view-cross-rc-c13" archimateElement="pc-capcon">
+        <bounds x="260" y="245" width="220" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="09 – AI Technology Classes" id="view-aiclasses">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-dm" archimateElement="ai-dm">
+        <bounds x="20" y="20" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm1" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-regress" archimateRelationship="rca-dm1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm2" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-mathstat" archimateRelationship="rca-dm2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm3" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-dimred" archimateRelationship="rca-dm3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm4" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-cluster" archimateRelationship="rca-dm4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm5" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-classif" archimateRelationship="rca-dm5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm6" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-anomaly" archimateRelationship="rca-dm6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm7" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-assoc" archimateRelationship="rca-dm7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-dm8" source="dv-view-aiclasses-ai-dm" target="dv-view09-ai-ensembl" archimateRelationship="rca-dm8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-hybrid" archimateElement="ai-hybrid">
+        <bounds x="240" y="20" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-hy1" source="dv-view-aiclasses-ai-hybrid" target="dv-view09-ai-pinn" archimateRelationship="rca-hy1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-hy2" source="dv-view-aiclasses-ai-hybrid" target="dv-view09-ai-auglm" archimateRelationship="rca-hy2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-hy3" source="dv-view-aiclasses-ai-hybrid" target="dv-view09-ai-physmat" archimateRelationship="rca-hy3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-hy4" source="dv-view-aiclasses-ai-hybrid" target="dv-view09-ai-fusion" archimateRelationship="rca-hy4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-hy5" source="dv-view-aiclasses-ai-hybrid" target="dv-view09-ai-neurosym" archimateRelationship="rca-hy5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-agent" archimateElement="ai-agent">
+        <bounds x="460" y="20" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-ag1" source="dv-view-aiclasses-ai-agent" target="dv-view09-ai-rl" archimateRelationship="rca-ag1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-ag2" source="dv-view-aiclasses-ai-agent" target="dv-view09-ai-hitl" archimateRelationship="rca-ag2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-ag3" source="dv-view-aiclasses-ai-agent" target="dv-view09-ai-mas" archimateRelationship="rca-ag3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-optim" archimateElement="ai-optim">
+        <bounds x="680" y="20" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-op1" source="dv-view-aiclasses-ai-optim" target="dv-view09-ai-advopt" archimateRelationship="rca-op1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-expert" archimateElement="ai-expert">
+        <bounds x="840" y="528" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-ex1" source="dv-view-aiclasses-ai-expert" target="dv-view09-ai-kb" archimateRelationship="rca-ex1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-ex2" source="dv-view-aiclasses-ai-expert" target="dv-view09-ai-nexp" archimateRelationship="rca-ex2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-graph" archimateElement="ai-graph">
+        <bounds x="975" y="24" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-gr1" source="dv-view-aiclasses-ai-graph" target="dv-view09-ai-graphmod" archimateRelationship="rca-gr1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-genai" archimateElement="ai-genai">
+        <bounds x="720" y="300" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-gn1" source="dv-view-aiclasses-ai-genai" target="dv-view09-ai-audiogen" archimateRelationship="rca-gn1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-gn2" source="dv-view-aiclasses-ai-genai" target="dv-view09-ai-imggen" archimateRelationship="rca-gn2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-gn3" source="dv-view-aiclasses-ai-genai" target="dv-view09-ai-textgen" archimateRelationship="rca-gn3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-gn4" source="dv-view-aiclasses-ai-genai" target="dv-view09-ai-objgen" archimateRelationship="rca-gn4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-cv" archimateElement="ai-cv">
+        <bounds x="975" y="340" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-cv1" source="dv-view-aiclasses-ai-cv" target="dv-view09-ai-objrec" archimateRelationship="rca-cv1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-cv2" source="dv-view-aiclasses-ai-cv" target="dv-view09-ai-frames" archimateRelationship="rca-cv2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-cv3" source="dv-view-aiclasses-ai-cv" target="dv-view09-ai-imgmod" archimateRelationship="rca-cv3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-cv4" source="dv-view-aiclasses-ai-cv" target="dv-view09-ai-ocr" archimateRelationship="rca-cv4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-nlp" archimateElement="ai-nlp">
+        <bounds x="1381" y="369" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-nl1" source="dv-view-aiclasses-ai-nlp" target="dv-view09-ai-semant" archimateRelationship="rca-nl1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-nl2" source="dv-view-aiclasses-ai-nlp" target="dv-view09-ai-infoext" archimateRelationship="rca-nl2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-nl3" source="dv-view-aiclasses-ai-nlp" target="dv-view09-ai-txtcls" archimateRelationship="rca-nl3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-nl4" source="dv-view-aiclasses-ai-nlp" target="dv-view09-ai-search" archimateRelationship="rca-nl4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-special" archimateElement="ai-special">
+        <bounds x="1800" y="369" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-sp1" source="dv-view-aiclasses-ai-special" target="dv-view09-ai-metalearn" archimateRelationship="rca-sp1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-sp2" source="dv-view-aiclasses-ai-special" target="dv-view09-ai-actlearn" archimateRelationship="rca-sp2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-aiclasses-ai-audio" archimateElement="ai-audio">
+        <bounds x="2040" y="261" width="200" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-au1" source="dv-view-aiclasses-ai-audio" target="dv-view09-ai-audiosig" archimateRelationship="rca-au1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view09-rca-au2" source="dv-view-aiclasses-ai-audio" target="dv-view09-ai-speech" archimateRelationship="rca-au2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-regress" targetConnections="conn-view09-rca-dm1" archimateElement="ai-regress">
+        <bounds x="20" y="468" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-mathstat" targetConnections="conn-view09-rca-dm2" archimateElement="ai-mathstat">
+        <bounds y="516" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-dimred" targetConnections="conn-view09-rca-dm3" archimateElement="ai-dimred">
+        <bounds x="81" y="564" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-cluster" targetConnections="conn-view09-rca-dm4" archimateElement="ai-cluster">
+        <bounds y="418" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-classif" targetConnections="conn-view09-rca-dm5" archimateElement="ai-classif">
+        <bounds x="56" y="359" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-anomaly" targetConnections="conn-view09-rca-dm6" archimateElement="ai-anomaly">
+        <bounds x="12" y="261" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-assoc" targetConnections="conn-view09-rca-dm7" archimateElement="ai-assoc">
+        <bounds x="120" y="196" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-ensembl" targetConnections="conn-view09-rca-dm8" archimateElement="ai-ensembl">
+        <bounds x="192" y="129" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-pinn" targetConnections="conn-view09-rca-hy1" archimateElement="ai-pinn">
+        <bounds x="215" y="468" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-auglm" targetConnections="conn-view09-rca-hy2" archimateElement="ai-auglm">
+        <bounds x="396" y="468" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-physmat" targetConnections="conn-view09-rca-hy3" archimateElement="ai-physmat">
+        <bounds x="251" y="379" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-fusion" targetConnections="conn-view09-rca-hy4" archimateElement="ai-fusion">
+        <bounds x="285" y="235" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-neurosym" targetConnections="conn-view09-rca-hy5" archimateElement="ai-neurosym">
+        <bounds x="215" y="292" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-rl" targetConnections="conn-view09-rca-ag1" archimateElement="ai-rl">
+        <bounds x="444" y="187" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-hitl" targetConnections="conn-view09-rca-ag2" archimateElement="ai-hitl">
+        <bounds x="660" y="418" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-mas" targetConnections="conn-view09-rca-ag3" archimateElement="ai-mas">
+        <bounds x="588" y="168" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-advopt" targetConnections="conn-view09-rca-op1" archimateElement="ai-advopt">
+        <bounds x="636" y="109" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-kb" targetConnections="conn-view09-rca-ex1" archimateElement="ai-kb">
+        <bounds x="800" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-nexp" targetConnections="conn-view09-rca-ex2" archimateElement="ai-nexp">
+        <bounds x="800" y="148" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-graphmod" targetConnections="conn-view09-rca-gr1" archimateElement="ai-graphmod">
+        <bounds x="995" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-audiogen" targetConnections="conn-view09-rca-gn1" archimateElement="ai-audiogen">
+        <bounds x="1190" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-imggen" targetConnections="conn-view09-rca-gn2" archimateElement="ai-imggen">
+        <bounds x="1190" y="148" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-textgen" targetConnections="conn-view09-rca-gn3" archimateElement="ai-textgen">
+        <bounds x="1190" y="196" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-objgen" targetConnections="conn-view09-rca-gn4" archimateElement="ai-objgen">
+        <bounds x="1190" y="244" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-objrec" targetConnections="conn-view09-rca-cv1" archimateElement="ai-objrec">
+        <bounds x="1385" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-frames" targetConnections="conn-view09-rca-cv2" archimateElement="ai-frames">
+        <bounds x="1385" y="148" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-imgmod" targetConnections="conn-view09-rca-cv3" archimateElement="ai-imgmod">
+        <bounds x="1385" y="196" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-ocr" targetConnections="conn-view09-rca-cv4" archimateElement="ai-ocr">
+        <bounds x="1385" y="244" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-semant" targetConnections="conn-view09-rca-nl1" archimateElement="ai-semant">
+        <bounds x="1580" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-infoext" targetConnections="conn-view09-rca-nl2" archimateElement="ai-infoext">
+        <bounds x="1580" y="148" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-txtcls" targetConnections="conn-view09-rca-nl3" archimateElement="ai-txtcls">
+        <bounds x="1580" y="196" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-search" targetConnections="conn-view09-rca-nl4" archimateElement="ai-search">
+        <bounds x="1580" y="244" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-metalearn" targetConnections="conn-view09-rca-sp1" archimateElement="ai-metalearn">
+        <bounds x="1775" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-actlearn" targetConnections="conn-view09-rca-sp2" archimateElement="ai-actlearn">
+        <bounds x="1775" y="148" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-audiosig" targetConnections="conn-view09-rca-au1" archimateElement="ai-audiosig">
+        <bounds x="1970" y="100" width="160" height="40"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view09-ai-speech" targetConnections="conn-view09-rca-au2" archimateElement="ai-speech">
+        <bounds x="1970" y="148" width="160" height="40"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="10 – Data Mining Detail" id="view-dm">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-dm" archimateElement="ai-dm">
+        <bounds x="20" y="20" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm1" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-regress" archimateRelationship="rca-dm1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm2" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-mathstat" archimateRelationship="rca-dm2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm3" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-dimred" archimateRelationship="rca-dm3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm4" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-cluster" archimateRelationship="rca-dm4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm5" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-classif" archimateRelationship="rca-dm5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm6" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-anomaly" archimateRelationship="rca-dm6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm7" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-assoc" archimateRelationship="rca-dm7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-dm-rca-dm8" source="dv-view-dm-ai-dm" target="dv-view-dm-ai-ensembl" archimateRelationship="rca-dm8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-regress" targetConnections="conn-view-dm-rca-dm1" archimateElement="ai-regress">
+        <bounds x="240" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-mathstat" targetConnections="conn-view-dm-rca-dm2" archimateElement="ai-mathstat">
+        <bounds x="460" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-dimred" targetConnections="conn-view-dm-rca-dm3" archimateElement="ai-dimred">
+        <bounds x="680" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-cluster" targetConnections="conn-view-dm-rca-dm4" archimateElement="ai-cluster">
+        <bounds x="20" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-classif" targetConnections="conn-view-dm-rca-dm5" archimateElement="ai-classif">
+        <bounds x="240" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-anomaly" targetConnections="conn-view-dm-rca-dm6" archimateElement="ai-anomaly">
+        <bounds x="460" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-assoc" targetConnections="conn-view-dm-rca-dm7" archimateElement="ai-assoc">
+        <bounds x="680" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-dm-ai-ensembl" targetConnections="conn-view-dm-rca-dm8" archimateElement="ai-ensembl">
+        <bounds x="20" y="170" width="200" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="11 – Core IT Systems" id="view-itsystems">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-scada" archimateElement="app-scada">
+        <bounds x="20" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-erp" archimateElement="app-erp">
+        <bounds x="240" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-gis" archimateElement="app-gis">
+        <bounds x="460" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-twin" archimateElement="app-twin">
+        <bounds x="680" y="20" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-iiot" archimateElement="app-iiot">
+        <bounds x="20" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-lake" archimateElement="app-lake">
+        <bounds x="240" y="95" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-itsystems-rs-24" source="dv-view-itsystems-app-lake" target="dv-view-itsystems-app-mlops" archimateRelationship="rs-24"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-mlops" targetConnections="conn-view-itsystems-rs-24" archimateElement="app-mlops">
+        <bounds x="460" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-ressim" archimateElement="app-ressim">
+        <bounds x="680" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-pipesim" archimateElement="app-pipesim">
+        <bounds x="20" y="170" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-prosim" archimateElement="app-prosim">
+        <bounds x="240" y="170" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-mes" archimateElement="app-mes">
+        <bounds x="460" y="170" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-itsystems-app-dms" archimateElement="app-dms">
+        <bounds x="680" y="170" width="200" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="12 – Full Application Architecture" id="view-apparch">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-scada" archimateElement="app-scada">
+        <bounds x="20" y="20" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-erp" archimateElement="app-erp">
+        <bounds x="220" y="20" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-gis" archimateElement="app-gis">
+        <bounds x="420" y="20" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-twin" archimateElement="app-twin">
+        <bounds x="620" y="20" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-iiot" archimateElement="app-iiot">
+        <bounds x="820" y="20" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-lake" archimateElement="app-lake">
+        <bounds x="20" y="90" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-23" source="dv-view-apparch-app-lake" target="dv-view-apparch-ai-dm" archimateRelationship="rs-23"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-24" source="dv-view-apparch-app-lake" target="dv-view-apparch-app-mlops" archimateRelationship="rs-24"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-mlops" targetConnections="conn-view-apparch-rs-24" archimateElement="app-mlops">
+        <bounds x="220" y="90" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-ressim" archimateElement="app-ressim">
+        <bounds x="420" y="90" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-pipesim" archimateElement="app-pipesim">
+        <bounds x="620" y="90" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-prosim" archimateElement="app-prosim">
+        <bounds x="820" y="90" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-mes" archimateElement="app-mes">
+        <bounds x="20" y="160" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-dms" targetConnections="conn-view-apparch-rs-16" archimateElement="app-dms">
+        <bounds x="220" y="160" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-dm" targetConnections="conn-view-apparch-rs-23" archimateElement="ai-dm">
+        <bounds x="420" y="180" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm1" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-regress" archimateRelationship="rca-dm1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm2" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-mathstat" archimateRelationship="rca-dm2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm3" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-dimred" archimateRelationship="rca-dm3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm4" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-cluster" archimateRelationship="rca-dm4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm5" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-classif" archimateRelationship="rca-dm5"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm6" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-anomaly" archimateRelationship="rca-dm6"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm7" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-assoc" archimateRelationship="rca-dm7"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm8" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-ensembl" archimateRelationship="rca-dm8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-regress" targetConnections="conn-view-apparch-rca-dm1" archimateElement="ai-regress">
+        <bounds x="620" y="160" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-mathstat" targetConnections="conn-view-apparch-rca-dm2" archimateElement="ai-mathstat">
+        <bounds x="820" y="160" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-dimred" targetConnections="conn-view-apparch-rca-dm3" archimateElement="ai-dimred">
+        <bounds x="20" y="230" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-cluster" targetConnections="conn-view-apparch-rca-dm4" archimateElement="ai-cluster">
+        <bounds x="220" y="230" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-classif" targetConnections="conn-view-apparch-rca-dm5" archimateElement="ai-classif">
+        <bounds x="420" y="230" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-anomaly" targetConnections="conn-view-apparch-rca-dm6" archimateElement="ai-anomaly">
+        <bounds x="620" y="230" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-assoc" targetConnections="conn-view-apparch-rca-dm7" archimateElement="ai-assoc">
+        <bounds x="820" y="230" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-ensembl" targetConnections="conn-view-apparch-rca-dm8" archimateElement="ai-ensembl">
+        <bounds x="20" y="300" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-hybrid" archimateElement="ai-hybrid">
+        <bounds x="220" y="300" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy1" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-pinn" archimateRelationship="rca-hy1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy2" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-auglm" archimateRelationship="rca-hy2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy3" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-physmat" archimateRelationship="rca-hy3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy4" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-fusion" archimateRelationship="rca-hy4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy5" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-neurosym" archimateRelationship="rca-hy5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-pinn" targetConnections="conn-view-apparch-rca-hy1" archimateElement="ai-pinn">
+        <bounds x="420" y="300" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-auglm" targetConnections="conn-view-apparch-rca-hy2" archimateElement="ai-auglm">
+        <bounds x="620" y="300" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-physmat" targetConnections="conn-view-apparch-rca-hy3" archimateElement="ai-physmat">
+        <bounds x="820" y="300" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-fusion" targetConnections="conn-view-apparch-rca-hy4" archimateElement="ai-fusion">
+        <bounds x="20" y="370" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-neurosym" targetConnections="conn-view-apparch-rca-hy5" archimateElement="ai-neurosym">
+        <bounds x="220" y="370" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-agent" archimateElement="ai-agent">
+        <bounds x="420" y="370" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ag1" source="dv-view-apparch-ai-agent" target="dv-view-apparch-ai-rl" archimateRelationship="rca-ag1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ag2" source="dv-view-apparch-ai-agent" target="dv-view-apparch-ai-hitl" archimateRelationship="rca-ag2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ag3" source="dv-view-apparch-ai-agent" target="dv-view-apparch-ai-mas" archimateRelationship="rca-ag3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-rl" targetConnections="conn-view-apparch-rca-ag1" archimateElement="ai-rl">
+        <bounds x="620" y="370" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-hitl" targetConnections="conn-view-apparch-rca-ag2" archimateElement="ai-hitl">
+        <bounds x="820" y="370" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-mas" targetConnections="conn-view-apparch-rca-ag3" archimateElement="ai-mas">
+        <bounds x="20" y="440" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-optim" archimateElement="ai-optim">
+        <bounds x="220" y="440" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-op1" source="dv-view-apparch-ai-optim" target="dv-view-apparch-ai-advopt" archimateRelationship="rca-op1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-advopt" targetConnections="conn-view-apparch-rca-op1" archimateElement="ai-advopt">
+        <bounds x="420" y="440" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-expert" archimateElement="ai-expert">
+        <bounds x="620" y="440" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ex1" source="dv-view-apparch-ai-expert" target="dv-view-apparch-ai-kb" archimateRelationship="rca-ex1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ex2" source="dv-view-apparch-ai-expert" target="dv-view-apparch-ai-nexp" archimateRelationship="rca-ex2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-kb" targetConnections="conn-view-apparch-rca-ex1" archimateElement="ai-kb">
+        <bounds x="820" y="440" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-nexp" targetConnections="conn-view-apparch-rca-ex2" archimateElement="ai-nexp">
+        <bounds x="20" y="510" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-graph" archimateElement="ai-graph">
+        <bounds x="220" y="510" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gr1" source="dv-view-apparch-ai-graph" target="dv-view-apparch-ai-graphmod" archimateRelationship="rca-gr1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-graphmod" targetConnections="conn-view-apparch-rca-gr1" archimateElement="ai-graphmod">
+        <bounds x="420" y="510" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-genai" archimateElement="ai-genai">
+        <bounds x="620" y="510" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn1" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-audiogen" archimateRelationship="rca-gn1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn2" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-imggen" archimateRelationship="rca-gn2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn3" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-textgen" archimateRelationship="rca-gn3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn4" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-objgen" archimateRelationship="rca-gn4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audiogen" targetConnections="conn-view-apparch-rca-gn1" archimateElement="ai-audiogen">
+        <bounds x="820" y="510" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-imggen" targetConnections="conn-view-apparch-rca-gn2" archimateElement="ai-imggen">
+        <bounds x="20" y="580" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-textgen" targetConnections="conn-view-apparch-rca-gn3" archimateElement="ai-textgen">
+        <bounds x="220" y="580" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-objgen" targetConnections="conn-view-apparch-rca-gn4" archimateElement="ai-objgen">
+        <bounds x="420" y="580" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-cv" archimateElement="ai-cv">
+        <bounds x="620" y="580" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv1" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-objrec" archimateRelationship="rca-cv1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv2" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-frames" archimateRelationship="rca-cv2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv3" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-imgmod" archimateRelationship="rca-cv3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv4" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-ocr" archimateRelationship="rca-cv4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-objrec" targetConnections="conn-view-apparch-rca-cv1" archimateElement="ai-objrec">
+        <bounds x="820" y="580" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-frames" targetConnections="conn-view-apparch-rca-cv2" archimateElement="ai-frames">
+        <bounds x="20" y="650" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-imgmod" targetConnections="conn-view-apparch-rca-cv3" archimateElement="ai-imgmod">
+        <bounds x="220" y="650" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-ocr" targetConnections="conn-view-apparch-rca-cv4" archimateElement="ai-ocr">
+        <bounds x="420" y="650" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-nlp" archimateElement="ai-nlp">
+        <bounds x="620" y="650" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl1" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-semant" archimateRelationship="rca-nl1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl2" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-infoext" archimateRelationship="rca-nl2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl3" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-txtcls" archimateRelationship="rca-nl3"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl4" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-search" archimateRelationship="rca-nl4"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-16" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-app-dms" archimateRelationship="rs-16"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-semant" targetConnections="conn-view-apparch-rca-nl1" archimateElement="ai-semant">
+        <bounds x="820" y="650" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-infoext" targetConnections="conn-view-apparch-rca-nl2" archimateElement="ai-infoext">
+        <bounds x="20" y="720" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-txtcls" targetConnections="conn-view-apparch-rca-nl3" archimateElement="ai-txtcls">
+        <bounds x="220" y="720" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-search" targetConnections="conn-view-apparch-rca-nl4" archimateElement="ai-search">
+        <bounds x="420" y="720" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-special" archimateElement="ai-special">
+        <bounds x="620" y="720" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-sp1" source="dv-view-apparch-ai-special" target="dv-view-apparch-ai-metalearn" archimateRelationship="rca-sp1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-sp2" source="dv-view-apparch-ai-special" target="dv-view-apparch-ai-actlearn" archimateRelationship="rca-sp2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-metalearn" targetConnections="conn-view-apparch-rca-sp1" archimateElement="ai-metalearn">
+        <bounds x="820" y="720" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-actlearn" targetConnections="conn-view-apparch-rca-sp2" archimateElement="ai-actlearn">
+        <bounds x="20" y="790" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audio" archimateElement="ai-audio">
+        <bounds x="220" y="790" width="180" height="50"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-au1" source="dv-view-apparch-ai-audio" target="dv-view-apparch-ai-audiosig" archimateRelationship="rca-au1"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-au2" source="dv-view-apparch-ai-audio" target="dv-view-apparch-ai-speech" archimateRelationship="rca-au2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audiosig" targetConnections="conn-view-apparch-rca-au1" archimateElement="ai-audiosig">
+        <bounds x="420" y="790" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-speech" targetConnections="conn-view-apparch-rca-au2" archimateElement="ai-speech">
+        <bounds x="620" y="790" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-seismic" archimateElement="as-seismic">
+        <bounds x="820" y="790" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-geomod" archimateElement="as-geomod">
+        <bounds x="20" y="860" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-drill" archimateElement="as-drill">
+        <bounds x="220" y="860" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-prodmon" archimateElement="as-prodmon">
+        <bounds x="420" y="860" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-pipedisp" archimateElement="as-pipedisp">
+        <bounds x="620" y="860" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-refinery" archimateElement="as-refinery">
+        <bounds x="820" y="860" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-logist" archimateElement="as-logist">
+        <bounds x="20" y="930" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-sales" archimateElement="as-sales">
+        <bounds x="220" y="930" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-integr" archimateElement="as-integr">
+        <bounds x="420" y="930" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-ai" archimateElement="as-ai">
+        <bounds x="620" y="930" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-energy" archimateElement="as-energy">
+        <bounds x="820" y="930" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-seisraw" archimateElement="do-seisraw">
+        <bounds x="20" y="1000" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-geodata" archimateElement="do-geodata">
+        <bounds x="220" y="1000" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-welllog" archimateElement="do-welllog">
+        <bounds x="420" y="1000" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-scada" archimateElement="do-scada">
+        <bounds x="620" y="1000" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-pipetlm" archimateElement="do-pipetlm">
+        <bounds x="820" y="1000" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-prodts" archimateElement="do-prodts">
+        <bounds x="20" y="1070" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-labdata" archimateElement="do-labdata">
+        <bounds x="220" y="1070" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-logdata" archimateElement="do-logdata">
+        <bounds x="420" y="1070" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-market" archimateElement="do-market">
+        <bounds x="620" y="1070" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-aitrain" archimateElement="do-aitrain">
+        <bounds x="820" y="1070" width="180" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-do-regdata" archimateElement="do-regdata">
+        <bounds x="20" y="1140" width="180" height="50"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="13 – Technology Infrastructure" id="view-tech">
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-hpc" archimateElement="nd-hpc">
+        <bounds x="261" y="170" width="148" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-tech-rn-1" source="dv-view-tech-nd-hpc" target="dv-view-tech-ts-hpc" archimateRelationship="rn-1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-cloud" archimateElement="nd-cloud">
+        <bounds x="972" y="108" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-tech-rn-2" source="dv-view-tech-nd-cloud" target="dv-view-tech-ts-cloud" archimateRelationship="rn-2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-gpu" archimateElement="nd-gpu">
+        <bounds x="492" y="84" width="108" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-tech-rn-3" source="dv-view-tech-nd-gpu" target="dv-view-tech-ts-gpu" archimateRelationship="rn-3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-ot" archimateElement="nd-ot">
+        <bounds x="680" y="20" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-tech-rn-4" source="dv-view-tech-nd-ot" target="dv-view-tech-ts-otnet" archimateRelationship="rn-4"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-edge" archimateElement="nd-edge">
+        <bounds x="680" y="264" width="200" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="conn-view-tech-rn-5" source="dv-view-tech-nd-edge" target="dv-view-tech-ts-edge" archimateRelationship="rn-5"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-nd-storage" archimateElement="nd-storage">
+        <bounds x="20" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-hpc" targetConnections="conn-view-tech-rn-1" archimateElement="ts-hpc">
+        <bounds x="252" y="84" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-cloud" targetConnections="conn-view-tech-rn-2" archimateElement="ts-cloud">
+        <bounds x="680" y="95" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-otnet" targetConnections="conn-view-tech-rn-4" archimateElement="ts-otnet">
+        <bounds x="960" y="24" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-itnet" archimateElement="ts-itnet">
+        <bounds x="41" y="170" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-gpu" targetConnections="conn-view-tech-rn-3" archimateElement="ts-gpu">
+        <bounds x="456" y="170" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-edge" targetConnections="conn-view-tech-rn-5" archimateElement="ts-edge">
+        <bounds x="680" y="170" width="200" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="dv-view-tech-ts-cyber" archimateElement="ts-cyber">
+        <bounds x="20" y="245" width="200" height="55"/>
+      </child>
+    </element>
+  </folder>
+  <purpose>Oil and Gas Company model</purpose>
+</archimate:model>
