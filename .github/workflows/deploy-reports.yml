@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
@@ -36,6 +38,9 @@ jobs:
           git rm -rf ./*
           cp -r ../extracted/* .
           touch .nojekyll
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
 
           git add .
           if ! git diff --cached --quiet; then
