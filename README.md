@@ -23,6 +23,7 @@ You can download zip file to run it locally, or access rendered reports by the f
 - [ArchiMetal](https://banban.github.io/architecture-as-code/ArchiMetal/index.html)
 - [Archisurance](https://banban.github.io/architecture-as-code/Archisurance/index.html)
 - [COSO](https://banban.github.io/architecture-as-code/COSO/index.html)
+- [GDPR](https://banban.github.io/architecture-as-code/GDPR/index.html)
 - [NIST](https://banban.github.io/architecture-as-code/NIST/index.html)
 - [Oil & Gas](https://banban.github.io/architecture-as-code/Oil-Gas/index.html)
 - [Open Day](https://banban.github.io/architecture-as-code/Open-Day/index.html)
