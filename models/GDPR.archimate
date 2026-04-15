@@ -50,7 +50,7 @@ However, public authorities which may receive personal data in the framework of 
         </element>
       </folder>
       <folder name="Representations" id="id-373d9b4087dc44e38583a40c6a7567fd">
-        <element xsi:type="archimate:Representation" name="GDPR" id="id-6f58055ef60c453aa22799f68c9d23c8">
+        <element xsi:type="archimate:Representation" name="GDPR in Europe" id="id-6f58055ef60c453aa22799f68c9d23c8">
           <documentation>Directive 95/46/EC&#xD;
 The General Data Protection Regulation&#xD;
 &#xD;
@@ -2787,10 +2787,15 @@ With regard to point (h) of the first subparagraph, the processor shall immediat
             </child>
           </child>
         </child>
+        <documentation>Architecture must embed compliance from day one. &#xD;
+Because ignoring compliance isn't just about risking fines, it's about exposing your business to legal actions, operational shutdowns, and brand damage that can take years to repair. &#xD;
+At the core are data protection laws, like GDPR in Europe, PDPA in Singapore, and CCPA in California, each with their own rules on how personal data is handled. But it goes deeper. &#xD;
+Industries have their own strict frameworks. Healthcare has HIPAA, payments must meet PCI DSS, and critical infrastructure falls under NIS2.</documentation>
       </element>
     </folder>
   </folder>
   <purpose>SABSA EA Models of GDPR and not the GDPR itself, which is freely available at https://eur-lex.europa.eu/eli/reg/2016/679&#xD;
 These models are shared in accordance with the terms of the Open Source Licence published at https://sabsa.org/open-source-licence.&#xD;
-The format (but not the content of this Model- including that accompanying this limited open source licence) made available by the Institute (as defined hereafter) (the Model) is © 2021, The SABSA Institute C.I.C (a registered community interest company in England under registration number 08439587) (the Institute).</purpose>
+The format (but not the content of this Model including that accompanying this limited open source licence) made available by the Institute (as defined hereafter) (the Model) is © 2021, The SABSA Institute C.I.C (a registered community interest company in England under registration number 08439587) (the Institute).&#xD;
+</purpose>
 </archimate:model>

@@ -410,7 +410,7 @@
       </folder>
       <folder name="2. Protect" id="id-2d47242ecd8e47feadbc137f76b4a9c8">
         <folder name="Identity Management, Authentication &amp; Access Control" id="id-00dc06430dd1443a926585660758c8f6">
-          <element xsi:type="archimate:Goal" name="Identity Management, Authentication &amp; Access Control" id="id-nist-csf-pr.ac">
+          <element xsi:type="archimate:Goal" name="Identity Management, Authentication, Access Control" id="id-nist-csf-pr.ac">
             <documentation>Access to physical and logical assets and associated facilities is limited to authorized users, processes and devices, and is managed consistent with the assessed risk of unauthorized access to authorized activities and transactions.</documentation>
             <property key="stereotype" value="ControlObjective"/>
             <property key="namespace" value="NIST_CSF"/>
@@ -2675,42 +2675,42 @@
             <child xsi:type="archimate:DiagramObject" id="id-2ff3eae5ebb844aca8de6cc133513a7e" targetConnections="id-aa8244168f8940908bb093d2f34fb556" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.am">
               <bounds x="12" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-3096e201fe1e42d989ee64e4e1f520cb" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-b083a64737994d0e89c999c01b540e6a">
-                <bounds width="181" height="61"/>
+                <bounds y="12" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-6062984765d54aed888cce68b662d5de" targetConnections="id-69c7d6e8e0f34ddba6ede8919e53abe0" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.be">
               <bounds x="204" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-7923bce1ea7c40ce83a254fa1627325e" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-1ebaf61c19614d92b0d2f02196438f31">
-                <bounds width="181" height="61"/>
+                <bounds y="12" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-de13575b325441dcb6ab6c2441dc6cab" targetConnections="id-c51c860de7af49189d063f37aec99d94" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.gv">
               <bounds x="396" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-e3290b03495249d28929f71cd6cc7e61" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-6e14e37b1a8a4885b5ad64fe70fea3a2">
-                <bounds width="181" height="61"/>
+                <bounds y="12" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-3d599e4d3dbd4f17ac4d28843e3141aa" targetConnections="id-b3bba23749f24781a318f15507b47d68" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.ra">
               <bounds x="588" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-4e6a6bb3feac4d64a6f898c44665b067" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-2caa86b8443548099aceb3f68555b86a">
-                <bounds width="181" height="61"/>
+                <bounds y="12" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-4093abe1f5a94b038957ed48976bcf44" targetConnections="id-bfb7cc1529904c5c9bfd606e78cc812a" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.rm">
               <bounds x="780" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-20d593e1b31748928568032d46f81865" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-4c72b16fa0a04693a90af88b69f4b403">
-                <bounds width="181" height="61"/>
+                <bounds y="24" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-9a620acfadd74b6ebc429fcaf57d17b9" targetConnections="id-22b2ec28db26443aa0fad8faae0764bb" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-id.sc">
               <bounds x="972" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-952b90259bc24b01b19afd63d26c9c95" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-208b56c4c0dc4a76b3a1787c8e8c9ea0">
-                <bounds width="181" height="61"/>
+                <bounds y="24" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
@@ -2723,21 +2723,21 @@
             <child xsi:type="archimate:DiagramObject" id="id-53557aa0d0c549c7bd18cab41e572641" targetConnections="id-b08051dd0acc4c74a467cb8e060b0ff6" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-de.ae">
               <bounds x="168" y="36" width="181" height="55"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-2850205b0d39450fb0a715d905080d7a" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-421545737f9046329d3dd95e1279c89b">
-                <bounds width="181" height="55"/>
+                <bounds y="12" width="181" height="55"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-e0b71f07d09b4ef8849a7e39af573744" targetConnections="id-b96c9c42c655454295c1f773cc9aa635" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-de.dp">
               <bounds x="480" y="36" width="181" height="55"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-ed5a193e8f35418ba8cad390643336c1" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-2422aa04d7f04ea79305e82243c72288">
-                <bounds width="181" height="55"/>
+                <bounds y="12" width="181" height="55"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-a003801a6f974b97aff0990563d81aff" targetConnections="id-9bd386a6f1d44fb38f756fad9c68fcda" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-de.cm">
               <bounds x="768" y="36" width="229" height="55"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-328fedb1f8d34d6eb393b9449504ed56" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-9c885ec82f2b459e8fe82de6813158a2">
-                <bounds width="229" height="55"/>
+                <bounds y="12" width="229" height="55"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
@@ -2752,35 +2752,35 @@
             <child xsi:type="archimate:DiagramObject" id="id-fdcea5d380414a719536adc823a904ca" targetConnections="id-5f7aac8eb8c84e7eba59e58e404748aa" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rs.an">
               <bounds x="48" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-1c9a125dd7ba45c1a0cdae5fe6a06536" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-dc2beebcb2f4417a822330a16bbf672e">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-40dacf79cb524e739ed2c0a128c2c3d7" targetConnections="id-848ed737a3a843c7a9acdd8e57cfc47e" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rs.co">
               <bounds x="264" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-9e63468f4c9c4f768c6aed94fb47fee3" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-a115eb2966ba4ba6a41c1167053b5937">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-06e41ba5e6b74a02b90e858ce77a9e79" targetConnections="id-5114e7a06e114d73a4300bbdbe070025" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rs.im">
               <bounds x="480" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-d33becf32b794a288a434e0ad5262e62" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-a32fb3c38141471882e18fc2fa94eb12">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-1b62b8d5364a493e9dd95f36a9b41bcc" targetConnections="id-5ba6d73c8bb14718bace1dfda207c17d" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rs.mi">
               <bounds x="696" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-0c6bcfb714ea423f997302fae9c2164e" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-ccb5227139654badbe429aeac3104e3c">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-20b69b4504dc48668e139f5391a480a8" targetConnections="id-51301cc3a84f48da9ea7d2d7d01fe1bb" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rs.rp">
               <bounds x="910" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-ead13b3b1e8547a687d44e5a7bb45943" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-e64b4415b6584eaaa070bad8ce120944">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
@@ -2793,21 +2793,21 @@
             <child xsi:type="archimate:DiagramObject" id="id-14e5a82ef1cd4a4d80d4a9758fb7557b" targetConnections="id-a625e32f1cd048b4a6eba30a477813b0" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rc.co">
               <bounds x="168" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-5ce3387073004807b3acbb2a85ebc397" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-1c903a8feb134493ad500eafcef74e54">
-                <bounds width="181" height="58"/>
+                <bounds y="24" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-2ceed4acf02e4758a70f354359ec25d6" targetConnections="id-62c84511ba5543c685a4b52c28266a5f" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rc.im">
               <bounds x="480" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-99e4e9f4254a43b88d576aa1f224a12b" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-6ce6fea2c088497d8c9a42fd14485eac">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-1a5cc281f2e24c79af2a4a44aca527b9" targetConnections="id-00e8878dfb15462e80376192ddb3d6de" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-rc.rp">
               <bounds x="792" y="36" width="181" height="58"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-a2047956c65849c48c22eea73545002c" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-e5cb6f9cf6834604a852210987db892d">
-                <bounds width="181" height="58"/>
+                <bounds y="12" width="181" height="58"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
@@ -2823,42 +2823,42 @@
             <child xsi:type="archimate:DiagramObject" id="id-5e3fd62d137241edaccb9955270c9199" targetConnections="id-90cb05cd1b6e4fb3813064eb1805fb99" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.at">
               <bounds x="12" y="30" width="181" height="61"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-8f130fbf0096431593202e9cb93f2810" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-f5e116a1d35a441d994913b5f593b473">
-                <bounds width="181" height="55"/>
+                <bounds y="12" width="181" height="55"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-dfd7e51cfb904ba699fcea0644df103f" targetConnections="id-257b06dff5ac43ef95f742ab1d663914" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.ds">
-              <bounds x="204" y="30" width="181" height="61"/>
+              <bounds x="204" y="30" width="145" height="61"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-0c79325b539745418238e678163d7498" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-15b35ebd672d449996a44d5ad44f5c22">
-                <bounds width="181" height="61"/>
+                <bounds y="24" width="133" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-452ee772eb46401d8d737601d60fab0f" targetConnections="id-e469ec74ba9d417ba3ccba6ebdc73fde" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.ac">
-              <bounds x="396" y="24" width="181" height="73"/>
+              <bounds x="360" y="30" width="217" height="67"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-6cd9c2bc279843bfbfae80ccafd80f24" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-9973418e86414153a8dcc9a7d6d24f38">
-                <bounds width="181" height="73"/>
+                <bounds y="30" width="217" height="49"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-88280285f5e245e9a489293544b0a000" targetConnections="id-68cc73135f6a45cbb075306a3b1a8f19" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.ip">
               <bounds x="588" y="30" width="181" height="61"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-56ee3d98dc9e467b9c144cf83af8410e" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-4e4737b9205e48618fc5dafdee8ded50">
-                <bounds width="181" height="61"/>
+                <bounds y="24" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-14898725a8d349bca92e0bc9be92d6d0" targetConnections="id-31e664c2dc054936a2d5e7a53e2495ea" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.ma">
               <bounds x="780" y="30" width="181" height="61"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-1d754a081e1f44fcbddf3ddc0a6ad650" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-e30644e4aee14c39b25744c875ee29e4">
-                <bounds width="181" height="61"/>
+                <bounds y="24" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
             <child xsi:type="archimate:DiagramObject" id="id-6918d96f2c584d8bb6f574a1c63a21f2" targetConnections="id-2c15ac047e1f4cb3bd7c1993633d7353" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ccccff" archimateElement="id-nist-csf-pr.pt">
               <bounds x="972" y="30" width="181" height="61"/>
               <child xsi:type="archimate:DiagramModelReference" id="id-5f2b122bd25f4693ad2f9ac1bc85bbed" font="1|Segoe UI|9.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Segoe UI" fontColor="#000000" lineColor="#5c5c5c" fillColor="#ffffff" alpha="0" model="id-0a706f00492341b5bd3035eb3eb57ab0">
-                <bounds x="12" width="181" height="61"/>
+                <bounds x="12" y="12" width="181" height="61"/>
                 <feature name="lineAlpha" value="0"/>
               </child>
             </child>
