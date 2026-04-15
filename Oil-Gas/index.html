@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html class="model" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Oil and Gas Company</title>
+
+	<!-- JQUERY / UI / LAYOUT -->
+	<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui-layout/jquery.layout-1.4.4.js"></script>
+	<link type="text/css" rel="stylesheet" href="lib/jquery-ui-layout/layout-default-1.4.4.css">
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="css/model.css">
+	<link type="text/css" rel="stylesheet" href="css/i18n.css">
+	<script type="text/javascript" src="js/model.js"></script>
+	<script type="text/javascript" src="js/url-polyfill.min.js"></script>
+</head>
+
+<body>
+	<!-- "ui-layout-north" class set (topbar) -->
+	<div class="ui-layout-north">
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<span class="navbar-brand">Oil and Gas Company</span>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#myModal" data-toggle="modal" class="go"><span class="i18n-about"></span></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<iframe name="view" class="ui-layout-center" src="model-oilgas-2026/elements/model.html" scrolling="no"></iframe>
+
+	<div class="ui-layout-west">
+		<iframe name="element" class="ui-layout-south" src="elements/empty-element.html"  scrolling="no"></iframe>
+		<div class="ui-layout-center">
+			<div class="panel panel-default root-panel">
+				<div class="panel-heading root-panel-heading">
+					<b><span class="i18n-modeltree"></span></b>
+				</div>
+				<div class="panel-body root-panel-body">
+					<b><a href="model-oilgas-2026/elements/model.html" target="view">Oil and Gas Company</a></b>
+					<ul class="tree">
+					<!-- START OF STRINGTEMPLATE CODE -->
+						<li class="tree-folder sorted"><span class="i18n-model_content"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+							<ul>
+                                <li class="tree-folder "><span class="i18n-strategy"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+                                    <ul>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-search.html" target="element"> Search and Prospecting </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-expl.html" target="element"> Exploration and Field Development </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-drill.html" target="element"> Drilling </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-prod.html" target="element"> Production and Monitoring </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-trans.html" target="element"> Pipeline Transportation </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-ugs.html" target="element"> Underground Gas Storage </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-lrs.html" target="element"> Logistics, Refining and Sales </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-gasdist.html" target="element"> Gas Distribution </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-energy.html" target="element"> Energy Management </a></li>
+                                    				<li class="tree-element "><a href="model-oilgas-2026/elements/cap-cross.html" target="element"> Cross-Functional Operations </a></li>
+
+                                    </ul>
+                                </li>
+								<li class="tree-folder "><span class="i18n-business_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-geo.html" target="element"> Geoscience Department </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-drill.html" target="element"> Drilling Department </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-prod.html" target="element"> Production Operations </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-pipe.html" target="element"> Pipeline Operations </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-refine.html" target="element"> Refinery Operations </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-scm.html" target="element"> Supply Chain and Procurement </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-sales.html" target="element"> Commercial and Sales </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-hse.html" target="element"> HSE Department </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/act-it.html" target="element"> IT and Digital Department </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-geo.html" target="element"> Geologist </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-drill.html" target="element"> Drilling Engineer </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-prod.html" target="element"> Production Engineer </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-disp.html" target="element"> Pipeline Dispatcher </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-ref.html" target="element"> Refinery Technologist </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-log.html" target="element"> Logistics Coordinator </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-com.html" target="element"> Commercial Manager </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rol-ds.html" target="element"> Data Scientist / AI Engineer </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-search.html" target="element"> Search and Prospecting </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-expl.html" target="element"> Exploration and Field Development </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-drill.html" target="element"> Drilling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-prod.html" target="element"> Production and Monitoring </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-trans.html" target="element"> Transportation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-ugs.html" target="element"> Underground Gas Storage </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-lrs.html" target="element"> Logistics, Refining and Sales </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-gasdist.html" target="element"> Gas Distribution </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/p-cross.html" target="element"> Cross-Functional Operations </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-seismic.html" target="element"> Seismic Surveying </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-geomod.html" target="element"> Geological Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-fluid.html" target="element"> Fluid Studies </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-core.html" target="element"> Core Analysis </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-maggrav.html" target="element"> Magnetic and Gravity Surveying </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-elec.html" target="element"> Electrical Surveying </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-basin.html" target="element"> Basin and Palaeotectonic Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-resass.html" target="element"> Prospective Reservoir Assessment </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-geophys.html" target="element"> Geophysical Research and Well Design </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-hydro.html" target="element"> Hydrodynamic Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-seisdat.html" target="element"> Seismic Data Processing </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ps-interp.html" target="element"> Seismic Interpretation and Analysis </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-fielddev.html" target="element"> Field Development Design </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-hydrof.html" target="element"> Hydrodynamic Field Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-forecast.html" target="element"> Production Forecast </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-optdev.html" target="element"> Optimal Development System Selection </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-concept.html" target="element"> Conceptual and Integrated Engineering </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-intmod.html" target="element"> Integrated Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-cost.html" target="element"> Cost Engineering </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-hydrogeo.html" target="element"> Oil and Gas Hydrogeology </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pe-gtm.html" target="element"> GTM Planning and EOR </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pd-geomech.html" target="element"> Geomechanical Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pd-welltech.html" target="element"> Well Drilling Technology Design </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pd-rtdrill.html" target="element"> Real-time Drilling Operations Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pd-analyt.html" target="element"> Drilling Operational Analytics </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pd-forecast.html" target="element"> Drilling Modelling and Forecasting </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pp-dataprep.html" target="element"> Production Data Preparation and Analysis </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pp-rtalyt.html" target="element"> Real-time Production Analytics </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pp-equipopt.html" target="element"> Equipment Operations Optimisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pp-forecast.html" target="element"> Production Modelling and Forecasting </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pp-prodopt.html" target="element"> Production Optimisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-oilacct.html" target="element"> Accounting for Oil Transport </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-oilflow.html" target="element"> Oil Flow Execution and Monitoring </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-oilctrl.html" target="element"> Oil Flow Control and Monitoring </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-oilexec.html" target="element"> Oil Transportation Execution </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-prodexec.html" target="element"> Oil Products Transportation Execution </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-pipeplan.html" target="element"> Pipeline Work Planning and Operation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gaspre.html" target="element"> Pre-project Gas Pipeline Design </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gasdec.html" target="element"> Decision Support for Gas Pipeline Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gasalyt.html" target="element"> Gas Pipeline Operational Analytics </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gasflow.html" target="element"> Actual Gas Flow Identification in UGS </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gtsmode.html" target="element"> GTS Operating Mode Identification </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gascap.html" target="element"> Pipeline Capacity Substantiation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pt-gtscond.html" target="element"> GTS Technical Condition Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pu-proc.html" target="element"> UGS Process Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pu-balance.html" target="element"> Gas Balance Control </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pu-inv.html" target="element"> UGS Inventory Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pl-seatrans.html" target="element"> Sea and River Supply Chain Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pl-procure.html" target="element"> Procurement and Trading Operations </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pl-supplan.html" target="element"> Supply Schedule Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-refcal.html" target="element"> Operational-calendar Refinery Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-refmgmt.html" target="element"> Refinery Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-refinv.html" target="element"> Production Inventory Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-refbal.html" target="element"> Production Balance Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-online.html" target="element"> Online Refinery Optimisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pr-passport.html" target="element"> Product Passportisation and Quality Forecast </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/plg-shipcal.html" target="element"> Shipment Calendar Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/plg-shipmgt.html" target="element"> Shipment Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/plg-logmgt.html" target="element"> Logistics Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/plg-carrier.html" target="element"> Carrier Relationship Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/plg-wh.html" target="element"> Warehouse Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-counter.html" target="element"> Counterparty Relationship Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-pricing.html" target="element"> Marketing and Pricing </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-demand.html" target="element"> Demand Forecasting and Sales Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-nonfuel.html" target="element"> Non-fuel Assets Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-petterm.html" target="element"> Petroleum Terminal and AZS Network </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/psl-realise.html" target="element"> Realisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pgd-net.html" target="element"> Gas Distribution Network Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pgd-cap.html" target="element"> Gas Distribution Capacity Assessment </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pgd-ext.html" target="element"> External Communication and Gas Realisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pgd-model.html" target="element"> Gas Distribution Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pgd-hydro.html" target="element"> Retrofit and Reconstruction of Hydrogen Plants </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-rmr.html" target="element"> Reliability, Maintenance and Repair </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-comacct.html" target="element"> Commercial Accounting </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-customs.html" target="element"> Customs Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-ies.html" target="element"> Industrial and Environmental Safety </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-energy.html" target="element"> Energy Management </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-automet.html" target="element"> Industrial Automation and Metrology </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-dispatch.html" target="element"> Dispatching </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-techmod.html" target="element"> Technological Process Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-funcplan.html" target="element"> Functional and Integrated Planning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-hydraul.html" target="element"> Hydraulic Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-econmod.html" target="element"> Economic Modelling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-survey.html" target="element"> Surveying and Geodetic Support </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/pc-capcon.html" target="element"> Capital Construction </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-seismic.html" target="element"> Seismic Data Interpretation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-resmod.html" target="element"> Reservoir Modelling Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-welldes.html" target="element"> Well Design Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-prodopt.html" target="element"> Production Optimisation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-pipedisp.html" target="element"> Pipeline Dispatch Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-storage.html" target="element"> Storage Operations Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-refinery.html" target="element"> Refinery Planning Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-logistic.html" target="element"> Logistics Planning Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-sales.html" target="element"> Commercial Sales Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-integr.html" target="element"> Asset Integrity Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bs-ai.html" target="element"> AI and Data Science Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-seisdat.html" target="element"> Seismic Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-geomod.html" target="element"> Geological Model </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-resmod.html" target="element"> Reservoir Model </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-wellplan.html" target="element"> Well Plan </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-proddat.html" target="element"> Production Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-pipedat.html" target="element"> Pipeline Flow Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-gaspar.html" target="element"> Gas Storage Parameters </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-passport.html" target="element"> Refinery Product Passport </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-logsched.html" target="element"> Logistics Schedule </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-contract.html" target="element"> Sales Contract </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-aimodel.html" target="element"> AI Model Artefact </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/bo-kpi.html" target="element"> KPI Dashboard </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-application_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-scada.html" target="element"> SCADA / DCS </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-erp.html" target="element"> ERP System </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-gis.html" target="element"> GIS Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-twin.html" target="element"> Digital Twin Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-iiot.html" target="element"> Industrial IoT Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-lake.html" target="element"> Data Lake and Data Warehouse </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-mlops.html" target="element"> MLOps Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-ressim.html" target="element"> Reservoir Simulator </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-pipesim.html" target="element"> Pipeline Hydraulic Simulator </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-prosim.html" target="element"> Process Simulation Software </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-mes.html" target="element"> MES / MOM System </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/app-dms.html" target="element"> Document Management System </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-dm.html" target="element"> Data Mining Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-regress.html" target="element"> Regression Models </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-mathstat.html" target="element"> Mathematical Statistics Methods </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-dimred.html" target="element"> Dimensionality Reduction </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-cluster.html" target="element"> Clustering </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-classif.html" target="element"> Classification </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-anomaly.html" target="element"> Anomaly Detection </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-assoc.html" target="element"> Association and Link Discovery </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-ensembl.html" target="element"> Model Ensembling </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-pinn.html" target="element"> Physics-Informed ML (PINN) </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-auglm.html" target="element"> Augmented Language Models </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-physmat.html" target="element"> Physics-Math Model Augmentation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-fusion.html" target="element"> Physics and Data Driven Model Fusion </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-neurosym.html" target="element"> Neuro-Symbolic AI </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-agent.html" target="element"> Agentic AI Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-rl.html" target="element"> Reinforcement Learning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-hitl.html" target="element"> Human-in-the-Loop Systems </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-mas.html" target="element"> Multi-Agent Systems (MAS) </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-optim.html" target="element"> Optimisation Methods Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-advopt.html" target="element"> Advanced Optimisation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-expert.html" target="element"> Expert Systems Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-kb.html" target="element"> Knowledge-Based Systems </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-nexp.html" target="element"> Neural Expert Systems </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-graph.html" target="element"> Graph Analytics Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-graphmod.html" target="element"> Graph Models </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-genai.html" target="element"> Generative AI Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-audiogen.html" target="element"> Audio Generation (incl. Speech) </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-imggen.html" target="element"> Image and Video Generation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-textgen.html" target="element"> Text and Code Generation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-objgen.html" target="element"> Object Generation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-cv.html" target="element"> Computer Vision Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-objrec.html" target="element"> Object Recognition and Segmentation </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-frames.html" target="element"> Sequential Frame Processing </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-imgmod.html" target="element"> Image Modification </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-ocr.html" target="element"> OCR </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-nlp.html" target="element"> NLP Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-semant.html" target="element"> Semantic Analysis </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-infoext.html" target="element"> Information Extraction </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-txtcls.html" target="element"> Text Classification </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-search.html" target="element"> Search Systems </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-special.html" target="element"> Special AI Methods Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-metalearn.html" target="element"> Meta-Learning Algorithms </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-actlearn.html" target="element"> Active Learning </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-audio.html" target="element"> Audio Signal Analysis Platform </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-audiosig.html" target="element"> Audio Signal Analysis </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ai-speech.html" target="element"> Speech Recognition </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-seismic.html" target="element"> Seismic Interpretation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-geomod.html" target="element"> Geological Modelling Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-drill.html" target="element"> Drilling Optimisation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-prodmon.html" target="element"> Production Monitoring Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-pipedisp.html" target="element"> Pipeline Dispatch Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-refinery.html" target="element"> Refinery Planning Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-logist.html" target="element"> Logistics Optimisation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-sales.html" target="element"> Sales Analytics Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-integr.html" target="element"> Asset Integrity Analytics Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-ai.html" target="element"> AI Model Training and Inference Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/as-energy.html" target="element"> Energy Optimisation Service </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-seisraw.html" target="element"> Seismic Raw Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-geodata.html" target="element"> Interpreted Geological Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-welllog.html" target="element"> Well Log Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-scada.html" target="element"> Real-time SCADA Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-pipetlm.html" target="element"> Pipeline Telemetry Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-prodts.html" target="element"> Production Time-Series </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-labdata.html" target="element"> Refinery Lab Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-logdata.html" target="element"> Logistics and Inventory Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-market.html" target="element"> Market and Contract Data </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-aitrain.html" target="element"> AI Training Dataset </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/do-regdata.html" target="element"> Regulatory Reporting Data </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-technology_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-hpc.html" target="element"> HPC Cluster </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-cloud.html" target="element"> Private Cloud </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-gpu.html" target="element"> GPU Servers </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-ot.html" target="element"> OT Network Nodes </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-edge.html" target="element"> Edge Devices / PLCs </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/nd-storage.html" target="element"> Enterprise Storage </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-hpc.html" target="element"> High-Performance Computing </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-cloud.html" target="element"> Private Cloud Infrastructure </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-otnet.html" target="element"> Industrial Network (OT) </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-itnet.html" target="element"> Corporate Network (IT) </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-gpu.html" target="element"> GPU Cluster for AI </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-edge.html" target="element"> IoT and Edge Computing </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ts-cyber.html" target="element"> Cybersecurity Services </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-motivation"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/goal1.html" target="element"> Maximize hydrocarbon recovery and operational efficiency </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/goal2.html" target="element"> Ensure safe and reliable energy supply </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/goal3.html" target="element"> Achieve sustainability and ESG compliance </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/goal4.html" target="element"> Drive digital transformation with AI </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/drv1.html" target="element"> Volatile hydrocarbon prices </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/drv2.html" target="element"> Aging infrastructure and assets </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/drv3.html" target="element"> Regulatory and environmental pressure </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/drv4.html" target="element"> Digital innovation and AI adoption </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/prn1.html" target="element"> Data-driven decision making </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/prn2.html" target="element"> Asset integrity and safety first </a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/prn3.html" target="element"> Integrated value chain optimization </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-implementation"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-connectors"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-relations"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc1.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Search and Prospecting - Exploration and Field Development) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc2.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Exploration and Field Development - Drilling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc3.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Drilling - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc4.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Production and Monitoring - Transportation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc5.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Transportation - Logistics, Refining and Sales) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/r-vc6.html" target="element">
+															<span class="i18n-elementtype-TriggeringRelationship"></span>
+														(Logistics, Refining and Sales - Gas Distribution) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Seismic Surveying) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Geological Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Fluid Studies) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Core Analysis) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Magnetic and Gravity Surveying) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Electrical Surveying) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Basin and Palaeotectonic Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Prospective Reservoir Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Geophysical Research and Well Design) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s10.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Hydrodynamic Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s11.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Seismic Data Processing) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-s12.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Search and Prospecting - Seismic Interpretation and Analysis) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Field Development Design) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Hydrodynamic Field Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Production Forecast) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Optimal Development System Selection) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Conceptual and Integrated Engineering) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Integrated Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Cost Engineering) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - Oil and Gas Hydrogeology) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-e9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Exploration and Field Development - GTM Planning and EOR) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-d1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Drilling - Geomechanical Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-d2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Drilling - Well Drilling Technology Design) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-d3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Drilling - Real-time Drilling Operations Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-d4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Drilling - Drilling Operational Analytics) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-d5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Drilling - Drilling Modelling and Forecasting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-p1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Production and Monitoring - Production Data Preparation and Analysis) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-p2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Production and Monitoring - Real-time Production Analytics) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-p3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Production and Monitoring - Equipment Operations Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-p4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Production and Monitoring - Production Modelling and Forecasting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-p5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Production and Monitoring - Production Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Accounting for Oil Transport) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Oil Flow Execution and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Oil Flow Control and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Oil Transportation Execution) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Oil Products Transportation Execution) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Pipeline Work Planning and Operation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Pre-project Gas Pipeline Design) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Decision Support for Gas Pipeline Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Gas Pipeline Operational Analytics) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t10.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Actual Gas Flow Identification in UGS) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t11.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - GTS Operating Mode Identification) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t12.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - Pipeline Capacity Substantiation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-t13.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Transportation - GTS Technical Condition Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-u1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Underground Gas Storage - UGS Process Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-u2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Underground Gas Storage - Gas Balance Control) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-u3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Underground Gas Storage - UGS Inventory Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Sea and River Supply Chain Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Procurement and Trading Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Supply Schedule Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Operational-calendar Refinery Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Refinery Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Production Inventory Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Production Balance Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Online Refinery Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Product Passportisation and Quality Forecast) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l10.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Shipment Calendar Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l11.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Shipment Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l12.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Logistics Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l13.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Carrier Relationship Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l14.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Warehouse Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l15.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Counterparty Relationship Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l16.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Marketing and Pricing) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l17.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Demand Forecasting and Sales Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l18.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Non-fuel Assets Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l19.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Petroleum Terminal and AZS Network) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-l20.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Logistics, Refining and Sales - Realisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-g1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Gas Distribution - Gas Distribution Network Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-g2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Gas Distribution - Gas Distribution Capacity Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-g3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Gas Distribution - External Communication and Gas Realisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-g4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Gas Distribution - Gas Distribution Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-g5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Gas Distribution - Retrofit and Reconstruction of Hydrogen Plants) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Reliability, Maintenance and Repair) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Commercial Accounting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Customs Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Industrial and Environmental Safety) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Energy Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Industrial Automation and Metrology) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Dispatching) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Technological Process Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Functional and Integrated Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c10.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Hydraulic Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c11.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Economic Modelling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c12.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Surveying and Geodetic Support) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rc-c13.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Cross-Functional Operations - Capital Construction) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Regression Models) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Mathematical Statistics Methods) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Dimensionality Reduction) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Clustering) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Classification) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Anomaly Detection) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm7.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Association and Link Discovery) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-dm8.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Data Mining Platform - Model Ensembling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-hy1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Hybrid AI Platform - Physics-Informed ML (PINN)) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-hy2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Hybrid AI Platform - Augmented Language Models) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-hy3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Hybrid AI Platform - Physics-Math Model Augmentation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-hy4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Hybrid AI Platform - Physics and Data Driven Model Fusion) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-hy5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Hybrid AI Platform - Neuro-Symbolic AI) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-ag1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Agentic AI Platform - Reinforcement Learning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-ag2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Agentic AI Platform - Human-in-the-Loop Systems) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-ag3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Agentic AI Platform - Multi-Agent Systems (MAS)) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-op1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Optimisation Methods Platform - Advanced Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-ex1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Expert Systems Platform - Knowledge-Based Systems) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-ex2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Expert Systems Platform - Neural Expert Systems) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-gr1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Graph Analytics Platform - Graph Models) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-gn1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Generative AI Platform - Audio Generation (incl. Speech)) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-gn2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Generative AI Platform - Image and Video Generation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-gn3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Generative AI Platform - Text and Code Generation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-gn4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Generative AI Platform - Object Generation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-cv1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Computer Vision Platform - Object Recognition and Segmentation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-cv2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Computer Vision Platform - Sequential Frame Processing) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-cv3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Computer Vision Platform - Image Modification) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-cv4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Computer Vision Platform - OCR) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-nl1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(NLP Platform - Semantic Analysis) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-nl2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(NLP Platform - Information Extraction) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-nl3.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(NLP Platform - Text Classification) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-nl4.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(NLP Platform - Search Systems) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-sp1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Special AI Methods Platform - Meta-Learning Algorithms) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-sp2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Special AI Methods Platform - Active Learning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-au1.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Audio Signal Analysis Platform - Audio Signal Analysis) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rca-au2.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Audio Signal Analysis Platform - Speech Recognition) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-1.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(SCADA / DCS - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-2.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Reservoir Simulator - Exploration and Field Development) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-3.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Pipeline Hydraulic Simulator - Transportation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-4.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(ERP System - Logistics, Refining and Sales) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-5.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Process Simulation Software - Operational-calendar Refinery Planning) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-6.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(GIS Platform - Search and Prospecting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-7.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Digital Twin Platform - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-8.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(MLOps Platform - Cross-Functional Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-9.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Data Mining Platform - Search and Prospecting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-10.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Computer Vision Platform - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-11.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Anomaly Detection - Reliability, Maintenance and Repair) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-12.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Physics-Informed ML (PINN) - Exploration and Field Development) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-13.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Advanced Optimisation - Online Refinery Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-14.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Generative AI Platform - Cross-Functional Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-15.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Agentic AI Platform - Dispatching) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-16.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(NLP Platform - Document Management System) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-17.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Graph Analytics Platform - Procurement and Trading Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-18.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Hybrid AI Platform - Drilling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-19.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Expert Systems Platform - Decision Support for Gas Pipeline Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-20.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Optimisation Methods Platform - Production Optimisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-21.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Industrial IoT Platform - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-22.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(MES / MOM System - Refinery Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-23.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Data Lake and Data Warehouse - Data Mining Platform) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rs-24.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Data Lake and Data Warehouse - MLOps Platform) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-1.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(High-Performance Computing - Reservoir Simulator) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-2.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(High-Performance Computing - Process Simulation Software) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-3.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Private Cloud Infrastructure - ERP System) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-4.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Private Cloud Infrastructure - Data Lake and Data Warehouse) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-5.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(GPU Cluster for AI - MLOps Platform) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-6.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(GPU Cluster for AI - Generative AI Platform) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-7.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Industrial Network (OT) - SCADA / DCS) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rt-8.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(IoT and Edge Computing - Industrial IoT Platform) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-1.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(HPC Cluster - High-Performance Computing) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-2.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(Private Cloud - Private Cloud Infrastructure) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-3.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(GPU Servers - GPU Cluster for AI) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-4.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(OT Network Nodes - Industrial Network (OT)) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-5.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(Edge Devices / PLCs - IoT and Edge Computing) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rn-6.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(Enterprise Storage - Data Lake and Data Warehouse) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-1.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Seismic Surveying - Seismic Data Interpretation Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-2.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Geological Modelling - Reservoir Modelling Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-3.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Geomechanical Modelling - Well Design Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-4.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Production Optimisation - Production Optimisation Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-5.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Oil Flow Execution and Monitoring - Pipeline Dispatch Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-6.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Underground Gas Storage - Storage Operations Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-7.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Operational-calendar Refinery Planning - Refinery Planning Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-8.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Logistics Management - Logistics Planning Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-9.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Realisation - Commercial Sales Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-10.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Reliability, Maintenance and Repair - Asset Integrity Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rr-11.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Cross-Functional Operations - AI and Data Science Service) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap1.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Search and Prospecting - Search and Prospecting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap2.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Exploration and Field Development - Exploration and Field Development) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap3.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Drilling - Drilling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap4.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Production and Monitoring - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap5.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Transportation - Pipeline Transportation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap6.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Underground Gas Storage - Underground Gas Storage) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap7.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Logistics, Refining and Sales - Logistics, Refining and Sales) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap8.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Gas Distribution - Gas Distribution) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap9.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Cross-Functional Operations - Cross-Functional Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/rcap10.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Energy Management - Energy Management) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ri-1.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Volatile hydrocarbon prices - Maximize hydrocarbon recovery and operational efficiency) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ri-2.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Aging infrastructure and assets - Ensure safe and reliable energy supply) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ri-3.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Regulatory and environmental pressure - Achieve sustainability and ESG compliance) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ri-4.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Digital innovation and AI adoption - Drive digital transformation with AI) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-1.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Geoscience Department - Search and Prospecting) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-2.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Drilling Department - Drilling) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-3.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Production Operations - Production and Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-4.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Pipeline Operations - Transportation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-5.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Refinery Operations - Logistics, Refining and Sales) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-6.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Supply Chain and Procurement - Procurement and Trading Operations) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-7.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Commercial and Sales - Realisation) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-8.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(HSE Department - Industrial and Environmental Safety) 
+													</a></li>
+													<li class="tree-element "><a href="model-oilgas-2026/elements/ra-9.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(IT and Digital Department - Cross-Functional Operations) 
+													</a></li>
+
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="tree-folder "><span class="i18n-views"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+							<ul>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-motivation.html" target="view"> 01 &#8211; Motivation and Goals </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-capabilities.html" target="view"> 02 &#8211; Business Capability Map </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-valuechain.html" target="view"> 03 - O&amp;G Value Chain </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-search.html" target="view"> 04 &#8211; Search and Prospecting Detail </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-proddrill.html" target="view"> 05 &#8211; Drilling and Production Detail </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-transport.html" target="view"> 06 &#8211; Transportation and Storage Detail </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-lrs.html" target="view"> 07 &#8211; Logistics, Refining and Sales Detail </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-cross.html" target="view"> 08 &#8211; Cross-Functional Processes </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-aiclasses.html" target="view"> 09 &#8211; AI Technology Classes </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-dm.html" target="view"> 10 &#8211; Data Mining Detail </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-itsystems.html" target="view"> 11 &#8211; Core IT Systems </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-apparch.html" target="view"> 12 &#8211; Full Application Architecture </a></li>
+											<li class="tree-element "><a href="model-oilgas-2026/views/view-tech.html" target="view"> 13 &#8211; Technology Infrastructure </a></li>
+
+							</ul>
+						</li>
+					<!-- END OF STRINGTEMPLATE CODE -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- START ABOUT MODAL DIALOG -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title i18n-about"></h4>
+				</div>
+				<div class="modal-body">
+					<p><strong> <span class="i18n-about-pluginname"></span></strong></p>
+					<p><span class="i18n-about-pluginversion"></span></p>
+					<p><span class="i18n-about-plugintext1"></span></p>
+					<p><span class="i18n-about-plugintext2"></span></p>
+					<p><a href="https://www.archimatetool.com" target="_blank">Archi®</a> <span class="i18n-about-plugintext3"></span></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default i18n-close" data-dismiss="modal"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END ABOUT MODAL DIALOG -->
+
+	<!-- START HINT MODAL DIALOG -->
+	<div class="modal fade first-load" id="myModalHint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title i18n-hint"></h4>
+				</div>
+				<div class="modal-body">
+						<iframe id="frame-hint" name="hint" onload="if($('#myModalHint').hasClass('first-load')) $('#myModalHint').removeClass('first-load'); else $('#myModalHint').modal({show:true});"></iframe>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default i18n-close" data-dismiss="modal"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END HINT MODAL DIALOG -->
+</body>
+</html>

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>12 – Full Application Architecture</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>12 &#8211; Full Application Architecture</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-apparch.png" alt="12 – Full Application Architecture" usemap="#view-apparchmap"/>
+			   <map name="view-apparchmap">
+				  		<area shape="rect" coords="10,1130,190,1180" href="../elements/do-regdata.html"  target="element">
+				  		<area shape="rect" coords="810,1060,990,1110" href="../elements/do-aitrain.html"  target="element">
+				  		<area shape="rect" coords="610,1060,790,1110" href="../elements/do-market.html"  target="element">
+				  		<area shape="rect" coords="410,1060,590,1110" href="../elements/do-logdata.html"  target="element">
+				  		<area shape="rect" coords="210,1060,390,1110" href="../elements/do-labdata.html"  target="element">
+				  		<area shape="rect" coords="10,1060,190,1110" href="../elements/do-prodts.html"  target="element">
+				  		<area shape="rect" coords="810,990,990,1040" href="../elements/do-pipetlm.html"  target="element">
+				  		<area shape="rect" coords="610,990,790,1040" href="../elements/do-scada.html"  target="element">
+				  		<area shape="rect" coords="410,990,590,1040" href="../elements/do-welllog.html"  target="element">
+				  		<area shape="rect" coords="210,990,390,1040" href="../elements/do-geodata.html"  target="element">
+				  		<area shape="rect" coords="10,990,190,1040" href="../elements/do-seisraw.html"  target="element">
+				  		<area shape="rect" coords="810,920,990,970" href="../elements/as-energy.html"  target="element">
+				  		<area shape="rect" coords="610,920,790,970" href="../elements/as-ai.html"  target="element">
+				  		<area shape="rect" coords="410,920,590,970" href="../elements/as-integr.html"  target="element">
+				  		<area shape="rect" coords="210,920,390,970" href="../elements/as-sales.html"  target="element">
+				  		<area shape="rect" coords="10,920,190,970" href="../elements/as-logist.html"  target="element">
+				  		<area shape="rect" coords="810,850,990,900" href="../elements/as-refinery.html"  target="element">
+				  		<area shape="rect" coords="610,850,790,900" href="../elements/as-pipedisp.html"  target="element">
+				  		<area shape="rect" coords="410,850,590,900" href="../elements/as-prodmon.html"  target="element">
+				  		<area shape="rect" coords="210,850,390,900" href="../elements/as-drill.html"  target="element">
+				  		<area shape="rect" coords="10,850,190,900" href="../elements/as-geomod.html"  target="element">
+				  		<area shape="rect" coords="810,780,990,830" href="../elements/as-seismic.html"  target="element">
+				  		<area shape="rect" coords="610,780,790,830" href="../elements/ai-speech.html"  target="element">
+				  		<area shape="rect" coords="410,780,590,830" href="../elements/ai-audiosig.html"  target="element">
+				  		<area shape="rect" coords="210,780,390,830" href="../elements/ai-audio.html"  target="element">
+				  		<area shape="rect" coords="10,780,190,830" href="../elements/ai-actlearn.html"  target="element">
+				  		<area shape="rect" coords="810,710,990,760" href="../elements/ai-metalearn.html"  target="element">
+				  		<area shape="rect" coords="610,710,790,760" href="../elements/ai-special.html"  target="element">
+				  		<area shape="rect" coords="410,710,590,760" href="../elements/ai-search.html"  target="element">
+				  		<area shape="rect" coords="210,710,390,760" href="../elements/ai-txtcls.html"  target="element">
+				  		<area shape="rect" coords="10,710,190,760" href="../elements/ai-infoext.html"  target="element">
+				  		<area shape="rect" coords="810,640,990,690" href="../elements/ai-semant.html"  target="element">
+				  		<area shape="rect" coords="610,640,790,690" href="../elements/ai-nlp.html"  target="element">
+				  		<area shape="rect" coords="410,640,590,690" href="../elements/ai-ocr.html"  target="element">
+				  		<area shape="rect" coords="210,640,390,690" href="../elements/ai-imgmod.html"  target="element">
+				  		<area shape="rect" coords="10,640,190,690" href="../elements/ai-frames.html"  target="element">
+				  		<area shape="rect" coords="810,570,990,620" href="../elements/ai-objrec.html"  target="element">
+				  		<area shape="rect" coords="610,570,790,620" href="../elements/ai-cv.html"  target="element">
+				  		<area shape="rect" coords="410,570,590,620" href="../elements/ai-objgen.html"  target="element">
+				  		<area shape="rect" coords="210,570,390,620" href="../elements/ai-textgen.html"  target="element">
+				  		<area shape="rect" coords="10,570,190,620" href="../elements/ai-imggen.html"  target="element">
+				  		<area shape="rect" coords="810,500,990,550" href="../elements/ai-audiogen.html"  target="element">
+				  		<area shape="rect" coords="610,500,790,550" href="../elements/ai-genai.html"  target="element">
+				  		<area shape="rect" coords="410,500,590,550" href="../elements/ai-graphmod.html"  target="element">
+				  		<area shape="rect" coords="210,500,390,550" href="../elements/ai-graph.html"  target="element">
+				  		<area shape="rect" coords="10,500,190,550" href="../elements/ai-nexp.html"  target="element">
+				  		<area shape="rect" coords="810,430,990,480" href="../elements/ai-kb.html"  target="element">
+				  		<area shape="rect" coords="610,430,790,480" href="../elements/ai-expert.html"  target="element">
+				  		<area shape="rect" coords="410,430,590,480" href="../elements/ai-advopt.html"  target="element">
+				  		<area shape="rect" coords="210,430,390,480" href="../elements/ai-optim.html"  target="element">
+				  		<area shape="rect" coords="10,430,190,480" href="../elements/ai-mas.html"  target="element">
+				  		<area shape="rect" coords="810,360,990,410" href="../elements/ai-hitl.html"  target="element">
+				  		<area shape="rect" coords="610,360,790,410" href="../elements/ai-rl.html"  target="element">
+				  		<area shape="rect" coords="410,360,590,410" href="../elements/ai-agent.html"  target="element">
+				  		<area shape="rect" coords="210,360,390,410" href="../elements/ai-neurosym.html"  target="element">
+				  		<area shape="rect" coords="10,360,190,410" href="../elements/ai-fusion.html"  target="element">
+				  		<area shape="rect" coords="810,290,990,340" href="../elements/ai-physmat.html"  target="element">
+				  		<area shape="rect" coords="610,290,790,340" href="../elements/ai-auglm.html"  target="element">
+				  		<area shape="rect" coords="410,290,590,340" href="../elements/ai-pinn.html"  target="element">
+				  		<area shape="rect" coords="210,290,390,340" href="../elements/ai-hybrid.html"  target="element">
+				  		<area shape="rect" coords="10,290,190,340" href="../elements/ai-ensembl.html"  target="element">
+				  		<area shape="rect" coords="810,220,990,270" href="../elements/ai-assoc.html"  target="element">
+				  		<area shape="rect" coords="610,220,790,270" href="../elements/ai-anomaly.html"  target="element">
+				  		<area shape="rect" coords="410,220,590,270" href="../elements/ai-classif.html"  target="element">
+				  		<area shape="rect" coords="210,220,390,270" href="../elements/ai-cluster.html"  target="element">
+				  		<area shape="rect" coords="10,220,190,270" href="../elements/ai-dimred.html"  target="element">
+				  		<area shape="rect" coords="810,150,990,200" href="../elements/ai-mathstat.html"  target="element">
+				  		<area shape="rect" coords="610,150,790,200" href="../elements/ai-regress.html"  target="element">
+				  		<area shape="rect" coords="410,150,590,200" href="../elements/ai-dm.html"  target="element">
+				  		<area shape="rect" coords="210,150,390,200" href="../elements/app-dms.html"  target="element">
+				  		<area shape="rect" coords="10,150,190,200" href="../elements/app-mes.html"  target="element">
+				  		<area shape="rect" coords="810,80,990,130" href="../elements/app-prosim.html"  target="element">
+				  		<area shape="rect" coords="610,80,790,130" href="../elements/app-pipesim.html"  target="element">
+				  		<area shape="rect" coords="410,80,590,130" href="../elements/app-ressim.html"  target="element">
+				  		<area shape="rect" coords="210,80,390,130" href="../elements/app-mlops.html"  target="element">
+				  		<area shape="rect" coords="10,80,190,130" href="../elements/app-lake.html"  target="element">
+				  		<area shape="rect" coords="810,10,990,60" href="../elements/app-iiot.html"  target="element">
+				  		<area shape="rect" coords="610,10,790,60" href="../elements/app-twin.html"  target="element">
+				  		<area shape="rect" coords="410,10,590,60" href="../elements/app-gis.html"  target="element">
+				  		<area shape="rect" coords="210,10,390,60" href="../elements/app-erp.html"  target="element">
+				  		<area shape="rect" coords="10,10,190,60" href="../elements/app-scada.html"  target="element">
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap"></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<tr>
+											    <td> <a href="../elements/app-scada.html" target="element"> SCADA / DCS </a> </td>
+											    <td> <a href="../elements/app-scada.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-erp.html" target="element"> ERP System </a> </td>
+											    <td> <a href="../elements/app-erp.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-gis.html" target="element"> GIS Platform </a> </td>
+											    <td> <a href="../elements/app-gis.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-twin.html" target="element"> Digital Twin Platform </a> </td>
+											    <td> <a href="../elements/app-twin.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-iiot.html" target="element"> Industrial IoT Platform </a> </td>
+											    <td> <a href="../elements/app-iiot.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-lake.html" target="element"> Data Lake and Data Warehouse </a> </td>
+											    <td> <a href="../elements/app-lake.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-mlops.html" target="element"> MLOps Platform </a> </td>
+											    <td> <a href="../elements/app-mlops.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-ressim.html" target="element"> Reservoir Simulator </a> </td>
+											    <td> <a href="../elements/app-ressim.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-pipesim.html" target="element"> Pipeline Hydraulic Simulator </a> </td>
+											    <td> <a href="../elements/app-pipesim.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-prosim.html" target="element"> Process Simulation Software </a> </td>
+											    <td> <a href="../elements/app-prosim.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-mes.html" target="element"> MES / MOM System </a> </td>
+											    <td> <a href="../elements/app-mes.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/app-dms.html" target="element"> Document Management System </a> </td>
+											    <td> <a href="../elements/app-dms.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+											    <td> <a href="../elements/ai-dm.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-regress.html" target="element"> Regression Models </a> </td>
+											    <td> <a href="../elements/ai-regress.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-mathstat.html" target="element"> Mathematical Statistics Methods </a> </td>
+											    <td> <a href="../elements/ai-mathstat.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-dimred.html" target="element"> Dimensionality Reduction </a> </td>
+											    <td> <a href="../elements/ai-dimred.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-cluster.html" target="element"> Clustering </a> </td>
+											    <td> <a href="../elements/ai-cluster.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-classif.html" target="element"> Classification </a> </td>
+											    <td> <a href="../elements/ai-classif.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-anomaly.html" target="element"> Anomaly Detection </a> </td>
+											    <td> <a href="../elements/ai-anomaly.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-assoc.html" target="element"> Association and Link Discovery </a> </td>
+											    <td> <a href="../elements/ai-assoc.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-ensembl.html" target="element"> Model Ensembling </a> </td>
+											    <td> <a href="../elements/ai-ensembl.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+											    <td> <a href="../elements/ai-hybrid.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-pinn.html" target="element"> Physics-Informed ML (PINN) </a> </td>
+											    <td> <a href="../elements/ai-pinn.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-auglm.html" target="element"> Augmented Language Models </a> </td>
+											    <td> <a href="../elements/ai-auglm.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-physmat.html" target="element"> Physics-Math Model Augmentation </a> </td>
+											    <td> <a href="../elements/ai-physmat.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-fusion.html" target="element"> Physics and Data Driven Model Fusion </a> </td>
+											    <td> <a href="../elements/ai-fusion.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-neurosym.html" target="element"> Neuro-Symbolic AI </a> </td>
+											    <td> <a href="../elements/ai-neurosym.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-agent.html" target="element"> Agentic AI Platform </a> </td>
+											    <td> <a href="../elements/ai-agent.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-rl.html" target="element"> Reinforcement Learning </a> </td>
+											    <td> <a href="../elements/ai-rl.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-hitl.html" target="element"> Human-in-the-Loop Systems </a> </td>
+											    <td> <a href="../elements/ai-hitl.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-mas.html" target="element"> Multi-Agent Systems (MAS) </a> </td>
+											    <td> <a href="../elements/ai-mas.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-optim.html" target="element"> Optimisation Methods Platform </a> </td>
+											    <td> <a href="../elements/ai-optim.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-advopt.html" target="element"> Advanced Optimisation </a> </td>
+											    <td> <a href="../elements/ai-advopt.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-expert.html" target="element"> Expert Systems Platform </a> </td>
+											    <td> <a href="../elements/ai-expert.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-kb.html" target="element"> Knowledge-Based Systems </a> </td>
+											    <td> <a href="../elements/ai-kb.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-nexp.html" target="element"> Neural Expert Systems </a> </td>
+											    <td> <a href="../elements/ai-nexp.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-graph.html" target="element"> Graph Analytics Platform </a> </td>
+											    <td> <a href="../elements/ai-graph.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-graphmod.html" target="element"> Graph Models </a> </td>
+											    <td> <a href="../elements/ai-graphmod.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-genai.html" target="element"> Generative AI Platform </a> </td>
+											    <td> <a href="../elements/ai-genai.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-audiogen.html" target="element"> Audio Generation (incl. Speech) </a> </td>
+											    <td> <a href="../elements/ai-audiogen.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-imggen.html" target="element"> Image and Video Generation </a> </td>
+											    <td> <a href="../elements/ai-imggen.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-textgen.html" target="element"> Text and Code Generation </a> </td>
+											    <td> <a href="../elements/ai-textgen.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-objgen.html" target="element"> Object Generation </a> </td>
+											    <td> <a href="../elements/ai-objgen.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-cv.html" target="element"> Computer Vision Platform </a> </td>
+											    <td> <a href="../elements/ai-cv.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-objrec.html" target="element"> Object Recognition and Segmentation </a> </td>
+											    <td> <a href="../elements/ai-objrec.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-frames.html" target="element"> Sequential Frame Processing </a> </td>
+											    <td> <a href="../elements/ai-frames.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-imgmod.html" target="element"> Image Modification </a> </td>
+											    <td> <a href="../elements/ai-imgmod.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-ocr.html" target="element"> OCR </a> </td>
+											    <td> <a href="../elements/ai-ocr.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+											    <td> <a href="../elements/ai-nlp.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-semant.html" target="element"> Semantic Analysis </a> </td>
+											    <td> <a href="../elements/ai-semant.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-infoext.html" target="element"> Information Extraction </a> </td>
+											    <td> <a href="../elements/ai-infoext.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-txtcls.html" target="element"> Text Classification </a> </td>
+											    <td> <a href="../elements/ai-txtcls.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-search.html" target="element"> Search Systems </a> </td>
+											    <td> <a href="../elements/ai-search.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-special.html" target="element"> Special AI Methods Platform </a> </td>
+											    <td> <a href="../elements/ai-special.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-metalearn.html" target="element"> Meta-Learning Algorithms </a> </td>
+											    <td> <a href="../elements/ai-metalearn.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-actlearn.html" target="element"> Active Learning </a> </td>
+											    <td> <a href="../elements/ai-actlearn.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-audio.html" target="element"> Audio Signal Analysis Platform </a> </td>
+											    <td> <a href="../elements/ai-audio.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-audiosig.html" target="element"> Audio Signal Analysis </a> </td>
+											    <td> <a href="../elements/ai-audiosig.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/ai-speech.html" target="element"> Speech Recognition </a> </td>
+											    <td> <a href="../elements/ai-speech.html" target="element" class="i18n-elementtype-ApplicationComponent">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-seismic.html" target="element"> Seismic Interpretation Service </a> </td>
+											    <td> <a href="../elements/as-seismic.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-geomod.html" target="element"> Geological Modelling Service </a> </td>
+											    <td> <a href="../elements/as-geomod.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-drill.html" target="element"> Drilling Optimisation Service </a> </td>
+											    <td> <a href="../elements/as-drill.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-prodmon.html" target="element"> Production Monitoring Service </a> </td>
+											    <td> <a href="../elements/as-prodmon.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-pipedisp.html" target="element"> Pipeline Dispatch Service </a> </td>
+											    <td> <a href="../elements/as-pipedisp.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-refinery.html" target="element"> Refinery Planning Service </a> </td>
+											    <td> <a href="../elements/as-refinery.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-logist.html" target="element"> Logistics Optimisation Service </a> </td>
+											    <td> <a href="../elements/as-logist.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-sales.html" target="element"> Sales Analytics Service </a> </td>
+											    <td> <a href="../elements/as-sales.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-integr.html" target="element"> Asset Integrity Analytics Service </a> </td>
+											    <td> <a href="../elements/as-integr.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-ai.html" target="element"> AI Model Training and Inference Service </a> </td>
+											    <td> <a href="../elements/as-ai.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/as-energy.html" target="element"> Energy Optimisation Service </a> </td>
+											    <td> <a href="../elements/as-energy.html" target="element" class="i18n-elementtype-ApplicationService">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-seisraw.html" target="element"> Seismic Raw Data </a> </td>
+											    <td> <a href="../elements/do-seisraw.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-geodata.html" target="element"> Interpreted Geological Data </a> </td>
+											    <td> <a href="../elements/do-geodata.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-welllog.html" target="element"> Well Log Data </a> </td>
+											    <td> <a href="../elements/do-welllog.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-scada.html" target="element"> Real-time SCADA Data </a> </td>
+											    <td> <a href="../elements/do-scada.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-pipetlm.html" target="element"> Pipeline Telemetry Data </a> </td>
+											    <td> <a href="../elements/do-pipetlm.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-prodts.html" target="element"> Production Time-Series </a> </td>
+											    <td> <a href="../elements/do-prodts.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-labdata.html" target="element"> Refinery Lab Data </a> </td>
+											    <td> <a href="../elements/do-labdata.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-logdata.html" target="element"> Logistics and Inventory Data </a> </td>
+											    <td> <a href="../elements/do-logdata.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-market.html" target="element"> Market and Contract Data </a> </td>
+											    <td> <a href="../elements/do-market.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-aitrain.html" target="element"> AI Training Dataset </a> </td>
+											    <td> <a href="../elements/do-aitrain.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+											<tr>
+											    <td> <a href="../elements/do-regdata.html" target="element"> Regulatory Reporting Data </a> </td>
+											    <td> <a href="../elements/do-regdata.html" target="element" class="i18n-elementtype-DataObject">
+											    </a> </td>
+											</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+																	<tr>
+																		<td> <a href="../elements/rs-23.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rs-23.html" target="element" class="i18n-elementtype-ServingRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/app-lake.html" target="element"> Data Lake and Data Warehouse </a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rs-24.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rs-24.html" target="element" class="i18n-elementtype-ServingRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/app-lake.html" target="element"> Data Lake and Data Warehouse </a> </td>
+																		<td> <a href="../elements/app-mlops.html" target="element"> MLOps Platform </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-dm1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-regress.html" target="element"> Regression Models </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-mathstat.html" target="element"> Mathematical Statistics Methods </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-dimred.html" target="element"> Dimensionality Reduction </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-cluster.html" target="element"> Clustering </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm5.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm5.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-classif.html" target="element"> Classification </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm6.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm6.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-anomaly.html" target="element"> Anomaly Detection </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm7.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm7.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-assoc.html" target="element"> Association and Link Discovery </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-dm8.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-dm8.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-dm.html" target="element"> Data Mining Platform </a> </td>
+																		<td> <a href="../elements/ai-ensembl.html" target="element"> Model Ensembling </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-hy1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-hy1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+																		<td> <a href="../elements/ai-pinn.html" target="element"> Physics-Informed ML (PINN) </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-hy2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-hy2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+																		<td> <a href="../elements/ai-auglm.html" target="element"> Augmented Language Models </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-hy3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-hy3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+																		<td> <a href="../elements/ai-physmat.html" target="element"> Physics-Math Model Augmentation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-hy4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-hy4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+																		<td> <a href="../elements/ai-fusion.html" target="element"> Physics and Data Driven Model Fusion </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-hy5.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-hy5.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-hybrid.html" target="element"> Hybrid AI Platform </a> </td>
+																		<td> <a href="../elements/ai-neurosym.html" target="element"> Neuro-Symbolic AI </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-ag1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-ag1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-agent.html" target="element"> Agentic AI Platform </a> </td>
+																		<td> <a href="../elements/ai-rl.html" target="element"> Reinforcement Learning </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-ag2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-ag2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-agent.html" target="element"> Agentic AI Platform </a> </td>
+																		<td> <a href="../elements/ai-hitl.html" target="element"> Human-in-the-Loop Systems </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-ag3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-ag3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-agent.html" target="element"> Agentic AI Platform </a> </td>
+																		<td> <a href="../elements/ai-mas.html" target="element"> Multi-Agent Systems (MAS) </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-op1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-op1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-optim.html" target="element"> Optimisation Methods Platform </a> </td>
+																		<td> <a href="../elements/ai-advopt.html" target="element"> Advanced Optimisation </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-ex1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-ex1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-expert.html" target="element"> Expert Systems Platform </a> </td>
+																		<td> <a href="../elements/ai-kb.html" target="element"> Knowledge-Based Systems </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-ex2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-ex2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-expert.html" target="element"> Expert Systems Platform </a> </td>
+																		<td> <a href="../elements/ai-nexp.html" target="element"> Neural Expert Systems </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-gr1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-gr1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-graph.html" target="element"> Graph Analytics Platform </a> </td>
+																		<td> <a href="../elements/ai-graphmod.html" target="element"> Graph Models </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-gn1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-gn1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-genai.html" target="element"> Generative AI Platform </a> </td>
+																		<td> <a href="../elements/ai-audiogen.html" target="element"> Audio Generation (incl. Speech) </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-gn2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-gn2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-genai.html" target="element"> Generative AI Platform </a> </td>
+																		<td> <a href="../elements/ai-imggen.html" target="element"> Image and Video Generation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-gn3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-gn3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-genai.html" target="element"> Generative AI Platform </a> </td>
+																		<td> <a href="../elements/ai-textgen.html" target="element"> Text and Code Generation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-gn4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-gn4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-genai.html" target="element"> Generative AI Platform </a> </td>
+																		<td> <a href="../elements/ai-objgen.html" target="element"> Object Generation </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-cv1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-cv1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-cv.html" target="element"> Computer Vision Platform </a> </td>
+																		<td> <a href="../elements/ai-objrec.html" target="element"> Object Recognition and Segmentation </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-cv2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-cv2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-cv.html" target="element"> Computer Vision Platform </a> </td>
+																		<td> <a href="../elements/ai-frames.html" target="element"> Sequential Frame Processing </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-cv3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-cv3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-cv.html" target="element"> Computer Vision Platform </a> </td>
+																		<td> <a href="../elements/ai-imgmod.html" target="element"> Image Modification </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-cv4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-cv4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-cv.html" target="element"> Computer Vision Platform </a> </td>
+																		<td> <a href="../elements/ai-ocr.html" target="element"> OCR </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-nl1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-nl1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+																		<td> <a href="../elements/ai-semant.html" target="element"> Semantic Analysis </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-nl2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-nl2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+																		<td> <a href="../elements/ai-infoext.html" target="element"> Information Extraction </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-nl3.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-nl3.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+																		<td> <a href="../elements/ai-txtcls.html" target="element"> Text Classification </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-nl4.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-nl4.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+																		<td> <a href="../elements/ai-search.html" target="element"> Search Systems </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rs-16.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rs-16.html" target="element" class="i18n-elementtype-ServingRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-nlp.html" target="element"> NLP Platform </a> </td>
+																		<td> <a href="../elements/app-dms.html" target="element"> Document Management System </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-sp1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-sp1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-special.html" target="element"> Special AI Methods Platform </a> </td>
+																		<td> <a href="../elements/ai-metalearn.html" target="element"> Meta-Learning Algorithms </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-sp2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-sp2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-special.html" target="element"> Special AI Methods Platform </a> </td>
+																		<td> <a href="../elements/ai-actlearn.html" target="element"> Active Learning </a> </td>
+																	</tr>
+
+																	<tr>
+																		<td> <a href="../elements/rca-au1.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-au1.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-audio.html" target="element"> Audio Signal Analysis Platform </a> </td>
+																		<td> <a href="../elements/ai-audiosig.html" target="element"> Audio Signal Analysis </a> </td>
+																	</tr>
+																	<tr>
+																		<td> <a href="../elements/rca-au2.html" target="element">  </a> </td>
+																		<td> <a href="../elements/rca-au2.html" target="element" class="i18n-elementtype-CompositionRelationship">
+																		</a> </td>
+																		<td> <a href="../elements/ai-audio.html" target="element"> Audio Signal Analysis Platform </a> </td>
+																		<td> <a href="../elements/ai-speech.html" target="element"> Speech Recognition </a> </td>
+																	</tr>
+
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>
