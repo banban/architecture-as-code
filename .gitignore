@@ -19,3 +19,28 @@ Gemfile.lock
 
 /temp
 /reports
+
+#Python artefacts
+
+*.pyc
+*.so
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# Environments
+.venv/
+venv/
+ENV/
+# Secrets
+.env
+
+#Generally, you should ignore this if your project is meant to run on multiple versions, but some teams keep it to enforce a specific version. 
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# VS Code
+.vscode/
