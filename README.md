@@ -29,3 +29,9 @@ You can download zip file to run it locally, or access rendered reports by the f
 - [Open Day](https://banban.github.io/architecture-as-code/Open-Day/index.html)
 - [Operational Risk Management](https://banban.github.io/architecture-as-code/ORM/index.html)
 - [SABSA](https://banban.github.io/architecture-as-code/SABSA/index.html)
+
+As far as reports.zip file is big (~15MB) and not text, we use git LFS extension
+```bash
+git lfs install
+git lfs track "artifacts/reports.zip"
+```
