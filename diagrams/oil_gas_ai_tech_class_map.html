@@ -1,0 +1,210 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .root { padding: 16px; background: #f5f5f0; min-width: 1350px; font-family: var(--font-sans, 'Segoe UI', Arial, sans-serif); }
+  .main-title { font-size: 20px; font-weight: 700; color: #1a1a2e; letter-spacing: 0.4px; margin-bottom: 18px; text-transform: uppercase; border-left: 5px solid #1a3a6b; padding-left: 12px; }
+  .grid-wrap { display: flex; gap: 3px; }
+  .col { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .col-head { color: #fff; font-size: 9.5px; font-weight: 700; text-align: center; padding: 8px 5px; border-radius: 4px 4px 0 0; line-height: 1.3; min-height: 54px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .star { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 18px; color: #4a9fd4; line-height: 1; }
+  .cell { background: #fff; border: 0.5px solid #c8c8be; border-radius: 3px; padding: 6px 5px; font-size: 9px; color: #222; line-height: 1.35; text-align: center; flex: 0 0 auto; min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+  .cell.has-bulb::before { content: ''; position: absolute; top: 4px; right: 4px; width: 10px; height: 10px; background: #e05a00; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+  .cell.has-bulb::after { content: ''; position: absolute; top: 13px; right: 7px; width: 4px; height: 3px; background: #e05a00; border-radius: 1px; }
+  .cell.empty { background: #eae8e0; border-color: #ddd; min-height: 52px; }
+  .legend { margin-top: 14px; display: flex; gap: 20px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 10px; color: #333; }
+  .bulb-icon { width: 14px; height: 14px; background: #e05a00; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; flex-shrink: 0; }
+  .star-icon { color: #4a9fd4; font-size: 16px; line-height: 1; }
+
+  /* column header colours */
+  .h1  { background: #1a3a6b; }
+  .h2  { background: #c05010; }
+  .h3  { background: #c05010; }
+  .h4  { background: #c05010; }
+  .h5  { background: #1a3a6b; }
+  .h6  { background: #1a3a6b; }
+  .h7  { background: #1a3a6b; }
+  .h8  { background: #1a3a6b; }
+  .h9  { background: #1a3a6b; }
+  .h10 { background: #1a3a6b; }
+  .h11 { background: #1a3a6b; }
+  .h12 { background: #1a3a6b; }
+</style>
+
+<div class="root">
+  <div class="main-title">Project Mapping to AI Technology Class Map</div>
+
+  <div class="grid-wrap">
+
+    <!-- 1. Data Mining -->
+    <div class="col">
+      <div class="col-head h1">Data Mining</div>
+      <div class="cell has-bulb">Regression models</div>
+      <div class="cell has-bulb">Mathematical statistics methods</div>
+      <div class="cell">Dimensionality reduction</div>
+      <div class="cell">Clustering</div>
+      <div class="cell">Classification</div>
+      <div class="cell has-bulb">Anomaly detection</div>
+      <div class="cell">Association / link mining</div>
+      <div class="cell" style="position:relative;">Model ensembling<span class="star" style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:16px;color:#4a9fd4;">★</span></div>
+    </div>
+
+    <!-- 2. Hybrid AI -->
+    <div class="col">
+      <div class="col-head h2">Hybrid AI Technologies</div>
+      <div class="cell">Physics-informed machine learning (PINN)</div>
+      <div class="cell">Augmentation of physical-mathematical models</div>
+      <div class="cell has-bulb">Fusion of physics &amp; data-driven models</div>
+      <div class="cell">Neuro-symbolic AI</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 3. Augmented AI -->
+    <div class="col" style="position:relative;">
+      <div class="col-head h3" style="position:relative;">
+        <span class="star">★</span>
+        Augmented AI
+      </div>
+      <div class="cell">Augmented language models (Augmented LM)</div>
+      <div class="cell">Human-in-the-Loop systems</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 4. Agent Systems -->
+    <div class="col">
+      <div class="col-head h4">Agent Systems</div>
+      <div class="cell">Reinforcement learning</div>
+      <div class="cell" style="position:relative;">Multi-agent systems (MAS)<span class="star" style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:16px;color:#4a9fd4;">★</span></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 5. Optimisation Methods -->
+    <div class="col">
+      <div class="col-head h5" style="position:relative;"><span class="star">★</span>AI Optimisation Methods</div>
+      <div class="cell has-bulb">Advanced optimisation</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 6. Expert Systems -->
+    <div class="col">
+      <div class="col-head h6">Expert Systems</div>
+      <div class="cell">Knowledge-based systems</div>
+      <div class="cell">Neural expert systems</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 7. Graph Analysis -->
+    <div class="col">
+      <div class="col-head h7">Graph Analysis</div>
+      <div class="cell">Graph models</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 8. Generative AI -->
+    <div class="col">
+      <div class="col-head h8">Generative AI</div>
+      <div class="cell">Audio generation (incl. speech synthesis)</div>
+      <div class="cell">Image / video generation</div>
+      <div class="cell has-bulb">Text &amp; code generation</div>
+      <div class="cell">Object generation</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 9. Computer Vision -->
+    <div class="col">
+      <div class="col-head h9">Computer Vision</div>
+      <div class="cell has-bulb">Object recognition &amp; segmentation models</div>
+      <div class="cell">Sequential frame processing</div>
+      <div class="cell">Image editing</div>
+      <div class="cell">Optical character recognition (OCR)</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 10. NLP -->
+    <div class="col">
+      <div class="col-head h10">Natural Language Processing</div>
+      <div class="cell">Semantic analysis</div>
+      <div class="cell">Information extraction</div>
+      <div class="cell">Text classification</div>
+      <div class="cell">Search systems</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 11. Specialised AI Methods -->
+    <div class="col">
+      <div class="col-head h11">Specialised AI Methods</div>
+      <div class="cell">Meta-learning algorithms (Meta-Learning)</div>
+      <div class="cell">Active learning</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+    <!-- 12. Audio Signal Analysis -->
+    <div class="col">
+      <div class="col-head h12">Audio Signal Analysis</div>
+      <div class="cell">Audio signal analysis</div>
+      <div class="cell">Speech recognition</div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+      <div class="empty cell"></div>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="bulb-icon"></div>
+      <span>Focus areas of current AI projects</span>
+    </div>
+    <div class="legend-item">
+      <span class="star-icon">★</span>
+      <span>Prospective direction for development</span>
+    </div>
+  </div>
+</div>

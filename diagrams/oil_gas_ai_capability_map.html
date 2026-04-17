@@ -1,0 +1,331 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans, 'Segoe UI', Arial, sans-serif); }
+  .root { padding: 16px; background: #f5f5f0; min-width: 1400px; }
+  .main-title { font-size: 22px; font-weight: 700; color: #1a1a2e; letter-spacing: 0.5px; margin-bottom: 18px; text-transform: uppercase; border-left: 5px solid #1a3a6b; padding-left: 12px; }
+  .section-label { font-size: 11px; font-weight: 700; text-align: center; color: #444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .top-sections { display: flex; gap: 8px; margin-bottom: 8px; }
+  /* EXPLORATION & PRODUCTION */
+  .ep-section { flex: 0 0 auto; width: 560px; }
+  .ep-header { background: #1a3a6b; color: #fff; font-size: 11px; font-weight: 700; text-align: center; padding: 4px 6px; border-radius: 4px 4px 0 0; letter-spacing: 0.5px; text-transform: uppercase; }
+  /* TRANSPORT */
+  .tr-section { flex: 0 0 auto; width: 380px; }
+  .tr-header { background: #0f6e56; color: #fff; font-size: 11px; font-weight: 700; text-align: center; padding: 4px 6px; border-radius: 4px 4px 0 0; letter-spacing: 0.5px; text-transform: uppercase; }
+  /* LOGISTICS */
+  .lg-section { flex: 1; }
+  .lg-header { background: #6b3a8a; color: #fff; font-size: 11px; font-weight: 700; text-align: center; padding: 4px 6px; border-radius: 4px 4px 0 0; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  .cols-row { display: flex; gap: 4px; }
+
+  .col-header { font-size: 10px; font-weight: 700; text-align: center; padding: 5px 4px; border-radius: 3px; margin-bottom: 3px; color: #fff; }
+  .col-blue { background: #1a3a6b; }
+  .col-green { background: #0f6e56; }
+  .col-teal { background: #1D9E75; }
+  .col-dark-green { background: #085041; }
+  .col-purple { background: #6b3a8a; }
+  .col-mid-purple { background: #8b4fa8; }
+  .col-dark-purple { background: #4a2570; }
+  .col-amber { background: #854F0B; }
+  .col-coral { background: #993C1D; }
+
+  .cap-col { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .cap-block { background: #fff; border: 0.5px solid #c8c8be; border-radius: 4px; padding: 5px 5px 4px; font-size: 9.5px; color: #222; line-height: 1.3; min-height: 44px; position: relative; }
+  .cap-block .dots { display: flex; gap: 2px; margin-top: 4px; flex-wrap: wrap; }
+  .dot { width: 14px; height: 14px; border-radius: 2px; font-size: 8px; font-weight: 700; display: flex; align-items: center; justify-content: center; color: #fff; }
+  .dot-blue { background: #1a3a6b; }
+  .dot-orange { background: #d04010; }
+  .dot-green { background: #0f6e56; }
+  .dot-teal { background: #1D9E75; }
+  .dot-amber { background: #854F0B; }
+  .dot-purple { background: #6b3a8a; }
+  .dot-num { background: #1D9E75; border-radius: 50%; width: 16px; height: 16px; font-size: 8px; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  .cap-block.highlighted { border: 1.5px solid #1a3a6b; }
+  .cap-block.highlighted-green { border: 1.5px solid #0f6e56; }
+  .cap-block.highlighted-purple { border: 1.5px solid #6b3a8a; }
+  .cap-block.dashed { border-style: dashed; border-color: #888; }
+
+  .expand-icon { position: absolute; top: 4px; right: 4px; font-size: 9px; color: #888; }
+
+  /* CROSS-FUNCTIONAL */
+  .cross-section { margin-top: 8px; }
+  .cross-header { background: #333; color: #fff; font-size: 11px; font-weight: 700; text-align: center; padding: 4px 8px; border-radius: 4px 4px 0 0; text-transform: uppercase; letter-spacing: 0.5px; }
+  .cross-cols { display: flex; gap: 4px; margin-top: 3px; }
+  .cross-col { flex: 1; }
+  .cross-block { background: #fff; border: 0.5px solid #c8c8be; border-radius: 4px; padding: 5px; font-size: 9.5px; color: #222; text-align: center; min-height: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+  .cross-block.col-dark { background: #1a3a6b; color: #fff; }
+  .cross-block.col-teal-bg { background: #1D9E75; color: #fff; }
+
+  /* LEGEND */
+  .legend-section { margin-top: 12px; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+  .legend-box { background: #fff; border: 0.5px solid #c8c8be; border-radius: 6px; padding: 10px 14px; }
+  .legend-title { font-size: 10px; font-weight: 700; color: #333; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .ai-class-grid { display: flex; gap: 5px; flex-wrap: wrap; }
+  .ai-class { border-radius: 3px; padding: 4px 8px; font-size: 9.5px; font-weight: 600; color: #fff; white-space: nowrap; }
+  .ai-class .count { background: rgba(255,255,255,0.3); border-radius: 2px; padding: 0 4px; margin-left: 4px; font-size: 8.5px; }
+  .ai-sub { background: #ddd; color: #444; border-radius: 3px; padding: 3px 8px; font-size: 9px; }
+  .legend-notes { display: flex; flex-direction: column; gap: 6px; }
+  .legend-note { font-size: 9.5px; color: #333; display: flex; align-items: center; gap: 6px; }
+  .legend-dots-row { display: flex; gap: 3px; align-items: center; }
+
+  .section-wrapper { border: 0.5px solid #bbb; border-top: none; border-radius: 0 0 4px 4px; padding: 4px; background: #eae8e0; }
+</style>
+
+<div class="root">
+  <div class="main-title">AI Application in Industrial IT Landscape</div>
+
+  <div class="top-sections">
+
+    <!-- EXPLORATION & PRODUCTION -->
+    <div class="ep-section">
+      <div class="ep-header">Exploration &amp; Production</div>
+      <div class="section-wrapper">
+        <div class="cols-row">
+
+          <!-- Search / Prospecting -->
+          <div class="cap-col" style="flex:0 0 88px;">
+            <div class="col-header col-blue" style="font-size:9px;">Prospecting</div>
+            <div class="cap-block">Seismic exploration
+              <span class="expand-icon">⊟</span>
+              <div class="dots"><span class="dot dot-blue">1</span><span class="dot dot-orange">2</span><span class="dot dot-green">1</span></div>
+            </div>
+            <div class="cap-block">Planning &amp; design<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Operational monitoring &amp; control<div class="dots"></div></div>
+            <div class="cap-block">Seismic data processing<div class="dots"><span class="dot dot-blue">1</span><span class="dot dot-orange">2</span><span class="dot dot-green">3</span><span class="dot dot-blue">2</span></div></div>
+            <div class="cap-block">Interpretation &amp; modelling<div class="dots"></div></div>
+            <div class="cap-block highlighted">Magnetic surveying<div class="dots"><span class="dot dot-blue">2</span></div></div>
+            <div class="cap-block highlighted">Electrical surveying<div class="dots"></div></div>
+            <div class="cap-block highlighted">Gravity surveying<div class="dots"></div></div>
+            <div class="cap-block">Basin &amp; paleo-tectonic modelling<div class="dots"></div></div>
+            <div class="cap-block">Assessment of prospective reservoirs<div class="dots"><span class="dot dot-orange">3</span><span class="dot dot-blue">1</span></div></div>
+          </div>
+
+          <!-- Exploration -->
+          <div class="cap-col" style="flex:0 0 88px;">
+            <div class="col-header col-blue" style="font-size:9px;">Exploration</div>
+            <div class="cap-block">Geophysical investigations<div class="dots"><span class="dot dot-orange">4</span></div></div>
+            <div class="cap-block">Hydrodynamic modelling<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Geological modelling<div class="dots"><span class="dot dot-blue">3</span><span class="dot dot-orange">2</span><span class="dot dot-blue">2</span></div></div>
+            <div class="cap-block">Fluid studies<div class="dots"></div></div>
+            <div class="cap-block">Core analysis<div class="dots"><span class="dot dot-blue">2</span></div></div>
+            <div class="cap-block">Subsoil use<div class="dots"></div></div>
+            <div class="cap-block">Oil &amp; gas hydrogeology<div class="dots"></div></div>
+          </div>
+
+          <!-- Field Dev Design -->
+          <div class="cap-col" style="flex:0 0 100px;">
+            <div class="col-header col-blue" style="font-size:9px;">Field Dev. Design &amp; Infrastructure</div>
+            <div class="cap-block">Hydrodynamic modelling<div class="dots"><span class="dot dot-orange">2</span><span class="dot dot-blue">1</span><span class="dot dot-green">2</span></div></div>
+            <div class="cap-block">Forecast of technological indicators for development<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Selection of optimal development system<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block highlighted dashed">Conceptual engineering &amp; integrated design<div class="dots"></div></div>
+            <div class="cap-block highlighted">Integrated modelling
+              <span class="expand-icon">⊞</span>
+              <div class="dots"><span class="dot dot-blue">2</span></div>
+            </div>
+            <div class="cap-block">Cost engineering<div class="dots"></div></div>
+            <div class="cap-block">Reservoir engineering &amp; EOR planning
+              <span class="expand-icon">⊞</span>
+              <div class="dots"><span class="dot dot-orange">2</span><span class="dot dot-blue">1</span><span class="dot dot-orange">3</span></div>
+            </div>
+          </div>
+
+          <!-- Drilling -->
+          <div class="cap-col" style="flex:0 0 88px;">
+            <div class="col-header col-blue" style="font-size:9px;">Drilling</div>
+            <div class="cap-block">Geomechanical modelling<div class="dots"><span class="dot dot-orange">2</span><span class="dot dot-blue">1</span><span class="dot dot-green">2</span></div></div>
+            <div class="cap-block highlighted">Well design: tech. &amp; completion<div class="dots"><span class="dot dot-orange">2</span></div></div>
+            <div class="cap-block">Operational mgmt. of well work<span class="expand-icon">⊞</span><div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block highlighted">Design of well work on the well stock<div class="dots"></div></div>
+          </div>
+
+          <!-- Production & Monitoring -->
+          <div class="cap-col" style="flex:0 0 100px;">
+            <div class="col-header col-blue" style="font-size:9px;">Production &amp; Monitoring</div>
+            <div class="cap-block">Preparation &amp; analysis of field data<div class="dots"><span class="dot dot-blue">2</span><span class="dot dot-orange">1</span></div></div>
+            <div class="cap-block">Operational analysis &amp; fact accounting<div class="dots"></div></div>
+            <div class="cap-block highlighted">Optimisation of equipment operating modes<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block dashed">Modelling, planning &amp; forecasting of production
+              <span class="expand-icon">⊞</span>
+              <div class="dots"><span class="dot dot-orange">7</span><span class="dot dot-blue">1</span><span class="dot dot-orange">2</span><span class="dot dot-blue">1</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSPORTATION -->
+    <div class="tr-section">
+      <div class="tr-header">Transportation</div>
+      <div class="section-wrapper">
+        <div class="cols-row">
+
+          <!-- Oil & Products Transport -->
+          <div class="cap-col">
+            <div class="col-header col-teal" style="font-size:9px;">Oil &amp; Products Transport</div>
+            <div class="cap-block">Accounting records management<div class="dots"><span class="dot dot-blue">2</span></div></div>
+            <div class="cap-block">Execution &amp; flow monitoring of oil<div class="dots"></div></div>
+            <div class="cap-block">Execution &amp; flow monitoring of oil products<div class="dots"></div></div>
+            <div class="cap-block">Oil transport execution<div class="dots"></div></div>
+            <div class="cap-block">Oil products transport execution<div class="dots"></div></div>
+            <div class="cap-block">Trunk pipeline maintenance &amp; operations planning<div class="dots"></div></div>
+          </div>
+
+          <!-- Gas Main Transport -->
+          <div class="cap-col">
+            <div class="col-header col-dark-green" style="font-size:9px;background:#0f6e56;">Gas Main Transport</div>
+            <div class="cap-block">Pre-design: gas pipeline parameters &amp; characteristics<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Decision support for gas pipeline control<div class="dots"></div></div>
+            <div class="cap-block">Operational analysis &amp; accounting<div class="dots"></div></div>
+            <div class="cap-block">Identification of actual gas flows through GTS<div class="dots"></div></div>
+            <div class="cap-block">Identification of operating modes of GTS<div class="dots"></div></div>
+            <div class="cap-block">Justification of throughput capacity of tech. objects &amp; gas pipeline systems<div class="dots"></div></div>
+            <div class="cap-block">Management of tech. condition &amp; integrity of GTS objects<div class="dots"><span class="dot dot-blue">3</span></div></div>
+          </div>
+
+          <!-- Underground Gas Storage -->
+          <div class="cap-col">
+            <div class="col-header" style="background:#085041;font-size:9px;color:#fff;">Underground Gas Storage</div>
+            <div class="cap-block">Process mgmt.: gas injection/withdrawal parameters &amp; UGS operating modes<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Formation &amp; control of gas balance<div class="dots"></div></div>
+            <div class="cap-block">Planning (injection/withdrawal)<div class="dots"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGISTICS, PROCESSING & SALES -->
+    <div class="lg-section">
+      <div class="lg-header">Logistics, Processing &amp; Sales</div>
+      <div class="section-wrapper">
+        <div class="cols-row">
+
+          <!-- Supply -->
+          <div class="cap-col">
+            <div class="col-header col-purple" style="font-size:9px;">Supply</div>
+            <div class="cap-block">Supply &amp; marine logistics management<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Procurement &amp; trading operations management<div class="dots"><span class="dot dot-orange">2</span></div></div>
+            <div class="cap-block">Calendar planning of supplies<div class="dots"></div></div>
+          </div>
+
+          <!-- Processing -->
+          <div class="cap-col">
+            <div class="col-header col-purple" style="font-size:9px;">Processing</div>
+            <div class="cap-block">Operational calendar planning<div class="dots"><span class="dot dot-orange">2</span><span class="dot dot-blue">5</span></div></div>
+            <div class="cap-block">Processing management<div class="dots"></div></div>
+            <div class="cap-block dashed">Production management of petroleum products
+              <span class="expand-icon">⊞</span>
+            </div>
+            <div class="cap-block dashed">Inventory balance management (material &amp; energy)
+              <span class="expand-icon">⊞</span>
+            </div>
+            <div class="cap-block dashed">Online optimisation<div class="dots"></div></div>
+            <div class="cap-block highlighted-purple">Passportisation, control &amp; quality forecast<div class="dots"><span class="dot dot-blue">1</span><span class="dot dot-purple">1</span></div></div>
+          </div>
+
+          <!-- Logistics -->
+          <div class="cap-col">
+            <div class="col-header col-mid-purple" style="font-size:9px;">Logistics</div>
+            <div class="cap-block">Calendar planning of shipments<div class="dots"></div></div>
+            <div class="cap-block">Shipment management<div class="dots"><span class="dot dot-blue">1</span></div></div>
+            <div class="cap-block">Logistics management<div class="dots"><span class="dot dot-blue">1</span><span class="dot dot-orange">1</span></div></div>
+            <div class="cap-block">Partner relationship management with carriers<div class="dots"></div></div>
+            <div class="cap-block">Warehouse management<div class="dots"></div></div>
+          </div>
+
+          <!-- Sales -->
+          <div class="cap-col">
+            <div class="col-header col-mid-purple" style="font-size:9px;">Sales</div>
+            <div class="cap-block">Managing interactions with counterparties<div class="dots"></div></div>
+            <div class="cap-block">Marketing &amp; pricing<div class="dots"></div></div>
+            <div class="cap-block">Demand &amp; sales planning &amp; forecasting<div class="dots"></div></div>
+            <div class="cap-block">Non-fuel business management for terminals &amp; petrol stations<div class="dots"></div></div>
+            <div class="cap-block">Realisation<div class="dots"></div></div>
+          </div>
+
+          <!-- Gas Distribution -->
+          <div class="cap-col">
+            <div class="col-header col-dark-purple" style="font-size:9px;background:#4a2570;">Gas Distribution</div>
+            <div class="cap-block">Identification of actual gas meter readings<div class="dots"></div></div>
+            <div class="cap-block">Assessment of reserves &amp; subsidy potential<div class="dots"></div></div>
+            <div class="cap-block">Modelling of gas distribution network development<div class="dots"></div></div>
+            <div class="cap-block">Modelling of gas distribution process<div class="dots"></div></div>
+            <div class="cap-block">Assessment of options for gas distribution<div class="dots"></div></div>
+            <div class="cap-block">Managing external comms for gas distribution network<div class="dots"></div></div>
+            <div class="cap-block">Re-equipment &amp; reconstruction of hydrocarbons processing objects<div class="dots"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CROSS-FUNCTIONAL -->
+  <div class="cross-section">
+    <div class="cross-header">Cross-Functional</div>
+    <div class="cross-cols" style="margin-top:3px;">
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Reliability, Maintenance &amp; Repair</span><div class="dots" style="justify-content:center;margin-top:2px;"><span class="dot dot-blue">2</span></div></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Commercial accounting</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Customs management</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Industrial &amp; environmental safety</span><span class="expand-icon" style="font-size:9px;color:#888;"> ⊞</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Energy</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Industrial automation &amp; metrology</span></div></div>
+      <div class="cross-col"><div class="cross-block col-teal-bg"><span style="font-size:9px;font-weight:600;color:#fff;">Dispatching</span><span class="expand-icon" style="font-size:9px;color:#cfc;"> ⊞</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Modelling of technological processes</span><span class="expand-icon" style="font-size:9px;color:#888;"> ⊞</span><div class="dots" style="justify-content:center;margin-top:2px;"><span class="dot dot-blue">1</span></div></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Functional &amp; integrated planning</span><span class="expand-icon" style="font-size:9px;color:#888;"> ⊞</span><div class="dots" style="justify-content:center;margin-top:2px;"><span class="dot dot-blue">1</span></div></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Hydraulic modelling</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Economic modelling</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Surveying &amp; geodetic support</span></div></div>
+      <div class="cross-col"><div class="cross-block"><span style="font-size:9px;font-weight:600;color:#222;">Capital construction</span></div></div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend-section">
+    <div class="legend-box" style="flex:2;">
+      <div class="legend-title">AI Technology Classes</div>
+      <div class="ai-class-grid">
+        <div class="ai-class" style="background:#1a3a6b;">Intelligent data analysis (Data Mining)<span class="count">35</span></div>
+        <div class="ai-class" style="background:#d04010;">Optimisation methods with AI<span class="count">28</span></div>
+        <div class="ai-class" style="background:#0f6e56;">Computer Vision (CV)<span class="count">20</span></div>
+        <div class="ai-class" style="background:#6b3a8a;">Agent systems<span class="count">21</span></div>
+        <div class="ai-class" style="background:#854F0B;">Expert systems<span class="count"></span></div>
+        <div class="ai-class" style="background:#555;">Hybrid AI technologies<span class="count"></span></div>
+        <div class="ai-class" style="background:#888;">Generative AI<span class="count">1</span></div>
+      </div>
+      <div style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
+        <div class="ai-sub">Graphical analysis</div>
+        <div class="ai-sub">Historical data processing</div>
+        <div class="ai-sub">Specialised methods</div>
+        <div class="ai-sub">Audio / video analytics</div>
+        <div class="ai-sub">Additional methods</div>
+        <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#666;background:#ddd;border-radius:3px;padding:3px 8px;">
+          <span style="display:inline-block;width:18px;height:12px;background:repeating-linear-gradient(45deg,#bbb,#bbb 2px,#eee 2px,#eee 6px);border-radius:2px;"></span>
+          AI classes absent from IT landscape
+        </div>
+      </div>
+    </div>
+    <div class="legend-box" style="flex:1;">
+      <div class="legend-title">Coverage Indicators</div>
+      <div class="legend-notes">
+        <div class="legend-note">
+          <div class="legend-dots-row">
+            <span class="dot dot-blue" style="width:16px;height:16px;font-size:8px;">1</span>
+            <span class="dot dot-orange" style="width:16px;height:16px;font-size:8px;">2</span>
+            <span class="dot dot-green" style="width:16px;height:16px;font-size:8px;">1</span>
+          </div>
+          <span style="font-size:9px;">Industrial IT landscape coverage with AI digital solutions</span>
+        </div>
+        <div class="legend-note">
+          <span class="dot-num">21</span>
+          <span style="font-size:9px;">Number of unique solutions with specific AI technology</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
