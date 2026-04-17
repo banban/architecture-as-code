@@ -1208,45 +1208,45 @@
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="12 – Full Application Architecture" id="view-apparch">
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-scada" archimateElement="app-scada">
-        <bounds x="20" y="20" width="180" height="50"/>
+        <bounds x="220" y="1154" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-erp" archimateElement="app-erp">
-        <bounds x="220" y="20" width="180" height="50"/>
+        <bounds x="420" y="1154" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-gis" archimateElement="app-gis">
-        <bounds x="420" y="20" width="180" height="50"/>
+        <bounds x="620" y="1154" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-twin" archimateElement="app-twin">
-        <bounds x="620" y="20" width="180" height="50"/>
+        <bounds x="820" y="1154" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-iiot" archimateElement="app-iiot">
-        <bounds x="820" y="20" width="180" height="50"/>
+        <bounds x="1020" y="1154" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-lake" archimateElement="app-lake">
-        <bounds x="20" y="90" width="180" height="50"/>
+        <bounds x="1319" y="144" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-23" source="dv-view-apparch-app-lake" target="dv-view-apparch-ai-dm" archimateRelationship="rs-23"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-24" source="dv-view-apparch-app-lake" target="dv-view-apparch-app-mlops" archimateRelationship="rs-24"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-mlops" targetConnections="conn-view-apparch-rs-24" archimateElement="app-mlops">
-        <bounds x="220" y="90" width="180" height="50"/>
+        <bounds x="1008" y="144" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-ressim" archimateElement="app-ressim">
-        <bounds x="420" y="90" width="180" height="50"/>
+        <bounds x="620" y="1224" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-pipesim" archimateElement="app-pipesim">
-        <bounds x="620" y="90" width="180" height="50"/>
+        <bounds x="820" y="1224" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-prosim" archimateElement="app-prosim">
-        <bounds x="820" y="90" width="180" height="50"/>
+        <bounds x="1020" y="1224" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-mes" archimateElement="app-mes">
-        <bounds x="20" y="160" width="180" height="50"/>
+        <bounds x="220" y="1231" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-app-dms" targetConnections="conn-view-apparch-rs-16" archimateElement="app-dms">
-        <bounds x="220" y="160" width="180" height="50"/>
+        <bounds x="1081" y="924" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-dm" targetConnections="conn-view-apparch-rs-23" archimateElement="ai-dm">
-        <bounds x="420" y="160" width="180" height="50"/>
+        <bounds x="1272" y="240" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm1" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-regress" archimateRelationship="rca-dm1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm2" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-mathstat" archimateRelationship="rca-dm2"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm3" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-dimred" archimateRelationship="rca-dm3"/>
@@ -1257,31 +1257,31 @@
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-dm8" source="dv-view-apparch-ai-dm" target="dv-view-apparch-ai-ensembl" archimateRelationship="rca-dm8"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-regress" targetConnections="conn-view-apparch-rca-dm1" archimateElement="ai-regress">
-        <bounds x="620" y="160" width="180" height="50"/>
+        <bounds x="1512" y="279" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-mathstat" targetConnections="conn-view-apparch-rca-dm2" archimateElement="ai-mathstat">
-        <bounds x="820" y="160" width="180" height="50"/>
+        <bounds x="1272" y="312" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-dimred" targetConnections="conn-view-apparch-rca-dm3" archimateElement="ai-dimred">
-        <bounds x="20" y="230" width="180" height="50"/>
+        <bounds x="961" y="300" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-cluster" targetConnections="conn-view-apparch-rca-dm4" archimateElement="ai-cluster">
-        <bounds x="220" y="230" width="180" height="50"/>
+        <bounds x="1081" y="361" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-classif" targetConnections="conn-view-apparch-rca-dm5" archimateElement="ai-classif">
-        <bounds x="420" y="230" width="180" height="50"/>
+        <bounds x="1140" y="48" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-anomaly" targetConnections="conn-view-apparch-rca-dm6" archimateElement="ai-anomaly">
-        <bounds x="620" y="230" width="180" height="50"/>
+        <bounds x="1020" y="209" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-assoc" targetConnections="conn-view-apparch-rca-dm7" archimateElement="ai-assoc">
-        <bounds x="820" y="230" width="180" height="50"/>
+        <bounds x="829" y="240" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-ensembl" targetConnections="conn-view-apparch-rca-dm8" archimateElement="ai-ensembl">
-        <bounds x="20" y="300" width="180" height="50"/>
+        <bounds x="1512" y="181" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-hybrid" archimateElement="ai-hybrid">
-        <bounds x="220" y="300" width="180" height="50"/>
+        <bounds x="228" y="263" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy1" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-pinn" archimateRelationship="rca-hy1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy2" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-auglm" archimateRelationship="rca-hy2"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy3" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-physmat" archimateRelationship="rca-hy3"/>
@@ -1289,16 +1289,16 @@
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-hy5" source="dv-view-apparch-ai-hybrid" target="dv-view-apparch-ai-neurosym" archimateRelationship="rca-hy5"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-pinn" targetConnections="conn-view-apparch-rca-hy1" archimateElement="ai-pinn">
-        <bounds x="420" y="300" width="180" height="50"/>
+        <bounds x="504" y="272" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-auglm" targetConnections="conn-view-apparch-rca-hy2" archimateElement="ai-auglm">
-        <bounds x="620" y="300" width="180" height="50"/>
+        <bounds x="462" y="160" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-physmat" targetConnections="conn-view-apparch-rca-hy3" archimateElement="ai-physmat">
-        <bounds x="820" y="300" width="180" height="50"/>
+        <bounds x="228" y="160" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-fusion" targetConnections="conn-view-apparch-rca-hy4" archimateElement="ai-fusion">
-        <bounds x="20" y="370" width="180" height="50"/>
+        <bounds x="20" y="263" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-neurosym" targetConnections="conn-view-apparch-rca-hy5" archimateElement="ai-neurosym">
         <bounds x="220" y="370" width="180" height="50"/>
@@ -1310,20 +1310,20 @@
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-ag3" source="dv-view-apparch-ai-agent" target="dv-view-apparch-ai-mas" archimateRelationship="rca-ag3"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-rl" targetConnections="conn-view-apparch-rca-ag1" archimateElement="ai-rl">
-        <bounds x="620" y="370" width="180" height="50"/>
+        <bounds x="696" y="370" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-hitl" targetConnections="conn-view-apparch-rca-ag2" archimateElement="ai-hitl">
-        <bounds x="820" y="370" width="180" height="50"/>
+        <bounds x="462" y="600" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-mas" targetConnections="conn-view-apparch-rca-ag3" archimateElement="ai-mas">
-        <bounds x="20" y="440" width="180" height="50"/>
+        <bounds x="336" y="479" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-optim" archimateElement="ai-optim">
-        <bounds x="220" y="440" width="180" height="50"/>
+        <bounds x="36" y="440" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-op1" source="dv-view-apparch-ai-optim" target="dv-view-apparch-ai-advopt" archimateRelationship="rca-op1"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-advopt" targetConnections="conn-view-apparch-rca-op1" archimateElement="ai-advopt">
-        <bounds x="420" y="440" width="180" height="50"/>
+        <bounds x="24" y="528" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-expert" archimateElement="ai-expert">
         <bounds x="620" y="440" width="180" height="50"/>
@@ -1334,55 +1334,55 @@
         <bounds x="820" y="440" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-nexp" targetConnections="conn-view-apparch-rca-ex2" archimateElement="ai-nexp">
-        <bounds x="20" y="510" width="180" height="50"/>
+        <bounds x="641" y="539" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-graph" archimateElement="ai-graph">
-        <bounds x="220" y="510" width="180" height="50"/>
+        <bounds x="36" y="684" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gr1" source="dv-view-apparch-ai-graph" target="dv-view-apparch-ai-graphmod" archimateRelationship="rca-gr1"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-graphmod" targetConnections="conn-view-apparch-rca-gr1" archimateElement="ai-graphmod">
-        <bounds x="420" y="510" width="180" height="50"/>
+        <bounds x="48" y="601" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-genai" archimateElement="ai-genai">
-        <bounds x="620" y="510" width="180" height="50"/>
+        <bounds x="2028" y="461" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn1" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-audiogen" archimateRelationship="rca-gn1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn2" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-imggen" archimateRelationship="rca-gn2"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn3" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-textgen" archimateRelationship="rca-gn3"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-gn4" source="dv-view-apparch-ai-genai" target="dv-view-apparch-ai-objgen" archimateRelationship="rca-gn4"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audiogen" targetConnections="conn-view-apparch-rca-gn1" archimateElement="ai-audiogen">
-        <bounds x="820" y="510" width="180" height="50"/>
+        <bounds x="2004" y="321" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-imggen" targetConnections="conn-view-apparch-rca-gn2" archimateElement="ai-imggen">
-        <bounds x="20" y="580" width="180" height="50"/>
+        <bounds x="1788" y="461" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-textgen" targetConnections="conn-view-apparch-rca-gn3" archimateElement="ai-textgen">
-        <bounds x="220" y="580" width="180" height="50"/>
+        <bounds x="1992" y="588" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-objgen" targetConnections="conn-view-apparch-rca-gn4" archimateElement="ai-objgen">
-        <bounds x="420" y="580" width="180" height="50"/>
+        <bounds x="2292" y="461" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-cv" archimateElement="ai-cv">
-        <bounds x="620" y="580" width="180" height="50"/>
+        <bounds x="1260" y="510" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv1" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-objrec" archimateRelationship="rca-cv1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv2" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-frames" archimateRelationship="rca-cv2"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv3" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-imgmod" archimateRelationship="rca-cv3"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-cv4" source="dv-view-apparch-ai-cv" target="dv-view-apparch-ai-ocr" archimateRelationship="rca-cv4"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-objrec" targetConnections="conn-view-apparch-rca-cv1" archimateElement="ai-objrec">
-        <bounds x="820" y="580" width="180" height="50"/>
+        <bounds x="1272" y="396" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-frames" targetConnections="conn-view-apparch-rca-cv2" archimateElement="ai-frames">
-        <bounds x="20" y="650" width="180" height="50"/>
+        <bounds x="1524" y="419" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-imgmod" targetConnections="conn-view-apparch-rca-cv3" archimateElement="ai-imgmod">
-        <bounds x="220" y="650" width="180" height="50"/>
+        <bounds x="1524" y="516" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-ocr" targetConnections="conn-view-apparch-rca-cv4" archimateElement="ai-ocr">
-        <bounds x="420" y="650" width="180" height="50"/>
+        <bounds x="1272" y="624" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-nlp" archimateElement="ai-nlp">
-        <bounds x="620" y="650" width="180" height="50"/>
+        <bounds x="1284" y="924" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl1" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-semant" archimateRelationship="rca-nl1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl2" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-infoext" archimateRelationship="rca-nl2"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-nl3" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-ai-txtcls" archimateRelationship="rca-nl3"/>
@@ -1390,38 +1390,38 @@
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rs-16" source="dv-view-apparch-ai-nlp" target="dv-view-apparch-app-dms" archimateRelationship="rs-16"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-semant" targetConnections="conn-view-apparch-rca-nl1" archimateElement="ai-semant">
-        <bounds x="820" y="650" width="180" height="50"/>
+        <bounds x="1140" y="804" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-infoext" targetConnections="conn-view-apparch-rca-nl2" archimateElement="ai-infoext">
-        <bounds x="20" y="720" width="180" height="50"/>
+        <bounds x="1392" y="811" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-txtcls" targetConnections="conn-view-apparch-rca-nl3" archimateElement="ai-txtcls">
-        <bounds x="220" y="720" width="180" height="50"/>
+        <bounds x="1548" y="924" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-search" targetConnections="conn-view-apparch-rca-nl4" archimateElement="ai-search">
-        <bounds x="420" y="720" width="180" height="50"/>
+        <bounds x="1284" y="1032" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-special" archimateElement="ai-special">
-        <bounds x="620" y="720" width="180" height="50"/>
+        <bounds x="576" y="745" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-sp1" source="dv-view-apparch-ai-special" target="dv-view-apparch-ai-metalearn" archimateRelationship="rca-sp1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-sp2" source="dv-view-apparch-ai-special" target="dv-view-apparch-ai-actlearn" archimateRelationship="rca-sp2"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-metalearn" targetConnections="conn-view-apparch-rca-sp1" archimateElement="ai-metalearn">
-        <bounds x="820" y="720" width="180" height="50"/>
+        <bounds x="348" y="790" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-actlearn" targetConnections="conn-view-apparch-rca-sp2" archimateElement="ai-actlearn">
-        <bounds x="20" y="790" width="180" height="50"/>
+        <bounds x="360" y="708" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audio" archimateElement="ai-audio">
-        <bounds x="220" y="790" width="180" height="50"/>
+        <bounds x="744" y="624" width="180" height="50"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-au1" source="dv-view-apparch-ai-audio" target="dv-view-apparch-ai-audiosig" archimateRelationship="rca-au1"/>
         <sourceConnection xsi:type="archimate:Connection" id="conn-view-apparch-rca-au2" source="dv-view-apparch-ai-audio" target="dv-view-apparch-ai-speech" archimateRelationship="rca-au2"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-audiosig" targetConnections="conn-view-apparch-rca-au1" archimateElement="ai-audiosig">
-        <bounds x="420" y="790" width="180" height="50"/>
+        <bounds x="888" y="696" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-ai-speech" targetConnections="conn-view-apparch-rca-au2" archimateElement="ai-speech">
-        <bounds x="620" y="790" width="180" height="50"/>
+        <bounds x="1020" y="624" width="180" height="50"/>
       </child>
       <child xsi:type="archimate:DiagramObject" id="dv-view-apparch-as-seismic" archimateElement="as-seismic">
         <bounds x="820" y="790" width="180" height="50"/>
