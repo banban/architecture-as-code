@@ -1,5 +1,5 @@
 # Care Services Provider (CSP) Event-Driven Architecture (EDA)
-This repository captures two complementary views of the same customer integration design:
+This project captures two complementary views of the same customer integration design:
 
 - `event-contracts.ts`: shared canonical event and topic contracts
 - `data-governance.ts`: shared ownership, sensitivity, and access policy model
@@ -56,6 +56,49 @@ Together they show both strategic architecture and local implementation responsi
 - Make future systems pluggable by subscribing to the same customer event contracts.
 - Segregate sensitive and insensitive data so medical and high-risk PII can be handled under stronger controls.
 - Encrypt data in transit and at rest, with stronger controls such as tokenization and field-level encryption for high-sensitivity domains.
+
+## Reliability Pattern Grounding
+This blueprint aligns with several reliability patterns from Microsoft Azure's
+[Well-Architected guidance](https://learn.microsoft.com/en-us/azure/well-architected/reliability/design-patterns) on architecture design patterns that support
+reliability.
+
+Patterns that are explicitly represented in this blueprint:
+- `Publisher/Subscriber`: the core architecture uses the shared
+  `customer-topic` to decouple front office, finance/billing, service delivery,
+  and future systems.
+- `Bulkhead`: the design separates bounded contexts, ownership domains, and
+  sensitive-data handling paths so failures or policy constraints in one area
+  do not automatically spread to others.
+- `Pipes and Filters`: the integration layer is modeled as a mediated flow of
+  validation, routing, schema control, audit, and policy enforcement rather
+  than as direct system-to-system coupling.
+
+Patterns that are strongly implied by the architecture controls:
+- `Retry`: listed in the integration policies to tolerate transient failures in
+  publication and consumption paths.
+- `Competing Consumers`: compatible with the subscriber model because consumers
+  are intentionally decoupled behind the shared topic and designed for
+  duplicate-safe processing.
+- `Health Endpoint Monitoring`: implied as an operational concern through the
+  blueprint's emphasis on auditability, reconciliation, and observability,
+  although no concrete endpoint contract is defined in these TypeScript files.
+
+Patterns that are partially aligned but not fully modeled yet:
+- `Queue-Based Load Leveling`: the shared topic provides asynchronous
+  decoupling, but the blueprint does not yet define dedicated workload buffers,
+  worker pools, or back-pressure rules.
+- `Circuit Breaker` and `Throttling`: these would fit naturally in the
+  integration layer or partner-facing adapters, but they are not yet described
+  as explicit contracts in this blueprint.
+- `Saga distributed transactions` / `Compensating Transaction`: the current
+  design favors eventual consistency and authoritative ownership, but it does
+  not yet define compensation workflows for multi-step cross-system business
+  processes.
+
+In short, the current solution is most clearly grounded in
+publish/subscribe-based decoupling, failure isolation across bounded contexts,
+and mediated integration controls that support resilient asynchronous
+processing.
 
 ## Ownership Model
 
