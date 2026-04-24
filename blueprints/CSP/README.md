@@ -8,21 +8,28 @@ This repository captures two complementary views of the same customer integratio
 
 ## TypeScript Validation
 
-This folder can be validated as a lightweight TypeScript project.
+This folder can be validated as a lightweight TypeScript package without
+depending on any root-level repository configuration.
 
 Included project files:
 
 - `package.json`: project metadata and a `typecheck` script
 - `tsconfig.json`: strict TypeScript compiler settings for schema validation
 - `eslint.config.mjs`: lightweight linting for unused imports and TypeScript hygiene
-- `.gitignore`: ignores local dependency and build artifacts
+- the parent repo `.gitignore`: ignores local dependency and build artifacts
 
 Typical validation flow:
 
 ```powershell
 npm install
-npm run typecheck
-npm run lint
+node --run check
+```
+
+Or run the checks individually:
+
+```powershell
+node --run typecheck
+node --run lint
 ```
 
 This uses the TypeScript compiler as a consistency check across the architecture artifacts without generating runtime output.

@@ -2,8 +2,10 @@
   "name": "csp-eda-architecture",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "TypeScript architecture artifacts for a CSP event-driven integration design",
   "scripts": {
+    "check": "tsc --noEmit && eslint .",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
   },
