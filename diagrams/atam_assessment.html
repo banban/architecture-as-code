@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ATAM Architecture Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Sora','Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;min-height:100vh;}
+  ::-webkit-scrollbar{width:6px;height:6px;}
+  ::-webkit-scrollbar-track{background:#e2e8f0;}
+  ::-webkit-scrollbar-thumb{background:#94a3b8;border-radius:3px;}
+
+  /* HEADER */
+  .header{background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%);border-bottom:1px solid #e2e8f0;padding:32px 40px 24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+  .header-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .title-bar{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+  .title-accent{width:8px;height:32px;background:linear-gradient(180deg,#3b82f6,#8b5cf6);border-radius:4px;}
+  h1{font-size:1.7rem;font-weight:800;letter-spacing:-0.03em;color:#0f172a;}
+  .subtitle{color:#64748b;font-size:0.88rem;margin-left:18px;margin-top:4px;}
+  .sort-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .sort-label{color:#64748b;font-size:0.8rem;}
+  .sort-btn{background:#f1f5f9;border:1px solid #cbd5e1;color:#475569;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.8rem;font-family:'Sora',sans-serif;transition:all 0.2s;}
+  .sort-btn:hover,.sort-btn.active{background:#dbeafe;border-color:#3b82f6;color:#1d4ed8;}
+  .legend{display:flex;gap:20px;margin-top:20px;margin-left:18px;flex-wrap:wrap;align-items:center;}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:0.8rem;color:#475569;}
+  .legend-dot{width:10px;height:10px;border-radius:2px;}
+  .score-badges{display:flex;gap:5px;align-items:center;flex-wrap:wrap;}
+  .score-legend-label{color:#64748b;font-size:0.8rem;}
+
+  /* TABLE WRAPPER */
+  .table-wrap{overflow-x:auto;padding:24px 40px 0;}
+  table{width:100%;border-collapse:collapse;min-width:1000px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,0.07);}
+  thead tr{background:#f8fafc;}
+  th{padding:10px 8px;text-align:center;font-size:0.7rem;font-weight:700;border-bottom:2px solid #e2e8f0;min-width:82px;}
+  th.col-arch{text-align:left;padding:12px 16px;width:210px;color:#64748b;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;}
+  th.col-score{color:#64748b;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;min-width:90px;}
+  th.col-verdict{text-align:left;padding:12px 16px;color:#64748b;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;min-width:190px;}
+  .cat-label{font-size:0.6rem;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px;}
+
+  /* TABLE ROWS */
+  tbody tr{cursor:pointer;transition:background 0.15s;border-left:3px solid transparent;}
+  tbody tr:nth-child(even){background:#f8fafc;}
+  tbody tr:nth-child(odd){background:#ffffff;}
+  tbody tr:hover{background:#eff6ff!important;}
+  tbody tr.selected{background:#dbeafe!important;border-left:3px solid #3b82f6!important;}
+  td{padding:14px 8px;text-align:center;border-bottom:1px solid #e2e8f0;vertical-align:middle;}
+  td.col-arch{text-align:left;padding:14px 16px;}
+  td.col-verdict{text-align:left;padding:14px 16px;}
+  td.col-score{padding:14px 16px;}
+  .arch-name{font-weight:700;font-size:0.9rem;margin-bottom:3px;}
+  .arch-desc{color:#64748b;font-size:0.72rem;line-height:1.4;}
+
+  /* SCORE BADGE */
+  .badge{display:inline-block;padding:3px 10px;border-radius:99px;font-weight:700;font-size:0.78rem;font-family:'JetBrains Mono',monospace;}
+
+  /* PROGRESS */
+  .score-pct{font-weight:800;color:#0f172a;font-size:1rem;font-family:'JetBrains Mono',monospace;margin-bottom:4px;}
+  .progress-track{background:#e2e8f0;border-radius:3px;height:4px;overflow:hidden;}
+  .progress-bar{height:100%;border-radius:3px;}
+
+  /* DETAIL PANEL */
+  .detail-panel{margin:16px 40px 0;background:#ffffff;border-radius:12px;padding:28px 32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;animation:fadeIn 0.25s ease;box-shadow:0 1px 6px rgba(0,0,0,0.07);}
+  .detail-panel.hidden{display:none;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .panel-col-title{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+  .panel-accent{width:4px;height:20px;border-radius:2px;}
+  .panel-label{font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.06em;}
+  .panel-item{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start;}
+  .panel-icon{margin-top:2px;flex-shrink:0;}
+  .panel-text{color:#475569;font-size:0.82rem;line-height:1.5;}
+
+  /* HINT */
+  .hint{margin:16px 40px 0;padding:14px 24px;background:#ffffff;border-radius:8px;border:1px dashed #cbd5e1;color:#94a3b8;font-size:0.82rem;text-align:center;}
+
+  /* FOOTER */
+  .footer{margin:24px 40px 32px;padding:16px 24px;background:#ffffff;border-radius:8px;border-top:1px solid #e2e8f0;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+  .footer-cats{display:flex;gap:8px;flex-wrap:wrap;}
+  .footer-cat{padding:4px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;}
+  .footer-note{color:#94a3b8;font-size:0.72rem;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="title-bar">
+        <div class="title-accent"></div>
+        <h1>Architecture Tradeoff Analysis</h1>
+      </div>
+      <div class="subtitle">
+        <p><a href="https://www.sei.cmu.edu/library/architecture-tradeoff-analysis-method-collection/" target="_blank">Architecture Tradeoff Analysis Method (ATAM®)</a> is a method for evaluating software architectures relative to quality attribute goals.<br/>
+        ATAM evaluations expose architectural risks that potentially inhibit the achievement of an organization's business goals.<br/>
+        The ATAM gets its name because it not only reveals how well an architecture satisfies particular quality goals but it also provides insight into how those quality goals interact with each other—how they trade off against each other.<br/>
+        The ATAM is the leading method in the area of software architecture evaluation. An evaluation using the ATAM typically takes three to four days and gathers together a trained evaluation team, architects, and representatives of the architecture's various stakeholders.<br/>
+        ATAM is better than TOGAF for smaller companies [<a href="https://yalantis.com/blog/architecture-assessment-process-yalantis/" target="_blank">source</a>]. Architecture must be extendable preserving functionality and low costs.
+        </p>
+        <p>ATAM Benefits:
+          <ol>
+            <li>identified risks early in the life cycle</li>
+            <li>increased communication among stakeholders</li>
+            <li>clarified quality attribute requirements</li>
+            <li>improved architecture documentation</li>
+            <li>documented basis for architectural decisions</li>
+          </ol>
+        </p>
+      </div>
+      <h2 class="subtitle">ATAM Method · Quality Attributes · Risk &amp; Sensitivity Points. Comparing 9 Software Architectures Across Key Quality Attributes.</h2>
+    </div>
+    <div class="sort-controls">
+      <span class="sort-label">Sort:</span>
+      <button class="sort-btn active" onclick="sortTable('default',this)">Default</button>
+      <button class="sort-btn" onclick="sortTable('score',this)">By Score</button>
+      <button class="sort-btn" onclick="sortTable('name',this)">A–Z</button>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Operability</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Cost</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>Scalability / Extensibility</div>
+    <div class="score-badges">
+      <span class="score-legend-label">Score:</span>
+      <span class="badge" style="background:#dcfce7;color:#166534;">++</span>
+      <span class="badge" style="background:#f0fdf4;color:#15803d;">+</span>
+      <span class="badge" style="background:#fefce8;color:#92400e;">~</span>
+      <span class="badge" style="background:#fef2f2;color:#b91c1c;">-</span>
+      <span class="badge" style="background:#fee2e2;color:#7f1d1d;">--</span>
+      <span class="badge" style="background:#f3f4f6;color:#6b7280;">N/A</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE -->
+<div class="table-wrap">
+  <table id="main-table">
+    <thead>
+      <tr>
+        <th class="col-arch">Architecture</th>
+        <!-- Operability -->
+        <th style="border-bottom-color:#3b82f644;color:#3b82f6"><div class="cat-label">Operability</div>Speed</th>
+        <th style="border-bottom-color:#3b82f644;color:#3b82f6"><div class="cat-label">Operability</div>UX</th>
+        <th style="border-bottom-color:#3b82f644;color:#3b82f6"><div class="cat-label">Operability</div>Stability</th>
+        <!-- Cost -->
+        <th style="border-bottom-color:#f59e0b44;color:#f59e0b"><div class="cat-label">Cost</div>Competence Req.</th>
+        <th style="border-bottom-color:#f59e0b44;color:#f59e0b"><div class="cat-label">Cost</div>Man-Hours</th>
+        <th style="border-bottom-color:#f59e0b44;color:#f59e0b"><div class="cat-label">Cost</div>Dev Speed</th>
+        <!-- Scalability -->
+        <th style="border-bottom-color:#10b98144;color:#10b981"><div class="cat-label">Scalability</div>Code Volume</th>
+        <th style="border-bottom-color:#10b98144;color:#10b981"><div class="cat-label">Scalability</div>Code Readability</th>
+        <th style="border-bottom-color:#10b98144;color:#10b981"><div class="cat-label">Scalability</div>Change Resilience</th>
+        <th class="col-score">Score</th>
+        <th class="col-verdict">Verdict</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+<!-- HINT -->
+<div class="hint" id="hint">↑ Click any row to expand its ATAM Risk, Sensitivity &amp; Tradeoff analysis</div>
+
+<!-- DETAIL PANEL -->
+<div class="detail-panel hidden" id="detail-panel">
+  <div>
+    <div class="panel-col-title">
+      <div class="panel-accent" style="background:#ef4444"></div>
+      <span class="panel-label" style="color:#ef4444">ATAM Risks</span>
+    </div>
+    <div id="panel-risks"></div>
+  </div>
+  <div>
+    <div class="panel-col-title">
+      <div class="panel-accent" style="background:#f59e0b"></div>
+      <span class="panel-label" style="color:#f59e0b">Sensitivity Points</span>
+    </div>
+    <div id="panel-sensitivity"></div>
+  </div>
+  <div>
+    <div class="panel-col-title">
+      <div class="panel-accent" style="background:#3b82f6"></div>
+      <span class="panel-label" style="color:#3b82f6">Tradeoff Points</span>
+    </div>
+    <div id="panel-tradeoffs"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div style="color:#475569;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">ATAM Quality Attribute Categories</div>
+    <div class="footer-cats">
+      <div class="footer-cat" style="background:#3b82f618;border:1px solid #3b82f644;color:#3b82f6">Operability</div>
+      <div class="footer-cat" style="background:#f59e0b18;border:1px solid #f59e0b44;color:#f59e0b">Cost</div>
+      <div class="footer-cat" style="background:#10b98118;border:1px solid #10b98144;color:#10b981">Scalability / Extensibility</div>
+    </div>
+  </div>
+  <div class="footer-note">ATAM Method by SEI CMU</div>
+</div>
+
+<script>
+const SCORE_STYLE = {
+  "++": {bg:"#dcfce7",color:"#166534"},
+  "+":  {bg:"#f0fdf4",color:"#15803d"},
+  "~":  {bg:"#fefce8",color:"#92400e"},
+  "-":  {bg:"#fef2f2",color:"#b91c1c"},
+  "--": {bg:"#fee2e2",color:"#7f1d1d"},
+  "N/A":{bg:"#f3f4f6",color:"#6b7280"},
+};
+const SCORE_VAL = {"++":5,"+":4,"~":3,"-":2,"--":1,"N/A":0};
+
+const DATA = [
+  {
+    id:"microservices", name:"Microservices", color:"#f59e0b",
+    desc:"Independent deployable services communicating via APIs",
+    scores:["+","N/A","+","--","-","--","+","~","++"],
+    summary:"Fast, Expensive, Scalable",
+    risks:["Operational complexity and distributed tracing overhead","Network latency between services increases failure surface"],
+    sensitivity:["Deployment pipeline maturity","Team expertise in distributed systems"],
+    tradeoffs:["High scalability ↔ High operational cost","Independent deployment ↔ Complex debugging"],
+  },
+  {
+    id:"fsd", name:"Feature-Sliced Design (FSD)", color:"#3b82f6",
+    desc:"Frontend methodology: app → pages → widgets → features → entities → shared",
+    scores:["+","N/A","~","~","~","+","+","+","+"],
+    summary:"Slightly pricier, good for mid-to-large teams",
+    risks:["Learning curve for new developers","Over-engineering risk for small applications"],
+    sensitivity:["Team discipline in following slice boundaries","Project scale and team size"],
+    tradeoffs:["Strong modularity ↔ Initial complexity overhead","Clear boundaries ↔ More boilerplate"],
+  },
+  {
+    id:"clean", name:"Clean Architecture", color:"#10b981",
+    desc:"Concentric layers: Entities → Use Cases → Interface Adapters → Frameworks (Uncle Bob)",
+    scores:["~","N/A","++","-","-","-","-","++","++"],
+    summary:"Maintainable, high upfront investment",
+    risks:["Over-abstraction risk in simple domains","High initial setup cost slows early delivery"],
+    sensitivity:["Strict dependency rule adherence","Developer understanding of domain modelling"],
+    tradeoffs:["High testability ↔ Verbose layer mapping","Framework independence ↔ Extra indirection"],
+  },
+  {
+    id:"solid", name:"SOLID Principles", color:"#8b5cf6",
+    desc:"SRP, OCP, LSP, ISP, DIP — design principles at class/module level",
+    scores:["~","N/A","+","~","~","~","~","+","+"],
+    summary:"Universally applicable design hygiene",
+    risks:["Misapplication leads to premature abstraction","Can conflict with pragmatic delivery pace"],
+    sensitivity:["Developer experience and discipline","Code review culture and enforcement"],
+    tradeoffs:["Flexible design ↔ More interfaces and abstractions","Reusability ↔ Indirection overhead"],
+  },
+  {
+    id:"monolith", name:"Modular Monolith", color:"#06b6d4",
+    desc:"Single deployable with well-defined internal module boundaries",
+    scores:["+","N/A","+","+","+","+","+","~","~"],
+    summary:"Balanced, ideal for early-stage products",
+    risks:["Risk of module boundary erosion over time","Scaling bottleneck at the database layer"],
+    sensitivity:["Module boundary enforcement discipline","CI/CD pipeline quality"],
+    tradeoffs:["Low ops complexity ↔ Harder independent scaling","Simple deployment ↔ Shared failure domain"],
+  },
+  {
+    id:"hexagonal", name:"Hexagonal (Ports & Adapters)", color:"#ec4899",
+    desc:"Application core isolated from external systems via ports",
+    scores:["~","N/A","++","-","-","~","~","+","++"],
+    summary:"Excellent long-term, steep ramp-up",
+    risks:["Conceptual overhead for new team members","Port proliferation in complex systems"],
+    sensitivity:["Consistency of adapter implementations","Domain model quality and expressiveness"],
+    tradeoffs:["Highly testable core ↔ Adapter boilerplate","Swappable infrastructure ↔ Extra interfaces"],
+  },
+  {
+    id:"eda", name:"Event-Driven Architecture", color:"#f97316",
+    desc:"Components communicate via events/messages (Kafka, RabbitMQ, etc.)",
+    scores:["++","N/A","~","--","--","--","~","-","++"],
+    summary:"High throughput, complex operations",
+    risks:["Eventual consistency complexity","Event schema versioning challenges across teams"],
+    sensitivity:["Broker reliability and availability","Team experience with async patterns"],
+    tradeoffs:["High scalability ↔ Hard to trace and debug","Decoupled services ↔ Complex failure modes"],
+  },
+  {
+    id:"spa", name:"Single Page Application (SPA)", color:"#0ea5e9",
+    desc:"Client-side rendered app; one HTML shell, JS handles all routing &amp; views (React, Vue, Angular)",
+    scores:["++","++","~","~","+","+","~","~","~"],
+    summary:"Snappy UX, SEO &amp; initial load trade-offs",
+    risks:["Poor SEO without SSR/SSG layer","Large JS bundles degrade time-to-interactive on slow devices","Client-side state management grows complex at scale"],
+    sensitivity:["Bundle size discipline and code-splitting strategy","CDN and caching configuration","Complexity of client-side routing and auth flows"],
+    tradeoffs:["Rich interactive UX ↔ SEO penalty without extra tooling","Fast navigation after load ↔ Slow first paint","Developer productivity ↔ Bundle bloat risk"],
+  },
+  {
+    id:"mpa", name:"Multiple Page Application (MPA)", color:"#14b8a6",
+    desc:"Traditional server-rendered model; each route is a full page reload (Django, Rails, Laravel, etc.)",
+    scores:["+","+","++","+","~","~","+","++","+"],
+    summary:"SEO-friendly, simple, lower frontend complexity",
+    risks:["Full-page reloads reduce perceived interactivity","Partial page updates require careful AJAX layering","Scaling server-side rendering under high traffic"],
+    sensitivity:["Server response time and caching strategy","Template coupling between backend and frontend","Session and state management across pages"],
+    tradeoffs:["Excellent SEO ↔ Less fluid user experience","Simpler frontend ↔ Higher server rendering load","Faster initial paint ↔ More full-page transitions"],
+  },
+  {
+    id:"grasp", name:"GRASP Principles", color:"#a855f7",
+    desc:"9 OO design guidelines: Creator, Controller, Expert, Low Coupling, High Cohesion, Polymorphism, Pure Fabrication, Indirection, Protected Variations",
+    scores:["~","N/A","+","~","~","~","~","++","++"],
+    summary:"Strong OO design foundation, complements SOLID",
+    risks:["Abstract principles require experienced interpretation","Can conflict with pragmatic shortcuts under delivery pressure","Difficult to enforce mechanically — relies on code review culture"],
+    sensitivity:["Team familiarity with OO design theory","Quality of domain modelling and responsibility assignment","Consistency of application across the codebase"],
+    tradeoffs:["High cohesion ↔ More classes and interfaces","Low coupling ↔ Increased indirection","Protected variations ↔ Premature abstraction risk"],
+  },
+];
+
+const ATTR_KEYS = ["speed","ux","stability","competence","manhours","devspeed","codesize","readability","changeresist"];
+
+let currentSort = "default";
+let selectedId = null;
+const originalOrder = DATA.map(d => d.id);
+
+function badge(score){
+  const s = SCORE_STYLE[score] || SCORE_STYLE["~"];
+  return `<span class="badge" style="background:${s.bg};color:${s.color};">${score}</span>`;
+}
+
+function totalScore(scores){
+  return scores.reduce((s,v)=>s+(SCORE_VAL[v]||0),0);
+}
+
+function renderRows(list){
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = '';
+  list.forEach(arch => {
+    const score = totalScore(arch.scores);
+    const maxScore = arch.scores.length * 5;
+    const pct = Math.round(score / maxScore * 100);
+    const isSelected = selectedId === arch.id;
+    const tr = document.createElement('tr');
+    tr.dataset.id = arch.id;
+    if(isSelected) tr.classList.add('selected');
+    tr.innerHTML = `
+      <td class="col-arch">
+        <div class="arch-name" style="color:${arch.color}">${arch.name}</div>
+        <div class="arch-desc">${arch.desc}</div>
+      </td>
+      ${arch.scores.map(s => `<td>${badge(s)}</td>`).join('')}
+      <td class="col-score">
+        <div class="score-pct">${pct}%</div>
+        <div class="progress-track"><div class="progress-bar" style="width:${pct}%;background:linear-gradient(90deg,${arch.color},${arch.color}88)"></div></div>
+      </td>
+      <td class="col-verdict"><span style="color:${arch.color};font-size:0.82rem;font-weight:600">${arch.summary}</span></td>
+    `;
+    tr.addEventListener('click', () => toggleDetail(arch.id));
+    tbody.appendChild(tr);
+  });
+}
+
+function getSorted(type){
+  const list = [...DATA];
+  if(type === 'score') return list.sort((a,b) => totalScore(b.scores) - totalScore(a.scores));
+  if(type === 'name') return list.sort((a,b) => a.name.localeCompare(b.name));
+  return list;
+}
+
+function sortTable(type, btn){
+  currentSort = type;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRows(getSorted(type));
+}
+
+function toggleDetail(id){
+  if(selectedId === id){
+    selectedId = null;
+    document.getElementById('detail-panel').classList.add('hidden');
+    document.getElementById('hint').style.display = '';
+  } else {
+    selectedId = id;
+    showDetail(id);
+  }
+  renderRows(getSorted(currentSort));
+}
+
+function showDetail(id){
+  const arch = DATA.find(d => d.id === id);
+  if(!arch) return;
+  const panel = document.getElementById('detail-panel');
+  const border = `border:1px solid ${arch.color}33`;
+  panel.style.cssText = panel.style.cssText.replace(/border:[^;]+/,'');
+  panel.setAttribute('style', `border:1px solid ${arch.color}33`);
+
+  document.getElementById('panel-risks').innerHTML =
+    arch.risks.map(r => `<div class="panel-item"><span class="panel-icon" style="color:#ef4444">⚠</span><span class="panel-text">${r}</span></div>`).join('');
+  document.getElementById('panel-sensitivity').innerHTML =
+    arch.sensitivity.map(s => `<div class="panel-item"><span class="panel-icon" style="color:#f59e0b">◆</span><span class="panel-text">${s}</span></div>`).join('');
+  document.getElementById('panel-tradeoffs').innerHTML =
+    arch.tradeoffs.map(t => `<div class="panel-item"><span class="panel-icon" style="color:#3b82f6">⇄</span><span class="panel-text">${t}</span></div>`).join('');
+
+  panel.classList.remove('hidden');
+  document.getElementById('hint').style.display = 'none';
+}
+
+// Initial render
+renderRows(getSorted('default'));
+</script>
+</body>
+</html>
