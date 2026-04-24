@@ -25,20 +25,16 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Reopen VS Code in user mode and proceed with setup
 ```bash
 uv init
-#uv venv --seed
+uv venv --seed
+```
+Now, we are ready to work with Jupiter Notebooks. Every open VS code make sure you are using correct/default environment .venv:
+```powershell
+.venv\Scripts\activate
 uv add ipython pandas numpy 
 uv add --dev pip ipykernel pypandoc "nbconvert[webpdf]"
 uv lock --upgrade
 uv sync
 uv tree
-```
-Now, we are ready to work with Jupiter Notebooks. Every open VS code make sure you are using correct/default environment .venv:
-```bash
-source .venv/bin/activate
-```
-or
-```powershell
-.venv\Scripts\activate
 ```
 
 ## How to render Mermaid diagram?
