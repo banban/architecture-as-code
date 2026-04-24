@@ -43,3 +43,9 @@ ENV/
 
 # VS Code
 .vscode/
+
+# TypeScript artefacts
+*.tsbuildinfo
+node_modules/
+dist/
+
