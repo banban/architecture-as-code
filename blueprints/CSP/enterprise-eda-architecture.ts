@@ -1,0 +1,288 @@
+/**
+ * Enterprise integration view of the CSP customer EDA.
+ *
+ * This file complements `application-eda-domain.ts`.
+ *
+ * Perspective:
+ * - this file: cross-system contracts, ownership, governance, and extensibility
+ * - application file: front-office bounded context, ports, and consumer handlers
+ *
+ * Purpose:
+ * - express core business concepts and system relationships
+ * - model publish/subscribe contracts without choosing products
+ * - show how systems remain decoupled while sharing customer changes
+ */
+import {
+  BoundedContext,
+  CUSTOMER_TOPIC_NAME,
+  type CustomerEvent,
+  type CustomerEventTypeName,
+  type Subscriber,
+  type Topic,
+} from "./event-contracts.js";
+import {
+  cspDataProtectionPolicy,
+  customerOwnershipRules,
+  externalPartnerAccessPolicies,
+  type DataOwnershipRule,
+  type DataProtectionPolicy,
+  type DataSensitivity,
+  type ExternalPartnerAccessPolicy,
+  type ExternalPartnerType,
+} from "./data-governance.js";
+
+/**
+ * Consumers update their own local read models or operational records.
+ * They should be idempotent to tolerate retries and duplicate delivery.
+ */
+export interface EventConsumer<TEvent> {
+  subscriber: Subscriber<TEvent>;
+  isIdempotent: true;
+  handle(event: TEvent): CustomerDataProjectionChange[];
+}
+
+export interface CustomerDataProjectionChange {
+  targetSystem: BoundedContext | string;
+  targetRecordId?: string;
+  action: "Create" | "Update" | "Deactivate" | "Merge";
+  impactedFields: string[];
+}
+
+/**
+ * Integration layer responsibilities are separated from business systems.
+ * This keeps transformation, governance, and observability out of core apps.
+ */
+export interface IntegrationLayer {
+  canonicalModel: "Customer";
+  topics: Array<Topic<CustomerEvent>>;
+  policies: IntegrationPolicy[];
+  routes: IntegrationRoute[];
+  governance: GovernanceControls;
+}
+
+export interface IntegrationPolicy {
+  name:
+    | "Validation"
+    | "SchemaVersioning"
+    | "Idempotency"
+    | "Retry"
+    | "DeadLetterHandling"
+    | "Replay"
+    | "AuditTrail";
+  description: string;
+}
+
+export interface IntegrationRoute {
+  from: BoundedContext | string;
+  publishesTo: string;
+  consumedBy: Array<BoundedContext | string>;
+}
+
+export interface GovernanceControls {
+  ownershipRules: DataOwnershipRule[];
+  schemaRegistryRequired: boolean;
+  traceabilityRequired: boolean;
+  reconciliationRequired: boolean;
+  dataProtection: DataProtectionPolicy;
+  partnerAccessPolicies: ExternalPartnerAccessPolicy[];
+}
+
+export type IntegrationEndpointType =
+  | "EventSubscriber"
+  | "EventPublisher"
+  | "Bidirectional"
+  | "SecureApi";
+
+export interface ExternalPartnerEndpoint {
+  partnerName: string;
+  partnerType: ExternalPartnerType;
+  endpointType: IntegrationEndpointType;
+  eventSubscriptions?: CustomerEventTypeName[];
+  eventPublications?: string[];
+  minimumSensitivityClearance: DataSensitivity;
+}
+
+/**
+ * End-to-end solution view.
+ */
+export interface CustomerIntegrationArchitecture {
+  customerTopic: Topic<CustomerEvent>;
+  systems: ConnectedSystem[];
+  integrationLayer: IntegrationLayer;
+  externalPartners?: ExternalPartnerEndpoint[];
+}
+
+export interface ConnectedSystem {
+  context: BoundedContext | string;
+  role: "SystemOfRecord" | "Publisher" | "Subscriber" | "Mixed";
+  publishes?: CustomerEventTypeName[];
+  subscribes?: CustomerEventTypeName[];
+  ownsAttributeGroups: DataOwnershipRule["attributeGroup"][];
+}
+
+/**
+ * Example definition for architecture review scenario for particular CSP/company.
+ * This is not executable integration code; it is a domain-level blueprint.
+ */
+export const cspCustomerArchitecture: CustomerIntegrationArchitecture = {
+  customerTopic: {
+    name: CUSTOMER_TOPIC_NAME,
+    description: "Shared topic carrying customer domain events for downstream systems",
+    publishes: {} as CustomerEvent,
+  },
+  systems: [
+    {
+      context: BoundedContext.FrontOffice,
+      role: "Mixed",
+      publishes: ["customer.created", "customer.updated", "customer.status_changed"],
+      subscribes: ["customer.billing_profile_changed", "customer.service_profile_changed"],
+      ownsAttributeGroups: ["CoreIdentity", "RelationshipData", "ContactData", "AddressData"],
+    },
+    {
+      context: BoundedContext.FinanceBilling,
+      role: "Mixed",
+      publishes: ["customer.billing_profile_changed"],
+      subscribes: ["customer.created", "customer.updated", "customer.status_changed"],
+      ownsAttributeGroups: ["BillingData"],
+    },
+    {
+      context: BoundedContext.ServiceDelivery,
+      role: "Mixed",
+      publishes: ["customer.service_profile_changed"],
+      subscribes: ["customer.created", "customer.updated", "customer.status_changed"],
+      ownsAttributeGroups: ["ServiceData"],
+    },
+  ],
+  externalPartners: [
+    {
+      partnerName: "GovernmentRegulator",
+      partnerType: "GovernmentRegulator",
+      endpointType: "EventSubscriber",
+      eventSubscriptions: ["customer.status_changed"],
+      minimumSensitivityClearance: "PII",
+    },
+    {
+      partnerName: "EmergencyService",
+      partnerType: "EmergencyService",
+      endpointType: "Bidirectional",
+      eventSubscriptions: ["customer.created", "customer.updated", "customer.status_changed"],
+      eventPublications: ["emergency.incident_opened", "emergency.incident_closed"],
+      minimumSensitivityClearance: "SensitiveHealth",
+    },
+    {
+      partnerName: "VolunteerOrganisation",
+      partnerType: "VolunteerOrganisation",
+      endpointType: "Bidirectional",
+      eventSubscriptions: ["customer.created", "customer.updated"],
+      eventPublications: ["partner.referral_accepted", "partner.referral_completed"],
+      minimumSensitivityClearance: "Internal",
+    },
+    {
+      partnerName: "NonProfitPartner",
+      partnerType: "NonProfitPartner",
+      endpointType: "Bidirectional",
+      eventSubscriptions: ["customer.created", "customer.updated", "customer.status_changed"],
+      eventPublications: ["partner.case_opened", "partner.case_closed"],
+      minimumSensitivityClearance: "PII",
+    },
+  ],
+  integrationLayer: {
+    canonicalModel: "Customer",
+    topics: [
+      {
+        name: CUSTOMER_TOPIC_NAME,
+        description: "Shared topic carrying customer domain events for downstream systems",
+        publishes: {} as CustomerEvent,
+      },
+    ],
+    policies: [
+      {
+        name: "Validation",
+        description: "Validate business and schema rules before publication or consumption",
+      },
+      {
+        name: "SchemaVersioning",
+        description: "Version events to allow safe evolution for future consumers",
+      },
+      {
+        name: "Idempotency",
+        description: "Require duplicate-safe consumption across all subscribers",
+      },
+      {
+        name: "Retry",
+        description: "Retry transient failures without losing customer events",
+      },
+      {
+        name: "DeadLetterHandling",
+        description: "Isolate poison events for investigation and controlled replay",
+      },
+      {
+        name: "Replay",
+        description: "Allow new or recovering systems to rebuild customer views from event history",
+      },
+      {
+        name: "AuditTrail",
+        description: "Track who published what, when, and how it propagated",
+      },
+    ],
+    routes: [
+      {
+        from: BoundedContext.FrontOffice,
+        publishesTo: CUSTOMER_TOPIC_NAME,
+        consumedBy: [BoundedContext.FinanceBilling, BoundedContext.ServiceDelivery],
+      },
+      {
+        from: BoundedContext.FinanceBilling,
+        publishesTo: CUSTOMER_TOPIC_NAME,
+        consumedBy: [BoundedContext.FrontOffice, BoundedContext.ServiceDelivery],
+      },
+      {
+        from: BoundedContext.ServiceDelivery,
+        publishesTo: CUSTOMER_TOPIC_NAME,
+        consumedBy: [BoundedContext.FrontOffice, BoundedContext.FinanceBilling],
+      },
+    ],
+    governance: {
+      ownershipRules: [...customerOwnershipRules],
+      schemaRegistryRequired: true,
+      traceabilityRequired: true,
+      reconciliationRequired: true,
+      dataProtection: cspDataProtectionPolicy,
+      partnerAccessPolicies: [...externalPartnerAccessPolicies],
+    },
+  },
+};
+
+/**
+ * Example extension point: a new solution can join by subscribing to the
+ * customer topic and optionally publishing events for the data it owns.
+ */
+export function connectFutureSystem(
+  architecture: CustomerIntegrationArchitecture,
+  systemName: string,
+  subscribesTo: CustomerEventTypeName[] = [
+    "customer.created",
+    "customer.updated",
+    "customer.status_changed",
+  ],
+): CustomerIntegrationArchitecture {
+  return {
+    ...architecture,
+    systems: [
+      ...architecture.systems,
+      {
+        context: systemName,
+        role: "Subscriber",
+        subscribes: subscribesTo,
+        ownsAttributeGroups: [],
+      },
+    ],
+    integrationLayer: {
+      ...architecture.integrationLayer,
+      routes: architecture.integrationLayer.routes.map((route) => ({
+        ...route,
+        consumedBy: [...route.consumedBy, systemName],
+      })),
+    },
+  };
+}
