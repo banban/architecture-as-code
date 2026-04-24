@@ -1,5 +1,8 @@
+This repo collects independent projects (as folders) representing different architectural practices.
+
 # Architecture as Code
 Architecture as Code (AaC) is an approach to software architecture where architectural models, decisions, and documentation are defined, managed, and governed using the same principles as traditional software source code. This means using text-based, human-readable formats, storing them in version control systems (like Git), and integrating them into continuous integration/continuous deployment (CI/CD) pipelines.
+
 
 ## ArchiMate® Models
 Popular architecture models collected in one place.
