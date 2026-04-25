@@ -529,7 +529,7 @@ flowchart LR
 - Sensitive medical and high-risk PII can be separated from the general customer topic and routed through protected exchange channels.
 - Encryption applies in transit and at rest, with stronger options like tokenization and field-level encryption for the most sensitive fields.
 
-## How The Two TypeScript Files Relate
+## How TypeScript Files Relate
 
 ### Enterprise File
 
@@ -573,6 +573,17 @@ flowchart LR
 - event handlers that consume peer events
 - an in-memory event router for local reasoning and testing
 
+### DevSecOps File
+
+`devsecops-sdlc-architecture.ts` defines:
+
+- SDLC and CI/CD stages from planning and review through release
+- delivery environments across `dev`, `test`, and `prod`
+- quality gates for validation, contract safety, integration, performance, and rollback readiness
+- security controls for dependency scanning, secret scanning, SAST, policy validation, signing, and runtime monitoring
+- promotion rules and approval boundaries between environments
+- artifact and release governance aligned to the Git Flow branching model
+
 ## Recommended Presentation Narrative
 
 For an architecture walkthrough, present it in this order:
@@ -585,7 +596,7 @@ For an architecture walkthrough, present it in this order:
 
 ## Summary
 
-This design gives CSP:
+This design gives Care Services Provider solution:
 
 - decoupled integration across front office, finance, and service delivery
 - clear accountability for customer data ownership
