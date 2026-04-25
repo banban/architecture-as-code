@@ -1,0 +1,419 @@
+name: CSP Blueprint DevSecOps
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - development
+      - main
+      - "release/**"
+      - "hotfix/**"
+    paths:
+      - ".github/workflows/csp-blueprint-devsecops.yml"
+      - ".github/workflows/csp-blueprint-deploy.yml"
+      - "blueprints/CSP/**"
+  workflow_dispatch:
+    inputs:
+      deployment_environment:
+        description: "Environment to promote manually"
+        required: true
+        type: choice
+        options:
+          - dev
+          - test
+          - prod
+        default: test
+      target_cloud:
+        description: "Target cloud provider for manual promotion"
+        required: true
+        type: choice
+        options:
+          - azure
+          - aws
+          - gcp
+          - private
+        default: private
+      target_cluster:
+        description: "Target cluster or deployment endpoint"
+        required: true
+        type: string
+      artifact_version:
+        description: "Artifact version label to publish and promote"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+  security-events: write
+  packages: write
+  id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  BLUEPRINT_DIR: blueprints/CSP
+  NODE_VERSION: "24"
+
+concurrency:
+  group: csp-blueprint-${{ github.event.pull_request.number || github.ref_name || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  resolve-release-contract:
+    name: Resolve Release Contract
+    runs-on: ubuntu-latest
+    outputs:
+      artifact_name: ${{ steps.contract.outputs.artifact_name }}
+      artifact_version: ${{ steps.contract.outputs.artifact_version }}
+      deploy_dev: ${{ steps.contract.outputs.deploy_dev }}
+      deploy_test: ${{ steps.contract.outputs.deploy_test }}
+      deploy_prod: ${{ steps.contract.outputs.deploy_prod }}
+      dev_cloud: ${{ steps.contract.outputs.dev_cloud }}
+      dev_cluster: ${{ steps.contract.outputs.dev_cluster }}
+      test_cloud: ${{ steps.contract.outputs.test_cloud }}
+      test_cluster: ${{ steps.contract.outputs.test_cluster }}
+      prod_cloud: ${{ steps.contract.outputs.prod_cloud }}
+      prod_cluster: ${{ steps.contract.outputs.prod_cluster }}
+    steps:
+      - name: Resolve branch and environment contract
+        id: contract
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+          SHA: ${{ github.sha }}
+          REF_NAME: ${{ github.ref_name }}
+          RUN_NUMBER: ${{ github.run_number }}
+          INPUT_ENVIRONMENT: ${{ inputs.deployment_environment }}
+          INPUT_TARGET_CLOUD: ${{ inputs.target_cloud }}
+          INPUT_TARGET_CLUSTER: ${{ inputs.target_cluster }}
+          INPUT_ARTIFACT_VERSION: ${{ inputs.artifact_version }}
+          DEV_CLOUD: ${{ vars.CSP_DEV_TARGET_CLOUD || 'private' }}
+          DEV_CLUSTER: ${{ vars.CSP_DEV_TARGET_CLUSTER || 'development-cluster' }}
+          TEST_CLOUD: ${{ vars.CSP_TEST_TARGET_CLOUD || 'private' }}
+          TEST_CLUSTER: ${{ vars.CSP_TEST_TARGET_CLUSTER || 'test-cluster' }}
+          PROD_CLOUD: ${{ vars.CSP_PROD_TARGET_CLOUD || 'private' }}
+          PROD_CLUSTER: ${{ vars.CSP_PROD_TARGET_CLUSTER || 'prod-cluster' }}
+        run: |
+          artifact_version="${INPUT_ARTIFACT_VERSION:-pr-${RUN_NUMBER}-${SHA::7}}"
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            artifact_version="${INPUT_ARTIFACT_VERSION:-manual-${RUN_NUMBER}-${SHA::7}}"
+          fi
+
+          deploy_dev=false
+          deploy_test=false
+          deploy_prod=false
+
+          dev_cloud="$DEV_CLOUD"
+          dev_cluster="$DEV_CLUSTER"
+          test_cloud="$TEST_CLOUD"
+          test_cluster="$TEST_CLUSTER"
+          prod_cloud="$PROD_CLOUD"
+          prod_cluster="$PROD_CLUSTER"
+
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            if [ "$BASE_REF" = "development" ]; then
+              deploy_dev=true
+            fi
+
+            if [ "$BASE_REF" = "main" ]; then
+              deploy_test=true
+            fi
+
+            case "$BASE_REF" in
+              release/*|hotfix/*)
+                deploy_test=true
+                ;;
+            esac
+          fi
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            case "$INPUT_ENVIRONMENT" in
+              dev)
+                deploy_dev=true
+                dev_cloud="$INPUT_TARGET_CLOUD"
+                dev_cluster="$INPUT_TARGET_CLUSTER"
+                ;;
+              test)
+                deploy_test=true
+                test_cloud="$INPUT_TARGET_CLOUD"
+                test_cluster="$INPUT_TARGET_CLUSTER"
+                ;;
+              prod)
+                if [ "$REF_NAME" != "main" ]; then
+                  echo "Production promotion is only allowed when this workflow runs from the main branch." >&2
+                  exit 1
+                fi
+                deploy_prod=true
+                prod_cloud="$INPUT_TARGET_CLOUD"
+                prod_cluster="$INPUT_TARGET_CLUSTER"
+                ;;
+            esac
+          fi
+
+          {
+            echo "artifact_name=csp-blueprint-${artifact_version}"
+            echo "artifact_version=${artifact_version}"
+            echo "deploy_dev=${deploy_dev}"
+            echo "deploy_test=${deploy_test}"
+            echo "deploy_prod=${deploy_prod}"
+            echo "dev_cloud=${dev_cloud}"
+            echo "dev_cluster=${dev_cluster}"
+            echo "test_cloud=${test_cloud}"
+            echo "test_cluster=${test_cluster}"
+            echo "prod_cloud=${prod_cloud}"
+            echo "prod_cluster=${prod_cluster}"
+          } >> "$GITHUB_OUTPUT"
+
+  static-validation:
+    name: Static Validation
+    runs-on: ubuntu-latest
+    needs: resolve-release-contract
+    defaults:
+      run:
+        working-directory: ${{ env.BLUEPRINT_DIR }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ${{ env.BLUEPRINT_DIR }}/package-lock.json
+
+      - name: Install blueprint dependencies
+        run: npm ci
+
+      - name: Typecheck and lint
+        run: node --run check
+
+      - name: Secret scanning placeholder
+        run: |
+          echo "Hook repository or organization secret scanning here."
+          echo "Example: gitleaks, GitHub Advanced Security, or a central security action."
+
+      - name: SAST placeholder
+        run: |
+          echo "Hook static application security testing here."
+          echo "Example: CodeQL, Semgrep, or enterprise-approved scanning services."
+
+      - name: Dependency scanning placeholder
+        run: |
+          echo "Hook dependency vulnerability scanning here."
+          echo "Example: Dependabot alerts, osv-scanner, or a software composition analysis action."
+
+  unit-and-contract-testing:
+    name: Unit And Contract Testing
+    runs-on: ubuntu-latest
+    needs: static-validation
+    defaults:
+      run:
+        working-directory: ${{ env.BLUEPRINT_DIR }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ${{ env.BLUEPRINT_DIR }}/package-lock.json
+
+      - name: Install blueprint dependencies
+        run: npm ci
+
+      - name: Contract and schema compatibility placeholder
+        run: |
+          echo "Run canonical event contract and schema compatibility tests here."
+          echo "Example: verify consumer-facing event snapshots or schema registry compatibility checks."
+
+      - name: Unit test placeholder
+        run: |
+          echo "Run unit tests here when executable logic or validation suites are added."
+
+  security-scanning:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    needs: unit-and-contract-testing
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Infrastructure policy validation placeholder
+        run: |
+          echo "Validate infrastructure and policy-as-code descriptors here."
+          echo "Example: OPA, Conftest, Checkov, or cloud-specific policy packs."
+
+      - name: Container image scanning placeholder
+        run: |
+          echo "Scan runtime images or deployable packages here when containerized workloads are introduced."
+
+      - name: Identity and access review placeholder
+        run: |
+          echo "Validate workload identities, federated credentials, and environment permissions here."
+
+  package-and-publish:
+    name: Package And Publish
+    runs-on: ubuntu-latest
+    needs:
+      - resolve-release-contract
+      - security-scanning
+    defaults:
+      run:
+        working-directory: ${{ env.BLUEPRINT_DIR }}
+    outputs:
+      artifact_name: ${{ steps.artifact_metadata.outputs.artifact_name }}
+      artifact_version: ${{ steps.artifact_metadata.outputs.artifact_version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: ${{ env.BLUEPRINT_DIR }}/package-lock.json
+
+      - name: Install blueprint dependencies
+        run: npm ci
+
+      - name: Prepare release bundle
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp *.ts *.md *.json *.mjs dist/
+          printf '%s\n' "${{ needs.resolve-release-contract.outputs.artifact_version }}" > dist/ARTIFACT_VERSION.txt
+
+      - name: Export artifact metadata
+        id: artifact_metadata
+        shell: bash
+        run: |
+          {
+            echo "artifact_name=${{ needs.resolve-release-contract.outputs.artifact_name }}"
+            echo "artifact_version=${{ needs.resolve-release-contract.outputs.artifact_version }}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Artifact signing placeholder
+        run: |
+          echo "Sign the release bundle here."
+          echo "Example: Sigstore cosign, GitHub artifact attestations, or enterprise signing services."
+
+      - name: Upload immutable build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ needs.resolve-release-contract.outputs.artifact_name }}
+          path: ${{ env.BLUEPRINT_DIR }}/dist
+          if-no-files-found: error
+
+  deploy-dev:
+    name: Deploy Dev
+    needs:
+      - resolve-release-contract
+      - package-and-publish
+    if: needs.resolve-release-contract.outputs.deploy_dev == 'true'
+    uses: ./.github/workflows/csp-blueprint-deploy.yml
+    with:
+      environment_name: dev
+      target_cloud: ${{ needs.resolve-release-contract.outputs.dev_cloud }}
+      target_cluster: ${{ needs.resolve-release-contract.outputs.dev_cluster }}
+      artifact_name: ${{ needs.package-and-publish.outputs.artifact_name }}
+      artifact_version: ${{ needs.package-and-publish.outputs.artifact_version }}
+      deploy_strategy: rolling
+    secrets: inherit
+
+  integration-and-e2e-testing:
+    name: Integration And E2E Testing
+    runs-on: ubuntu-latest
+    needs:
+      - resolve-release-contract
+      - package-and-publish
+      - deploy-dev
+    if: needs.resolve-release-contract.outputs.deploy_dev == 'true'
+    environment:
+      name: dev
+    steps:
+      - name: Integration test placeholder
+        run: |
+          echo "Run cross-system integration tests here against the deployed dev topology."
+
+      - name: End-to-end test placeholder
+        run: |
+          echo "Run business-critical end-to-end journeys here."
+
+      - name: Performance regression placeholder
+        run: |
+          echo "Run workload, latency, queue lag, and retry amplification checks here."
+
+  deploy-test:
+    name: Deploy Test
+    needs:
+      - resolve-release-contract
+      - package-and-publish
+    if: needs.resolve-release-contract.outputs.deploy_test == 'true'
+    uses: ./.github/workflows/csp-blueprint-deploy.yml
+    with:
+      environment_name: test
+      target_cloud: ${{ needs.resolve-release-contract.outputs.test_cloud }}
+      target_cluster: ${{ needs.resolve-release-contract.outputs.test_cluster }}
+      artifact_name: ${{ needs.package-and-publish.outputs.artifact_name }}
+      artifact_version: ${{ needs.package-and-publish.outputs.artifact_version }}
+      deploy_strategy: blue-green
+    secrets: inherit
+
+  test-gates:
+    name: Test Environment Gates
+    runs-on: ubuntu-latest
+    needs:
+      - resolve-release-contract
+      - deploy-test
+    if: needs.resolve-release-contract.outputs.deploy_test == 'true'
+    environment:
+      name: test
+    steps:
+      - name: Integration and release rehearsal placeholder
+        run: |
+          echo "Run integration, end-to-end, and performance gates for release or hotfix candidates here."
+
+  deploy-prod:
+    name: Deploy Prod
+    needs:
+      - resolve-release-contract
+      - package-and-publish
+    if: needs.resolve-release-contract.outputs.deploy_prod == 'true'
+    uses: ./.github/workflows/csp-blueprint-deploy.yml
+    with:
+      environment_name: prod
+      target_cloud: ${{ needs.resolve-release-contract.outputs.prod_cloud }}
+      target_cluster: ${{ needs.resolve-release-contract.outputs.prod_cluster }}
+      artifact_name: ${{ needs.package-and-publish.outputs.artifact_name }}
+      artifact_version: ${{ needs.package-and-publish.outputs.artifact_version }}
+      deploy_strategy: canary
+    secrets: inherit
+
+  post-deployment-verification:
+    name: Post-Deployment Verification
+    runs-on: ubuntu-latest
+    needs:
+      - resolve-release-contract
+      - deploy-prod
+    if: needs.resolve-release-contract.outputs.deploy_prod == 'true'
+    environment:
+      name: prod
+    steps:
+      - name: Production smoke test placeholder
+        run: |
+          echo "Run critical-path smoke tests here."
+
+      - name: Runtime monitoring placeholder
+        run: |
+          echo "Connect runtime vulnerability monitoring, SLO dashboards, and release health checks here."
