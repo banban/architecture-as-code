@@ -1,0 +1,96 @@
+name: CSP Blueprint Deploy Contract
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      target_cloud:
+        required: true
+        type: string
+      target_cluster:
+        required: true
+        type: string
+      artifact_name:
+        required: true
+        type: string
+      artifact_version:
+        required: true
+        type: string
+      deploy_strategy:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+  packages: read
+
+jobs:
+  deploy:
+    name: Deploy to ${{ inputs.environment_name }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment_name }}
+    steps:
+      - name: Download immutable artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: artifact
+
+      - name: Resolve deployment contract
+        shell: bash
+        run: |
+          cat <<EOF
+          environment=${{ inputs.environment_name }}
+          target_cloud=${{ inputs.target_cloud }}
+          target_cluster=${{ inputs.target_cluster }}
+          artifact_name=${{ inputs.artifact_name }}
+          artifact_version=${{ inputs.artifact_version }}
+          deploy_strategy=${{ inputs.deploy_strategy }}
+          EOF
+
+      - name: Authenticate to Azure
+        if: inputs.target_cloud == 'azure'
+        run: |
+          echo "Authenticate with Azure here using OpenID Connect and environment-scoped credentials."
+
+      - name: Authenticate to AWS
+        if: inputs.target_cloud == 'aws'
+        run: |
+          echo "Authenticate with AWS here using OpenID Connect and environment-scoped credentials."
+
+      - name: Authenticate to GCP
+        if: inputs.target_cloud == 'gcp'
+        run: |
+          echo "Authenticate with GCP here using workload identity federation and environment-scoped credentials."
+
+      - name: Authenticate to private cloud
+        if: inputs.target_cloud == 'private'
+        run: |
+          echo "Authenticate with private-cloud deployment endpoints here."
+
+      - name: Execute deployment contract
+        shell: bash
+        run: |
+          echo "Deploying immutable artifact ${{ inputs.artifact_version }} to ${{ inputs.environment_name }}"
+          echo "Target cloud: ${{ inputs.target_cloud }}"
+          echo "Target cluster: ${{ inputs.target_cluster }}"
+          echo "Strategy: ${{ inputs.deploy_strategy }}"
+          echo "Replace this command block with environment-specific deployment logic or a reusable composite action."
+
+      - name: Publish deployment summary
+        shell: bash
+        run: |
+          {
+            echo "## Deployment Contract"
+            echo ""
+            echo "- Environment: \`${{ inputs.environment_name }}\`"
+            echo "- Cloud: \`${{ inputs.target_cloud }}\`"
+            echo "- Cluster: \`${{ inputs.target_cluster }}\`"
+            echo "- Artifact: \`${{ inputs.artifact_name }}\`"
+            echo "- Version: \`${{ inputs.artifact_version }}\`"
+            echo "- Strategy: \`${{ inputs.deploy_strategy }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
