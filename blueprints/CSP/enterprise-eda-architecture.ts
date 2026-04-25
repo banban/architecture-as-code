@@ -23,12 +23,17 @@ import {
 import {
   cspDataProtectionPolicy,
   customerOwnershipRules,
+  evaluatePingPongRisk,
   externalPartnerAccessPolicies,
+  sharedCustomerAttributeUpdatePolicies,
   type DataOwnershipRule,
   type DataProtectionPolicy,
   type DataSensitivity,
   type ExternalPartnerAccessPolicy,
   type ExternalPartnerType,
+  type PingPongGuardDecision,
+  type PingPongGuardInput,
+  type SharedAttributeUpdatePolicy,
 } from "./data-governance.js";
 
 /**
@@ -85,6 +90,15 @@ export interface GovernanceControls {
   reconciliationRequired: boolean;
   dataProtection: DataProtectionPolicy;
   partnerAccessPolicies: ExternalPartnerAccessPolicy[];
+  sharedAttributePolicies?: SharedAttributeUpdatePolicy[];
+}
+
+export interface RepublishAssessmentRequest extends PingPongGuardInput {
+  integrationPolicyName: "Validation" | "Idempotency" | "AuditTrail";
+}
+
+export interface IntegrationGovernanceService {
+  assessRepublish(request: RepublishAssessmentRequest): PingPongGuardDecision;
 }
 
 export type IntegrationEndpointType =
@@ -362,6 +376,7 @@ export const cspCustomerArchitecture: CustomerIntegrationArchitecture = {
       reconciliationRequired: true,
       dataProtection: cspDataProtectionPolicy,
       partnerAccessPolicies: [...externalPartnerAccessPolicies],
+      sharedAttributePolicies: [...sharedCustomerAttributeUpdatePolicies],
     },
   },
   serviceDeliveryPipeline: {
@@ -589,6 +604,23 @@ export const cspCustomerArchitecture: CustomerIntegrationArchitecture = {
     stuckWorkflowAlertingRequired: true,
   },
 };
+
+/**
+ * Enterprise integration layer applies governance before any consumer republishes
+ * customer changes. This is where ping-pong suppression belongs conceptually:
+ * not inside one application alone, but in the cross-system delivery policy.
+ */
+export function assessGovernedRepublish(
+  architecture: CustomerIntegrationArchitecture,
+  request: RepublishAssessmentRequest,
+): PingPongGuardDecision {
+  return evaluatePingPongRisk({
+    ...request,
+    sharedAttributePolicies: request.sharedAttributePolicies
+      ?? architecture.integrationLayer.governance.sharedAttributePolicies
+      ?? sharedCustomerAttributeUpdatePolicies,
+  });
+}
 
 /**
  * Example extension point: a new solution can join by subscribing to the
