@@ -102,6 +102,118 @@ export interface ExternalPartnerEndpoint {
   minimumSensitivityClearance: DataSensitivity;
 }
 
+export type ServiceWorkflowIntent =
+  | "Provision"
+  | "UpdateService"
+  | "SuspendService"
+  | "ResumeService"
+  | "RelocateService"
+  | "CloseService"
+  | "NotifyPartner"
+  | "Reconcile";
+
+export type ServiceWorkflowPriority =
+  | "P1Critical"
+  | "P2CustomerImpacting"
+  | "P3StandardOperational"
+  | "P4Background";
+
+export type ServiceWorkflowLane =
+  | "RealTimeOperations"
+  | "ProvisioningAndFulfillment"
+  | "PartnerAndFieldCoordination"
+  | "ProjectionAndNotification"
+  | "ReconciliationAndReplay";
+
+export type ServiceSerializationKeyType =
+  | "ServiceAccountId"
+  | "CustomerId"
+  | "PartnerCaseId"
+  | "ExternalReference"
+  | "Region"
+  | "WorkBasket";
+
+export type ServiceWorkflowStage =
+  | "Ingress"
+  | "PriorityAndPartition"
+  | "PreChecks"
+  | "Execution"
+  | "Coordination"
+  | "Publication";
+
+export type ServiceWorkflowState =
+  | "Accepted"
+  | "Prepared"
+  | "Dispatched"
+  | "Waiting"
+  | "Resumed"
+  | "Completed"
+  | "Compensating"
+  | "Failed";
+
+export type ServiceDeliveryConsumerRole =
+  | "WorkflowOrchestrator"
+  | "ProjectionUpdater"
+  | "PartnerAdapter"
+  | "AuditRecorder"
+  | "NotificationPublisher"
+  | "ReconciliationWorker";
+
+export interface ServiceWorkflowQueuePolicy {
+  lane: ServiceWorkflowLane;
+  supportedPriorities: ServiceWorkflowPriority[];
+  intentTypes: ServiceWorkflowIntent[];
+  maxConcurrency: number;
+  fairnessPolicy:
+    | "StrictPriority"
+    | "WeightedFairness"
+    | "ReservedCapacityForCritical";
+  defaultSerializationKey: ServiceSerializationKeyType;
+  allowsParallelExecutionWhenKeysDiffer: true;
+  replayRunsInSeparateCapacityPool: boolean;
+}
+
+export interface ServiceWorkflowStepDefinition {
+  name: string;
+  stage: ServiceWorkflowStage;
+  description: string;
+  mutatesOwnedState: boolean;
+  canRunInParallel: boolean;
+  dependsOn?: string[];
+  serializationKeys?: ServiceSerializationKeyType[];
+  emitsEvents?: string[];
+}
+
+export interface ServiceWorkflowDefinition {
+  intent: ServiceWorkflowIntent;
+  lane: ServiceWorkflowLane;
+  priority: ServiceWorkflowPriority;
+  entryEventTypes: CustomerEventTypeName[];
+  possibleStates: ServiceWorkflowState[];
+  steps: ServiceWorkflowStepDefinition[];
+}
+
+export interface ServiceDeliveryConsumerPolicy {
+  role: ServiceDeliveryConsumerRole;
+  writesToOwnedStore: boolean;
+  sharesMutableStateAcrossConsumers: false;
+  concurrencyControl:
+    | "SerializationKey"
+    | "OptimisticVersionCheck"
+    | "AppendOnlyProjection";
+}
+
+export interface ServiceDeliveryPipelineArchitecture {
+  intents: ServiceWorkflowIntent[];
+  stages: ServiceWorkflowStage[];
+  queues: ServiceWorkflowQueuePolicy[];
+  workflows: ServiceWorkflowDefinition[];
+  consumerPolicies: ServiceDeliveryConsumerPolicy[];
+  workflowStateStoreRequired: true;
+  deadLetterIsolationRequired: true;
+  stuckWorkflowAlertingRequired: true;
+}
+
 /**
  * End-to-end solution view.
  */
@@ -109,6 +221,7 @@ export interface CustomerIntegrationArchitecture {
   customerTopic: Topic<CustomerEvent>;
   systems: ConnectedSystem[];
   integrationLayer: IntegrationLayer;
+  serviceDeliveryPipeline?: ServiceDeliveryPipelineArchitecture;
   externalPartners?: ExternalPartnerEndpoint[];
 }
 
@@ -250,6 +363,230 @@ export const cspCustomerArchitecture: CustomerIntegrationArchitecture = {
       dataProtection: cspDataProtectionPolicy,
       partnerAccessPolicies: [...externalPartnerAccessPolicies],
     },
+  },
+  serviceDeliveryPipeline: {
+    intents: [
+      "Provision",
+      "UpdateService",
+      "SuspendService",
+      "ResumeService",
+      "RelocateService",
+      "CloseService",
+      "NotifyPartner",
+      "Reconcile",
+    ],
+    stages: [
+      "Ingress",
+      "PriorityAndPartition",
+      "PreChecks",
+      "Execution",
+      "Coordination",
+      "Publication",
+    ],
+    queues: [
+      {
+        lane: "RealTimeOperations",
+        supportedPriorities: ["P1Critical", "P2CustomerImpacting"],
+        intentTypes: ["SuspendService", "ResumeService", "UpdateService"],
+        maxConcurrency: 24,
+        fairnessPolicy: "ReservedCapacityForCritical",
+        defaultSerializationKey: "ServiceAccountId",
+        allowsParallelExecutionWhenKeysDiffer: true,
+        replayRunsInSeparateCapacityPool: true,
+      },
+      {
+        lane: "ProvisioningAndFulfillment",
+        supportedPriorities: ["P2CustomerImpacting", "P3StandardOperational"],
+        intentTypes: ["Provision", "RelocateService", "CloseService"],
+        maxConcurrency: 16,
+        fairnessPolicy: "WeightedFairness",
+        defaultSerializationKey: "ServiceAccountId",
+        allowsParallelExecutionWhenKeysDiffer: true,
+        replayRunsInSeparateCapacityPool: true,
+      },
+      {
+        lane: "PartnerAndFieldCoordination",
+        supportedPriorities: ["P2CustomerImpacting", "P3StandardOperational"],
+        intentTypes: ["NotifyPartner"],
+        maxConcurrency: 12,
+        fairnessPolicy: "WeightedFairness",
+        defaultSerializationKey: "PartnerCaseId",
+        allowsParallelExecutionWhenKeysDiffer: true,
+        replayRunsInSeparateCapacityPool: true,
+      },
+      {
+        lane: "ProjectionAndNotification",
+        supportedPriorities: ["P2CustomerImpacting", "P3StandardOperational"],
+        intentTypes: ["UpdateService", "NotifyPartner"],
+        maxConcurrency: 32,
+        fairnessPolicy: "WeightedFairness",
+        defaultSerializationKey: "CustomerId",
+        allowsParallelExecutionWhenKeysDiffer: true,
+        replayRunsInSeparateCapacityPool: true,
+      },
+      {
+        lane: "ReconciliationAndReplay",
+        supportedPriorities: ["P4Background"],
+        intentTypes: ["Reconcile"],
+        maxConcurrency: 8,
+        fairnessPolicy: "StrictPriority",
+        defaultSerializationKey: "WorkBasket",
+        allowsParallelExecutionWhenKeysDiffer: true,
+        replayRunsInSeparateCapacityPool: true,
+      },
+    ],
+    workflows: [
+      {
+        intent: "Provision",
+        lane: "ProvisioningAndFulfillment",
+        priority: "P2CustomerImpacting",
+        entryEventTypes: ["customer.created", "customer.updated"],
+        possibleStates: [
+          "Accepted",
+          "Prepared",
+          "Dispatched",
+          "Waiting",
+          "Resumed",
+          "Completed",
+          "Compensating",
+          "Failed",
+        ],
+        steps: [
+          {
+            name: "ClassifyWorkIntent",
+            stage: "Ingress",
+            description: "Determine whether the inbound event creates new service work.",
+            mutatesOwnedState: false,
+            canRunInParallel: true,
+          },
+          {
+            name: "ValidateAndReserveWorkflow",
+            stage: "PreChecks",
+            description: "Run policy, duplication, and dependency checks before execution.",
+            mutatesOwnedState: true,
+            canRunInParallel: false,
+            serializationKeys: ["ServiceAccountId", "CustomerId"],
+          },
+          {
+            name: "PrepareProvisioningPlan",
+            stage: "Execution",
+            description: "Build the service fulfillment plan and allocate internal work items.",
+            mutatesOwnedState: true,
+            canRunInParallel: false,
+            dependsOn: ["ValidateAndReserveWorkflow"],
+            serializationKeys: ["ServiceAccountId"],
+          },
+          {
+            name: "NotifyPartnerOrFieldSystems",
+            stage: "Execution",
+            description: "Trigger independent partner or field coordination work.",
+            mutatesOwnedState: false,
+            canRunInParallel: true,
+            dependsOn: ["PrepareProvisioningPlan"],
+            serializationKeys: ["PartnerCaseId"],
+            emitsEvents: ["partner.case_opened"],
+          },
+          {
+            name: "PersistWaitingState",
+            stage: "Coordination",
+            description: "Persist waiting conditions for callbacks, approvals, or timed retries.",
+            mutatesOwnedState: true,
+            canRunInParallel: false,
+            dependsOn: ["PrepareProvisioningPlan"],
+            serializationKeys: ["ServiceAccountId"],
+          },
+          {
+            name: "PublishServiceProfileUpdate",
+            stage: "Publication",
+            description: "Publish service state changes and projection updates after workflow progress.",
+            mutatesOwnedState: false,
+            canRunInParallel: true,
+            dependsOn: ["PersistWaitingState"],
+            emitsEvents: ["customer.service_profile_changed"],
+          },
+        ],
+      },
+      {
+        intent: "Reconcile",
+        lane: "ReconciliationAndReplay",
+        priority: "P4Background",
+        entryEventTypes: [
+          "customer.created",
+          "customer.updated",
+          "customer.status_changed",
+          "customer.service_profile_changed",
+        ],
+        possibleStates: ["Accepted", "Prepared", "Dispatched", "Completed", "Failed"],
+        steps: [
+          {
+            name: "LoadExpectedAndActualState",
+            stage: "PreChecks",
+            description: "Compare expected service state against projections and source-of-record state.",
+            mutatesOwnedState: false,
+            canRunInParallel: true,
+            serializationKeys: ["WorkBasket", "ServiceAccountId"],
+          },
+          {
+            name: "RepairProjectionOrEscalate",
+            stage: "Execution",
+            description: "Repair drift when safe, otherwise create an operational exception path.",
+            mutatesOwnedState: true,
+            canRunInParallel: false,
+            dependsOn: ["LoadExpectedAndActualState"],
+            serializationKeys: ["ServiceAccountId"],
+          },
+          {
+            name: "PublishRepairOutcome",
+            stage: "Publication",
+            description: "Publish reconciliation outcomes for downstream visibility and audit.",
+            mutatesOwnedState: false,
+            canRunInParallel: true,
+            dependsOn: ["RepairProjectionOrEscalate"],
+          },
+        ],
+      },
+    ],
+    consumerPolicies: [
+      {
+        role: "WorkflowOrchestrator",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "SerializationKey",
+      },
+      {
+        role: "ProjectionUpdater",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "AppendOnlyProjection",
+      },
+      {
+        role: "PartnerAdapter",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "SerializationKey",
+      },
+      {
+        role: "AuditRecorder",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "AppendOnlyProjection",
+      },
+      {
+        role: "NotificationPublisher",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "AppendOnlyProjection",
+      },
+      {
+        role: "ReconciliationWorker",
+        writesToOwnedStore: true,
+        sharesMutableStateAcrossConsumers: false,
+        concurrencyControl: "OptimisticVersionCheck",
+      },
+    ],
+    workflowStateStoreRequired: true,
+    deadLetterIsolationRequired: true,
+    stuckWorkflowAlertingRequired: true,
   },
 };
 
