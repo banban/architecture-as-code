@@ -33,10 +33,10 @@ node --run typecheck
 node --run lint
 ```
 
-Optional consistency check for the GitHub Actions workflow YAML files:
+Optional consistency check for the GitHub Actions workflow YAML local files:
 
 ```powershell
-py -c "import yaml, pathlib; yaml.safe_load(pathlib.Path(r'E:\Work\GitHub\banban\architecture-as-code\.github\workflows\csp-blueprint-devsecops.yml').read_text(encoding='utf-8')); yaml.safe_load(pathlib.Path(r'E:\Work\GitHub\banban\architecture-as-code\.github\workflows\csp-blueprint-deploy.yml').read_text(encoding='utf-8')); print('YAML_OK')"
+py -c "import yaml, pathlib; yaml.safe_load(pathlib.Path(r'../.././github/workflows/csp-blueprint-devsecops.yml').read_text(encoding='utf-8')); yaml.safe_load(pathlib.Path(r'../.././github/workflows/csp-blueprint-deploy.yml').read_text(encoding='utf-8')); print('YAML_OK')"
 ```
 
 This uses the TypeScript compiler as a consistency check across the architecture artifacts without generating runtime output.
@@ -54,8 +54,8 @@ application design, and DevSecOps delivery governance without tying the
 blueprint to a specific implementation platform.
 
 The repository also includes a matching GitHub Actions orchestration skeleton
-at [csp-blueprint-devsecops.yml](E:/Work/GitHub/banban/architecture-as-code/.github/workflows/csp-blueprint-devsecops.yml)
-and a reusable deployment contract at [csp-blueprint-deploy.yml](E:/Work/GitHub/banban/architecture-as-code/.github/workflows/csp-blueprint-deploy.yml)
+at [csp-blueprint-devsecops.yml](./architecture-as-code/.github/workflows/csp-blueprint-devsecops.yml)
+and a reusable deployment contract at [csp-blueprint-deploy.yml](./architecture-as-code/.github/workflows/csp-blueprint-deploy.yml)
 so GitHub can coordinate quality gates, approvals, immutable artifact
 promotion, and multi-cloud delivery without collapsing architecture,
 development, and DevOps concerns into one platform-specific design.
@@ -358,7 +358,7 @@ policies.
 
 To keep the pipeline from becoming a bottleneck:
 
-- use dead-letter isolation for poison messages
+- use dead-letter isolation for poison messages, monitor dead-letter queue
 - keep retries bounded and policy-driven
 - expose queue depth, consumer lag, workflow age, and stuck-state metrics
 - reserve capacity for critical priorities
