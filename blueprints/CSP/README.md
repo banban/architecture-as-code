@@ -1,6 +1,17 @@
-# Care Services Provider (CSP) Event-Driven Architecture (EDA)
-This project captures complementary views of the same customer integration design:
+# Usecase Scenario Brief:
+Abstract Care Services Provider (CSP) company has multiple operational systems that need to stay aligned on customer/stakeholder data. 
+They want an integration approach that is decoupled, scalable, and allows other solutions to “plug in” over time.\
+One known reference pattern used is a publish/subscribe approach via a customer topic to reduce coupling and support extensibility.\
+Design the integration architecture to keep customer data consistent across:
+- CRM-style front office platform (e.g. stakeholder/customer relationship management)
+- Finance / billing systems
+- Service delivery systems
+- while also enabling future systems to connect with minimal rework.
 
+Do not nominate specific products or vendors, focus on the overall architecture, design principles, and approach.
+
+# Care Services Provider (CSP) Event-Driven Architecture (EDA)
+This project captures complementary views of the same system design:
 - `event-contracts.ts`: shared canonical event and topic contracts
 - `data-governance.ts`: shared ownership, sensitivity, and access policy model
 - `enterprise-eda-architecture.ts`: enterprise integration view
@@ -8,10 +19,7 @@ This project captures complementary views of the same customer integration desig
 - `devsecops-sdlc-architecture.ts`: DevSecOps, testing, security, and delivery view
 
 ## TypeScript Validation
-
-This folder can be validated as a lightweight TypeScript package without
-depending on any root-level repository configuration.
-
+This folder can be validated as a lightweight TypeScript package without depending on any root-level repository configuration.
 Included project files:
 
 - `package.json`: project metadata and a `typecheck` script
@@ -20,21 +28,18 @@ Included project files:
 - the parent repo `.gitignore`: ignores local dependency and build artifacts
 
 Typical validation flow:
-
 ```powershell
 npm install
 node --run check
 ```
 
 Or run the checks individually:
-
 ```powershell
 node --run typecheck
 node --run lint
 ```
 
 Optional consistency check for the GitHub Actions workflow YAML local files:
-
 ```powershell
 py -c "import yaml, pathlib; yaml.safe_load(pathlib.Path(r'../.././github/workflows/csp-blueprint-devsecops.yml').read_text(encoding='utf-8')); yaml.safe_load(pathlib.Path(r'../.././github/workflows/csp-blueprint-deploy.yml').read_text(encoding='utf-8')); print('YAML_OK')"
 ```
@@ -47,7 +52,8 @@ blueprint itself.
 
 The goal is to keep customer and stakeholder data aligned across front office, finance/billing, and service delivery systems while remaining decoupled, scalable, and easy to extend for future solutions.
 
-## Why These Views
+## Why Separating Views
+Architecture View represents a system from the perspective of a related set of concerns. Architecture Viewpoint - a specification of the conventions for a particular kind of architecture view. It is a form of abstraction achieved using a selected set of architectural constructs as structuring rules, in order to focus on particular audience concerns frame within a system (ISO 42010). Viewpoint is a model (or description) of the information contained in a view.
 
 Together these artifacts cover enterprise architecture, bounded-context
 application design, and DevSecOps delivery governance without tying the
