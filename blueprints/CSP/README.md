@@ -157,6 +157,171 @@ The architecture separates data concerns so sensitive information is not treated
 | Key management | Separate key domains for sensitive datasets and tightly controlled decrypt permissions |
 | Partner integration | Policy-based filtering, contract scoping, consent checks, and full audit trail |
 
+## Service Delivery Workflow Pipelines
+
+`ServiceDelivery` is the part of the landscape most likely to accumulate
+long-running work, operational waiting states, and expensive downstream
+interactions. For that reason, it should not be treated as a single linear
+consumer of customer events. It should behave as a pipeline-based workflow
+domain with explicit prioritization, parallelization, and concurrency control.
+
+### Pipeline Goals
+
+- absorb bursty event traffic without overwhelming operational workers
+- prioritize urgent or customer-impacting work ahead of routine background work
+- parallelize independent steps without allowing conflicting updates to race
+- let multiple internal consumers use the same event payload safely
+- keep long-running workflows durable, observable, and restartable
+
+### Conceptual Pipeline Model
+
+The recommended model is a staged workflow pipeline:
+
+1. `Ingress`
+   Accept service-related events from the shared customer topic and classify
+   them into workflow intents such as provision, update, suspend, relocate,
+   close, partner-notify, or reconcile.
+2. `Priority and Partition`
+   Assign business priority and route work to workload-specific queues using a
+   stable partition key such as `serviceAccountId`, `customerId`, region, or
+   service domain.
+3. `Pre-Checks`
+   Perform validation, policy checks, duplication checks, and dependency
+   readiness checks before expensive work starts.
+4. `Execution`
+   Run independent workflow steps in parallel where there is no shared mutable
+   state conflict.
+5. `Coordination`
+   Persist workflow state, waiting conditions, retries, escalation timers, and
+   compensation decisions for long-running jobs.
+6. `Publication`
+   Emit resulting service events, projection updates, audit records, and
+   operational alerts.
+
+### Priority Queue Strategy
+
+Not all service work should compete equally for the same workers. A practical
+priority model is:
+
+- `P1 Critical`: safety, regulatory, incident, or outage-related actions
+- `P2 Customer Impacting`: activation, suspension, restoration, urgent address
+  or contact changes affecting live service
+- `P3 Standard Operational`: ordinary provisioning, routine updates, partner
+  coordination, standard fulfillment
+- `P4 Background`: reconciliation, replay, projection rebuild, enrichment, and
+  bulk synchronization
+
+Priority should influence dispatch order, but fairness controls are still
+needed so background work is delayed rather than starved forever.
+
+### Parallelization Rules
+
+Parallelization should be allowed only for non-conflicting work. The simplest
+rule is:
+
+- steps that mutate the same service aggregate or external side effect target
+  must share the same serialization key
+- steps that only read data, enrich context, notify observers, or update
+  independent projections may execute in parallel
+
+Useful serialization keys include:
+
+- `serviceAccountId` for service lifecycle changes
+- `customerId` when customer-scoped changes affect multiple services together
+- `partnerCaseId` or `externalReference.localId` for partner callbacks
+- region or work-basket key for operational capacity controls
+
+This gives controlled concurrency: parallel across different keys, serialized
+within the same key.
+
+### Multiple Consumers Without Data Races
+
+The same inbound event can legitimately trigger multiple internal consumers, for
+example:
+
+- service lifecycle workflow orchestration
+- SLA or case-management updates
+- front-office projection refresh
+- partner notification preparation
+- audit and compliance recording
+
+To avoid data races:
+
+- treat the inbound event as immutable
+- let each consumer write to its own owned store or projection
+- never let multiple consumers concurrently mutate the same operational record
+  without a clear owner
+- use version checks or optimistic concurrency for shared workflow state
+- emit follow-up events for cross-component coordination rather than sharing
+  in-memory mutable objects
+
+In other words, parallel consumers may share the same payload, but they should
+not share the same writable state boundary.
+
+### Long-Running Workflow Shape
+
+Many `ServiceDelivery` processes are naturally long-running because they depend
+on external systems, field work, approvals, or time-based waiting conditions.
+These workflows should be modeled as durable state machines, not as single
+request/response transactions.
+
+A typical long-running workflow can look like:
+
+1. `Accepted`
+   The workflow instance is created from an inbound event and assigned a
+   priority and partition key.
+2. `Prepared`
+   Validation, eligibility, policy, and dependency checks complete.
+3. `Dispatched`
+   Work is sent to one or more execution steps or external adapters.
+4. `Waiting`
+   The workflow pauses for callback, approval, field completion, retry delay,
+   or scheduled revisit.
+5. `Resumed`
+   A callback event, timeout, or dependent completion moves the workflow
+   forward.
+6. `Completed` or `Compensating`
+   The workflow either finishes successfully or triggers rollback/remediation
+   steps when partial failure occurs.
+
+This model avoids keeping expensive workers blocked while the business process
+is waiting on real-world actions.
+
+### Recommended Pipeline Lanes
+
+Instead of one generic processing lane, separate `ServiceDelivery` into lanes
+such as:
+
+- `RealTime Operations`: urgent customer-affecting service state changes
+- `Provisioning and Fulfillment`: longer-running activation and setup workflows
+- `Partner and Field Coordination`: external callbacks, dispatch, and partner
+  acknowledgements
+- `Projection and Notification`: read-model refreshes and downstream event
+  publication
+- `Reconciliation and Replay`: repair, rebuild, and consistency checks
+
+Each lane should have independent worker pools, retry settings, and scaling
+policies.
+
+### Operational Safeguards
+
+To keep the pipeline from becoming a bottleneck:
+
+- use dead-letter isolation for poison messages
+- keep retries bounded and policy-driven
+- expose queue depth, consumer lag, workflow age, and stuck-state metrics
+- reserve capacity for critical priorities
+- run replay and reconciliation outside the real-time hot path
+- isolate slow partner adapters with circuit breaker and timeout controls
+
+### Architecture Principle
+
+The main principle is: `ServiceDelivery` should scale as a coordinated set of
+durable workflow pipelines, not as a single queue consumer or a single service
+class. Priority controls decide what runs first, partition keys decide what can
+run safely in parallel, and ownership boundaries decide where concurrent
+consumers are allowed to write.
+
 ## C4 Level 1: Context
 
 This view shows the business landscape and the key external relationships.
