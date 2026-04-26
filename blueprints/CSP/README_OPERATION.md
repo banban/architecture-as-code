@@ -1,3 +1,74 @@
+## Separating Concerns
+Architecture View represents a system from the perspective of a related set of concerns. Architecture Viewpoint - a specification of the conventions for a particular kind of architecture view. It is a form of abstraction achieved using a selected set of architectural constructs as structuring rules, in order to focus on particular audience concerns frame within a system (ISO 42010). Viewpoint is a model (or description) of the information contained in a view.
+
+This project captures complementary views of the same system design:
+- `event-contracts.ts`: shared canonical event and topic contracts
+- `data-governance.ts`: shared ownership, sensitivity, and access policy model
+- `enterprise-architecture.ts`: enterprise integration view
+- `application-domain.ts`: front-office application/domain view
+- `devsecops-domain.ts`: DevSecOps, testing, security, and delivery view
+
+Together these artifacts cover enterprise architecture, bounded-context
+application design, and DevSecOps delivery governance without tying the
+blueprint to a specific implementation platform.
+
+## How TypeScript Files Relate
+
+### Enterprise File
+
+`enterprise-architecture.ts` defines:
+
+- bounded contexts
+- canonical customer identity and profile
+- ownership rules
+- shared event contracts
+- pub/sub abstractions
+- integration-layer governance
+- external partner endpoints and access policies
+- data classification and protection policy
+- future-system extensibility
+
+### Shared Contracts File
+
+`event-contracts.ts` defines:
+
+- canonical event names
+- customer event envelopes and payloads
+- shared customer identity and profile structures
+- neutral topic, publisher, and subscriber abstractions
+
+### Shared Governance File
+
+`data-governance.ts` defines:
+
+- attribute ownership rules
+- data sensitivity classifications
+- encryption and segregation policy
+- external partner access policy
+- prevent event storming
+
+### Application File
+
+`application-domain.ts` defines:
+
+- the front-office-owned customer aggregate
+- front-office commands and service ports
+- local projections for billing and service state
+- event handlers that consume peer events
+- an in-memory event router for local reasoning and testing
+
+### DevSecOps File
+
+`devsecops-domain.ts` defines:
+
+- SDLC and CI/CD stages from planning and review through release
+- delivery environments across `dev`, `test`, and `prod`
+- quality gates for validation, contract safety, integration, performance, and rollback readiness
+- security controls for dependency scanning, secret scanning, SAST, policy validation, signing, and runtime monitoring
+- promotion rules and approval boundaries between environments
+- artifact and release governance aligned to the Git Flow branching model
+
+
 ## Consistency Validation
 This project can be validated as a lightweight TypeScript package without depending on any root-level repository configuration.
 Included project files:
@@ -41,10 +112,8 @@ through `workflow_dispatch` with explicit deployment contract inputs such as
 target cloud, target cluster, and artifact version.
 
 ### Why Two GitHub Workflow Files
-
 The two workflow files intentionally separate orchestration from deployment
 execution.
-
 - `csp-blueprint-devsecops.yml` is the control-plane workflow. It decides when
   automation runs, which branch policy applies, which quality and security
   gates must pass, and whether a release may be promoted to `dev`, `test`, or
@@ -55,7 +124,6 @@ execution.
   specific target.
 
 This split is useful because:
-
 - GitHub workflow orchestration remains focused on SDLC governance and approval
   flow.
 - Deployment execution becomes reusable across environments and clouds.

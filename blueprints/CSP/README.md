@@ -1,4 +1,4 @@
-# Care Services Provider (CSP) Event-Driven Architecture (EDA)
+# Care Services Provider (CSP) Integration Architecture
 ## Brief Usecase Scenario
 Abstract Care Services Provider (CSP) company has multiple operational systems that need to stay aligned on customer/stakeholder data. 
 They want an integration approach that is decoupled, scalable, and allows other solutions to “plug in” over time.\
@@ -12,8 +12,9 @@ Design the integration architecture to keep customer data consistent across:
 Do not nominate specific products or vendors, focus on the overall architecture, design principles, and approach.
 
 
-## Ownership Model
-
+## Architecture Definition 
+Let's define _boundaries_ beetween systems.\
+**Ownership Model** provides clear reponsibilities where specific data is produced/maintained by one system (owner), and acceepted/acknoledged by other systems. At this stage, we focus on relashinships to produce directed acyclic graph (DAG) where changes are propogated without conflicts.
 | Attribute Group | Authoritative System | Typical Consumers |
 | --- | --- | --- |
 | Core identity | FrontOffice | FinanceBilling, ServiceDelivery |
@@ -23,26 +24,27 @@ Do not nominate specific products or vendors, focus on the overall architecture,
 | Billing data | FinanceBilling | FrontOffice, ServiceDelivery |
 | Service data | ServiceDelivery | FrontOffice, FinanceBilling |
 
+We do not consider any API, replication mechanisms, and data schema yet. First question to answer is - which Producer/Consumer architecture pattern to choose from: 
+- **Message Driven Architecture (MDA)**. Synchroinous more structured communication with schema and coupling (awareness between producer and consumer). Guarantees of reliability and precessing ordering. Use cases: Transactional systems, workflow orchestration, integrations. Higher latency (5-50ms). 
+- **Event Driven Architecture (EDA)**. Revolves around the production detection, consumption and reaction to events. Asynchroinous events, IOT, OT. Decoupling producer from consumer. Use-cases: real-time analytics, microservices, user activity tracking. Latency is lower (1-5ms), but can sufffer from event storming. Scalability is good, allowing to improive performance on demand.
 
+The other factors to be consuidered:
+- Guarantee of delivery policy: at least once, at most once, exactly once.
+- Acceptable SLOs: messages per second throughput, latency, lost messages, enchryption, scalability.
 
-## Separating Concerns
-Architecture View represents a system from the perspective of a related set of concerns. Architecture Viewpoint - a specification of the conventions for a particular kind of architecture view. It is a form of abstraction achieved using a selected set of architectural constructs as structuring rules, in order to focus on particular audience concerns frame within a system (ISO 42010). Viewpoint is a model (or description) of the information contained in a view.
+### Assumptions
 
-This project captures complementary views of the same system design:
-- `event-contracts.ts`: shared canonical event and topic contracts
-- `data-governance.ts`: shared ownership, sensitivity, and access policy model
-- `enterprise-eda-architecture.ts`: enterprise integration view
-- `application-eda-domain.ts`: front-office application/domain view
-- `devsecops-sdlc-architecture.ts`: DevSecOps, testing, security, and delivery view
+_Let's assume that Event-Driven Architecture (EDA) fits for our stakeholders._\
+EDA allows us do not focus on taxonomy of messages, avoid centrelised message brocker topology, defer scalability issues.
 
-Together these artifacts cover enterprise architecture, bounded-context
-application design, and DevSecOps delivery governance without tying the
-blueprint to a specific implementation platform.
+Let's use **TypeScript** as domain specific language allowing to develope and validate types (architecture artefacts) at high level. TypeScript strong typisation and ablility to adopt at all SDLC levels: back-end, middleware, fron-tend.
+
+We start form shareable definitions: event contract, data governance. Then we reuse shareable definitions on enterprise, solution, and operational levels.
+
 
 ## Canonical Event Catalog
-
-All systems publish and subscribe via the shared `customer-topic`.
-
+Each publish and subscribe event has the following attributes: **topic**, event type, payload, metadata.\
+Let's define core topic*: `customer-topic` as shared between publishers and subscrubers. Customer topic can be described as the following **event types**:
 - `customer.created`
 - `customer.updated`
 - `customer.status_changed`
@@ -50,7 +52,10 @@ All systems publish and subscribe via the shared `customer-topic`.
 - `customer.service_profile_changed`
 - `customer.merged`
 
+*The solution may require other topics and event types to be defined later.
+
 ## External Partner Integration Endpoints
+Events may be distributed through multiple queues (external, internal, logging), with different API endpoints. `application-domain` is repsponsible for implementation.
 
 The same event-driven pattern can be extended to trusted external partners through controlled integration endpoints.
 
@@ -75,7 +80,6 @@ These partner integrations should always be mediated by the integration layer ra
 - Encrypt data in transit and at rest, with stronger controls such as tokenization and field-level encryption for high-sensitivity domains.
 
 ## C4 Level 1: Context
-
 This view shows the business landscape and the key external relationships.
 
 ```mermaid
@@ -100,9 +104,7 @@ flowchart LR
     NFP <--> CSP
     FUT --> CSP
 ```
-
 ### Context Notes
-
 - The business problem is shared customer consistency across operational systems.
 - The target state is not direct coupling between every system.
 - Future systems should connect without redesigning the existing estate.
@@ -110,7 +112,6 @@ flowchart LR
 - Sensitive and medical data should be shared only through protected channels and policy-controlled contracts.
 
 ## C4 Level 2: Containers
-
 This view introduces the major runtime building blocks and the event-driven integration style.
 
 ```mermaid
@@ -157,9 +158,7 @@ flowchart LR
     SEC --- TOPIC
     SEC --- PTOPIC
 ```
-
 ### Container Notes
-
 - Systems do not integrate directly with each other.
 - The integration layer owns translation, routing, and operational controls.
 - The customer topic is the shared contract boundary for decoupled change propagation.
@@ -168,7 +167,6 @@ flowchart LR
 - Sensitive data can be routed to protected topics or secure APIs rather than the general customer topic.
 
 ## C4 Level 3: Components
-
 This view separates the enterprise integration responsibilities from the front-office application responsibilities.
 
 ```mermaid
@@ -218,9 +216,7 @@ flowchart LR
     SERV --> PROJ
     AGG --> PROJ
 ```
-
 ### Component Notes
-
 - The enterprise view defines the shared contracts and governance policies.
 - The enterprise view also defines partner endpoint controls and data-classification policy.
 - The application view focuses on one bounded context: front office.
@@ -230,67 +226,9 @@ flowchart LR
 - Sensitive medical and high-risk PII can be separated from the general customer topic and routed through protected exchange channels.
 - Encryption applies in transit and at rest, with stronger options like tokenization and field-level encryption for the most sensitive fields.
 
-## How TypeScript Files Relate
-
-### Enterprise File
-
-`enterprise-eda-architecture.ts` defines:
-
-- bounded contexts
-- canonical customer identity and profile
-- ownership rules
-- shared event contracts
-- pub/sub abstractions
-- integration-layer governance
-- external partner endpoints and access policies
-- data classification and protection policy
-- future-system extensibility
-
-### Shared Contracts File
-
-`event-contracts.ts` defines:
-
-- canonical event names
-- customer event envelopes and payloads
-- shared customer identity and profile structures
-- neutral topic, publisher, and subscriber abstractions
-
-### Shared Governance File
-
-`data-governance.ts` defines:
-
-- attribute ownership rules
-- data sensitivity classifications
-- encryption and segregation policy
-- external partner access policy
-- prevent event storming
-
-### Application File
-
-`application-eda-domain.ts` defines:
-
-- the front-office-owned customer aggregate
-- front-office commands and service ports
-- local projections for billing and service state
-- event handlers that consume peer events
-- an in-memory event router for local reasoning and testing
-
-### DevSecOps File
-
-`devsecops-sdlc-architecture.ts` defines:
-
-- SDLC and CI/CD stages from planning and review through release
-- delivery environments across `dev`, `test`, and `prod`
-- quality gates for validation, contract safety, integration, performance, and rollback readiness
-- security controls for dependency scanning, secret scanning, SAST, policy validation, signing, and runtime monitoring
-- promotion rules and approval boundaries between environments
-- artifact and release governance aligned to the Git Flow branching model
-
 
 ## Summary
-
 This design gives Care Services Provider solution:
-
 - decoupled integration across front office, finance, and service delivery
 - clear accountability for customer data ownership
 - support for eventual consistency at enterprise scale

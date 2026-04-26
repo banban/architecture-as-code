@@ -2,15 +2,15 @@
  * DevSecOps and SDLC view for the CSP customer EDA blueprint.
  *
  * This file complements:
- * - `enterprise-eda-architecture.ts` for enterprise integration and governance
- * - `application-eda-domain.ts` for bounded-context application responsibilities
+ * - `enterprise-architecture.ts` for enterprise integration and governance
+ * - `application-domain.ts` for bounded-context application responsibilities
  *
  * Purpose:
  * - define how the solution is tested, secured, and delivered across environments
  * - capture quality gates, security controls, and promotion rules as architecture
  * - keep delivery concerns explicit without binding the blueprint to one CI/CD vendor
  */
-import type { CustomerIntegrationArchitecture } from "./enterprise-eda-architecture.js";
+import type { CustomerIntegrationArchitecture } from "./enterprise-architecture.js";
 
 export type DeliveryEnvironmentName = "dev" | "test" | "prod";
 
