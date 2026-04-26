@@ -1,7 +1,7 @@
 /**
  * Enterprise integration view of the CSP customer EDA.
  *
- * This file complements `application-eda-domain.ts`.
+ * This file complements `application-domain.ts`.
  *
  * Perspective:
  * - this file: cross-system contracts, ownership, governance, and extensibility

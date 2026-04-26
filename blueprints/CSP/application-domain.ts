@@ -1,7 +1,7 @@
 /**
  * Front-office application/domain view for the CSP customer EDA.
  *
- * This file complements `enterprise-eda-architecture.ts`.
+ * This file complements `enterprise-architecture.ts`.
  *
  * Perspective:
  * - enterprise file: cross-system contracts, ownership, governance, integration

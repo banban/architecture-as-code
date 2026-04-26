@@ -80,10 +80,10 @@ sequenceDiagram
 
 ### Integration Governance Service
 
-The enterprise architecture exposes this via `assessGovernedRepublish()` in [enterprise-eda-architecture.ts](enterprise-eda-architecture.ts):
+The enterprise architecture exposes this via `assessGovernedRepublish()` in [enterprise-architecture.ts](enterprise-architecture.ts):
 
 ```typescript
-import { assessGovernedRepublish, cspCustomerArchitecture } from "./enterprise-eda-architecture.js";
+import { assessGovernedRepublish, cspCustomerArchitecture } from "./enterprise-architecture.js";
 
 const decision = assessGovernedRepublish(cspCustomerArchitecture, {
   receivingContext: "ServiceDelivery",
