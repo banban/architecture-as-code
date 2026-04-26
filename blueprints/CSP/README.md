@@ -14,7 +14,7 @@ Do not nominate specific products or vendors, focus on the overall architecture,
 
 ## Architecture Definition 
 Let's define _boundaries_ beetween systems.\
-**Ownership Model** provides clear reponsibilities where specific data is produced/maintained by one system (owner), and acceepted/acknoledged by other systems. At this stage, we focus on relashinships to produce directed acyclic graph (DAG) where changes are propogated without conflicts.
+**Ownership Model** provides clear responsibilities where specific data is produced/maintained by one system (owner), and accepted/acknowledged by other systems. At this stage, we focus on relationships to produce directed acyclic graph (DAG) where changes are propagated without conflicts.
 | Attribute Group | Authoritative System | Typical Consumers |
 | --- | --- | --- |
 | Core identity | FrontOffice | FinanceBilling, ServiceDelivery |
@@ -25,28 +25,33 @@ Let's define _boundaries_ beetween systems.\
 | Service data | ServiceDelivery | FrontOffice, FinanceBilling |
 
 We do not consider any API, replication mechanisms, and data schema yet. First question to answer is - which Producer/Consumer architecture pattern to choose from: 
-- **Message Driven Architecture (MDA)**. Synchroinous more structured communication with schema and coupling (awareness between producer and consumer). Guarantees of reliability and precessing ordering. Use cases: Transactional systems, workflow orchestration, integrations. Higher latency (5-50ms). 
-- **Event Driven Architecture (EDA)**. Revolves around the production detection, consumption and reaction to events. Asynchroinous events, IOT, OT. Decoupling producer from consumer. Use-cases: real-time analytics, microservices, user activity tracking. Latency is lower (1-5ms), but can sufffer from event storming. Scalability is good, allowing to improive performance on demand.
+- **Message Driven Architecture (MDA)**. Synchronous more structured communication with schema and coupling (awareness between producer and consumer). Guarantees of reliability and precessing ordering. Use cases: Transactional systems, workflow orchestration, integrations. Higher latency (5-50ms). 
+- **Event Driven Architecture (EDA)**. Revolves around the production detection, consumption and reaction to events. Asynchronous events, IOT, OT. Decoupling producer from consumer. Use-cases: real-time analytics, microservices, user activity tracking. Latency is lower (1-5ms), but can suffer from event storming. Scalability is good, allowing to improve performance on demand.
 
-The other factors to be consuidered:
+The other factors to be considered:
 - Guarantee of delivery policy: at least once, at most once, exactly once.
-- Acceptable SLOs: messages per second throughput, latency, lost messages, enchryption, scalability.
+- Acceptable SLOs: messages per second throughput, latency, lost messages, encryption, scalability.
 
 ### Assumptions
 
 _Let's assume that Event-Driven Architecture (EDA) fits for our stakeholders overall._\
-EDA allows us do not focus on taxonomy of messages, avoid centrelised message brocker topology, defer scalability issues.
+EDA allows us do not focus on taxonomy of messages, avoid centrelised message broker topology, defer scalability issues.
 But for some scenarios MDA also can be utilised to guarantee atomic/transaction processing of messages.
-That means we do not exclude, but combine the MDA and EDA to get the best outcomes.
+That means we do not exclude, and combine MDA and EDA to get the best outcomes.
 
-Let's use **TypeScript** as domain specific language allowing to develope and validate types (architecture artefacts) at high level. TypeScript strong typisation and ablility to adopt at all SDLC levels: back-end, middleware, fron-tend.
+But it worth to mentioned that we can't combine conflicting event-driven architecture styles: 
+- Publish-subscribe: publish-subscribe messaging infrastructure tracks subscriptions. When an event is published, it sends the event to each subscriber. 
+- Event streaming: Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. 
 
-We start form shareable definitions: event contract, data governance. Then we reuse shareable definitions on enterprise, solution, and operational levels.
+Another assumption: architecture should be compilable and smoothly embedded into development process.
+Let's use **TypeScript** as domain specific language allowing to develop and validate types (architecture artefact) at high level. TypeScript has established itself as the modern standard for full-stack development, enabling strong static typing across front-end (React, Angular), middleware (Next.js, Express), and back-end (Node.js, Deno). By catching errors at compile-time and improving code maintainability, it is essential for scaling complex projects and enhancing productivity.
+
+Next, we need to build basic components: event contract, data governance. And then reuse them as shareable definitions on enterprise, solution, and operational levels.
 
 
 ## Canonical Event Catalog
 Each publish and subscribe event has the following attributes: **topic**, event type, payload, metadata.\
-Let's define core topic*: `customer-topic` as shared between publishers and subscrubers. Customer topic can be described as the following **event types**:
+Let's define core topic*: `customer-topic` as shared between publishers and subscribers. Customer topic can be described as the following **event types**:
 - `customer.created`
 - `customer.updated`
 - `customer.status_changed`

@@ -4,12 +4,12 @@ The architecture separates data concerns so sensitive information is not treated
 
 ### Recommended Segregation
 
-- Insensitive and routine operational data can flow through the standard canonical customer topic.
-- PII should be minimized in event payloads and exposed only where there is clear business need.
-- Sensitive health or medical data should be segregated into protected domains, protected topics, or secure APIs with stricter access controls.
 - External partners should receive the minimum necessary data for their purpose, filtered by policy.
 - Encrypt data in transit and at rest, with stronger controls such as tokenization and field-level encryption for high-sensitivity domains.
-- Sensitive personal and medical and high-risk PII can be separated from the general customer topic and routed through protected exchange channels. [Claim-Check](https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check) pattern allows workloads to transfer payloads without storing the payload in a messaging system. 
+- Insensitive and routine operational data can flow through the standard canonical customer topic.
+- Sensitive personal, medical, and high-risk PII can be separated from the general customer topic and routed through protected exchange channels. [Claim-Check](https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check) pattern allows workloads to transfer payloads without storing the payload in a messaging system. 
+  - PII data should be minimized in event payloads and exposed only where there is clear business need.
+  - Sensitive health or medical data should be segregated into protected domains, protected topics, or secure APIs with stricter access controls.
 
 
 ### Recommended Security Controls
@@ -19,7 +19,7 @@ The architecture separates data concerns so sensitive information is not treated
 | Data in transit | TLS or equivalent transport encryption for all APIs, brokers, and partner endpoints |
 | Data at rest | Storage-level encryption for all operational stores, event stores, and backups |
 | High-risk fields | Field-level encryption for medical data, regulatory data, and restricted financial attributes |
-| Identity correlation | Tokenization or pseudonymization where full identifiers are not required downstream |
+| Identity correlation | Tokenization or pseudonymization where full identifiers are not required downstream. Mapping to external records' IDs is acceptable |
 | Key management | Separate key domains for sensitive datasets and tightly controlled decrypt permissions |
 | Partner integration | Policy-based filtering, contract scoping, consent checks, and full audit trail |
 
@@ -116,14 +116,12 @@ console.log(decision.decisions[0].reason); // "blocked_republish_to_origin"
 
 ## Service Delivery Workflow Pipelines
 
-`ServiceDelivery` is the part of the landscape most likely to accumulate
-long-running work, operational waiting states, and expensive downstream
-interactions. For that reason, it should not be treated as a single linear
-consumer of customer events. It should behave as a pipeline-based workflow
+`ServiceDelivery` is the part of the landscape most likely to accumulate long-running work, operational waiting states, and expensive downstream
+interactions. For that reason, it should not be treated as a single linear consumer of customer events. It should behave as a pipeline-based workflow
 domain with explicit prioritization, parallelization, and concurrency control.
 
 ### Pipeline Goals
-
+Combination of proactive, reactive, and architectural strategies to manage sudden spikes in demand without degrading user experience or crashing systems, such as: 
 - absorb bursty event traffic without overwhelming operational workers
 - prioritize urgent or customer-impacting work ahead of routine background work
 - parallelize independent steps without allowing conflicting updates to race
@@ -157,41 +155,32 @@ The recommended model is a staged workflow pipeline:
 
 ### Priority Queue Strategy
 
-Not all service work should compete equally for the same workers. A practical
-priority model is:
+Not all service work should compete equally for the same workers. A practical priority model is:
 
 - `P1 Critical`: safety, regulatory, incident, or outage-related actions
 - `P2 Customer Impacting`: activation, suspension, restoration, urgent address
   or contact changes affecting live service
-- `P3 Standard Operational`: ordinary provisioning, routine updates, partner
-  coordination, standard fulfillment
-- `P4 Background`: reconciliation, replay, projection rebuild, enrichment, and
-  bulk synchronization
+- `P3 Standard Operational`: ordinary provisioning, routine updates, partner coordination, standard fulfillment
+- `P4 Background`: reconciliation, replay, projection rebuild, enrichment, and bulk synchronization
 
-Priority should influence dispatch order, but fairness controls are still
-needed so background work is delayed rather than starved forever.
+Priority should influence dispatch order, but fairness controls are still needed so background work is delayed rather than starved forever.
 
 ### Parallelization Rules
 
-Parallelization should be allowed only for non-conflicting work. The simplest
-rule is:
+Parallelization should be allowed only for non-conflicting work. The simplest rule is:
 
-- steps that mutate the same service aggregate or external side effect target
-  must share the same serialization key
-- steps that only read data, enrich context, notify observers, or update
-  independent projections may execute in parallel
+- steps that mutate the same service aggregate or external side effect target must share the same serialization key
+- steps that only read data, enrich context, notify observers, or update independent projections may execute in parallel
 
 Useful serialization keys include:
-
 - `serviceAccountId` for service lifecycle changes
 - `customerId` when customer-scoped changes affect multiple services together
 - `partnerCaseId` or `externalReference.localId` for partner callbacks
 - region or work-basket key for operational capacity controls
 
-This gives controlled concurrency: parallel across different keys, serialized
-within the same key.
+This gives controlled concurrency: parallel across different keys, serialized within the same key.
 
-### Competing Consumers
+### Concurrency
 The solution may have multiple queues, publishers, and consumers.
 The same inbound event can legitimately trigger multiple subscribed for the topic consumers, for example:
 - service delivery team with multiple workers
@@ -206,8 +195,8 @@ It is critical to avoid data corruption caused by data loss, data race, event st
 - use version checks or optimistic concurrency for shared workflow state
 - emit follow-up events for cross-component coordination rather than sharing in-memory mutable objects
 
-Message queue allows to solve the problem as described in [Competing Consumers](https://learn.microsoft.com/en-us/azure/architecture/patterns/competing-consumers) pattern.
-In other words, parallel consumers may share the same payload, but they should not share the same writable state boundary.
+Message queue allows to solve the problem deligating event/message to particular consumer as described in [Competing Consumers](https://learn.microsoft.com/en-us/azure/architecture/patterns/competing-consumers) pattern.\
+Also, [Event Sourcing](https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing) pattern can help prevent concurrent updates from causing conflicts because it avoids the requirement to directly update objects in the data store. In other words, parallel consumers may read the same payload, but they should not share the same writable state boundary.
 
 ### Long-Running Workflow Shape
 `ServiceDelivery` is a core busniess function should scale as a coordinated set of durable workflow pipelines, not as a single queue consumer or a single service class. Priority controls decide what runs first, partition keys decide what can run safely in parallel, and ownership boundaries decide where concurrent consumers are allowed to write.
@@ -240,8 +229,7 @@ Instead of one generic processing lane, separate `ServiceDelivery` into lanes su
 - `Projection and Notification`: read-model refreshes and downstream event publication
 - `Reconciliation and Replay`: repair, rebuild, and consistency checks
 
-Each lane should have independent worker pools, retry settings, and scaling
-policies.
+Each lane should have independent worker pools, retry settings, and scaling policies.
 
 ### Operational Safeguards
 
@@ -261,11 +249,9 @@ This blueprint aligns with several reliability patterns from Microsoft Azure's
 reliability.
 
 Patterns that are explicitly represented in this blueprint:
-- `Publisher/Subscriber`: the core architecture uses the shared `customer-topic` to decouple front office, finance/billing, service delivery,
-  and future systems.
+- `Publisher/Subscriber`: the core architecture uses the shared `customer-topic` to decouple front office, finance/billing, service delivery, and future systems.
 - `Bulkhead`: the design separates bounded contexts, ownership domains, and sensitive-data handling paths so failures or policy constraints in one area do not automatically spread to others.
-- `Pipes and Filters`: the integration layer is modeled as a mediated flow of validation, routing, schema control, audit, and policy enforcement rather
-  than as direct system-to-system coupling.
+- `Pipes and Filters`: the integration layer is modeled as a mediated flow of validation, routing, schema control, audit, and policy enforcement rather than as direct system-to-system coupling.
 
 Patterns that are strongly implied by the architecture controls:
 - `Retry`: listed in the integration policies to tolerate transient failures in publication and consumption paths.
@@ -283,4 +269,3 @@ Patterns that are partially aligned but not fully modeled yet:
 
 In short, the current solution is most clearly grounded in publish/subscribe-based decoupling, failure isolation across bounded contexts,
 and mediated integration controls that support resilient asynchronous processing.
-
