@@ -8,6 +8,9 @@ The architecture separates data concerns so sensitive information is not treated
 - PII should be minimized in event payloads and exposed only where there is clear business need.
 - Sensitive health or medical data should be segregated into protected domains, protected topics, or secure APIs with stricter access controls.
 - External partners should receive the minimum necessary data for their purpose, filtered by policy.
+- Encrypt data in transit and at rest, with stronger controls such as tokenization and field-level encryption for high-sensitivity domains.
+- Sensitive personal and medical and high-risk PII can be separated from the general customer topic and routed through protected exchange channels. [Claim-Check](https://learn.microsoft.com/en-us/azure/architecture/patterns/claim-check) pattern allows workloads to transfer payloads without storing the payload in a messaging system. 
+
 
 ### Recommended Security Controls
 
@@ -188,13 +191,10 @@ Useful serialization keys include:
 This gives controlled concurrency: parallel across different keys, serialized
 within the same key.
 
-### Architecture Without Data Races
+### Competing Consumers
 The solution may have multiple queues, publishers, and consumers.
-The same inbound event can legitimately trigger multiple internal consumers, for
-example:
-
-- service lifecycle workflow orchestration
-- SLA or case-management updates
+The same inbound event can legitimately trigger multiple subscribed for the topic consumers, for example:
+- service delivery team with multiple workers
 - front-office projection refresh
 - partner notification preparation
 - audit and compliance recording
@@ -202,60 +202,42 @@ example:
 It is critical to avoid data corruption caused by data loss, data race, event storming, cyber attacks, etc.:
 - treat the inbound event as immutable
 - let each consumer write to its own owned store or projection
-- never let multiple consumers concurrently mutate the same operational record
-  without a clear owner
+- never let multiple consumers concurrently mutate the same operational record without a clear owner
 - use version checks or optimistic concurrency for shared workflow state
-- emit follow-up events for cross-component coordination rather than sharing
-  in-memory mutable objects
+- emit follow-up events for cross-component coordination rather than sharing in-memory mutable objects
 
-In other words, parallel consumers may share the same payload, but they should
-not share the same writable state boundary.
+Message queue allows to solve the problem as described in [Competing Consumers](https://learn.microsoft.com/en-us/azure/architecture/patterns/competing-consumers) pattern.
+In other words, parallel consumers may share the same payload, but they should not share the same writable state boundary.
 
 ### Long-Running Workflow Shape
-`ServiceDelivery` is a core busniess function should scale as a coordinated set of
-durable workflow pipelines, not as a single queue consumer or a single service
-class. Priority controls decide what runs first, partition keys decide what can
-run safely in parallel, and ownership boundaries decide where concurrent
-consumers are allowed to write.
+`ServiceDelivery` is a core busniess function should scale as a coordinated set of durable workflow pipelines, not as a single queue consumer or a single service class. Priority controls decide what runs first, partition keys decide what can run safely in parallel, and ownership boundaries decide where concurrent consumers are allowed to write.
 
-Many `ServiceDelivery` processes are naturally long-running because they depend
-on external systems, field work, approvals, or time-based waiting conditions.
-These workflows should be modeled as durable state machines, not as single
-request/response transactions.
+Many `ServiceDelivery` processes are naturally long-running because they depend on external systems, field work, approvals, or time-based waiting conditions. These workflows should be modeled as durable state machines, not as single request/response transactions.
 
 A typical long-running workflow can look like:
 
 1. `Accepted`
-   The workflow instance is created from an inbound event and assigned a
-   priority and partition key.
+   The workflow instance is created from an inbound event and assigned a priority and partition key.
 2. `Prepared`
    Validation, eligibility, policy, and dependency checks complete.
 3. `Dispatched`
    Work is sent to one or more execution steps or external adapters.
 4. `Waiting`
-   The workflow pauses for callback, approval, field completion, retry delay,
-   or scheduled revisit.
+   The workflow pauses for callback, approval, field completion, retry delay, or scheduled revisit.
 5. `Resumed`
-   A callback event, timeout, or dependent completion moves the workflow
-   forward.
+   A callback event, timeout, or dependent completion moves the workflow forward.
 6. `Completed` or `Compensating`
-   The workflow either finishes successfully or triggers rollback/remediation
-   steps when partial failure occurs.
+   The workflow either finishes successfully or triggers rollback/remediation steps when partial failure occurs.
 
-This model avoids keeping expensive workers blocked while the business process
-is waiting on real-world actions.
+This model avoids keeping expensive workers blocked while the business process is waiting on real-world actions.
 
 ### Recommended Pipeline Lanes
 
-Instead of one generic processing lane, separate `ServiceDelivery` into lanes
-such as:
-
+Instead of one generic processing lane, separate `ServiceDelivery` into lanes such as:
 - `RealTime Operations`: urgent customer-affecting service state changes
 - `Provisioning and Fulfillment`: longer-running activation and setup workflows
-- `Partner and Field Coordination`: external callbacks, dispatch, and partner
-  acknowledgements
-- `Projection and Notification`: read-model refreshes and downstream event
-  publication
+- `Partner and Field Coordination`: external callbacks, dispatch, and partner acknowledgements
+- `Projection and Notification`: read-model refreshes and downstream event publication
 - `Reconciliation and Replay`: repair, rebuild, and consistency checks
 
 Each lane should have independent worker pools, retry settings, and scaling
@@ -279,40 +261,26 @@ This blueprint aligns with several reliability patterns from Microsoft Azure's
 reliability.
 
 Patterns that are explicitly represented in this blueprint:
-- `Publisher/Subscriber`: the core architecture uses the shared
-  `customer-topic` to decouple front office, finance/billing, service delivery,
+- `Publisher/Subscriber`: the core architecture uses the shared `customer-topic` to decouple front office, finance/billing, service delivery,
   and future systems.
-- `Bulkhead`: the design separates bounded contexts, ownership domains, and
-  sensitive-data handling paths so failures or policy constraints in one area
-  do not automatically spread to others.
-- `Pipes and Filters`: the integration layer is modeled as a mediated flow of
-  validation, routing, schema control, audit, and policy enforcement rather
+- `Bulkhead`: the design separates bounded contexts, ownership domains, and sensitive-data handling paths so failures or policy constraints in one area do not automatically spread to others.
+- `Pipes and Filters`: the integration layer is modeled as a mediated flow of validation, routing, schema control, audit, and policy enforcement rather
   than as direct system-to-system coupling.
 
 Patterns that are strongly implied by the architecture controls:
-- `Retry`: listed in the integration policies to tolerate transient failures in
-  publication and consumption paths.
-- `Competing Consumers`: compatible with the subscriber model because consumers
-  are intentionally decoupled behind the shared topic and designed for
+- `Retry`: listed in the integration policies to tolerate transient failures in publication and consumption paths.
+- `Competing Consumers`: compatible with the subscriber model because consumers are intentionally decoupled behind the shared topic and designed for
   duplicate-safe processing.
-- `Health Endpoint Monitoring`: implied as an operational concern through the
-  blueprint's emphasis on auditability, reconciliation, and observability,
-  although no concrete endpoint contract is defined in these TypeScript files.
+- `Health Endpoint Monitoring`: implied as an operational concern through the blueprint's emphasis on auditability, reconciliation, and observability,   although no concrete endpoint contract is defined in these TypeScript files.
 
 Patterns that are partially aligned but not fully modeled yet:
-- `Queue-Based Load Leveling`: the shared topic provides asynchronous
-  decoupling, but the blueprint does not yet define dedicated workload buffers,
+- `Queue-Based Load Leveling`: the shared topic provides asynchronous decoupling, but the blueprint does not yet define dedicated workload buffers,
   worker pools, or back-pressure rules.
-- `Circuit Breaker` and `Throttling`: these would fit naturally in the
-  integration layer or partner-facing adapters, but they are not yet described
+- `Circuit Breaker` and `Throttling`: these would fit naturally in the integration layer or partner-facing adapters, but they are not yet described
   as explicit contracts in this blueprint.
-- `Saga distributed transactions` / `Compensating Transaction`: the current
-  design favors eventual consistency and authoritative ownership, but it does
-  not yet define compensation workflows for multi-step cross-system business
-  processes.
+- `Saga distributed transactions` / `Compensating Transaction`: the current design favors eventual consistency and authoritative ownership, but it does
+  not yet define compensation workflows for multi-step cross-system business processes.
 
-In short, the current solution is most clearly grounded in
-publish/subscribe-based decoupling, failure isolation across bounded contexts,
-and mediated integration controls that support resilient asynchronous
-processing.
+In short, the current solution is most clearly grounded in publish/subscribe-based decoupling, failure isolation across bounded contexts,
+and mediated integration controls that support resilient asynchronous processing.
 

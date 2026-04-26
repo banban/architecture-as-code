@@ -34,8 +34,10 @@ The other factors to be consuidered:
 
 ### Assumptions
 
-_Let's assume that Event-Driven Architecture (EDA) fits for our stakeholders._\
+_Let's assume that Event-Driven Architecture (EDA) fits for our stakeholders overall._\
 EDA allows us do not focus on taxonomy of messages, avoid centrelised message brocker topology, defer scalability issues.
+But for some scenarios MDA also can be utilised to guarantee atomic/transaction processing of messages.
+That means we do not exclude, but combine the MDA and EDA to get the best outcomes.
 
 Let's use **TypeScript** as domain specific language allowing to develope and validate types (architecture artefacts) at high level. TypeScript strong typisation and ablility to adopt at all SDLC levels: back-end, middleware, fron-tend.
 
@@ -55,8 +57,7 @@ Let's define core topic*: `customer-topic` as shared between publishers and subs
 *The solution may require other topics and event types to be defined later.
 
 ## External Partner Integration Endpoints
-Events may be distributed through multiple queues (external, internal, logging), with different API endpoints. `application-domain` is repsponsible for implementation.
-
+Events may be distributed through multiple queues (external, internal, logging, real-time analytics). Unified API Gateway can aggregate different API endpoints, hiding the complexity, and applying unified policies. 
 The same event-driven pattern can be extended to trusted external partners through controlled integration endpoints.
 
 | Partner Type | Typical Endpoint Style | Typical Flow |
@@ -68,16 +69,15 @@ The same event-driven pattern can be extended to trusted external partners throu
 
 These partner integrations should always be mediated by the integration layer rather than direct access to core operational systems.
 
-
 ## Core Design Principles
-- Use event-driven architecture implemented through publish/subscribe on a shared customer topic.
+- Use event-driven architecture implemented through publish/subscribe on a shared topics.
 - Avoid point-to-point integration between operational systems.
 - Define clear ownership for each attribute group so consistency is governed, not assumed.
 - Keep systems loosely coupled through canonical events and local projections.
 - Design for eventual consistency with idempotency, replay, auditability, and reconciliation.
 - Make future systems pluggable by subscribing to the same customer event contracts.
-- Segregate sensitive and insensitive data so medical and high-risk PII can be handled under stronger controls.
-- Encrypt data in transit and at rest, with stronger controls such as tokenization and field-level encryption for high-sensitivity domains.
+- Segregate sensitive and insensitive data.
+
 
 ## C4 Level 1: Context
 This view shows the business landscape and the key external relationships.
@@ -164,7 +164,6 @@ flowchart LR
 - The customer topic is the shared contract boundary for decoupled change propagation.
 - New systems plug in through the same integration layer and event contracts.
 - External partners connect through secure partner endpoints managed by the same integration layer.
-- Sensitive data can be routed to protected topics or secure APIs rather than the general customer topic.
 
 ## C4 Level 3: Components
 This view separates the enterprise integration responsibilities from the front-office application responsibilities.
@@ -223,8 +222,6 @@ flowchart LR
 - Front office publishes only the attributes it owns.
 - Front office consumes finance and service events to maintain local read projections.
 - Billing and service systems remain authoritative for their own data even when that data is visible in front office.
-- Sensitive medical and high-risk PII can be separated from the general customer topic and routed through protected exchange channels.
-- Encryption applies in transit and at rest, with stronger options like tokenization and field-level encryption for the most sensitive fields.
 
 
 ## Summary
@@ -236,3 +233,5 @@ This design gives Care Services Provider solution:
 - stronger privacy posture through sensitive-data segregation and policy-based sharing
 - encryption strategy for data in transit and at rest
 - a stable pattern for onboarding future systems with minimal rework
+
+More details in [README_GOVERNANCE](./README_GOVERNANCE.md),  [README_OPERATION](./README_OPERATION.md)

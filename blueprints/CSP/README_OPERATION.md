@@ -1,18 +1,16 @@
 ## Separating Concerns
 Architecture View represents a system from the perspective of a related set of concerns. Architecture Viewpoint - a specification of the conventions for a particular kind of architecture view. It is a form of abstraction achieved using a selected set of architectural constructs as structuring rules, in order to focus on particular audience concerns frame within a system (ISO 42010). Viewpoint is a model (or description) of the information contained in a view.
 
+Together these artifacts cover enterprise architecture, bounded-context
+application design, governance, and operational delivery without tying the blueprint to a specific implementation platform.
+
+## How TypeScript Files Relate
 This project captures complementary views of the same system design:
 - `event-contracts.ts`: shared canonical event and topic contracts
 - `data-governance.ts`: shared ownership, sensitivity, and access policy model
-- `enterprise-architecture.ts`: enterprise integration view
-- `application-domain.ts`: front-office application/domain view
-- `devsecops-domain.ts`: DevSecOps, testing, security, and delivery view
-
-Together these artifacts cover enterprise architecture, bounded-context
-application design, and DevSecOps delivery governance without tying the
-blueprint to a specific implementation platform.
-
-## How TypeScript Files Relate
+- `enterprise-architecture.ts`: enterprise integration view for cross-system contracts, ownership, governance, and extensibility rules.
+- `application-domain.ts`: front-office view repsponsible for development implementation.
+- `devsecops-domain.ts`: testing, security, observebility, and maintenance view.
 
 ### Enterprise File
 
