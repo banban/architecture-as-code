@@ -44,7 +44,7 @@ But it worth to mentioned that we can't combine conflicting event-driven archite
 - Event streaming: Events are written to a log. Events are strictly ordered within a partition and are durable. Clients don't subscribe to the stream. Instead, a client can read from any part of the stream. 
 
 Another assumption: architecture should be compilable and smoothly embedded into development process.
-Let's use **TypeScript** as domain specific language allowing to develop and validate types (architecture artefact) at high level. TypeScript has established itself as the modern standard for full-stack development, enabling strong static typing across front-end (React, Angular), middleware (Next.js, Express), and back-end (Node.js, Deno). By catching errors at compile-time and improving code maintainability, it is essential for scaling complex projects and enhancing productivity.
+Let's use **TypeScript** as domain specific language allowing to develop and validate types (architecture artifact) at high level. TypeScript has established itself as the modern standard for full-stack development, enabling strong static typing across front-end (React, Angular), middleware (Next.js, Express), and back-end (Node.js, Deno). By catching errors at compile-time and improving code maintainability, it is essential for scaling complex projects and enhancing productivity.
 
 Next, we need to build basic components: event contract, data governance. And then reuse them as shareable definitions on enterprise, solution, and operational levels.
 
@@ -240,3 +240,13 @@ This design gives Care Services Provider solution:
 - a stable pattern for onboarding future systems with minimal rework
 
 More details in [README_GOVERNANCE](./README_GOVERNANCE.md),  [README_OPERATION](./README_OPERATION.md)
+
+### Future Improvements
+- Pluggable Architecture. Ensure new systems can integrate seamlessly by defining clear extension points in the architecture.
+- Code Simplifications. Reduce Redundancy, some interfaces (e.g., CustomerEvent and its subtypes) could be simplified by using generics to avoid repetitive definitions.
+- Inline Comments: Add more inline comments in complex sections of the TypeScript files for better readability.
+- Pipeline Optimization. Extract common steps (e.g., authentication, artifact download) in GitHub workflows into reusable composite actions. Environment Variables: Use environment variables for sensitive data instead of hardcoding defaults in workflows.
+- Testing and Validation. Unit Tests: Add unit tests for critical functions in data-governance.ts and enterprise-architecture.ts. Integration Tests: Ensure integration tests cover the end-to-end flow of event publishing and consumption.
+- DevSecOps Enhancements. Security Scanning: Integrate tools like CodeQL or Semgrep for static application security testing. Dependency Management: Automate dependency updates using tools like Dependabot.
+- Data Governance. Dynamic Policies: Consider making governance policies dynamic (e.g., configurable via JSON or YAML files). Audit Logging: Add audit logging for governance decisions (e.g., evaluatePingPongRisk).
+- Event Router. Scalability: Replace the in-memory CustomerEventRouter with a message broker (e.g., Kafka, RabbitMQ) for production use.
