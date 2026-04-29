@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="model" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>EU AI Act Compliance</title>
+
+	<!-- JQUERY / UI / LAYOUT -->
+	<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="lib/jquery-ui-layout/jquery.layout-1.4.4.js"></script>
+	<link type="text/css" rel="stylesheet" href="lib/jquery-ui-layout/layout-default-1.4.4.css">
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="css/model.css">
+	<link type="text/css" rel="stylesheet" href="css/i18n.css">
+	<script type="text/javascript" src="js/model.js"></script>
+	<script type="text/javascript" src="js/url-polyfill.min.js"></script>
+</head>
+
+<body>
+	<!-- "ui-layout-north" class set (topbar) -->
+	<div class="ui-layout-north">
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<span class="navbar-brand">EU AI Act Compliance</span>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#myModal" data-toggle="modal" class="go"><span class="i18n-about"></span></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<iframe name="view" class="ui-layout-center" src="eu-ai-act-model/elements/model.html" scrolling="no"></iframe>
+
+	<div class="ui-layout-west">
+		<iframe name="element" class="ui-layout-south" src="elements/empty-element.html"  scrolling="no"></iframe>
+		<div class="ui-layout-center">
+			<div class="panel panel-default root-panel">
+				<div class="panel-heading root-panel-heading">
+					<b><span class="i18n-modeltree"></span></b>
+				</div>
+				<div class="panel-body root-panel-body">
+					<b><a href="eu-ai-act-model/elements/model.html" target="view">EU AI Act Compliance</a></b>
+					<ul class="tree">
+					<!-- START OF STRINGTEMPLATE CODE -->
+						<li class="tree-folder sorted"><span class="i18n-model_content"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+							<ul>
+                                <li class="tree-folder "><span class="i18n-strategy"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+                                    <ul>
+                                    </ul>
+                                </li>
+								<li class="tree-folder "><span class="i18n-business_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-provider.html" target="element"> Provider (Developer) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-deployer.html" target="element"> Deployer (User/Operator) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-importer.html" target="element"> Importer </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-distributor.html" target="element"> Distributor </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-auth-rep.html" target="element"> Authorised Representative </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-affected.html" target="element"> Affected Person </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-ai-office.html" target="element"> EU AI Office </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-nca.html" target="element"> National Competent Authority (NCA) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-notified-body.html" target="element"> Notified Body </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-sci-panel.html" target="element"> Scientific Panel </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/act-eaib.html" target="element"> European AI Board (EAIB) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/role-provider.html" target="element"> AI System Provider Role </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/role-deployer.html" target="element"> AI System Deployer Role </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/role-compliance.html" target="element"> Compliance Officer Role </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/role-ai-literacy.html" target="element"> AI Literacy Trainer Role </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-classify.html" target="element"> AI Risk Classification </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-conformity.html" target="element"> Conformity Assessment Process </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-registration.html" target="element"> EU Database Registration </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-pmm.html" target="element"> Post-Market Monitoring </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-incident.html" target="element"> Serious Incident Reporting </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-gpai-reg.html" target="element"> GPAI Model Registration </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-sandbox.html" target="element"> Regulatory Sandbox Participation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-fria.html" target="element"> Fundamental Rights Impact Assessment </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/proc-literacy.html" target="element"> AI Literacy Programme </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-tech-doc.html" target="element"> Technical Documentation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-doc-conformity.html" target="element"> EU Declaration of Conformity </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-instructions.html" target="element"> Instructions for Use </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-risk-records.html" target="element"> Risk Management Records </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-gpai-tech-doc.html" target="element"> GPAI Technical Documentation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-training-summary.html" target="element"> Training Data Summary (GPAI) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-cop.html" target="element"> Code of Practice (GPAI) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-incident-report.html" target="element"> Serious Incident Report </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/obj-data-gov.html" target="element"> Data Governance Documentation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/svc-explanation.html" target="element"> Right to Explanation (High-Risk Decisions) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/svc-complaint.html" target="element"> Right to Complain (Art. 85) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/svc-sandbox.html" target="element"> Regulatory Sandbox Access </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/svc-market-surv.html" target="element"> Market Surveillance </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-application_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-risk-class.html" target="element"> AI Risk Classification System </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-tech-doc-mgmt.html" target="element"> Technical Documentation Management </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-risk-mgmt.html" target="element"> Risk Management Platform </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-eu-db.html" target="element"> EU AI Database (Public Registry) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-pmm-system.html" target="element"> Post-Market Monitoring System </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-incident-portal.html" target="element"> Incident Reporting Portal </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-logging.html" target="element"> AI Logging and Audit Trail System </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-conformity-mgmt.html" target="element"> Conformity Assessment Management </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-gpai-registry.html" target="element"> GPAI Model Registry </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-literacy-platform.html" target="element"> AI Literacy Training Platform </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-oversight-dashboard.html" target="element"> Human Oversight Dashboard </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/app-data-gov.html" target="element"> Data Governance Platform </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/appsvc-risk.html" target="element"> Risk Assessment Service </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/appsvc-reporting.html" target="element"> Compliance Reporting Service </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/appsvc-db-integration.html" target="element"> Regulatory Database Integration </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/appsvc-watermark.html" target="element"> Synthetic Content Watermarking </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-technology_layer"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-training.html" target="element"> AI Model Training Infrastructure </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-deployment.html" target="element"> AI Model Deployment Infrastructure </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-audit-log.html" target="element"> Secure Audit Log Storage </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-bias.html" target="element"> Bias Detection Tools </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-cybersecurity.html" target="element"> Cybersecurity Controls </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-override.html" target="element"> Human Override Mechanism </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-gpai-model.html" target="element"> AI Model (GPAI) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/tech-high-risk-ai.html" target="element"> High-Risk AI System </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-motivation"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+										<li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter I: General Provisions </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/id-08a4888332fb48349218571d639e2005.html" target="element"> Art. 1: Subject Matter </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art3.html" target="element"> Art. 3: Definitions </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art4.html" target="element"> Art. 4: AI Literacy </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch1.html" target="element"> Chapter I: General Provisions </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/id-ffb02dc1b7bc48b9ad949b276ca43bef.html" target="element"> Art. 2: Scope </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter II: Prohibited AI Practices </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch2.html" target="element"> Chapter II: Prohibited AI Practices </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art5.html" target="element"> Art. 5: Prohibited Practices </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter III: High-Risk AI Systems </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art6.html" target="element"> Art. 06: Classification Rules </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art10.html" target="element"> Art. 10: Data Governance </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art9.html" target="element"> Art. 09: Risk Management System </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art49.html" target="element"> Art. 49: CE Marking </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art11.html" target="element"> Art. 11: Technical Documentation </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art12.html" target="element"> Art. 12: Record-Keeping / Logging </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art13.html" target="element"> Art. 13: Transparency </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art14.html" target="element"> Art. 14: Human Oversight </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art15.html" target="element"> Art. 15: Accuracy, Robustness, Cybersecurity </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art16.html" target="element"> Art. 16: Obligations of Providers </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art17.html" target="element"> Art. 17: Quality Management System </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art26.html" target="element"> Art. 26: Obligations of Deployers </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art43.html" target="element"> Art. 43: Conformity Assessment </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch3.html" target="element"> Chapter III: High-Risk AI Systems </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter IV: Transparency Obligations </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art50.html" target="element"> Art. 50: Transparency for Specific Systems </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch4.html" target="element"> Chapter IV: Transparency Obligations </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter V: General Purpose AI Models </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art53.html" target="element"> Art. 53: Obligations for All GPAI Providers </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art55.html" target="element"> Art. 55: Systemic Risk Obligations </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art56.html" target="element"> Art. 56: Codes of Practice (GPAI) </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch5.html" target="element"> Chapter V: General Purpose AI Models </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter VI: Governance </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch6.html" target="element"> Chapter VI: Governance </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter VII: EU Database </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch7.html" target="element"> Chapter VII: EU Database </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art64.html" target="element"> Art. 64: AI Office </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art65.html" target="element"> Art. 65: European AI Board </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art67.html" target="element"> Art. 67: AI Advisory Forum </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art68.html" target="element"> Art. 68: Scientific Panel </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art70.html" target="element"> Art. 70: National Competent Authorities </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter VIII: Post-Market &amp; Market Surveillance </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art71.html" target="element"> Art. 71: EU Database for High-Risk AI </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch8.html" target="element"> Chapter VIII: Post-Market &amp; Market Surveillance </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter IX: Codes of Conduct </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-annex4.html" target="element"> Annex IV: Technical Documentation </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art72.html" target="element"> Art. 72: Post-Market Monitoring </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art73.html" target="element"> Art. 73: Serious Incident Reporting </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art99.html" target="element"> Art. 99: Penalties </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-ch9.html" target="element"> Chapter IX: Codes of Conduct </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter X: Codes of Conduct and Guidelines </span>
+											<ul>
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter XI: Delegation of Power and Committee Procedure </span>
+											<ul>
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Chapter XII: Penalties </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-art101.html" target="element"> Art. 101: AI Liability </a></li>
+
+											</ul>
+											</li><li class="tree-folder "><span><i class="glyphicon glyphicon-triangle-right"></i> Annex </span>
+											<ul>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-annex1.html" target="element"> Annex I: EU Harmonisation Legislation </a></li>
+															<li class="tree-element "><a href="eu-ai-act-model/elements/req-annex3.html" target="element"> Annex III: High-Risk Use Cases </a></li>
+
+											</ul>
+											</li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/drv-ai-risk.html" target="element"> AI Proliferation Risk </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/drv-legal-certainty.html" target="element"> Need for Legal Certainty </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/drv-fundamental-rights.html" target="element"> Fundamental Rights Protection </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/drv-competitiveness.html" target="element"> AI Competitiveness </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/ass-risk-based.html" target="element"> Risk-Based Approach Assessment </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/ass-conformity.html" target="element"> Conformity Assessment </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/ass-fria.html" target="element"> Fundamental Rights Impact Assessment </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/ass-gpai-systemic.html" target="element"> GPAI Systemic Risk Assessment </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/goal-trustworthy.html" target="element"> Ensure Trustworthy AI </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/goal-rights.html" target="element"> Protect Fundamental Rights </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/goal-innovation.html" target="element"> Enable Innovation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/goal-governance.html" target="element"> Establish Governance </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/goal-market.html" target="element"> Ensure Market Consistency </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/con-territorial.html" target="element"> Territorial Scope </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/con-timeline.html" target="element"> Compliance Timeline </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/con-sme.html" target="element"> SME Proportionality </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/con-opensource.html" target="element"> Open Source Exception (GPAI) </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/prin-risk.html" target="element"> Risk-Based Regulation </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/prin-human.html" target="element"> Human-Centric AI </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/prin-transparency.html" target="element"> Transparency and Explainability </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/prin-innovation.html" target="element"> Innovation and Proportionality </a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/prin-rights.html" target="element"> Fundamental Rights by Design </a></li>
+
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-implementation"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-connectors"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+									</ul>
+								</li>
+								<li class="tree-folder "><span class="i18n-relations"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+									<ul>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-drv1-goal1.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(AI Proliferation Risk - Ensure Trustworthy AI) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-drv1-goal2.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(AI Proliferation Risk - Protect Fundamental Rights) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-drv2-goal3.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Need for Legal Certainty - Ensure Market Consistency) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-drv3-goal2.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Fundamental Rights Protection - Protect Fundamental Rights) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-drv4-goal3.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(AI Competitiveness - Enable Innovation) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-goal1-ch3.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Ensure Trustworthy AI) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-goal2-ch2.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Chapter II: Prohibited AI Practices - Protect Fundamental Rights) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-goal3-sandbox.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Regulatory Sandbox Participation - Enable Innovation) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-goal4-ch6.html" target="element">
+															<span class="i18n-elementtype-RealizationRelationship"></span>
+														(Chapter VI: Governance - Establish Governance) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch2-art5.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter II: Prohibited AI Practices - Art. 5: Prohibited Practices) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art6.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 06: Classification Rules) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art9.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 09: Risk Management System) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art10.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 10: Data Governance) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art11.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 11: Technical Documentation) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art12.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 12: Record-Keeping / Logging) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art13.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 13: Transparency) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art14.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 14: Human Oversight) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art15.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 15: Accuracy, Robustness, Cybersecurity) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art16.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 16: Obligations of Providers) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art17.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 17: Quality Management System) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art26.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 26: Obligations of Deployers) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch3-art43.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter III: High-Risk AI Systems - Art. 43: Conformity Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch4-art50.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter IV: Transparency Obligations - Art. 50: Transparency for Specific Systems) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch5-art53.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter V: General Purpose AI Models - Art. 53: Obligations for All GPAI Providers) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch5-art55.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter V: General Purpose AI Models - Art. 55: Systemic Risk Obligations) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch5-art56.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter V: General Purpose AI Models - Art. 56: Codes of Practice (GPAI)) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch6-art64.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VI: Governance - Art. 64: AI Office) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch6-art65.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VI: Governance - Art. 65: European AI Board) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch6-art68.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VI: Governance - Art. 68: Scientific Panel) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch6-art70.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VI: Governance - Art. 70: National Competent Authorities) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch7-art71.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VII: EU Database - Art. 71: EU Database for High-Risk AI) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch8-art72.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VIII: Post-Market &amp; Market Surveillance - Art. 72: Post-Market Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ch8-art73.html" target="element">
+															<span class="i18n-elementtype-CompositionRelationship"></span>
+														(Chapter VIII: Post-Market &amp; Market Surveillance - Art. 73: Serious Incident Reporting) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-role.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(Provider (Developer) - AI System Provider Role) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-deployer-role.html" target="element">
+															<span class="i18n-elementtype-AssignmentRelationship"></span>
+														(Deployer (User/Operator) - AI System Deployer Role) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-aioffice-art64.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(EU AI Office - Art. 64: AI Office) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-nca-art70.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(National Competent Authority (NCA) - Art. 70: National Competent Authorities) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-notified-art43.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Notified Body - Art. 43: Conformity Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-scipanel-art68.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Scientific Panel - Art. 68: Scientific Panel) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-classify-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI Risk Classification - Art. 06: Classification Rules) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-conform-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Conformity Assessment Process - Art. 43: Conformity Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-reg-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(EU Database Registration - Art. 71: EU Database for High-Risk AI) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-pmm-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Post-Market Monitoring - Art. 72: Post-Market Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-incident-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Serious Incident Reporting - Art. 73: Serious Incident Reporting) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-fria-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Fundamental Rights Impact Assessment - Fundamental Rights Impact Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-proc-gpai-req.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(GPAI Model Registration - Art. 53: Obligations for All GPAI Providers) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-risk-proc.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(AI Risk Classification System - AI Risk Classification) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-techdoc-proc.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Technical Documentation Management - Conformity Assessment Process) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-eudb-proc.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(EU AI Database (Public Registry) - EU Database Registration) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-pmm-proc.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Post-Market Monitoring System - Post-Market Monitoring) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-incident-proc.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Incident Reporting Portal - Serious Incident Reporting) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-logging-art12.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(AI Logging and Audit Trail System - Art. 12: Record-Keeping / Logging) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-oversight-art14.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Human Oversight Dashboard - Art. 14: Human Oversight) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-app-datagov-art10.html" target="element">
+															<span class="i18n-elementtype-InfluenceRelationship"></span>
+														(Data Governance Platform - Art. 10: Data Governance) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-auditlog-app.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Secure Audit Log Storage - AI Logging and Audit Trail System) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-override-app.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Human Override Mechanism - Human Oversight Dashboard) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-bias-app.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Bias Detection Tools - Data Governance Platform) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-cybersec-app.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(Cybersecurity Controls - Post-Market Monitoring System) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-training-gpai.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(AI Model Training Infrastructure - AI Model (GPAI)) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-tech-deploy-highrisk.html" target="element">
+															<span class="i18n-elementtype-ServingRelationship"></span>
+														(AI Model Deployment Infrastructure - High-Risk AI System) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-techdoc.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI System Provider Role - Technical Documentation) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-conformity.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI System Provider Role - EU Declaration of Conformity) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-instructions.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI System Provider Role - Instructions for Use) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-riskrecords.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI System Provider Role - Risk Management Records) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-provider-gpaitd.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(AI System Provider Role - GPAI Technical Documentation) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ass-conform-art43.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Conformity Assessment - Art. 43: Conformity Assessment) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ass-fria-art26.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(Fundamental Rights Impact Assessment - Art. 26: Obligations of Deployers) 
+													</a></li>
+													<li class="tree-element "><a href="eu-ai-act-model/elements/rel-ass-systemic-art55.html" target="element">
+															<span class="i18n-elementtype-AssociationRelationship"></span>
+														(GPAI Systemic Risk Assessment - Art. 55: Systemic Risk Obligations) 
+													</a></li>
+
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="tree-folder "><span class="i18n-views"><i class="glyphicon glyphicon-triangle-right"></i> </span>
+							<ul>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-motivation.html" target="view"> 01 - Regulatory Motivation and Context </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-risk-class.html" target="view"> 02 - AI Risk Classification Framework </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-high-risk.html" target="view"> 03 - High-Risk AI System Requirements </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-gpai.html" target="view"> 04 - GPAI Model Obligations </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-governance.html" target="view"> 05 - Governance and Enforcement Structure </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-compliance-process.html" target="view"> 06 - Compliance Process Flow </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-timeline.html" target="view"> 07 - Implementation Timeline </a></li>
+											<li class="tree-element "><a href="eu-ai-act-model/views/view-tech.html" target="view"> 08 - Technology Architecture for Compliance </a></li>
+
+							</ul>
+						</li>
+					<!-- END OF STRINGTEMPLATE CODE -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- START ABOUT MODAL DIALOG -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title i18n-about"></h4>
+				</div>
+				<div class="modal-body">
+					<p><strong> <span class="i18n-about-pluginname"></span></strong></p>
+					<p><span class="i18n-about-pluginversion"></span></p>
+					<p><span class="i18n-about-plugintext1"></span></p>
+					<p><span class="i18n-about-plugintext2"></span></p>
+					<p><a href="https://www.archimatetool.com" target="_blank">Archi®</a> <span class="i18n-about-plugintext3"></span></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default i18n-close" data-dismiss="modal"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END ABOUT MODAL DIALOG -->
+
+	<!-- START HINT MODAL DIALOG -->
+	<div class="modal fade first-load" id="myModalHint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+						<h4 class="modal-title i18n-hint"></h4>
+				</div>
+				<div class="modal-body">
+						<iframe id="frame-hint" name="hint" onload="if($('#myModalHint').hasClass('first-load')) $('#myModalHint').removeClass('first-load'); else $('#myModalHint').modal({show:true});"></iframe>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default i18n-close" data-dismiss="modal"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END HINT MODAL DIALOG -->
+</body>
+</html>

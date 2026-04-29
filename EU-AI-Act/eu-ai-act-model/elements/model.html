@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>EU AI Act Compliance</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>EU AI Act Compliance</b>
+
+            <!-- If a View with Viewpoint -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+                       <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-purpose"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#query" aria-controls="query" role="tab" data-toggle="tab" class="i18n-query"></a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">The EU AI Act consists of 12 main titles. Each title contains a set of Articles.
+https://artificialintelligenceact.eu/high-level-summary/
+https://artificialintelligenceact.eu/ai-act-explorer/
+https://artificialintelligenceact.eu/implementation-timeline/
+https://artificialintelligenceact.eu/implementation-documents/
+https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/
+
+One command. Zero config. Full EU AI Act + GDPR compliance report in under 10 seconds.
+https://github.com/ark-forge/mcp-eu-ai-act</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="query">
+						<br>
+						<style>
+						#myprompt {
+						    width: 80%;
+						    font-family: Consolas,Monaco, monospace;
+						}
+						</style>
+
+						<div id='myconsole'></div>
+
+						<p>
+							<tt><span id="useid">alasql</span> &gt;</tt> <input id='myprompt' autofocus/> 
+						</p>
+
+						<script src='../../lib/alasql/alasql.min.js'></script>
+
+						<script>
+							function decodeURL(s) {
+								return decodeURIComponent(s.replace(/\+/g, "%20"));
+							}
+
+							var first = decodeURI(location.search.substr(1));
+						 	alasql.options.logtarget = 'myconsole';
+							alasql.prompt('myprompt','useid');
+							alasql.prompt('myprompt','useid', first);
+
+							var dataElements = [ ];	  
+						  	var dataProperties = [ ];
+						 	var dataRelationships = [ ];
+						 	var dataViews = [ ];
+						 	var dataViewsContent = [ ];
+						 	var dataFolders = [ ];
+						 	var dataFoldersContent = [ ];
+
+							dataFolders.push({id:"eu-ai-act-model", type:"ArchimateModel", name:decodeURL("EU+AI+Act+Compliance"), documentation:decodeURL("")});
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"strategy-folder", contenttype:"Folder"});
+								dataFolders.push({id:"strategy-folder", type:"Folder", name:decodeURL("Strategy"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"business-folder-content", contenttype:"Folder"});
+								dataFolders.push({id:"business-folder-content", type:"Folder", name:decodeURL("Business"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-provider", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-provider", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Provider+%28Developer%29"), documentation:decodeURL("Natural+or+legal+person+that+develops+an+AI+system+or+GPAI+model+%28or+has+it+developed%29+and+places+it+on+the+market+or+puts+it+into+service+under+their+own+name%2Ftrademark.+Bears+primary+compliance+obligations+for+high-risk+and+GPAI+obligations.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-deployer", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-deployer", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Deployer+%28User%2FOperator%29"), documentation:decodeURL("Natural+or+legal+person+%28public+authority+or+private+entity%29+that+uses+an+AI+system+in+a+professional+capacity+%28not+the+affected+end-user%29.+Has+specific+obligations+for+high-risk+AI+deployment+including+human+oversight%2C+DPIA%2C+and+FRIA.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-importer", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-importer", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Importer"), documentation:decodeURL("Natural+or+legal+person+established+in+the+EU+that+places+a+high-risk+AI+system+on+the+market+bearing+the+name%2Ftrademark+of+a+natural+or+legal+person+established+outside+the+EU.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-distributor", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-distributor", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Distributor"), documentation:decodeURL("Natural+or+legal+person+in+the+supply+chain%2C+other+than+the+provider+or+importer%2C+that+makes+a+high-risk+AI+system+available+on+the+EU+market.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-auth-rep", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-auth-rep", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Authorised+Representative"), documentation:decodeURL("Natural+or+legal+person+established+in+the+EU+with+written+mandate+from+provider+to+carry+out+obligations+under+this+regulation+on+provider%27s+behalf.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-affected", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-affected", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Affected+Person"), documentation:decodeURL("Natural+persons+subject+to+or+potentially+subject+to+the+outputs+of+an+AI+system.+Have+rights+to+explanation+%28high-risk+decisions%29%2C+to+complain+to+national+authorities%2C+and+to+effective+judicial+remedy.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-ai-office", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-ai-office", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("EU+AI+Office"), documentation:decodeURL("Body+within+the+European+Commission+responsible+for%3A+enforcement+of+GPAI+obligations%2C+coordination+of+AI+Act+implementation%2C+development+of+standards%2Fguidelines%2C+managing+GPAI+Code+of+Practice%2C+chairing+European+AI+Board.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-nca", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-nca", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("National+Competent+Authority+%28NCA%29"), documentation:decodeURL("Designated+by+each+EU+Member+State+to+supervise+high-risk+AI+and+transparency+obligations.+Must+be+independent.+Has+investigative+and+enforcement+powers.+Market+surveillance+authority+function.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-notified-body", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-notified-body", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Notified+Body"), documentation:decodeURL("Third-party+conformity+assessment+body+designated+by+national+authority+to+assess+conformity+of+high-risk+AI+systems.+Must+be+accredited.+May+issue+CE+conformity+certificates.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-sci-panel", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-sci-panel", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("Scientific+Panel"), documentation:decodeURL("Independent+scientific+expert+panel+supporting+AI+Office+with+technical+advice+on+GPAI+models%2C+systemic+risk+evaluation%2C+and+model+evaluations.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"act-eaib", contenttype:"BusinessActor"});
+										dataElements.push({id:"act-eaib", type:"BusinessActor", specialization:decodeURL(""), name:decodeURL("European+AI+Board+%28EAIB%29"), documentation:decodeURL("Board+composed+of+representatives+from+national+competent+authorities.+Provides+opinions%2C+guidance%2C+recommendations.+Coordinates+national+supervisory+activities.+Member+States+and+Commission+represented.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"role-provider", contenttype:"BusinessRole"});
+										dataElements.push({id:"role-provider", type:"BusinessRole", specialization:decodeURL(""), name:decodeURL("AI+System+Provider+Role"), documentation:decodeURL("Responsible+for%3A+design%2C+development%2C+conformity+assessment%2C+CE+marking%2C+technical+documentation%2C+registration%2C+post-market+monitoring%2C+serious+incident+reporting.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"role-deployer", contenttype:"BusinessRole"});
+										dataElements.push({id:"role-deployer", type:"BusinessRole", specialization:decodeURL(""), name:decodeURL("AI+System+Deployer+Role"), documentation:decodeURL("Responsible+for%3A+using+system+per+instructions%2C+human+oversight+implementation%2C+input+data+appropriateness%2C+incident+reporting+to+providers%2C+DPIA+%28if+processing+personal+data%29%2C+FRIA+%28public+bodies%29.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"role-compliance", contenttype:"BusinessRole"});
+										dataElements.push({id:"role-compliance", type:"BusinessRole", specialization:decodeURL(""), name:decodeURL("Compliance+Officer+Role"), documentation:decodeURL("Internal+role+responsible+for+maintaining+compliance+programme%2C+monitoring+regulatory+changes%2C+liaising+with+national+competent+authorities%2C+managing+conformity+assessments+and+documentation.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"role-ai-literacy", contenttype:"BusinessRole"});
+										dataElements.push({id:"role-ai-literacy", type:"BusinessRole", specialization:decodeURL(""), name:decodeURL("AI+Literacy+Trainer+Role"), documentation:decodeURL("Responsible+for+implementing+Art.+4+AI+literacy+measures.+Ensures+staff+dealing+with+AI+systems+have+sufficient+understanding+of+AI+capabilities%2C+limitations%2C+risks%2C+and+appropriate+use.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-classify", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-classify", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("AI+Risk+Classification"), documentation:decodeURL("Process+to+determine+applicable+risk+tier+for+AI+system%3A+%281%29+Is+it+Annex+I+product+with+third-party+conformity+requirement%3F+%282%29+Is+it+in+Annex+III+use+cases%3F+%283%29+Apply+narrow+exceptions.+%284%29+Determine+if+GPAI+model.+%285%29+Assess+systemic+risk+threshold.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-conformity", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-conformity", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("Conformity+Assessment+Process"), documentation:decodeURL("Pre-market+conformity+assessment+for+high-risk+AI%3A+%281%29+Internal+control+%28Annex+VI%29+for+most+Annex+III+systems.+%282%29+Third-party+QMS+assessment+%28Annex+VII%29+for+biometric+ID+and+sensitive+Annex+III+categories.+%283%29+Draw+up+technical+documentation.+%284%29+Conduct+conformity+assessment.+%285%29+Draw+up+EU+Declaration+of+Conformity.+%286%29+Affix+CE+marking.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-registration", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-registration", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("EU+Database+Registration"), documentation:decodeURL("Before+market+placement%3A+%281%29+Register+in+EU+database.+%282%29+Provide+required+information+per+Art.+71.+%283%29+Public+authorities+deploying+high-risk+AI+register+before+use.+%284%29+Keep+registration+updated+throughout+lifecycle.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-pmm", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-pmm", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("Post-Market+Monitoring"), documentation:decodeURL("Ongoing+monitoring%3A+%281%29+Collect+and+review+performance+data+from+deployers.+%282%29+Identify+any+serious+incidents+or+malfunctions.+%283%29+Take+corrective+actions.+%284%29+Inform+relevant+authorities.+%285%29+Update+technical+documentation.+%286%29+Conduct+periodic+reviews+of+risk+management+system.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-incident", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-incident", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("Serious+Incident+Reporting"), documentation:decodeURL("%281%29+Identify+serious+incident+%28death%2C+serious+health%2Fproperty%2Frights+harm%29.+%282%29+Report+to+market+surveillance+authority+within+2-10+working+days.+%283%29+Investigate+cause.+%284%29+Take+corrective+action.+%285%29+Submit+final+report+within+3+months.+%286%29+For+GPAI%3A+report+to+AI+Office.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-gpai-reg", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-gpai-reg", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("GPAI+Model+Registration"), documentation:decodeURL("GPAI+providers%3A+%281%29+Draw+up+technical+documentation+per+Annex+XI.+%282%29+Prepare+downstream+provider+documentation+per+Annex+XII.+%283%29+Establish+copyright+policy.+%284%29+Publish+training+data+summary.+%285%29+If+systemic+risk%3A+notify+Commission+within+2+weeks+of+threshold+breach.+%286%29+Engage+with+Code+of+Practice.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-sandbox", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-sandbox", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("Regulatory+Sandbox+Participation"), documentation:decodeURL("AI+regulatory+sandboxes+allow+testing+innovative+AI+in+controlled+environment+under+NCA+supervision.+Providers+may+test+systems+prior+to+market+placement.+Provides+legal+certainty+during+testing.+Member+States+must+establish+at+least+one+national+sandbox.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-fria", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-fria", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("Fundamental+Rights+Impact+Assessment"), documentation:decodeURL("Required+for+public+bodies+and+regulated+private+entities+deploying+high-risk+Annex+III+AI.+%281%29+Assess+impact+on+fundamental+rights.+%282%29+Consult+relevant+stakeholders.+%283%29+Document+and+retain+assessment.+%284%29+Register+in+EU+database.+%285%29+Review+when+substantial+modification.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"proc-literacy", contenttype:"BusinessProcess"});
+										dataElements.push({id:"proc-literacy", type:"BusinessProcess", specialization:decodeURL(""), name:decodeURL("AI+Literacy+Programme"), documentation:decodeURL("Providers+and+deployers+implement+Art.+4+measures%3A+%281%29+Assess+current+staff+AI+literacy+levels.+%282%29+Design+training+programme.+%283%29+Deliver+training+on+AI+capabilities%2C+limitations%2C+risks%2C+appropriate+use.+%284%29+Maintain+records+of+training.+%285%29+Update+programme+as+technology+evolves.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-tech-doc", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-tech-doc", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Technical+Documentation"), documentation:decodeURL("Required+per+Art.+11%2C+Annex+IV.+Demonstrates+compliance+of+high-risk+AI+system.+Contains%3A+general+description%2C+development+elements%2C+monitoring+info%2C+risk+management+record%2C+changes+record.+Must+be+kept+up-to-date.+Held+by+provider%2C+accessible+to+national+authorities.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-doc-conformity", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-doc-conformity", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("EU+Declaration+of+Conformity"), documentation:decodeURL("Provider+statement+that+high-risk+AI+system+complies+with+all+applicable+requirements.+Must+include%3A+system+identification%2C+provider+details%2C+reference+to+harmonised+standards+or+other+means+used%2C+notified+body+details+%28if+applicable%29%2C+place+and+date%2C+signature.+Must+accompany+system.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-instructions", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-instructions", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Instructions+for+Use"), documentation:decodeURL("Required+per+Art.+13.+Provided+by+provider+to+deployers+in+machine-readable+and+accessible+format.+Must+include%3A+identity+of+provider%2C+intended+purpose%2C+AI+system+performance+metrics%2C+input+data+specifications%2C+limitations%2C+human+oversight+measures%2C+expected+lifetime%2C+maintenance+requirements.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-risk-records", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-risk-records", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Risk+Management+Records"), documentation:decodeURL("Documentation+of+ongoing+risk+management+system+per+Art.+9.+Identifies+and+analyses+risks%2C+describes+risk+mitigation+measures+adopted%2C+residual+risks%2C+outcomes+of+testing.+Must+cover+entire+lifecycle.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-gpai-tech-doc", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-gpai-tech-doc", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("GPAI+Technical+Documentation"), documentation:decodeURL("Per+Annex+XI.+Covers%3A+general+description+of+model%2C+training+process+details%2C+data+used%2C+evaluation+results+including+benchmark+testing%2C+information+for+downstream+providers.+For+systemic+risk+models%3A+additional+model+evaluation+reports%2C+adversarial+testing+documentation.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-training-summary", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-training-summary", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Training+Data+Summary+%28GPAI%29"), documentation:decodeURL("Required+of+all+GPAI+providers.+Sufficiently+detailed+summary+of+training+data+published+publicly.+Enables+copyright+compliance+verification.+Describes+sources%2C+composition%2C+preprocessing+steps.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-cop", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-cop", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Code+of+Practice+%28GPAI%29"), documentation:decodeURL("GPAI+Code+of+Practice+developed+under+AI+Office+coordination.+Covers%3A+technical+documentation+requirements%2C+systemic+risk+identification%2C+risk+management+measures.+Compliance+creates+presumption+of+conformity.+Subject+to+iterative+drafting+process+with+stakeholders.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-incident-report", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-incident-report", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Serious+Incident+Report"), documentation:decodeURL("Report+submitted+to+market+surveillance+authority+upon+serious+incident.+Contains%3A+description+of+incident%2C+affected+persons%2C+AI+system+involved%2C+corrective+actions+taken+or+planned.+Provider+investigation+outcome.+Final+report+within+3+months.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"obj-data-gov", contenttype:"BusinessObject"});
+										dataElements.push({id:"obj-data-gov", type:"BusinessObject", specialization:decodeURL(""), name:decodeURL("Data+Governance+Documentation"), documentation:decodeURL("Per+Art.+10.+Documents+data+management+practices+for+training%2Fvalidation%2Ftesting+datasets%3A+relevance%2C+representativeness%2C+error-free+nature%2C+completeness%2C+bias+examination%2C+data+collection+methods%2C+labelling+instructions%2C+data+preprocessing.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"svc-explanation", contenttype:"BusinessService"});
+										dataElements.push({id:"svc-explanation", type:"BusinessService", specialization:decodeURL(""), name:decodeURL("Right+to+Explanation+%28High-Risk+Decisions%29"), documentation:decodeURL("Affected+persons+subject+to+high-risk+AI+decisions+have+right+to+meaningful+explanation+of+the+role+of+the+AI+and+the+main+elements+of+the+decision.+Deployers+must+be+able+to+provide+this.+Applies+to+decisions+with+significant+effect+on+persons.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"svc-complaint", contenttype:"BusinessService"});
+										dataElements.push({id:"svc-complaint", type:"BusinessService", specialization:decodeURL(""), name:decodeURL("Right+to+Complain+%28Art.+85%29"), documentation:decodeURL("Natural+persons+and+organisations+may+lodge+complaints+with+national+competent+authorities+about+violations+of+AI+Act.+Authorities+must+acknowledge+receipt%2C+investigate%2C+and+inform+complainant+of+outcome.+Whistleblower+protection+applies.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"svc-sandbox", contenttype:"BusinessService"});
+										dataElements.push({id:"svc-sandbox", type:"BusinessService", specialization:decodeURL(""), name:decodeURL("Regulatory+Sandbox+Access"), documentation:decodeURL("Innovative+AI+providers+can+access+regulatory+sandboxes.+Member+States+must+establish+at+least+one.+Priority+access+for+SMEs+and+startups.+Provides+legal+certainty+during+real-world+testing+under+supervisory+oversight.")});
+									dataFoldersContent.push({folderid:"business-folder-content", contentid:"svc-market-surv", contenttype:"BusinessService"});
+										dataElements.push({id:"svc-market-surv", type:"BusinessService", specialization:decodeURL(""), name:decodeURL("Market+Surveillance"), documentation:decodeURL("National+competent+authorities+conduct+market+surveillance%3A+investigate+non-compliance%2C+request+corrective+actions%2C+impose+restrictions%2Fwithdrawals%2C+share+information+with+other+Member+States+and+AI+Office.+Coordinate+on+cross-border+cases.")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"app-folder", contenttype:"Folder"});
+								dataFolders.push({id:"app-folder", type:"Folder", name:decodeURL("Application"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-risk-class", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-risk-class", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("AI+Risk+Classification+System"), documentation:decodeURL("Software%2Fprocess+supporting+classification+of+AI+systems+into+risk+tiers+based+on+intended+use%2C+Annex+I%2FIII+applicability%2C+and+GPAI+criteria.+Generates+classification+rationale+documentation.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-tech-doc-mgmt", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-tech-doc-mgmt", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Technical+Documentation+Management"), documentation:decodeURL("System+for+creating%2C+maintaining%2C+and+version-controlling+technical+documentation+per+Art.+11+and+Annex+IV.+Tracks+changes.+Supports+audit+trail.+Accessible+to+authorised+national+authorities.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-risk-mgmt", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-risk-mgmt", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Risk+Management+Platform"), documentation:decodeURL("Platform+for+implementing+Art.+9+risk+management+system.+Supports+risk+identification%2C+analysis%2C+evaluation%2C+mitigation+tracking%2C+residual+risk+documentation%2C+lifecycle+monitoring.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-eu-db", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-eu-db", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("EU+AI+Database+%28Public+Registry%29"), documentation:decodeURL("Commission-maintained+public+database+of+high-risk+AI+systems.+Receives+registrations+from+providers+and+public+body+deployers.+Provides+public+access+to+non-confidential+information.+Interface+for+national+authorities.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-pmm-system", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-pmm-system", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Post-Market+Monitoring+System"), documentation:decodeURL("System+supporting+ongoing+post-market+monitoring+per+Art.+72.+Collects+performance+data+from+deployers.+Tracks+incidents+and+corrective+actions.+Generates+monitoring+reports.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-incident-portal", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-incident-portal", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Incident+Reporting+Portal"), documentation:decodeURL("Portal+for+submitting+serious+incident+reports+to+national+market+surveillance+authorities+and+AI+Office.+Manages+notification+timelines.+Tracks+investigation+status.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-logging", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-logging", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("AI+Logging+and+Audit+Trail+System"), documentation:decodeURL("System+implementing+Art.+12+automated+logging+requirements.+Records+AI+system+events%2C+inputs%2C+outputs%2C+decisions.+Retains+logs+for+required+periods+%28minimum+6+months+for+biometric+systems%29.+Tamper-evident+design.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-conformity-mgmt", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-conformity-mgmt", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Conformity+Assessment+Management"), documentation:decodeURL("Manages+conformity+assessment+process%3A+tracks+documentation+requirements%2C+coordinates+with+notified+bodies%2C+manages+assessment+timelines%2C+stores+certificates+and+declarations+of+conformity.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-gpai-registry", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-gpai-registry", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("GPAI+Model+Registry"), documentation:decodeURL("Internal+registry+of+GPAI+models.+Tracks%3A+training+compute+%28FLOPs%29%2C+capabilities+documentation%2C+systemic+risk+status%2C+Code+of+Practice+participation%2C+downstream+provider+agreements%2C+incident+tracking.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-literacy-platform", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-literacy-platform", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("AI+Literacy+Training+Platform"), documentation:decodeURL("E-learning+platform+delivering+Art.+4+AI+literacy+training.+Tracks+completion.+Maintains+training+records.+Adapts+content+for+different+roles+%28technical+staff%2C+managers%2C+deployers%29.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-oversight-dashboard", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-oversight-dashboard", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Human+Oversight+Dashboard"), documentation:decodeURL("Real-time+monitoring+interface+supporting+Art.+14+human+oversight+requirements.+Displays+AI+system+performance+metrics%2C+alerts+for+anomalies%2C+allows+human+intervention%2Foverride%2Fhalt+capabilities.+Role-based+access.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"app-data-gov", contenttype:"ApplicationComponent"});
+										dataElements.push({id:"app-data-gov", type:"ApplicationComponent", specialization:decodeURL(""), name:decodeURL("Data+Governance+Platform"), documentation:decodeURL("Platform+implementing+Art.+10+data+governance.+Manages+training+dataset+documentation%2C+representativeness+analysis%2C+bias+detection+tools%2C+data+lineage+tracking%2C+data+quality+metrics.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"appsvc-risk", contenttype:"ApplicationService"});
+										dataElements.push({id:"appsvc-risk", type:"ApplicationService", specialization:decodeURL(""), name:decodeURL("Risk+Assessment+Service"), documentation:decodeURL("API+service+providing+risk+classification+and+assessment+capabilities.+Integrates+with+product+development+lifecycle.+Generates+classification+reports.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"appsvc-reporting", contenttype:"ApplicationService"});
+										dataElements.push({id:"appsvc-reporting", type:"ApplicationService", specialization:decodeURL(""), name:decodeURL("Compliance+Reporting+Service"), documentation:decodeURL("Generates+compliance+status+reports%2C+audit+reports%2C+regulatory+submissions.+Integrates+with+technical+documentation+and+risk+management+systems.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"appsvc-db-integration", contenttype:"ApplicationService"});
+										dataElements.push({id:"appsvc-db-integration", type:"ApplicationService", specialization:decodeURL(""), name:decodeURL("Regulatory+Database+Integration"), documentation:decodeURL("Integration+service+for+submitting+and+updating+registrations+in+EU+AI+Database.+Manages+API+connections+to+Commission+database.+Handles+validation+of+submitted+information.")});
+									dataFoldersContent.push({folderid:"app-folder", contentid:"appsvc-watermark", contenttype:"ApplicationService"});
+										dataElements.push({id:"appsvc-watermark", type:"ApplicationService", specialization:decodeURL(""), name:decodeURL("Synthetic+Content+Watermarking"), documentation:decodeURL("Implements+Art.+50%287%29+machine-readable+watermarking+of+AI-generated%2Fsynthetic+content.+Detects+and+marks+AI-generated+text%2C+images%2C+audio%2C+video.+Enables+detection+by+downstream+systems.")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"tech-folder", contenttype:"Folder"});
+								dataFolders.push({id:"tech-folder", type:"Folder", name:decodeURL("Technology+%26+Physical"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-training", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-training", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("AI+Model+Training+Infrastructure"), documentation:decodeURL("Compute+infrastructure+for+AI+model+training.+Must+support%3A+dataset+versioning%2C+training+reproducibility%2C+FLOPs+tracking+%28for+GPAI+threshold%29%2C+training+process+documentation.+Security+controls+for+training+data.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-deployment", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-deployment", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("AI+Model+Deployment+Infrastructure"), documentation:decodeURL("Infrastructure+for+deploying+AI+models+in+production.+Must+support%3A+version+control%2C+rollback+capabilities%2C+A%2FB+testing%2C+performance+monitoring.+Security+controls+per+Art.+15+cybersecurity+requirements.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-audit-log", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-audit-log", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("Secure+Audit+Log+Storage"), documentation:decodeURL("Tamper-evident%2C+secure+storage+for+AI+system+audit+logs+per+Art.+12.+Retention+periods+per+regulation+%28minimum+6+months+for+biometric+systems%29.+Access+controls.+Geographic+considerations+for+cross-border+deployments.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-bias", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-bias", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("Bias+Detection+Tools"), documentation:decodeURL("Technical+tooling+supporting+Art.+10+data+governance.+Automated+bias+detection+across+protected+attributes.+Dataset+representativeness+analysis.+Fairness+metrics.+Supports+documentation+of+bias+examination.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-cybersecurity", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-cybersecurity", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("Cybersecurity+Controls"), documentation:decodeURL("Security+controls+required+by+Art.+15+and+Art.+55+%28GPAI+systemic+risk%29.+Includes%3A+model+security%2C+adversarial+robustness+testing%2C+access+controls%2C+encryption%2C+vulnerability+management%2C+incident+detection+and+response.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-override", contenttype:"TechnologyService"});
+										dataElements.push({id:"tech-override", type:"TechnologyService", specialization:decodeURL(""), name:decodeURL("Human+Override+Mechanism"), documentation:decodeURL("Technical+implementation+of+Art.+14+human+oversight.+Stop%2Fpause%2Foverride+controls+accessible+to+designated+human+oversight+personnel.+Cannot+be+bypassed+by+AI+system.+Documented+intervention+procedures.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-gpai-model", contenttype:"SystemSoftware"});
+										dataElements.push({id:"tech-gpai-model", type:"SystemSoftware", specialization:decodeURL(""), name:decodeURL("AI+Model+%28GPAI%29"), documentation:decodeURL("General+Purpose+AI+model+subject+to+Chapter+V+obligations.+Key+technical+parameters%3A+architecture%2C+training+data+sources%2C+training+compute+%28FLOPs%29%2C+capabilities%2C+known+limitations%2C+benchmark+performance.+Systemic+risk+threshold%3A+%3E10%5E25+FLOPs.")});
+									dataFoldersContent.push({folderid:"tech-folder", contentid:"tech-high-risk-ai", contenttype:"SystemSoftware"});
+										dataElements.push({id:"tech-high-risk-ai", type:"SystemSoftware", specialization:decodeURL(""), name:decodeURL("High-Risk+AI+System"), documentation:decodeURL("AI+system+falling+under+Annex+I+or+Annex+III+classification.+Subject+to+Chapter+III+requirements.+Must+embed%3A+logging+capabilities%2C+human+oversight+interfaces%2C+accuracy%2Frobustness+controls%2C+cybersecurity+measures%2C+transparency+outputs+for+instructions.")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"motivation-folder", contenttype:"Folder"});
+								dataFolders.push({id:"motivation-folder", type:"Folder", name:decodeURL("Motivation"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-9d51a75b9278443792288e46dca53cf1", contenttype:"Folder"});
+									dataFolders.push({id:"id-9d51a75b9278443792288e46dca53cf1", type:"Folder", name:decodeURL("Chapter+I%3A+General+Provisions"), documentation:decodeURL("Art.+1-4.+Scope%2C+definitions%2C+and+general+principles.+Sets+out+what+the+regulation+covers+and+key+definitions+including+AI+system%2C+provider%2C+deployer%2C+operator%2C+affected+person.+Applies+to+providers+placing+AI+systems+on+the+EU+market%2C+deployers+in+the+EU%2C+and+third-country+providers+whose+AI+output+is+used+in+the+EU.")});
+										dataFoldersContent.push({folderid:"id-9d51a75b9278443792288e46dca53cf1", contentid:"id-08a4888332fb48349218571d639e2005", contenttype:"Requirement"});
+											dataElements.push({id:"id-08a4888332fb48349218571d639e2005", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+1%3A+Subject+Matter"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-9d51a75b9278443792288e46dca53cf1", contentid:"req-art3", contenttype:"Requirement"});
+											dataElements.push({id:"req-art3", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+3%3A+Definitions"), documentation:decodeURL("Defines+key+terms%3A+AI+system%2C+GPAI+model%2C+GPAI+system%2C+provider%2C+deployer+%28user%29%2C+operator%2C+affected+person%2C+placing+on+the+market%2C+putting+into+service%2C+intended+purpose%2C+reasonably+foreseeable+misuse%2C+safety+component%2C+risk%2C+serious+incident%2C+substantial+modification%2C+CE+marking%2C+conformity+assessment+body%2C+and+more.")});
+										dataFoldersContent.push({folderid:"id-9d51a75b9278443792288e46dca53cf1", contentid:"req-art4", contenttype:"Requirement"});
+											dataElements.push({id:"req-art4", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+4%3A+AI+Literacy"), documentation:decodeURL("Providers+and+deployers+shall+take+measures+to+ensure+a+sufficient+level+of+AI+literacy+for+their+staff+and+persons+dealing+with+AI+systems+on+their+behalf%2C+taking+into+account+technical+knowledge%2C+experience%2C+education+and+training.")});
+										dataFoldersContent.push({folderid:"id-9d51a75b9278443792288e46dca53cf1", contentid:"req-ch1", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch1", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+I%3A+General+Provisions"), documentation:decodeURL("Art.+1-4.+Scope%2C+definitions%2C+and+general+principles.+Sets+out+what+the+regulation+covers+and+key+definitions+including+AI+system%2C+provider%2C+deployer%2C+operator%2C+affected+person.+Applies+to+providers+placing+AI+systems+on+the+EU+market%2C+deployers+in+the+EU%2C+and+third-country+providers+whose+AI+output+is+used+in+the+EU.")});
+										dataFoldersContent.push({folderid:"id-9d51a75b9278443792288e46dca53cf1", contentid:"id-ffb02dc1b7bc48b9ad949b276ca43bef", contenttype:"Requirement"});
+											dataElements.push({id:"id-ffb02dc1b7bc48b9ad949b276ca43bef", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+2%3A+Scope"), documentation:decodeURL("")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-df94fb824eee4c3bab6b025f68c2cad6", contenttype:"Folder"});
+									dataFolders.push({id:"id-df94fb824eee4c3bab6b025f68c2cad6", type:"Folder", name:decodeURL("Chapter+II%3A+Prohibited+AI+Practices"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-df94fb824eee4c3bab6b025f68c2cad6", contentid:"req-ch2", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch2", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+II%3A+Prohibited+AI+Practices"), documentation:decodeURL("Art.+5.+Defines+AI+systems+with+unacceptable+risk+that+are+absolutely+prohibited+in+the+EU.+Deadline%3A+2+February+2025+%286+months+after+entry+into+force%29.")});
+										dataFoldersContent.push({folderid:"id-df94fb824eee4c3bab6b025f68c2cad6", contentid:"req-art5", contenttype:"Requirement"});
+											dataElements.push({id:"req-art5", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+5%3A+Prohibited+Practices"), documentation:decodeURL("PROHIBITED%3A+%281%29+Subliminal%2Fmanipulative%2Fdeceptive+AI+causing+significant+harm.+%282%29+AI+exploiting+vulnerabilities+%28age%2C+disability%2C+socio-economic%29+causing+harm.+%283%29+Biometric+categorisation+inferring+sensitive+attributes+%28race%2C+politics%2C+religion%2C+sex+life%29.+%284%29+Social+scoring+by+public+authorities.+%285%29+Criminal+risk+assessment+based+solely+on+profiling.+%286%29+Facial+recognition+database+scraping+from+internet%2FCCTV.+%287%29+Emotion+inference+in+workplaces%2Feducation.+%288%29+Real-time+RBI+in+public+spaces+for+law+enforcement+%28with+narrow+exceptions%29.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contenttype:"Folder"});
+									dataFolders.push({id:"id-1a944b6bb6c1463aa19a3748b4ffd890", type:"Folder", name:decodeURL("Chapter+III%3A+High-Risk+AI+Systems"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art6", contenttype:"Requirement"});
+											dataElements.push({id:"req-art6", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+06%3A+Classification+Rules"), documentation:decodeURL("High-risk+AI+%3D+%281%29+safety+component+or+product+under+Annex+I+EU+laws+AND+subject+to+third-party+conformity+assessment+under+those+laws%2C+OR+%282%29+listed+in+Annex+III+use+cases.+Exception%3A+AI+performing+narrow+procedural+task%2C+improving+prior+human+activity%2C+detecting+patterns+without+replacing+human+assessment%2C+or+preparatory+tasks.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art10", contenttype:"Requirement"});
+											dataElements.push({id:"req-art10", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+10%3A+Data+Governance"), documentation:decodeURL("Training%2C+validation+and+testing+datasets+must+be+subject+to+data+governance+and+management+practices.+Datasets+must+be+relevant%2C+representative%2C+free+of+errors+to+the+extent+possible%2C+and+complete+for+the+intended+purpose.+Must+examine+for+biases.+Special+data+categories+may+be+processed+when+strictly+necessary+to+detect+and+correct+bias.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art9", contenttype:"Requirement"});
+											dataElements.push({id:"req-art9", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+09%3A+Risk+Management+System"), documentation:decodeURL("Providers+of+high-risk+AI+must+establish%2C+implement%2C+document%2C+and+maintain+a+risk+management+system+throughout+the+AI+system+lifecycle.+Must+identify+and+analyse+known%2Fforeseeable+risks%2C+estimate%2Fevaluate+risks+in+normal+use+and+reasonably+foreseeable+misuse%2C+adopt+risk+management+measures.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art49", contenttype:"Requirement"});
+											dataElements.push({id:"req-art49", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+49%3A+CE+Marking"), documentation:decodeURL("CE+marking+must+be+affixed+visibly%2C+legibly+and+indelibly+to+high-risk+AI+systems+or+accompanying+documentation+before+placement+on+market.+Declaration+of+conformity+must+be+drawn+up.+Only+notified+bodies+may+issue+conformity+certificates.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art11", contenttype:"Requirement"});
+											dataElements.push({id:"req-art11", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+11%3A+Technical+Documentation"), documentation:decodeURL("Providers+must+draw+up+technical+documentation+before+market+placement+demonstrating+compliance.+Must+be+kept+up-to-date.+Contents+specified+in+Annex+IV.+Must+include%3A+general+description%2C+detailed+description+of+elements%2Fprocess+for+development%2C+information+on+monitoring%2Ffunctioning%2Fcontrol%2C+technical+capabilities%2C+performance+specifications%2C+risk+management+details.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art12", contenttype:"Requirement"});
+											dataElements.push({id:"req-art12", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+12%3A+Record-Keeping+%2F+Logging"), documentation:decodeURL("High-risk+AI+systems+must+be+designed+to+automatically+log+events+%28traceability%29.+Logging+capabilities+must+enable+monitoring+of+operation+with+respect+to+risks+during+its+lifecycle.+For+biometric+systems%2C+logs+must+be+retained+for+at+least+6+months.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art13", contenttype:"Requirement"});
+											dataElements.push({id:"req-art13", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+13%3A+Transparency"), documentation:decodeURL("High-risk+AI+systems+must+be+designed+to+operate+with+sufficient+transparency+to+enable+deployers+to+interpret+output+and+use+appropriately.+Must+include%3A+intended+purpose%2C+accuracy%2Frobustness%2Fcybersecurity+levels%2C+input+data+specifications%2C+performance+limitations%2C+human+oversight+measures%2C+expected+lifetime%2Fmaintenance.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art14", contenttype:"Requirement"});
+											dataElements.push({id:"req-art14", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+14%3A+Human+Oversight"), documentation:decodeURL("High-risk+AI+systems+must+be+designed+to+enable+effective+oversight+by+natural+persons+during+use.+Must+allow%3A+understand+capabilities+and+limitations%3B+monitor+for+anomalies%2Fmalfunctions%2Funexpected+performance%3B+remain+aware+of+automation+bias%3B+interpret+output+correctly%3B+disregard%2Foverride%2Finterrupt+system%3B+intervene+or+halt+operations.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art15", contenttype:"Requirement"});
+											dataElements.push({id:"req-art15", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+15%3A+Accuracy%2C+Robustness%2C+Cybersecurity"), documentation:decodeURL("High-risk+AI+systems+must+achieve+appropriate+levels+of+accuracy%2C+robustness%2C+and+cybersecurity+throughout+lifecycle.+Must+be+resilient+to+errors%2C+faults%2C+inconsistencies.+For+biometric+systems%2C+specific+resilience+requirements+apply.+Technical+redundancy+solutions+including+safety+plans.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art16", contenttype:"Requirement"});
+											dataElements.push({id:"req-art16", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+16%3A+Obligations+of+Providers"), documentation:decodeURL("Providers+of+high-risk+AI+must%3A+ensure+compliance+with+Chapter+III+requirements%3B+have+quality+management+system%3B+draw+up+technical+documentation%3B+keep+logs+where+feasible%3B+perform+conformity+assessment%3B+register+in+EU+database%3B+affix+CE+marking%3B+post-market+monitoring.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art17", contenttype:"Requirement"});
+											dataElements.push({id:"req-art17", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+17%3A+Quality+Management+System"), documentation:decodeURL("Providers+must+put+in+place+a+quality+management+system+ensuring+compliance.+Must+cover%3A+strategy+for+regulatory+compliance%3B+design+specifications%2C+processes%2C+testing%3B+post-market+monitoring+system%3B+accountability+arrangement%2C+resources%2C+staff%3B+incident+reporting%3B+data+management%3B+record-keeping.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art26", contenttype:"Requirement"});
+											dataElements.push({id:"req-art26", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+26%3A+Obligations+of+Deployers"), documentation:decodeURL("Deployers+of+high-risk+AI+must%3A+use+systems+in+accordance+with+instructions%3B+assign+human+oversight+to+competent+persons%3B+ensure+input+data+is+relevant%3B+monitor+operations%3B+inform+providers+of+serious+incidents%3B+perform+data+protection+impact+assessment+%28DPIA%29+if+applicable%3B+conduct+fundamental+rights+impact+assessment+%28public+bodies+and+regulated+entities%29.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-art43", contenttype:"Requirement"});
+											dataElements.push({id:"req-art43", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+43%3A+Conformity+Assessment"), documentation:decodeURL("Before+market+placement%2C+providers+must+carry+out+conformity+assessment+as+specified+in+Annex+VI+%28internal+control%29+or+Annex+VII+%28third-party+QMS+assessment%29.+Biometric+identification+systems+and+Annex+III+systems+in+sensitive+areas+require+third-party+assessment.+CE+marking+required+after+successful+conformity+assessment.")});
+										dataFoldersContent.push({folderid:"id-1a944b6bb6c1463aa19a3748b4ffd890", contentid:"req-ch3", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch3", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+III%3A+High-Risk+AI+Systems"), documentation:decodeURL("Art.+6-49.+Defines+high-risk+AI+systems+and+sets+out+requirements+for+providers+and+deployers.+Deadline%3A+2+August+2026+%28full+compliance+deadline%29.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-3e4d9ab97f614b23a6c3fae3c83f1ca4", contenttype:"Folder"});
+									dataFolders.push({id:"id-3e4d9ab97f614b23a6c3fae3c83f1ca4", type:"Folder", name:decodeURL("Chapter+IV%3A+Transparency+Obligations"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-3e4d9ab97f614b23a6c3fae3c83f1ca4", contentid:"req-art50", contenttype:"Requirement"});
+											dataElements.push({id:"req-art50", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+50%3A+Transparency+for+Specific+Systems"), documentation:decodeURL("Providers+must+ensure%3A+%281%29+Chatbots+clearly+disclose+AI+interaction+to+users.+%282%29+Emotion+recognition+and+biometric+categorisation+systems+inform+affected+persons.+%283%29+AI-generated%2Fmanipulated+content+%28deep+fakes%29+must+be+labelled+as+machine-generated.+%284%29+Providers+of+GPAI+generating+synthetic+content+must+mark+it+in+machine-readable+format+%28watermarking%29.")});
+										dataFoldersContent.push({folderid:"id-3e4d9ab97f614b23a6c3fae3c83f1ca4", contentid:"req-ch4", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch4", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+IV%3A+Transparency+Obligations"), documentation:decodeURL("Art.+50.+Limited+risk+AI+systems+subject+to+transparency+obligations.+Covers+chatbots%2C+emotion+recognition%2C+biometric+categorisation%2C+deep+fake%2Fsynthetic+content.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-3c9055a9be1549f094daf7635cd92267", contenttype:"Folder"});
+									dataFolders.push({id:"id-3c9055a9be1549f094daf7635cd92267", type:"Folder", name:decodeURL("Chapter+V%3A+General+Purpose+AI+Models"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-3c9055a9be1549f094daf7635cd92267", contentid:"req-art53", contenttype:"Requirement"});
+											dataElements.push({id:"req-art53", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+53%3A+Obligations+for+All+GPAI+Providers"), documentation:decodeURL("ALL+GPAI+model+providers+must%3A+%281%29+Draw+up+and+maintain+technical+documentation+including+training+details+and+evaluation+results.+%282%29+Provide+information%2Fdocumentation+to+downstream+providers+to+understand+capabilities%2Flimitations.+%283%29+Establish+copyright+compliance+policy+%28Copyright+Directive+2019%2F790%29.+%284%29+Publish+summary+of+training+content.")});
+										dataFoldersContent.push({folderid:"id-3c9055a9be1549f094daf7635cd92267", contentid:"req-art55", contenttype:"Requirement"});
+											dataElements.push({id:"req-art55", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+55%3A+Systemic+Risk+Obligations"), documentation:decodeURL("GPAI+providers+with+SYSTEMIC+RISK+%28%3E10%5E25+FLOPs%29+must+ADDITIONALLY%3A+%281%29+Perform+model+evaluations+including+adversarial+testing.+%282%29+Assess+and+mitigate+systemic+risks+and+their+sources.+%283%29+Track%2C+document%2C+and+report+serious+incidents+and+corrective+measures.+%284%29+Ensure+cybersecurity+protection+for+model%2C+infrastructure%2C+and+physical+security.")});
+										dataFoldersContent.push({folderid:"id-3c9055a9be1549f094daf7635cd92267", contentid:"req-art56", contenttype:"Requirement"});
+											dataElements.push({id:"req-art56", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+56%3A+Codes+of+Practice+%28GPAI%29"), documentation:decodeURL("AI+Office+draws+up+GPAI+Code+of+Practice+with+providers+and+other+stakeholders.+Compliance+with+CoP+creates+presumption+of+conformity.+Providers+not+adhering+must+demonstrate+alternative+adequate+means+of+compliance.+CoP+covers+technical+documentation+requirements%2C+risk+identification%2C+and+risk+management+modalities.")});
+										dataFoldersContent.push({folderid:"id-3c9055a9be1549f094daf7635cd92267", contentid:"req-ch5", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch5", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+V%3A+General+Purpose+AI+Models"), documentation:decodeURL("Art.+51-56.+Obligations+for+providers+of+GPAI+models.+Deadline%3A+2+August+2025+%2812+months+after+entry+into+force%29.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-d6d8181ab2e54dc894ad97f76927be42", contenttype:"Folder"});
+									dataFolders.push({id:"id-d6d8181ab2e54dc894ad97f76927be42", type:"Folder", name:decodeURL("Chapter+VI%3A+Governance"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-d6d8181ab2e54dc894ad97f76927be42", contentid:"req-ch6", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch6", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+VI%3A+Governance"), documentation:decodeURL("Art.+57-79.+Establishes+multi-level+governance+structure+at+EU+and+national+level.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-c22dca8c21bb4704b3878b7260ef09bc", contenttype:"Folder"});
+									dataFolders.push({id:"id-c22dca8c21bb4704b3878b7260ef09bc", type:"Folder", name:decodeURL("Chapter+VII%3A+EU+Database"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-ch7", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch7", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+VII%3A+EU+Database"), documentation:decodeURL("Art.+71.+Establishes+EU+database+for+high-risk+AI+systems.+Providers+register+systems+before+market+placement.+Deployers+%28public+bodies%29+register+before+deployment.+Accessible+to+public+for+transparency.")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-art64", contenttype:"Requirement"});
+											dataElements.push({id:"req-art64", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+64%3A+AI+Office"), documentation:decodeURL("The+AI+Office+%28within+European+Commission%29+is+the+primary+enforcement+body+for+GPAI+models.+Monitors+and+enforces+obligations+on+GPAI+providers.+Coordinates+development+of+technical+standards.+Supports+national+competent+authorities.+Manages+Codes+of+Practice.+Chairs+the+European+AI+Board.")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-art65", contenttype:"Requirement"});
+											dataElements.push({id:"req-art65", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+65%3A+European+AI+Board"), documentation:decodeURL("European+AI+Board+%28EAIB%29+composed+of+national+competent+authority+representatives.+Provides+guidance%2C+opinions%2C+recommendations.+Coordinates+national+supervisory+activities.+Advises+Commission+and+AI+Office.+Issues+opinions+on+GPAI+systemic+risk.")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-art67", contenttype:"Requirement"});
+											dataElements.push({id:"req-art67", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+67%3A+AI+Advisory+Forum"), documentation:decodeURL("AI+Advisory+Forum+includes+industry%2C+civil+society%2C+academia.+Provides+advice+to+AI+Office+and+European+AI+Board.+Stakeholder+engagement+mechanism.")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-art68", contenttype:"Requirement"});
+											dataElements.push({id:"req-art68", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+68%3A+Scientific+Panel"), documentation:decodeURL("Independent+scientific+panel+of+experts+supports+AI+Office.+Provides+scientific+advice+on+GPAI+models.+May+alert+AI+Office+to+systemic+risks.+Evaluates+model+evaluations.+Advises+on+technical+standards.")});
+										dataFoldersContent.push({folderid:"id-c22dca8c21bb4704b3878b7260ef09bc", contentid:"req-art70", contenttype:"Requirement"});
+											dataElements.push({id:"req-art70", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+70%3A+National+Competent+Authorities"), documentation:decodeURL("Each+Member+State+must+designate+at+least+one+national+competent+authority+for+supervising+Chapter+III+%28high-risk%29+and+Chapter+IV+%28transparency%29+obligations.+Must+notify+the+Commission.+Must+be+independent.+Have+adequate+powers+of+investigation+and+enforcement.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-12a7853aa41c44afa3a9008c5b4f92af", contenttype:"Folder"});
+									dataFolders.push({id:"id-12a7853aa41c44afa3a9008c5b4f92af", type:"Folder", name:decodeURL("Chapter+VIII%3A+Post-Market+%26+Market+Surveillance"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-12a7853aa41c44afa3a9008c5b4f92af", contentid:"req-art71", contenttype:"Requirement"});
+											dataElements.push({id:"req-art71", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+71%3A+EU+Database+for+High-Risk+AI"), documentation:decodeURL("Commission+maintains+publicly+accessible+EU+database.+Providers+register%3A+name%2Faddress%2C+system+name%2C+intended+purpose%2C+system+description%2C+risk+category%2C+conformity+assessment+method%2C+status%2C+member+states+of+deployment.+Deployers+who+are+public+bodies+must+also+register.+Information+publicly+available+except+trade+secrets.")});
+										dataFoldersContent.push({folderid:"id-12a7853aa41c44afa3a9008c5b4f92af", contentid:"req-ch8", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch8", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+VIII%3A+Post-Market+%26+Market+Surveillance"), documentation:decodeURL("Art.+72-79.+Post-market+monitoring%2C+serious+incident+reporting%2C+and+market+surveillance+activities.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-81561d953a0d43358237dee01a25e263", contenttype:"Folder"});
+									dataFolders.push({id:"id-81561d953a0d43358237dee01a25e263", type:"Folder", name:decodeURL("Chapter+IX%3A+Codes+of+Conduct"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-81561d953a0d43358237dee01a25e263", contentid:"req-annex4", contenttype:"Requirement"});
+											dataElements.push({id:"req-annex4", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Annex+IV%3A+Technical+Documentation"), documentation:decodeURL("Contents+of+technical+documentation+for+high-risk+AI%3A+general+description%2C+detailed+description+of+development+elements%2C+monitoring%2Ffunctioning%2Fcontrol+information%2C+risk+management+record%2C+changes+to+notified+body+certified+systems%2C+declaration+of+conformity+copy%2C+EU+database+registration.")});
+										dataFoldersContent.push({folderid:"id-81561d953a0d43358237dee01a25e263", contentid:"req-art72", contenttype:"Requirement"});
+											dataElements.push({id:"req-art72", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+72%3A+Post-Market+Monitoring"), documentation:decodeURL("Providers+of+high-risk+AI+systems+must+establish+and+document+a+post-market+monitoring+system.+Must+actively+collect+and+review+experience+from+deployers.+Must+identify+corrective+actions.+For+biometric+systems+or+medical+device+AI%2C+must+use+post-market+monitoring+plan.")});
+										dataFoldersContent.push({folderid:"id-81561d953a0d43358237dee01a25e263", contentid:"req-art73", contenttype:"Requirement"});
+											dataElements.push({id:"req-art73", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+73%3A+Serious+Incident+Reporting"), documentation:decodeURL("Providers+must+report+serious+incidents+%28death%2C+serious+health%2Fproperty+damage%2C+fundamental+rights+infringement%29+to+market+surveillance+authorities.+Initial+notification+within+2+working+days+%28death+or+serious+deterioration%29+or+10+working+days.+Full+report+within+3+months.")});
+										dataFoldersContent.push({folderid:"id-81561d953a0d43358237dee01a25e263", contentid:"req-art99", contenttype:"Requirement"});
+											dataElements.push({id:"req-art99", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+99%3A+Penalties"), documentation:decodeURL("PENALTIES%3A+%281%29+Violations+of+prohibited+AI+practices+%28Art.5%29%3A+up+to+%E2%82%AC35M+or+7%25+of+global+annual+turnover.+%282%29+Non-compliance+with+high-risk+requirements%3A+up+to+%E2%82%AC15M+or+3%25+of+global+annual+turnover.+%283%29+Incorrect%2Fmisleading+information+to+authorities%3A+up+to+%E2%82%AC7.5M+or+1%25+of+global+annual+turnover.+SMEs%2Fstartups+get+lower+caps.")});
+										dataFoldersContent.push({folderid:"id-81561d953a0d43358237dee01a25e263", contentid:"req-ch9", contenttype:"Requirement"});
+											dataElements.push({id:"req-ch9", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Chapter+IX%3A+Codes+of+Conduct"), documentation:decodeURL("Art.+95.+Encourages+providers+of+non-high-risk+AI+systems+to+develop+voluntary+codes+of+conduct.+May+cover+requirements+for+high-risk+AI+voluntarily+applied.+Commission+and+AI+Office+to+facilitate.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-9c6a9692ef7e49aca00eba33dccfc952", contenttype:"Folder"});
+									dataFolders.push({id:"id-9c6a9692ef7e49aca00eba33dccfc952", type:"Folder", name:decodeURL("Chapter+X%3A+Codes+of+Conduct+and+Guidelines"), documentation:decodeURL("")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-994f614720f845d8b293c6e82c3ab101", contenttype:"Folder"});
+									dataFolders.push({id:"id-994f614720f845d8b293c6e82c3ab101", type:"Folder", name:decodeURL("Chapter+XI%3A+Delegation+of+Power+and+Committee+Procedure"), documentation:decodeURL("")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-89d7e967d7d04101934df94f42f2fb05", contenttype:"Folder"});
+									dataFolders.push({id:"id-89d7e967d7d04101934df94f42f2fb05", type:"Folder", name:decodeURL("Chapter+XII%3A+Penalties"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-89d7e967d7d04101934df94f42f2fb05", contentid:"req-art101", contenttype:"Requirement"});
+											dataElements.push({id:"req-art101", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Art.+101%3A+AI+Liability"), documentation:decodeURL("Article+101%3A+Fines+for+Providers+of+General-Purpose+AI+Models%0D%0AInteracts+with+EU+AI+Liability+Directive+%28separate+instrument%29.+Providers+must+maintain+adequate+insurance+where+applicable.+National+civil+liability+rules+apply.+Commission+required+to+assess+need+for+EU-level+product+liability+adaptation.")});
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"id-3c1646423337495a90e1d3fcb1a276e3", contenttype:"Folder"});
+									dataFolders.push({id:"id-3c1646423337495a90e1d3fcb1a276e3", type:"Folder", name:decodeURL("Annex"), documentation:decodeURL("")});
+										dataFoldersContent.push({folderid:"id-3c1646423337495a90e1d3fcb1a276e3", contentid:"req-annex1", contenttype:"Requirement"});
+											dataElements.push({id:"req-annex1", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Annex+I%3A+EU+Harmonisation+Legislation"), documentation:decodeURL("List+of+EU+harmonisation+legislation+for+products+covered+under+Chapter+III+Art.+6%281%29%3A+machinery%2C+toys%2C+watercraft%2C+lifts%2C+explosives%2C+radio+equipment%2C+pressure+equipment%2C+personal+protective+equipment%2C+gas+appliances%2C+medical+devices%2C+in+vitro+diagnostic+devices%2C+civil+aviation%2C+vehicle+type+approvals%2C+agricultural+vehicles%2C+marine+equipment%2C+rail+systems%2C+cableway+installations%2C+civil+explosives%2C+pyrotechnics.")});
+										dataFoldersContent.push({folderid:"id-3c1646423337495a90e1d3fcb1a276e3", contentid:"req-annex3", contenttype:"Requirement"});
+											dataElements.push({id:"req-annex3", type:"Requirement", specialization:decodeURL(""), name:decodeURL("Annex+III%3A+High-Risk+Use+Cases"), documentation:decodeURL("Eight+categories%3A+%281%29+Biometrics%2C+%282%29+Critical+Infrastructure%2C+%283%29+Education%2FVocational+Training%2C+%284%29+Employment%2FWorker+Management%2C+%285%29+Essential+Public%2FPrivate+Services%2C+%286%29+Law+Enforcement%2C+%287%29+Migration%2FAsylum%2FBorder+Control%2C+%288%29+Administration+of+Justice%2FDemocratic+Processes.")});
+
+
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"drv-ai-risk", contenttype:"Driver"});
+										dataElements.push({id:"drv-ai-risk", type:"Driver", specialization:decodeURL(""), name:decodeURL("AI+Proliferation+Risk"), documentation:decodeURL("Rapid+proliferation+of+AI+systems+creating+risks+to+safety%2C+fundamental+rights%2C+and+democratic+processes+across+the+EU+single+market.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"drv-legal-certainty", contenttype:"Driver"});
+										dataElements.push({id:"drv-legal-certainty", type:"Driver", specialization:decodeURL(""), name:decodeURL("Need+for+Legal+Certainty"), documentation:decodeURL("Market+fragmentation+risk+from+diverging+national+AI+regulations.+Businesses+and+citizens+need+a+consistent%2C+predictable+legal+framework.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"drv-fundamental-rights", contenttype:"Driver"});
+										dataElements.push({id:"drv-fundamental-rights", type:"Driver", specialization:decodeURL(""), name:decodeURL("Fundamental+Rights+Protection"), documentation:decodeURL("AI+systems+must+respect+EU+Charter+of+Fundamental+Rights+including+human+dignity%2C+privacy%2C+non-discrimination%2C+and+access+to+justice.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"drv-competitiveness", contenttype:"Driver"});
+										dataElements.push({id:"drv-competitiveness", type:"Driver", specialization:decodeURL(""), name:decodeURL("AI+Competitiveness"), documentation:decodeURL("EU+ambition+to+position+Europe+as+a+global+leader+in+trustworthy+AI+while+supporting+innovation+and+economic+growth.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"ass-risk-based", contenttype:"Assessment"});
+										dataElements.push({id:"ass-risk-based", type:"Assessment", specialization:decodeURL(""), name:decodeURL("Risk-Based+Approach+Assessment"), documentation:decodeURL("AI+systems+classified+into+four+risk+tiers%3A+Unacceptable+Risk+%28banned%29%2C+High+Risk+%28regulated%29%2C+Limited+Risk+%28transparency+obligations%29%2C+Minimal+Risk+%28unregulated%29.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"ass-conformity", contenttype:"Assessment"});
+										dataElements.push({id:"ass-conformity", type:"Assessment", specialization:decodeURL(""), name:decodeURL("Conformity+Assessment"), documentation:decodeURL("High-risk+AI+systems+must+undergo+conformity+assessment+before+market+placement.+Either+internal+%28self-assessment%29+or+third-party+depending+on+AI+system+category.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"ass-fria", contenttype:"Assessment"});
+										dataElements.push({id:"ass-fria", type:"Assessment", specialization:decodeURL(""), name:decodeURL("Fundamental+Rights+Impact+Assessment"), documentation:decodeURL("Required+before+deploying+real-time+remote+biometric+identification+in+public+spaces+for+law+enforcement.+Also+recommended+for+deployers+of+high-risk+AI+systems+used+in+public+sector.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"ass-gpai-systemic", contenttype:"Assessment"});
+										dataElements.push({id:"ass-gpai-systemic", type:"Assessment", specialization:decodeURL(""), name:decodeURL("GPAI+Systemic+Risk+Assessment"), documentation:decodeURL("GPAI+models+exceeding+10%5E25+FLOPs+training+compute+are+presumed+to+present+systemic+risk.+Commission+may+also+designate+others+based+on+high-impact+capabilities.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"goal-trustworthy", contenttype:"Goal"});
+										dataElements.push({id:"goal-trustworthy", type:"Goal", specialization:decodeURL(""), name:decodeURL("Ensure+Trustworthy+AI"), documentation:decodeURL("Ensure+AI+systems+placed+on+the+EU+market+are+safe%2C+transparent%2C+traceable%2C+non-discriminatory%2C+environmentally+friendly%2C+and+overseen+by+humans.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"goal-rights", contenttype:"Goal"});
+										dataElements.push({id:"goal-rights", type:"Goal", specialization:decodeURL(""), name:decodeURL("Protect+Fundamental+Rights"), documentation:decodeURL("Prevent+AI+systems+from+causing+harm+to+health%2C+safety%2C+or+fundamental+rights+of+persons.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"goal-innovation", contenttype:"Goal"});
+										dataElements.push({id:"goal-innovation", type:"Goal", specialization:decodeURL(""), name:decodeURL("Enable+Innovation"), documentation:decodeURL("Support+AI+innovation+through+regulatory+sandboxes%2C+proportionate+obligations+for+SMEs%2C+and+free+movement+of+AI+systems+across+the+EU+single+market.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"goal-governance", contenttype:"Goal"});
+										dataElements.push({id:"goal-governance", type:"Goal", specialization:decodeURL(""), name:decodeURL("Establish+Governance"), documentation:decodeURL("Create+a+comprehensive+multi-level+governance+structure%3A+EU+AI+Office%2C+national+competent+authorities%2C+scientific+panel%2C+and+AI+Advisory+Forum.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"goal-market", contenttype:"Goal"});
+										dataElements.push({id:"goal-market", type:"Goal", specialization:decodeURL(""), name:decodeURL("Ensure+Market+Consistency"), documentation:decodeURL("Harmonise+rules+across+EU+Member+States+to+prevent+fragmentation+of+the+internal+market+and+ensure+consistent+enforcement.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"con-territorial", contenttype:"Constraint"});
+										dataElements.push({id:"con-territorial", type:"Constraint", specialization:decodeURL(""), name:decodeURL("Territorial+Scope"), documentation:decodeURL("Applies+to%3A+%281%29+Providers+placing+AI+on+EU+market+or+putting+into+service+in+EU+regardless+of+establishment+location.+%282%29+Deployers+in+EU.+%283%29+Providers%2Fdeployers+outside+EU+where+AI+output+used+in+EU.+Exclusions%3A+purely+military%2C+national+security%2C+scientific+R%26D+%28prior+to+market+release%29%2C+personal+non-professional+use.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"con-timeline", contenttype:"Constraint"});
+										dataElements.push({id:"con-timeline", type:"Constraint", specialization:decodeURL(""), name:decodeURL("Compliance+Timeline"), documentation:decodeURL("Feb+2025%3A+Chapter+II+%28prohibited+practices%29.+Aug+2025%3A+Chapter+V+%28GPAI%29.+Aug+2026%3A+Full+compliance+including+Chapter+III+%28high-risk%29.+Notified+bodies+operational+by+Aug+2027.+Annex+I+products%3A+additional+36+months+from+entry+into+force.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"con-sme", contenttype:"Constraint"});
+										dataElements.push({id:"con-sme", type:"Constraint", specialization:decodeURL(""), name:decodeURL("SME+Proportionality"), documentation:decodeURL("SMEs+and+startups+benefit+from%3A+lower+penalty+caps%2C+priority+access+to+regulatory+sandboxes%2C+simplified+technical+documentation+templates%2C+dedicated+support+from+national+competent+authorities%2C+reduced+notified+body+fees.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"con-opensource", contenttype:"Constraint"});
+										dataElements.push({id:"con-opensource", type:"Constraint", specialization:decodeURL(""), name:decodeURL("Open+Source+Exception+%28GPAI%29"), documentation:decodeURL("Free+and+open+licence+GPAI+model+providers+need+only+comply+with+copyright+and+training+data+summary+obligations%2C+UNLESS+they+present+systemic+risk+%28%3E10%5E25+FLOPs+or+designated+by+Commission%29.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"prin-risk", contenttype:"Principle"});
+										dataElements.push({id:"prin-risk", type:"Principle", specialization:decodeURL(""), name:decodeURL("Risk-Based+Regulation"), documentation:decodeURL("Regulatory+burden+proportionate+to+risk+level.+Higher+risk+%3D+more+obligations.+Unacceptable+risk+%3D+prohibition.+Minimal+risk+%3D+no+specific+obligations.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"prin-human", contenttype:"Principle"});
+										dataElements.push({id:"prin-human", type:"Principle", specialization:decodeURL(""), name:decodeURL("Human-Centric+AI"), documentation:decodeURL("AI+systems+must+be+developed+and+used+with+humans+in+control.+Human+oversight+is+a+core+requirement+for+high-risk+systems.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"prin-transparency", contenttype:"Principle"});
+										dataElements.push({id:"prin-transparency", type:"Principle", specialization:decodeURL(""), name:decodeURL("Transparency+and+Explainability"), documentation:decodeURL("AI+systems+must+be+sufficiently+transparent+for+deployers+to+interpret+outputs+correctly+and+for+affected+persons+to+understand+decisions+that+affect+them.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"prin-innovation", contenttype:"Principle"});
+										dataElements.push({id:"prin-innovation", type:"Principle", specialization:decodeURL(""), name:decodeURL("Innovation+and+Proportionality"), documentation:decodeURL("Regulatory+requirements+must+be+proportionate+and+not+create+unnecessary+barriers+to+innovation%2C+especially+for+SMEs.")});
+									dataFoldersContent.push({folderid:"motivation-folder", contentid:"prin-rights", contenttype:"Principle"});
+										dataElements.push({id:"prin-rights", type:"Principle", specialization:decodeURL(""), name:decodeURL("Fundamental+Rights+by+Design"), documentation:decodeURL("AI+systems+must+be+designed+from+the+outset+to+respect+EU+Charter+of+Fundamental+Rights+and+applicable+EU+law.")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"id-3712259ba58843bea0ffb096b390020a", contenttype:"Folder"});
+								dataFolders.push({id:"id-3712259ba58843bea0ffb096b390020a", type:"Folder", name:decodeURL("Implementation+%26+Migration"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"id-f5d95a2fc2094842bc3606034c834a84", contenttype:"Folder"});
+								dataFolders.push({id:"id-f5d95a2fc2094842bc3606034c834a84", type:"Folder", name:decodeURL("Other"), documentation:decodeURL("")});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"relations-folder", contenttype:"Folder"});
+								dataFolders.push({id:"relations-folder", type:"Folder", name:decodeURL("Relations"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-drv1-goal1", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-drv1-goal1", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"drv-ai-risk", targetid:"goal-trustworthy"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-drv1-goal2", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-drv1-goal2", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"drv-ai-risk", targetid:"goal-rights"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-drv2-goal3", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-drv2-goal3", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"drv-legal-certainty", targetid:"goal-market"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-drv3-goal2", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-drv3-goal2", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"drv-fundamental-rights", targetid:"goal-rights"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-drv4-goal3", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-drv4-goal3", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"drv-competitiveness", targetid:"goal-innovation"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-goal1-ch3", contenttype:"RealizationRelationship"});
+										dataRelationships.push({id:"rel-goal1-ch3", type:"RealizationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"goal-trustworthy"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-goal2-ch2", contenttype:"RealizationRelationship"});
+										dataRelationships.push({id:"rel-goal2-ch2", type:"RealizationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch2", targetid:"goal-rights"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-goal3-sandbox", contenttype:"RealizationRelationship"});
+										dataRelationships.push({id:"rel-goal3-sandbox", type:"RealizationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-sandbox", targetid:"goal-innovation"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-goal4-ch6", contenttype:"RealizationRelationship"});
+										dataRelationships.push({id:"rel-goal4-ch6", type:"RealizationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch6", targetid:"goal-governance"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch2-art5", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch2-art5", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch2", targetid:"req-art5"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art6", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art6", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art6"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art9", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art9", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art9"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art10", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art10", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art10"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art11", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art11", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art11"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art12", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art12", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art12"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art13", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art13", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art13"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art14", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art14", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art14"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art15", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art15", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art15"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art16", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art16", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art16"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art17", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art17", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art17"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art26", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art26", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art26"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch3-art43", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch3-art43", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch3", targetid:"req-art43"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch4-art50", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch4-art50", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch4", targetid:"req-art50"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch5-art53", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch5-art53", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch5", targetid:"req-art53"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch5-art55", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch5-art55", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch5", targetid:"req-art55"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch5-art56", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch5-art56", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch5", targetid:"req-art56"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch6-art64", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch6-art64", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch6", targetid:"req-art64"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch6-art65", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch6-art65", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch6", targetid:"req-art65"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch6-art68", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch6-art68", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch6", targetid:"req-art68"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch6-art70", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch6-art70", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch6", targetid:"req-art70"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch7-art71", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch7-art71", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch7", targetid:"req-art71"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch8-art72", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch8-art72", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch8", targetid:"req-art72"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ch8-art73", contenttype:"CompositionRelationship"});
+										dataRelationships.push({id:"rel-ch8-art73", type:"CompositionRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"req-ch8", targetid:"req-art73"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-role", contenttype:"AssignmentRelationship"});
+										dataRelationships.push({id:"rel-provider-role", type:"AssignmentRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-provider", targetid:"role-provider"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-deployer-role", contenttype:"AssignmentRelationship"});
+										dataRelationships.push({id:"rel-deployer-role", type:"AssignmentRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-deployer", targetid:"role-deployer"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-aioffice-art64", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-aioffice-art64", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-ai-office", targetid:"req-art64"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-nca-art70", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-nca-art70", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-nca", targetid:"req-art70"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-notified-art43", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-notified-art43", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-notified-body", targetid:"req-art43"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-scipanel-art68", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-scipanel-art68", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"act-sci-panel", targetid:"req-art68"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-classify-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-classify-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-classify", targetid:"req-art6"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-conform-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-conform-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-conformity", targetid:"req-art43"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-reg-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-reg-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-registration", targetid:"req-art71"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-pmm-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-pmm-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-pmm", targetid:"req-art72"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-incident-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-incident-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-incident", targetid:"req-art73"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-fria-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-fria-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-fria", targetid:"ass-fria"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-proc-gpai-req", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-proc-gpai-req", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"proc-gpai-reg", targetid:"req-art53"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-risk-proc", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-app-risk-proc", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-risk-class", targetid:"proc-classify"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-techdoc-proc", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-app-techdoc-proc", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-tech-doc-mgmt", targetid:"proc-conformity"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-eudb-proc", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-app-eudb-proc", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-eu-db", targetid:"proc-registration"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-pmm-proc", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-app-pmm-proc", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-pmm-system", targetid:"proc-pmm"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-incident-proc", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-app-incident-proc", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-incident-portal", targetid:"proc-incident"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-logging-art12", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-app-logging-art12", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-logging", targetid:"req-art12"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-oversight-art14", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-app-oversight-art14", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-oversight-dashboard", targetid:"req-art14"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-app-datagov-art10", contenttype:"InfluenceRelationship"});
+										dataRelationships.push({id:"rel-app-datagov-art10", type:"InfluenceRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"app-data-gov", targetid:"req-art10"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-auditlog-app", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-auditlog-app", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-audit-log", targetid:"app-logging"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-override-app", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-override-app", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-override", targetid:"app-oversight-dashboard"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-bias-app", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-bias-app", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-bias", targetid:"app-data-gov"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-cybersec-app", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-cybersec-app", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-cybersecurity", targetid:"app-pmm-system"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-training-gpai", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-training-gpai", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-training", targetid:"tech-gpai-model"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-tech-deploy-highrisk", contenttype:"ServingRelationship"});
+										dataRelationships.push({id:"rel-tech-deploy-highrisk", type:"ServingRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"tech-deployment", targetid:"tech-high-risk-ai"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-techdoc", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-provider-techdoc", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"role-provider", targetid:"obj-tech-doc"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-conformity", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-provider-conformity", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"role-provider", targetid:"obj-doc-conformity"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-instructions", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-provider-instructions", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"role-provider", targetid:"obj-instructions"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-riskrecords", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-provider-riskrecords", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"role-provider", targetid:"obj-risk-records"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-provider-gpaitd", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-provider-gpaitd", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"role-provider", targetid:"obj-gpai-tech-doc"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ass-conform-art43", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-ass-conform-art43", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"ass-conformity", targetid:"req-art43"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ass-fria-art26", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-ass-fria-art26", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"ass-fria", targetid:"req-art26"});
+									dataFoldersContent.push({folderid:"relations-folder", contentid:"rel-ass-systemic-art55", contenttype:"AssociationRelationship"});
+										dataRelationships.push({id:"rel-ass-systemic-art55", type:"AssociationRelationship", specialization:decodeURL(""), name:decodeURL(""), documentation:decodeURL(""), sourceid:"ass-gpai-systemic", targetid:"req-art55"});
+
+								dataFoldersContent.push({folderid:"eu-ai-act-model", contentid:"views-folder", contenttype:"Folder"});
+								dataFolders.push({id:"views-folder", type:"Folder", name:decodeURL("Views"), documentation:decodeURL("")});
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-motivation", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-motivation", type:"ArchimateDiagramModel", name:decodeURL("01+-+Regulatory+Motivation+and+Context"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"drv-ai-risk", contenttype:"Driver"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"drv-legal-certainty", contenttype:"Driver"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"drv-fundamental-rights", contenttype:"Driver"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"drv-competitiveness", contenttype:"Driver"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"goal-governance", contenttype:"Goal"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"prin-risk", contenttype:"Principle"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"prin-human", contenttype:"Principle"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"prin-transparency", contenttype:"Principle"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"prin-innovation", contenttype:"Principle"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"con-timeline", contenttype:"Constraint"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"con-territorial", contenttype:"Constraint"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"goal-rights", contenttype:"Goal"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"goal-innovation", contenttype:"Goal"});
+												dataViewsContent.push({viewid:"view-motivation", contentid:"goal-trustworthy", contenttype:"Goal"});
+
+																		dataViewsContent.push({viewid:"view-motivation", contentid:"rel-drv1-goal2", contenttype:"InfluenceRelationship"});
+																		dataViewsContent.push({viewid:"view-motivation", contentid:"rel-drv1-goal1", contenttype:"InfluenceRelationship"});
+
+																		dataViewsContent.push({viewid:"view-motivation", contentid:"rel-drv3-goal2", contenttype:"InfluenceRelationship"});
+
+																		dataViewsContent.push({viewid:"view-motivation", contentid:"rel-drv4-goal3", contenttype:"InfluenceRelationship"});
+
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-risk-class", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-risk-class", type:"ArchimateDiagramModel", name:decodeURL("02+-+AI+Risk+Classification+Framework"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-risk-class", contentid:"req-ch2", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-art5", contenttype:"Requirement"});
+												
+												dataViewsContent.push({viewid:"view-risk-class", contentid:"req-ch3", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-art6", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-annex3", contenttype:"Requirement"});
+												
+												dataViewsContent.push({viewid:"view-risk-class", contentid:"req-ch4", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-art50", contenttype:"Requirement"});
+												
+												dataViewsContent.push({viewid:"view-risk-class", contentid:"req-ch5", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-art53", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-risk-class", contentid:"req-art55", contenttype:"Requirement"});
+												
+												dataViewsContent.push({viewid:"view-risk-class", contentid:"ass-risk-based", contenttype:"Assessment"});
+
+												
+												
+												
+												
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-high-risk", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-high-risk", type:"ArchimateDiagramModel", name:decodeURL("03+-+High-Risk+AI+System+Requirements"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"act-provider", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art9", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art10", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art11", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art12", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art13", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art14", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art15", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art17", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art43", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art49", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art71", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"act-deployer", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"req-art26", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-high-risk", contentid:"role-provider", contenttype:"BusinessRole"});
+
+																		dataViewsContent.push({viewid:"view-high-risk", contentid:"rel-provider-role", contenttype:"AssignmentRelationship"});
+
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-gpai", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-gpai", type:"ArchimateDiagramModel", name:decodeURL("04+-+GPAI+Model+Obligations"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-gpai", contentid:"req-ch5", contenttype:"Requirement"});
+														dataViewsContent.push({viewid:"view-gpai", contentid:"req-art53", contenttype:"Requirement"});
+																dataViewsContent.push({viewid:"view-gpai", contentid:"obj-gpai-tech-doc", contenttype:"BusinessObject"});
+																dataViewsContent.push({viewid:"view-gpai", contentid:"obj-training-summary", contenttype:"BusinessObject"});
+														
+														dataViewsContent.push({viewid:"view-gpai", contentid:"req-art55", contenttype:"Requirement"});
+																dataViewsContent.push({viewid:"view-gpai", contentid:"ass-gpai-systemic", contenttype:"Assessment"});
+																dataViewsContent.push({viewid:"view-gpai", contentid:"obj-incident-report", contenttype:"BusinessObject"});
+														
+														dataViewsContent.push({viewid:"view-gpai", contentid:"req-art56", contenttype:"Requirement"});
+																dataViewsContent.push({viewid:"view-gpai", contentid:"obj-cop", contenttype:"BusinessObject"});
+														
+												
+
+														
+														
+														
+												
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-governance", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-governance", type:"ArchimateDiagramModel", name:decodeURL("05+-+Governance+and+Enforcement+Structure"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-governance", contentid:"act-ai-office", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"act-eaib", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"act-sci-panel", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"act-nca", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"act-notified-body", contenttype:"BusinessActor"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"req-art99", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"svc-market-surv", contenttype:"BusinessService"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"req-art70", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-governance", contentid:"req-art64", contenttype:"Requirement"});
+
+																		dataViewsContent.push({viewid:"view-governance", contentid:"rel-aioffice-art64", contenttype:"AssociationRelationship"});
+
+																		dataViewsContent.push({viewid:"view-governance", contentid:"rel-nca-art70", contenttype:"AssociationRelationship"});
+
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-compliance-process", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-compliance-process", type:"ArchimateDiagramModel", name:decodeURL("06+-+Compliance+Process+Flow"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-classify", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-conformity", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-registration", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-pmm", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-incident", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-fria", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-sandbox", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-literacy", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"proc-gpai-reg", contenttype:"BusinessProcess"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"app-risk-class", contenttype:"ApplicationComponent"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"app-tech-doc-mgmt", contenttype:"ApplicationComponent"});
+												dataViewsContent.push({viewid:"view-compliance-process", contentid:"app-eu-db", contenttype:"ApplicationComponent"});
+
+																		dataViewsContent.push({viewid:"view-compliance-process", contentid:"rel-app-risk-proc", contenttype:"ServingRelationship"});
+
+																		dataViewsContent.push({viewid:"view-compliance-process", contentid:"rel-app-techdoc-proc", contenttype:"ServingRelationship"});
+
+																		dataViewsContent.push({viewid:"view-compliance-process", contentid:"rel-app-eudb-proc", contenttype:"ServingRelationship"});
+
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-timeline", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-timeline", type:"ArchimateDiagramModel", name:decodeURL("07+-+Implementation+Timeline"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-timeline", contentid:"con-timeline", contenttype:"Constraint"});
+												dataViewsContent.push({viewid:"view-timeline", contentid:"req-ch2", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-timeline", contentid:"req-ch5", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-timeline", contentid:"req-ch3", contenttype:"Requirement"});
+												dataViewsContent.push({viewid:"view-timeline", contentid:"req-art99", contenttype:"Requirement"});
+
+									dataFoldersContent.push({folderid:"views-folder", contentid:"view-tech", contenttype:"ArchimateDiagramModel"});
+										dataViews.push({id:"view-tech", type:"ArchimateDiagramModel", name:decodeURL("08+-+Technology+Architecture+for+Compliance"), documentation:decodeURL("")});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-high-risk-ai", contenttype:"SystemSoftware"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-gpai-model", contenttype:"SystemSoftware"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-training", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-deployment", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-audit-log", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-bias", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-cybersecurity", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"tech-override", contenttype:"TechnologyService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"appsvc-watermark", contenttype:"ApplicationService"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"app-logging", contenttype:"ApplicationComponent"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"app-oversight-dashboard", contenttype:"ApplicationComponent"});
+												dataViewsContent.push({viewid:"view-tech", contentid:"app-pmm-system", contenttype:"ApplicationComponent"});
+
+																		dataViewsContent.push({viewid:"view-tech", contentid:"rel-tech-auditlog-app", contenttype:"ServingRelationship"});
+
+																		dataViewsContent.push({viewid:"view-tech", contentid:"rel-tech-cybersec-app", contenttype:"ServingRelationship"});
+
+																		dataViewsContent.push({viewid:"view-tech", contentid:"rel-tech-override-app", contenttype:"ServingRelationship"});
+
+
+
+
+
+
+						    alasql('CREATE TABLE Elements');
+						    alasql('CREATE TABLE Properties');
+						    alasql('CREATE TABLE Relationships');
+						    alasql('CREATE TABLE Views');
+						    alasql('CREATE TABLE ViewsContent');
+						    alasql('CREATE TABLE Folders');
+						    alasql('CREATE TABLE FoldersContent');
+
+						    alasql.tables.Elements.data = dataElements;
+						    alasql.tables.Properties.data = dataProperties;
+						    alasql.tables.Relationships.data = dataRelationships;
+						    alasql.tables.Views.data = dataViews;
+						    alasql.tables.ViewsContent.data = dataViewsContent;
+						    alasql.tables.Folders.data = dataFolders;
+						    alasql.tables.FoldersContent.data = dataFoldersContent;
+						</script> 
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>
