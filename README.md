@@ -22,10 +22,11 @@ Archi® is an ArchiMate modelling tool targeted toward all levels of Enterprise 
 ## Reports as Branch
 Reports are generated artefacts. They are represented as artefacts/reports.zip file in main branch and restored in separate branch *gh-pages* as static web site content folders deployed to GitHub pages.\
 You can download zip file to run it locally, or access rendered reports by the following links:
-- [Agile-Manifesto](https://banban.github.io/architecture-as-code/Agile-Manifesto/index.html)
+- [Agile Manifesto](https://banban.github.io/architecture-as-code/Agile-Manifesto/index.html)
 - [ArchiMetal](https://banban.github.io/architecture-as-code/ArchiMetal/index.html)
 - [Archisurance](https://banban.github.io/architecture-as-code/Archisurance/index.html)
 - [COSO](https://banban.github.io/architecture-as-code/COSO/index.html)
+- [EU AI Act](https://banban.github.io/architecture-as-code/EU-AI-Act/index.html)
 - [GDPR](https://banban.github.io/architecture-as-code/GDPR/index.html)
 - [NIST](https://banban.github.io/architecture-as-code/NIST/index.html)
 - [Oil & Gas](https://banban.github.io/architecture-as-code/Oil-Gas/index.html)
