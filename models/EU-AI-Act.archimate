@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="EU AI Act Compliance" id="eu-ai-act-model" version="5.0.0">
+  <folder name="Strategy" id="strategy-folder" type="strategy"/>
+  <folder name="Business" id="business-folder-content" type="business">
+    <element xsi:type="archimate:BusinessActor" name="Provider (Developer)" id="act-provider">
+      <documentation>Natural or legal person that develops an AI system or GPAI model (or has it developed) and places it on the market or puts it into service under their own name/trademark. Bears primary compliance obligations for high-risk and GPAI obligations.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Deployer (User/Operator)" id="act-deployer">
+      <documentation>Natural or legal person (public authority or private entity) that uses an AI system in a professional capacity (not the affected end-user). Has specific obligations for high-risk AI deployment including human oversight, DPIA, and FRIA.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Importer" id="act-importer">
+      <documentation>Natural or legal person established in the EU that places a high-risk AI system on the market bearing the name/trademark of a natural or legal person established outside the EU.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Distributor" id="act-distributor">
+      <documentation>Natural or legal person in the supply chain, other than the provider or importer, that makes a high-risk AI system available on the EU market.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Authorised Representative" id="act-auth-rep">
+      <documentation>Natural or legal person established in the EU with written mandate from provider to carry out obligations under this regulation on provider's behalf.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Affected Person" id="act-affected">
+      <documentation>Natural persons subject to or potentially subject to the outputs of an AI system. Have rights to explanation (high-risk decisions), to complain to national authorities, and to effective judicial remedy.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="EU AI Office" id="act-ai-office">
+      <documentation>Body within the European Commission responsible for: enforcement of GPAI obligations, coordination of AI Act implementation, development of standards/guidelines, managing GPAI Code of Practice, chairing European AI Board.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="National Competent Authority (NCA)" id="act-nca">
+      <documentation>Designated by each EU Member State to supervise high-risk AI and transparency obligations. Must be independent. Has investigative and enforcement powers. Market surveillance authority function.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Notified Body" id="act-notified-body">
+      <documentation>Third-party conformity assessment body designated by national authority to assess conformity of high-risk AI systems. Must be accredited. May issue CE conformity certificates.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="Scientific Panel" id="act-sci-panel">
+      <documentation>Independent scientific expert panel supporting AI Office with technical advice on GPAI models, systemic risk evaluation, and model evaluations.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessActor" name="European AI Board (EAIB)" id="act-eaib">
+      <documentation>Board composed of representatives from national competent authorities. Provides opinions, guidance, recommendations. Coordinates national supervisory activities. Member States and Commission represented.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessRole" name="AI System Provider Role" id="role-provider">
+      <documentation>Responsible for: design, development, conformity assessment, CE marking, technical documentation, registration, post-market monitoring, serious incident reporting.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessRole" name="AI System Deployer Role" id="role-deployer">
+      <documentation>Responsible for: using system per instructions, human oversight implementation, input data appropriateness, incident reporting to providers, DPIA (if processing personal data), FRIA (public bodies).</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessRole" name="Compliance Officer Role" id="role-compliance">
+      <documentation>Internal role responsible for maintaining compliance programme, monitoring regulatory changes, liaising with national competent authorities, managing conformity assessments and documentation.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessRole" name="AI Literacy Trainer Role" id="role-ai-literacy">
+      <documentation>Responsible for implementing Art. 4 AI literacy measures. Ensures staff dealing with AI systems have sufficient understanding of AI capabilities, limitations, risks, and appropriate use.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="AI Risk Classification" id="proc-classify">
+      <documentation>Process to determine applicable risk tier for AI system: (1) Is it Annex I product with third-party conformity requirement? (2) Is it in Annex III use cases? (3) Apply narrow exceptions. (4) Determine if GPAI model. (5) Assess systemic risk threshold.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="Conformity Assessment Process" id="proc-conformity">
+      <documentation>Pre-market conformity assessment for high-risk AI: (1) Internal control (Annex VI) for most Annex III systems. (2) Third-party QMS assessment (Annex VII) for biometric ID and sensitive Annex III categories. (3) Draw up technical documentation. (4) Conduct conformity assessment. (5) Draw up EU Declaration of Conformity. (6) Affix CE marking.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="EU Database Registration" id="proc-registration">
+      <documentation>Before market placement: (1) Register in EU database. (2) Provide required information per Art. 71. (3) Public authorities deploying high-risk AI register before use. (4) Keep registration updated throughout lifecycle.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="Post-Market Monitoring" id="proc-pmm">
+      <documentation>Ongoing monitoring: (1) Collect and review performance data from deployers. (2) Identify any serious incidents or malfunctions. (3) Take corrective actions. (4) Inform relevant authorities. (5) Update technical documentation. (6) Conduct periodic reviews of risk management system.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="Serious Incident Reporting" id="proc-incident">
+      <documentation>(1) Identify serious incident (death, serious health/property/rights harm). (2) Report to market surveillance authority within 2-10 working days. (3) Investigate cause. (4) Take corrective action. (5) Submit final report within 3 months. (6) For GPAI: report to AI Office.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="GPAI Model Registration" id="proc-gpai-reg">
+      <documentation>GPAI providers: (1) Draw up technical documentation per Annex XI. (2) Prepare downstream provider documentation per Annex XII. (3) Establish copyright policy. (4) Publish training data summary. (5) If systemic risk: notify Commission within 2 weeks of threshold breach. (6) Engage with Code of Practice.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="Regulatory Sandbox Participation" id="proc-sandbox">
+      <documentation>AI regulatory sandboxes allow testing innovative AI in controlled environment under NCA supervision. Providers may test systems prior to market placement. Provides legal certainty during testing. Member States must establish at least one national sandbox.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="Fundamental Rights Impact Assessment" id="proc-fria">
+      <documentation>Required for public bodies and regulated private entities deploying high-risk Annex III AI. (1) Assess impact on fundamental rights. (2) Consult relevant stakeholders. (3) Document and retain assessment. (4) Register in EU database. (5) Review when substantial modification.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" name="AI Literacy Programme" id="proc-literacy">
+      <documentation>Providers and deployers implement Art. 4 measures: (1) Assess current staff AI literacy levels. (2) Design training programme. (3) Deliver training on AI capabilities, limitations, risks, appropriate use. (4) Maintain records of training. (5) Update programme as technology evolves.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Technical Documentation" id="obj-tech-doc">
+      <documentation>Required per Art. 11, Annex IV. Demonstrates compliance of high-risk AI system. Contains: general description, development elements, monitoring info, risk management record, changes record. Must be kept up-to-date. Held by provider, accessible to national authorities.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="EU Declaration of Conformity" id="obj-doc-conformity">
+      <documentation>Provider statement that high-risk AI system complies with all applicable requirements. Must include: system identification, provider details, reference to harmonised standards or other means used, notified body details (if applicable), place and date, signature. Must accompany system.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Instructions for Use" id="obj-instructions">
+      <documentation>Required per Art. 13. Provided by provider to deployers in machine-readable and accessible format. Must include: identity of provider, intended purpose, AI system performance metrics, input data specifications, limitations, human oversight measures, expected lifetime, maintenance requirements.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Risk Management Records" id="obj-risk-records">
+      <documentation>Documentation of ongoing risk management system per Art. 9. Identifies and analyses risks, describes risk mitigation measures adopted, residual risks, outcomes of testing. Must cover entire lifecycle.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="GPAI Technical Documentation" id="obj-gpai-tech-doc">
+      <documentation>Per Annex XI. Covers: general description of model, training process details, data used, evaluation results including benchmark testing, information for downstream providers. For systemic risk models: additional model evaluation reports, adversarial testing documentation.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Training Data Summary (GPAI)" id="obj-training-summary">
+      <documentation>Required of all GPAI providers. Sufficiently detailed summary of training data published publicly. Enables copyright compliance verification. Describes sources, composition, preprocessing steps.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Code of Practice (GPAI)" id="obj-cop">
+      <documentation>GPAI Code of Practice developed under AI Office coordination. Covers: technical documentation requirements, systemic risk identification, risk management measures. Compliance creates presumption of conformity. Subject to iterative drafting process with stakeholders.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Serious Incident Report" id="obj-incident-report">
+      <documentation>Report submitted to market surveillance authority upon serious incident. Contains: description of incident, affected persons, AI system involved, corrective actions taken or planned. Provider investigation outcome. Final report within 3 months.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessObject" name="Data Governance Documentation" id="obj-data-gov">
+      <documentation>Per Art. 10. Documents data management practices for training/validation/testing datasets: relevance, representativeness, error-free nature, completeness, bias examination, data collection methods, labelling instructions, data preprocessing.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessService" name="Right to Explanation (High-Risk Decisions)" id="svc-explanation">
+      <documentation>Affected persons subject to high-risk AI decisions have right to meaningful explanation of the role of the AI and the main elements of the decision. Deployers must be able to provide this. Applies to decisions with significant effect on persons.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessService" name="Right to Complain (Art. 85)" id="svc-complaint">
+      <documentation>Natural persons and organisations may lodge complaints with national competent authorities about violations of AI Act. Authorities must acknowledge receipt, investigate, and inform complainant of outcome. Whistleblower protection applies.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessService" name="Regulatory Sandbox Access" id="svc-sandbox">
+      <documentation>Innovative AI providers can access regulatory sandboxes. Member States must establish at least one. Priority access for SMEs and startups. Provides legal certainty during real-world testing under supervisory oversight.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessService" name="Market Surveillance" id="svc-market-surv">
+      <documentation>National competent authorities conduct market surveillance: investigate non-compliance, request corrective actions, impose restrictions/withdrawals, share information with other Member States and AI Office. Coordinate on cross-border cases.</documentation>
+    </element>
+  </folder>
+  <folder name="Application" id="app-folder" type="application">
+    <element xsi:type="archimate:ApplicationComponent" name="AI Risk Classification System" id="app-risk-class">
+      <documentation>Software/process supporting classification of AI systems into risk tiers based on intended use, Annex I/III applicability, and GPAI criteria. Generates classification rationale documentation.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Technical Documentation Management" id="app-tech-doc-mgmt">
+      <documentation>System for creating, maintaining, and version-controlling technical documentation per Art. 11 and Annex IV. Tracks changes. Supports audit trail. Accessible to authorised national authorities.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Risk Management Platform" id="app-risk-mgmt">
+      <documentation>Platform for implementing Art. 9 risk management system. Supports risk identification, analysis, evaluation, mitigation tracking, residual risk documentation, lifecycle monitoring.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="EU AI Database (Public Registry)" id="app-eu-db">
+      <documentation>Commission-maintained public database of high-risk AI systems. Receives registrations from providers and public body deployers. Provides public access to non-confidential information. Interface for national authorities.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Post-Market Monitoring System" id="app-pmm-system">
+      <documentation>System supporting ongoing post-market monitoring per Art. 72. Collects performance data from deployers. Tracks incidents and corrective actions. Generates monitoring reports.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Incident Reporting Portal" id="app-incident-portal">
+      <documentation>Portal for submitting serious incident reports to national market surveillance authorities and AI Office. Manages notification timelines. Tracks investigation status.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="AI Logging and Audit Trail System" id="app-logging">
+      <documentation>System implementing Art. 12 automated logging requirements. Records AI system events, inputs, outputs, decisions. Retains logs for required periods (minimum 6 months for biometric systems). Tamper-evident design.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Conformity Assessment Management" id="app-conformity-mgmt">
+      <documentation>Manages conformity assessment process: tracks documentation requirements, coordinates with notified bodies, manages assessment timelines, stores certificates and declarations of conformity.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="GPAI Model Registry" id="app-gpai-registry">
+      <documentation>Internal registry of GPAI models. Tracks: training compute (FLOPs), capabilities documentation, systemic risk status, Code of Practice participation, downstream provider agreements, incident tracking.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="AI Literacy Training Platform" id="app-literacy-platform">
+      <documentation>E-learning platform delivering Art. 4 AI literacy training. Tracks completion. Maintains training records. Adapts content for different roles (technical staff, managers, deployers).</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Human Oversight Dashboard" id="app-oversight-dashboard">
+      <documentation>Real-time monitoring interface supporting Art. 14 human oversight requirements. Displays AI system performance metrics, alerts for anomalies, allows human intervention/override/halt capabilities. Role-based access.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Data Governance Platform" id="app-data-gov">
+      <documentation>Platform implementing Art. 10 data governance. Manages training dataset documentation, representativeness analysis, bias detection tools, data lineage tracking, data quality metrics.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationService" name="Risk Assessment Service" id="appsvc-risk">
+      <documentation>API service providing risk classification and assessment capabilities. Integrates with product development lifecycle. Generates classification reports.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationService" name="Compliance Reporting Service" id="appsvc-reporting">
+      <documentation>Generates compliance status reports, audit reports, regulatory submissions. Integrates with technical documentation and risk management systems.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationService" name="Regulatory Database Integration" id="appsvc-db-integration">
+      <documentation>Integration service for submitting and updating registrations in EU AI Database. Manages API connections to Commission database. Handles validation of submitted information.</documentation>
+    </element>
+    <element xsi:type="archimate:ApplicationService" name="Synthetic Content Watermarking" id="appsvc-watermark">
+      <documentation>Implements Art. 50(7) machine-readable watermarking of AI-generated/synthetic content. Detects and marks AI-generated text, images, audio, video. Enables detection by downstream systems.</documentation>
+    </element>
+  </folder>
+  <folder name="Technology &amp; Physical" id="tech-folder" type="technology">
+    <element xsi:type="archimate:TechnologyService" name="AI Model Training Infrastructure" id="tech-training">
+      <documentation>Compute infrastructure for AI model training. Must support: dataset versioning, training reproducibility, FLOPs tracking (for GPAI threshold), training process documentation. Security controls for training data.</documentation>
+    </element>
+    <element xsi:type="archimate:TechnologyService" name="AI Model Deployment Infrastructure" id="tech-deployment">
+      <documentation>Infrastructure for deploying AI models in production. Must support: version control, rollback capabilities, A/B testing, performance monitoring. Security controls per Art. 15 cybersecurity requirements.</documentation>
+    </element>
+    <element xsi:type="archimate:TechnologyService" name="Secure Audit Log Storage" id="tech-audit-log">
+      <documentation>Tamper-evident, secure storage for AI system audit logs per Art. 12. Retention periods per regulation (minimum 6 months for biometric systems). Access controls. Geographic considerations for cross-border deployments.</documentation>
+    </element>
+    <element xsi:type="archimate:TechnologyService" name="Bias Detection Tools" id="tech-bias">
+      <documentation>Technical tooling supporting Art. 10 data governance. Automated bias detection across protected attributes. Dataset representativeness analysis. Fairness metrics. Supports documentation of bias examination.</documentation>
+    </element>
+    <element xsi:type="archimate:TechnologyService" name="Cybersecurity Controls" id="tech-cybersecurity">
+      <documentation>Security controls required by Art. 15 and Art. 55 (GPAI systemic risk). Includes: model security, adversarial robustness testing, access controls, encryption, vulnerability management, incident detection and response.</documentation>
+    </element>
+    <element xsi:type="archimate:TechnologyService" name="Human Override Mechanism" id="tech-override">
+      <documentation>Technical implementation of Art. 14 human oversight. Stop/pause/override controls accessible to designated human oversight personnel. Cannot be bypassed by AI system. Documented intervention procedures.</documentation>
+    </element>
+    <element xsi:type="archimate:SystemSoftware" name="AI Model (GPAI)" id="tech-gpai-model">
+      <documentation>General Purpose AI model subject to Chapter V obligations. Key technical parameters: architecture, training data sources, training compute (FLOPs), capabilities, known limitations, benchmark performance. Systemic risk threshold: >10^25 FLOPs.</documentation>
+    </element>
+    <element xsi:type="archimate:SystemSoftware" name="High-Risk AI System" id="tech-high-risk-ai">
+      <documentation>AI system falling under Annex I or Annex III classification. Subject to Chapter III requirements. Must embed: logging capabilities, human oversight interfaces, accuracy/robustness controls, cybersecurity measures, transparency outputs for instructions.</documentation>
+    </element>
+  </folder>
+  <folder name="Motivation" id="motivation-folder" type="motivation">
+    <folder name="Chapter I: General Provisions" id="id-9d51a75b9278443792288e46dca53cf1">
+      <documentation>Art. 1-4. Scope, definitions, and general principles. Sets out what the regulation covers and key definitions including AI system, provider, deployer, operator, affected person. Applies to providers placing AI systems on the EU market, deployers in the EU, and third-country providers whose AI output is used in the EU.</documentation>
+      <element xsi:type="archimate:Requirement" name="Art. 1: Subject Matter" id="id-08a4888332fb48349218571d639e2005"/>
+      <element xsi:type="archimate:Requirement" name="Art. 3: Definitions" id="req-art3">
+        <documentation>Defines key terms: AI system, GPAI model, GPAI system, provider, deployer (user), operator, affected person, placing on the market, putting into service, intended purpose, reasonably foreseeable misuse, safety component, risk, serious incident, substantial modification, CE marking, conformity assessment body, and more.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 4: AI Literacy" id="req-art4">
+        <documentation>Providers and deployers shall take measures to ensure a sufficient level of AI literacy for their staff and persons dealing with AI systems on their behalf, taking into account technical knowledge, experience, education and training.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter I: General Provisions" id="req-ch1">
+        <documentation>Art. 1-4. Scope, definitions, and general principles. Sets out what the regulation covers and key definitions including AI system, provider, deployer, operator, affected person. Applies to providers placing AI systems on the EU market, deployers in the EU, and third-country providers whose AI output is used in the EU.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 2: Scope" id="id-ffb02dc1b7bc48b9ad949b276ca43bef"/>
+    </folder>
+    <folder name="Chapter II: Prohibited AI Practices" id="id-df94fb824eee4c3bab6b025f68c2cad6">
+      <element xsi:type="archimate:Requirement" name="Chapter II: Prohibited AI Practices" id="req-ch2">
+        <documentation>Art. 5. Defines AI systems with unacceptable risk that are absolutely prohibited in the EU. Deadline: 2 February 2025 (6 months after entry into force).</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 5: Prohibited Practices" id="req-art5">
+        <documentation>PROHIBITED: (1) Subliminal/manipulative/deceptive AI causing significant harm. (2) AI exploiting vulnerabilities (age, disability, socio-economic) causing harm. (3) Biometric categorisation inferring sensitive attributes (race, politics, religion, sex life). (4) Social scoring by public authorities. (5) Criminal risk assessment based solely on profiling. (6) Facial recognition database scraping from internet/CCTV. (7) Emotion inference in workplaces/education. (8) Real-time RBI in public spaces for law enforcement (with narrow exceptions).</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter III: High-Risk AI Systems" id="id-1a944b6bb6c1463aa19a3748b4ffd890">
+      <element xsi:type="archimate:Requirement" name="Art. 06: Classification Rules" id="req-art6">
+        <documentation>High-risk AI = (1) safety component or product under Annex I EU laws AND subject to third-party conformity assessment under those laws, OR (2) listed in Annex III use cases. Exception: AI performing narrow procedural task, improving prior human activity, detecting patterns without replacing human assessment, or preparatory tasks.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 10: Data Governance" id="req-art10">
+        <documentation>Training, validation and testing datasets must be subject to data governance and management practices. Datasets must be relevant, representative, free of errors to the extent possible, and complete for the intended purpose. Must examine for biases. Special data categories may be processed when strictly necessary to detect and correct bias.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 09: Risk Management System" id="req-art9">
+        <documentation>Providers of high-risk AI must establish, implement, document, and maintain a risk management system throughout the AI system lifecycle. Must identify and analyse known/foreseeable risks, estimate/evaluate risks in normal use and reasonably foreseeable misuse, adopt risk management measures.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 49: CE Marking" id="req-art49">
+        <documentation>CE marking must be affixed visibly, legibly and indelibly to high-risk AI systems or accompanying documentation before placement on market. Declaration of conformity must be drawn up. Only notified bodies may issue conformity certificates.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 11: Technical Documentation" id="req-art11">
+        <documentation>Providers must draw up technical documentation before market placement demonstrating compliance. Must be kept up-to-date. Contents specified in Annex IV. Must include: general description, detailed description of elements/process for development, information on monitoring/functioning/control, technical capabilities, performance specifications, risk management details.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 12: Record-Keeping / Logging" id="req-art12">
+        <documentation>High-risk AI systems must be designed to automatically log events (traceability). Logging capabilities must enable monitoring of operation with respect to risks during its lifecycle. For biometric systems, logs must be retained for at least 6 months.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 13: Transparency" id="req-art13">
+        <documentation>High-risk AI systems must be designed to operate with sufficient transparency to enable deployers to interpret output and use appropriately. Must include: intended purpose, accuracy/robustness/cybersecurity levels, input data specifications, performance limitations, human oversight measures, expected lifetime/maintenance.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 14: Human Oversight" id="req-art14">
+        <documentation>High-risk AI systems must be designed to enable effective oversight by natural persons during use. Must allow: understand capabilities and limitations; monitor for anomalies/malfunctions/unexpected performance; remain aware of automation bias; interpret output correctly; disregard/override/interrupt system; intervene or halt operations.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 15: Accuracy, Robustness, Cybersecurity" id="req-art15">
+        <documentation>High-risk AI systems must achieve appropriate levels of accuracy, robustness, and cybersecurity throughout lifecycle. Must be resilient to errors, faults, inconsistencies. For biometric systems, specific resilience requirements apply. Technical redundancy solutions including safety plans.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 16: Obligations of Providers" id="req-art16">
+        <documentation>Providers of high-risk AI must: ensure compliance with Chapter III requirements; have quality management system; draw up technical documentation; keep logs where feasible; perform conformity assessment; register in EU database; affix CE marking; post-market monitoring.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 17: Quality Management System" id="req-art17">
+        <documentation>Providers must put in place a quality management system ensuring compliance. Must cover: strategy for regulatory compliance; design specifications, processes, testing; post-market monitoring system; accountability arrangement, resources, staff; incident reporting; data management; record-keeping.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 26: Obligations of Deployers" id="req-art26">
+        <documentation>Deployers of high-risk AI must: use systems in accordance with instructions; assign human oversight to competent persons; ensure input data is relevant; monitor operations; inform providers of serious incidents; perform data protection impact assessment (DPIA) if applicable; conduct fundamental rights impact assessment (public bodies and regulated entities).</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 43: Conformity Assessment" id="req-art43">
+        <documentation>Before market placement, providers must carry out conformity assessment as specified in Annex VI (internal control) or Annex VII (third-party QMS assessment). Biometric identification systems and Annex III systems in sensitive areas require third-party assessment. CE marking required after successful conformity assessment.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter III: High-Risk AI Systems" id="req-ch3">
+        <documentation>Art. 6-49. Defines high-risk AI systems and sets out requirements for providers and deployers. Deadline: 2 August 2026 (full compliance deadline).</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter IV: Transparency Obligations" id="id-3e4d9ab97f614b23a6c3fae3c83f1ca4">
+      <element xsi:type="archimate:Requirement" name="Art. 50: Transparency for Specific Systems" id="req-art50">
+        <documentation>Providers must ensure: (1) Chatbots clearly disclose AI interaction to users. (2) Emotion recognition and biometric categorisation systems inform affected persons. (3) AI-generated/manipulated content (deep fakes) must be labelled as machine-generated. (4) Providers of GPAI generating synthetic content must mark it in machine-readable format (watermarking).</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter IV: Transparency Obligations" id="req-ch4">
+        <documentation>Art. 50. Limited risk AI systems subject to transparency obligations. Covers chatbots, emotion recognition, biometric categorisation, deep fake/synthetic content.</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter V: General Purpose AI Models" id="id-3c9055a9be1549f094daf7635cd92267">
+      <element xsi:type="archimate:Requirement" name="Art. 53: Obligations for All GPAI Providers" id="req-art53">
+        <documentation>ALL GPAI model providers must: (1) Draw up and maintain technical documentation including training details and evaluation results. (2) Provide information/documentation to downstream providers to understand capabilities/limitations. (3) Establish copyright compliance policy (Copyright Directive 2019/790). (4) Publish summary of training content.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 55: Systemic Risk Obligations" id="req-art55">
+        <documentation>GPAI providers with SYSTEMIC RISK (>10^25 FLOPs) must ADDITIONALLY: (1) Perform model evaluations including adversarial testing. (2) Assess and mitigate systemic risks and their sources. (3) Track, document, and report serious incidents and corrective measures. (4) Ensure cybersecurity protection for model, infrastructure, and physical security.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 56: Codes of Practice (GPAI)" id="req-art56">
+        <documentation>AI Office draws up GPAI Code of Practice with providers and other stakeholders. Compliance with CoP creates presumption of conformity. Providers not adhering must demonstrate alternative adequate means of compliance. CoP covers technical documentation requirements, risk identification, and risk management modalities.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter V: General Purpose AI Models" id="req-ch5">
+        <documentation>Art. 51-56. Obligations for providers of GPAI models. Deadline: 2 August 2025 (12 months after entry into force).</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter VI: Governance" id="id-d6d8181ab2e54dc894ad97f76927be42">
+      <element xsi:type="archimate:Requirement" name="Chapter VI: Governance" id="req-ch6">
+        <documentation>Art. 57-79. Establishes multi-level governance structure at EU and national level.</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter VII: EU Database" id="id-c22dca8c21bb4704b3878b7260ef09bc">
+      <element xsi:type="archimate:Requirement" name="Chapter VII: EU Database" id="req-ch7">
+        <documentation>Art. 71. Establishes EU database for high-risk AI systems. Providers register systems before market placement. Deployers (public bodies) register before deployment. Accessible to public for transparency.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 64: AI Office" id="req-art64">
+        <documentation>The AI Office (within European Commission) is the primary enforcement body for GPAI models. Monitors and enforces obligations on GPAI providers. Coordinates development of technical standards. Supports national competent authorities. Manages Codes of Practice. Chairs the European AI Board.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 65: European AI Board" id="req-art65">
+        <documentation>European AI Board (EAIB) composed of national competent authority representatives. Provides guidance, opinions, recommendations. Coordinates national supervisory activities. Advises Commission and AI Office. Issues opinions on GPAI systemic risk.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 67: AI Advisory Forum" id="req-art67">
+        <documentation>AI Advisory Forum includes industry, civil society, academia. Provides advice to AI Office and European AI Board. Stakeholder engagement mechanism.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 68: Scientific Panel" id="req-art68">
+        <documentation>Independent scientific panel of experts supports AI Office. Provides scientific advice on GPAI models. May alert AI Office to systemic risks. Evaluates model evaluations. Advises on technical standards.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 70: National Competent Authorities" id="req-art70">
+        <documentation>Each Member State must designate at least one national competent authority for supervising Chapter III (high-risk) and Chapter IV (transparency) obligations. Must notify the Commission. Must be independent. Have adequate powers of investigation and enforcement.</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter VIII: Post-Market &amp; Market Surveillance" id="id-12a7853aa41c44afa3a9008c5b4f92af">
+      <element xsi:type="archimate:Requirement" name="Art. 71: EU Database for High-Risk AI" id="req-art71">
+        <documentation>Commission maintains publicly accessible EU database. Providers register: name/address, system name, intended purpose, system description, risk category, conformity assessment method, status, member states of deployment. Deployers who are public bodies must also register. Information publicly available except trade secrets.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter VIII: Post-Market &amp; Market Surveillance" id="req-ch8">
+        <documentation>Art. 72-79. Post-market monitoring, serious incident reporting, and market surveillance activities.</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter IX: Codes of Conduct" id="id-81561d953a0d43358237dee01a25e263">
+      <element xsi:type="archimate:Requirement" name="Annex IV: Technical Documentation" id="req-annex4">
+        <documentation>Contents of technical documentation for high-risk AI: general description, detailed description of development elements, monitoring/functioning/control information, risk management record, changes to notified body certified systems, declaration of conformity copy, EU database registration.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 72: Post-Market Monitoring" id="req-art72">
+        <documentation>Providers of high-risk AI systems must establish and document a post-market monitoring system. Must actively collect and review experience from deployers. Must identify corrective actions. For biometric systems or medical device AI, must use post-market monitoring plan.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 73: Serious Incident Reporting" id="req-art73">
+        <documentation>Providers must report serious incidents (death, serious health/property damage, fundamental rights infringement) to market surveillance authorities. Initial notification within 2 working days (death or serious deterioration) or 10 working days. Full report within 3 months.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Art. 99: Penalties" id="req-art99">
+        <documentation>PENALTIES: (1) Violations of prohibited AI practices (Art.5): up to €35M or 7% of global annual turnover. (2) Non-compliance with high-risk requirements: up to €15M or 3% of global annual turnover. (3) Incorrect/misleading information to authorities: up to €7.5M or 1% of global annual turnover. SMEs/startups get lower caps.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Chapter IX: Codes of Conduct" id="req-ch9">
+        <documentation>Art. 95. Encourages providers of non-high-risk AI systems to develop voluntary codes of conduct. May cover requirements for high-risk AI voluntarily applied. Commission and AI Office to facilitate.</documentation>
+      </element>
+    </folder>
+    <folder name="Chapter X: Codes of Conduct and Guidelines" id="id-9c6a9692ef7e49aca00eba33dccfc952"/>
+    <folder name="Chapter XI: Delegation of Power and Committee Procedure" id="id-994f614720f845d8b293c6e82c3ab101"/>
+    <folder name="Chapter XII: Penalties" id="id-89d7e967d7d04101934df94f42f2fb05">
+      <element xsi:type="archimate:Requirement" name="Art. 101: AI Liability" id="req-art101">
+        <documentation>Article 101: Fines for Providers of General-Purpose AI Models&#xD;
+Interacts with EU AI Liability Directive (separate instrument). Providers must maintain adequate insurance where applicable. National civil liability rules apply. Commission required to assess need for EU-level product liability adaptation.</documentation>
+      </element>
+    </folder>
+    <folder name="Annex" id="id-3c1646423337495a90e1d3fcb1a276e3">
+      <element xsi:type="archimate:Requirement" name="Annex I: EU Harmonisation Legislation" id="req-annex1">
+        <documentation>List of EU harmonisation legislation for products covered under Chapter III Art. 6(1): machinery, toys, watercraft, lifts, explosives, radio equipment, pressure equipment, personal protective equipment, gas appliances, medical devices, in vitro diagnostic devices, civil aviation, vehicle type approvals, agricultural vehicles, marine equipment, rail systems, cableway installations, civil explosives, pyrotechnics.</documentation>
+      </element>
+      <element xsi:type="archimate:Requirement" name="Annex III: High-Risk Use Cases" id="req-annex3">
+        <documentation>Eight categories: (1) Biometrics, (2) Critical Infrastructure, (3) Education/Vocational Training, (4) Employment/Worker Management, (5) Essential Public/Private Services, (6) Law Enforcement, (7) Migration/Asylum/Border Control, (8) Administration of Justice/Democratic Processes.</documentation>
+      </element>
+    </folder>
+    <element xsi:type="archimate:Driver" name="AI Proliferation Risk" id="drv-ai-risk">
+      <documentation>Rapid proliferation of AI systems creating risks to safety, fundamental rights, and democratic processes across the EU single market.</documentation>
+    </element>
+    <element xsi:type="archimate:Driver" name="Need for Legal Certainty" id="drv-legal-certainty">
+      <documentation>Market fragmentation risk from diverging national AI regulations. Businesses and citizens need a consistent, predictable legal framework.</documentation>
+    </element>
+    <element xsi:type="archimate:Driver" name="Fundamental Rights Protection" id="drv-fundamental-rights">
+      <documentation>AI systems must respect EU Charter of Fundamental Rights including human dignity, privacy, non-discrimination, and access to justice.</documentation>
+    </element>
+    <element xsi:type="archimate:Driver" name="AI Competitiveness" id="drv-competitiveness">
+      <documentation>EU ambition to position Europe as a global leader in trustworthy AI while supporting innovation and economic growth.</documentation>
+    </element>
+    <element xsi:type="archimate:Assessment" name="Risk-Based Approach Assessment" id="ass-risk-based">
+      <documentation>AI systems classified into four risk tiers: Unacceptable Risk (banned), High Risk (regulated), Limited Risk (transparency obligations), Minimal Risk (unregulated).</documentation>
+    </element>
+    <element xsi:type="archimate:Assessment" name="Conformity Assessment" id="ass-conformity">
+      <documentation>High-risk AI systems must undergo conformity assessment before market placement. Either internal (self-assessment) or third-party depending on AI system category.</documentation>
+    </element>
+    <element xsi:type="archimate:Assessment" name="Fundamental Rights Impact Assessment" id="ass-fria">
+      <documentation>Required before deploying real-time remote biometric identification in public spaces for law enforcement. Also recommended for deployers of high-risk AI systems used in public sector.</documentation>
+    </element>
+    <element xsi:type="archimate:Assessment" name="GPAI Systemic Risk Assessment" id="ass-gpai-systemic">
+      <documentation>GPAI models exceeding 10^25 FLOPs training compute are presumed to present systemic risk. Commission may also designate others based on high-impact capabilities.</documentation>
+    </element>
+    <element xsi:type="archimate:Goal" name="Ensure Trustworthy AI" id="goal-trustworthy">
+      <documentation>Ensure AI systems placed on the EU market are safe, transparent, traceable, non-discriminatory, environmentally friendly, and overseen by humans.</documentation>
+    </element>
+    <element xsi:type="archimate:Goal" name="Protect Fundamental Rights" id="goal-rights">
+      <documentation>Prevent AI systems from causing harm to health, safety, or fundamental rights of persons.</documentation>
+    </element>
+    <element xsi:type="archimate:Goal" name="Enable Innovation" id="goal-innovation">
+      <documentation>Support AI innovation through regulatory sandboxes, proportionate obligations for SMEs, and free movement of AI systems across the EU single market.</documentation>
+    </element>
+    <element xsi:type="archimate:Goal" name="Establish Governance" id="goal-governance">
+      <documentation>Create a comprehensive multi-level governance structure: EU AI Office, national competent authorities, scientific panel, and AI Advisory Forum.</documentation>
+    </element>
+    <element xsi:type="archimate:Goal" name="Ensure Market Consistency" id="goal-market">
+      <documentation>Harmonise rules across EU Member States to prevent fragmentation of the internal market and ensure consistent enforcement.</documentation>
+    </element>
+    <element xsi:type="archimate:Constraint" name="Territorial Scope" id="con-territorial">
+      <documentation>Applies to: (1) Providers placing AI on EU market or putting into service in EU regardless of establishment location. (2) Deployers in EU. (3) Providers/deployers outside EU where AI output used in EU. Exclusions: purely military, national security, scientific R&amp;D (prior to market release), personal non-professional use.</documentation>
+    </element>
+    <element xsi:type="archimate:Constraint" name="Compliance Timeline" id="con-timeline">
+      <documentation>Feb 2025: Chapter II (prohibited practices). Aug 2025: Chapter V (GPAI). Aug 2026: Full compliance including Chapter III (high-risk). Notified bodies operational by Aug 2027. Annex I products: additional 36 months from entry into force.</documentation>
+    </element>
+    <element xsi:type="archimate:Constraint" name="SME Proportionality" id="con-sme">
+      <documentation>SMEs and startups benefit from: lower penalty caps, priority access to regulatory sandboxes, simplified technical documentation templates, dedicated support from national competent authorities, reduced notified body fees.</documentation>
+    </element>
+    <element xsi:type="archimate:Constraint" name="Open Source Exception (GPAI)" id="con-opensource">
+      <documentation>Free and open licence GPAI model providers need only comply with copyright and training data summary obligations, UNLESS they present systemic risk (>10^25 FLOPs or designated by Commission).</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="Risk-Based Regulation" id="prin-risk">
+      <documentation>Regulatory burden proportionate to risk level. Higher risk = more obligations. Unacceptable risk = prohibition. Minimal risk = no specific obligations.</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="Human-Centric AI" id="prin-human">
+      <documentation>AI systems must be developed and used with humans in control. Human oversight is a core requirement for high-risk systems.</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="Transparency and Explainability" id="prin-transparency">
+      <documentation>AI systems must be sufficiently transparent for deployers to interpret outputs correctly and for affected persons to understand decisions that affect them.</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="Innovation and Proportionality" id="prin-innovation">
+      <documentation>Regulatory requirements must be proportionate and not create unnecessary barriers to innovation, especially for SMEs.</documentation>
+    </element>
+    <element xsi:type="archimate:Principle" name="Fundamental Rights by Design" id="prin-rights">
+      <documentation>AI systems must be designed from the outset to respect EU Charter of Fundamental Rights and applicable EU law.</documentation>
+    </element>
+  </folder>
+  <folder name="Implementation &amp; Migration" id="id-3712259ba58843bea0ffb096b390020a" type="implementation_migration"/>
+  <folder name="Other" id="id-f5d95a2fc2094842bc3606034c834a84" type="other"/>
+  <folder name="Relations" id="relations-folder" type="relations">
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-drv1-goal1" source="drv-ai-risk" target="goal-trustworthy"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-drv1-goal2" source="drv-ai-risk" target="goal-rights"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-drv2-goal3" source="drv-legal-certainty" target="goal-market"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-drv3-goal2" source="drv-fundamental-rights" target="goal-rights"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-drv4-goal3" source="drv-competitiveness" target="goal-innovation"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rel-goal1-ch3" source="req-ch3" target="goal-trustworthy"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rel-goal2-ch2" source="req-ch2" target="goal-rights"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rel-goal3-sandbox" source="proc-sandbox" target="goal-innovation"/>
+    <element xsi:type="archimate:RealizationRelationship" id="rel-goal4-ch6" source="req-ch6" target="goal-governance"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch2-art5" source="req-ch2" target="req-art5"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art6" source="req-ch3" target="req-art6"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art9" source="req-ch3" target="req-art9"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art10" source="req-ch3" target="req-art10"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art11" source="req-ch3" target="req-art11"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art12" source="req-ch3" target="req-art12"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art13" source="req-ch3" target="req-art13"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art14" source="req-ch3" target="req-art14"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art15" source="req-ch3" target="req-art15"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art16" source="req-ch3" target="req-art16"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art17" source="req-ch3" target="req-art17"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art26" source="req-ch3" target="req-art26"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch3-art43" source="req-ch3" target="req-art43"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch4-art50" source="req-ch4" target="req-art50"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch5-art53" source="req-ch5" target="req-art53"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch5-art55" source="req-ch5" target="req-art55"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch5-art56" source="req-ch5" target="req-art56"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch6-art64" source="req-ch6" target="req-art64"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch6-art65" source="req-ch6" target="req-art65"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch6-art68" source="req-ch6" target="req-art68"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch6-art70" source="req-ch6" target="req-art70"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch7-art71" source="req-ch7" target="req-art71"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch8-art72" source="req-ch8" target="req-art72"/>
+    <element xsi:type="archimate:CompositionRelationship" id="rel-ch8-art73" source="req-ch8" target="req-art73"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rel-provider-role" source="act-provider" target="role-provider"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="rel-deployer-role" source="act-deployer" target="role-deployer"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-aioffice-art64" source="act-ai-office" target="req-art64"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-nca-art70" source="act-nca" target="req-art70"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-notified-art43" source="act-notified-body" target="req-art43"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-scipanel-art68" source="act-sci-panel" target="req-art68"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-classify-req" source="proc-classify" target="req-art6"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-conform-req" source="proc-conformity" target="req-art43"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-reg-req" source="proc-registration" target="req-art71"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-pmm-req" source="proc-pmm" target="req-art72"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-incident-req" source="proc-incident" target="req-art73"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-fria-req" source="proc-fria" target="ass-fria"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-proc-gpai-req" source="proc-gpai-reg" target="req-art53"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-app-risk-proc" source="app-risk-class" target="proc-classify"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-app-techdoc-proc" source="app-tech-doc-mgmt" target="proc-conformity"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-app-eudb-proc" source="app-eu-db" target="proc-registration"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-app-pmm-proc" source="app-pmm-system" target="proc-pmm"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-app-incident-proc" source="app-incident-portal" target="proc-incident"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-app-logging-art12" source="app-logging" target="req-art12"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-app-oversight-art14" source="app-oversight-dashboard" target="req-art14"/>
+    <element xsi:type="archimate:InfluenceRelationship" id="rel-app-datagov-art10" source="app-data-gov" target="req-art10"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-auditlog-app" source="tech-audit-log" target="app-logging"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-override-app" source="tech-override" target="app-oversight-dashboard"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-bias-app" source="tech-bias" target="app-data-gov"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-cybersec-app" source="tech-cybersecurity" target="app-pmm-system"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-training-gpai" source="tech-training" target="tech-gpai-model"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-tech-deploy-highrisk" source="tech-deployment" target="tech-high-risk-ai"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-provider-techdoc" source="role-provider" target="obj-tech-doc"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-provider-conformity" source="role-provider" target="obj-doc-conformity"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-provider-instructions" source="role-provider" target="obj-instructions"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-provider-riskrecords" source="role-provider" target="obj-risk-records"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-provider-gpaitd" source="role-provider" target="obj-gpai-tech-doc"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-ass-conform-art43" source="ass-conformity" target="req-art43"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-ass-fria-art26" source="ass-fria" target="req-art26"/>
+    <element xsi:type="archimate:AssociationRelationship" id="rel-ass-systemic-art55" source="ass-gpai-systemic" target="req-art55"/>
+  </folder>
+  <folder name="Views" id="views-folder" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="01 - Regulatory Motivation and Context" id="view-motivation">
+      <child xsi:type="archimate:DiagramObject" id="do-drv-ai" fillColor="#FFEB3B" archimateElement="drv-ai-risk">
+        <bounds x="30" y="30" width="180" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d14e001bdd31411c995557f38a4d328b" source="do-drv-ai" target="id-42fea1075d634cd7930fcc8f948adda9" archimateRelationship="rel-drv1-goal2"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-8350bdc079d141cd873db8a9231d09de" source="do-drv-ai" target="id-ff2fe2fb0acd4148a9c547860d5930a4" archimateRelationship="rel-drv1-goal1"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-drv-legal" fillColor="#FFEB3B" archimateElement="drv-legal-certainty">
+        <bounds x="230" y="30" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-drv-rights" fillColor="#FFEB3B" archimateElement="drv-fundamental-rights">
+        <bounds x="430" y="30" width="180" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-5f30551987b84eada69a0df242ae5769" source="do-drv-rights" target="id-42fea1075d634cd7930fcc8f948adda9" archimateRelationship="rel-drv3-goal2"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-drv-comp" fillColor="#FFEB3B" archimateElement="drv-competitiveness">
+        <bounds x="630" y="30" width="180" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-8aca8cb51b8444a59ab9eab87645ca61" source="do-drv-comp" target="id-59e1d88720c74f03ba0a7701c0deb5a5" archimateRelationship="rel-drv4-goal3"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-goal-gov" fillColor="#C8E6C9" archimateElement="goal-governance">
+        <bounds x="630" y="150" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-prin-risk" fillColor="#E1BEE7" archimateElement="prin-risk">
+        <bounds x="30" y="280" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-prin-human" fillColor="#E1BEE7" archimateElement="prin-human">
+        <bounds x="230" y="280" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-prin-trans" fillColor="#E1BEE7" archimateElement="prin-transparency">
+        <bounds x="430" y="280" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-prin-innov" fillColor="#E1BEE7" archimateElement="prin-innovation">
+        <bounds x="630" y="280" width="180" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-con-timeline" fillColor="#FFCCBC" archimateElement="con-timeline">
+        <bounds x="30" y="400" width="380" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-con-territorial" fillColor="#FFCCBC" archimateElement="con-territorial">
+        <bounds x="430" y="400" width="380" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-42fea1075d634cd7930fcc8f948adda9" targetConnections="id-d14e001bdd31411c995557f38a4d328b id-5f30551987b84eada69a0df242ae5769" archimateElement="goal-rights">
+        <bounds x="252" y="152" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-59e1d88720c74f03ba0a7701c0deb5a5" targetConnections="id-8aca8cb51b8444a59ab9eab87645ca61" archimateElement="goal-innovation">
+        <bounds x="444" y="152" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ff2fe2fb0acd4148a9c547860d5930a4" targetConnections="id-8350bdc079d141cd873db8a9231d09de" archimateElement="goal-trustworthy">
+        <bounds x="48" y="152" width="120" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="02 - AI Risk Classification Framework" id="view-risk-class">
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch2" fillColor="#FFCDD2" archimateElement="req-ch2">
+        <bounds x="30" y="30" width="780" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art5" fillColor="#EF9A9A" archimateElement="req-art5">
+          <bounds x="10" y="40" width="760" height="60"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch3" fillColor="#FFF9C4" archimateElement="req-ch3">
+        <bounds x="30" y="180" width="780" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art6" fillColor="#FFF176" archimateElement="req-art6">
+          <bounds x="10" y="40" width="350" height="60"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="do-req-annex3" fillColor="#FFF176" archimateElement="req-annex3">
+          <bounds x="380" y="40" width="380" height="60"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch4" fillColor="#E8F5E9" archimateElement="req-ch4">
+        <bounds x="30" y="330" width="780" height="100"/>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art50" fillColor="#A5D6A7" archimateElement="req-art50">
+          <bounds x="10" y="30" width="760" height="50"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch5" fillColor="#E3F2FD" archimateElement="req-ch5">
+        <bounds x="30" y="460" width="780" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art53" fillColor="#90CAF9" archimateElement="req-art53">
+          <bounds x="10" y="40" width="350" height="60"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art55" fillColor="#90CAF9" archimateElement="req-art55">
+          <bounds x="380" y="40" width="380" height="60"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-ass-risk" fillColor="#F3E5F5" archimateElement="ass-risk-based">
+        <bounds x="840" y="30" width="200" height="550"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="03 - High-Risk AI System Requirements" id="view-high-risk">
+      <child xsi:type="archimate:DiagramObject" id="do-act-provider2" fillColor="#BBDEFB" archimateElement="act-provider">
+        <bounds x="30" y="30" width="160" height="60"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-b6aa290a7e1241f4a3b61dbdd8c71dd1" source="do-act-provider2" target="id-034c222287b44843aac2a2f4d0ce3641" archimateRelationship="rel-provider-role"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art9" fillColor="#FFF9C4" archimateElement="req-art9">
+        <bounds x="30" y="150" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art10" fillColor="#FFF9C4" archimateElement="req-art10">
+        <bounds x="250" y="150" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art11" fillColor="#FFF9C4" archimateElement="req-art11">
+        <bounds x="470" y="150" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art12" fillColor="#FFF9C4" archimateElement="req-art12">
+        <bounds x="690" y="150" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art13-2" fillColor="#FFF9C4" archimateElement="req-art13">
+        <bounds x="30" y="240" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art14-2" fillColor="#FFF9C4" archimateElement="req-art14">
+        <bounds x="250" y="240" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art15-2" fillColor="#FFF9C4" archimateElement="req-art15">
+        <bounds x="470" y="240" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art17-2" fillColor="#FFF9C4" archimateElement="req-art17">
+        <bounds x="690" y="240" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art43-2" fillColor="#FFCCBC" archimateElement="req-art43">
+        <bounds x="30" y="330" width="300" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art49-2" fillColor="#FFCCBC" archimateElement="req-art49">
+        <bounds x="350" y="330" width="220" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art71-2" fillColor="#FFCCBC" archimateElement="req-art71">
+        <bounds x="590" y="330" width="300" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-act-deployer2" fillColor="#C8E6C9" archimateElement="act-deployer">
+        <bounds x="30" y="450" width="160" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art26-2" fillColor="#E8F5E9" archimateElement="req-art26">
+        <bounds x="210" y="450" width="680" height="60"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-034c222287b44843aac2a2f4d0ce3641" targetConnections="id-b6aa290a7e1241f4a3b61dbdd8c71dd1" archimateElement="role-provider">
+        <bounds x="250" y="30" width="120" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="04 - GPAI Model Obligations" id="view-gpai">
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch5-2" fillColor="#E3F2FD" archimateElement="req-ch5">
+        <bounds x="30" y="30" width="900" height="500"/>
+        <child xsi:type="archimate:DiagramObject" id="do-all-gpai" fillColor="#90CAF9" archimateElement="req-art53">
+          <bounds x="20" y="40" width="860" height="120"/>
+          <child xsi:type="archimate:DiagramObject" id="do-gpai-obj-td" fillColor="#BBDEFB" archimateElement="obj-gpai-tech-doc">
+            <bounds x="10" y="30" width="190" height="70"/>
+          </child>
+          <child xsi:type="archimate:DiagramObject" id="do-gpai-obj-ts" fillColor="#BBDEFB" archimateElement="obj-training-summary">
+            <bounds x="220" y="30" width="190" height="70"/>
+          </child>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="do-systemic-risk" fillColor="#EF9A9A" archimateElement="req-art55">
+          <bounds x="20" y="180" width="860" height="200"/>
+          <child xsi:type="archimate:DiagramObject" id="do-ass-gpai-sys" fillColor="#FFCDD2" archimateElement="ass-gpai-systemic">
+            <bounds x="10" y="30" width="200" height="70"/>
+          </child>
+          <child xsi:type="archimate:DiagramObject" id="do-obj-incident" fillColor="#FFCDD2" archimateElement="obj-incident-report">
+            <bounds x="230" y="30" width="200" height="70"/>
+          </child>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="do-req-art56-2" fillColor="#B2EBF2" archimateElement="req-art56">
+          <bounds x="20" y="400" width="860" height="70"/>
+          <child xsi:type="archimate:DiagramObject" id="do-obj-cop" fillColor="#80DEEA" archimateElement="obj-cop">
+            <bounds x="10" y="10" width="280" height="50"/>
+          </child>
+        </child>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="05 - Governance and Enforcement Structure" id="view-governance">
+      <child xsi:type="archimate:DiagramObject" id="do-act-ai-office2" fillColor="#E8EAF6" archimateElement="act-ai-office">
+        <bounds x="330" y="30" width="220" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-e44b9970802c48ffa6f1628595460298" source="do-act-ai-office2" target="id-1ba6dfc61e1e445bb60fca63a21cd72d" archimateRelationship="rel-aioffice-art64"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-act-eaib2" fillColor="#E8EAF6" archimateElement="act-eaib">
+        <bounds x="30" y="160" width="220" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-act-sci-panel2" fillColor="#E8EAF6" archimateElement="act-sci-panel">
+        <bounds x="372" y="160" width="220" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-act-nca2" fillColor="#C5CAE9" archimateElement="act-nca">
+        <bounds x="630" y="160" width="220" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d9947a95fd7b4f75849b0582269d5765" source="do-act-nca2" target="id-c6dd50d66abb4afcabe7609a4ff7cedb" archimateRelationship="rel-nca-art70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-act-notified2" fillColor="#C5CAE9" archimateElement="act-notified-body">
+        <bounds x="30" y="300" width="220" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art99-2" fillColor="#FFCDD2" archimateElement="req-art99">
+        <bounds x="30" y="550" width="380" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-svc-market-surv2" fillColor="#E8F5E9" archimateElement="svc-market-surv">
+        <bounds x="430" y="550" width="380" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-c6dd50d66abb4afcabe7609a4ff7cedb" targetConnections="id-d9947a95fd7b4f75849b0582269d5765" archimateElement="req-art70">
+        <bounds x="528" y="456" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-1ba6dfc61e1e445bb60fca63a21cd72d" targetConnections="id-e44b9970802c48ffa6f1628595460298" archimateElement="req-art64">
+        <bounds x="290" y="456" width="120" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="06 - Compliance Process Flow" id="view-compliance-process">
+      <child xsi:type="archimate:DiagramObject" id="do-proc-classify2" targetConnections="id-4d4b001fa71c416280e17321d8bf34b9" fillColor="#FFF9C4" archimateElement="proc-classify">
+        <bounds x="30" y="30" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-conformity2" targetConnections="id-12b1ad433b2a460eb8c7decf009be3f9" fillColor="#FFF9C4" archimateElement="proc-conformity">
+        <bounds x="260" y="30" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-registration2" targetConnections="id-fb38d85190ff44bd827459edf7e1271b" fillColor="#FFF9C4" archimateElement="proc-registration">
+        <bounds x="490" y="30" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-pmm2" fillColor="#E8F5E9" archimateElement="proc-pmm">
+        <bounds x="30" y="160" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-incident2" fillColor="#FFCDD2" archimateElement="proc-incident">
+        <bounds x="260" y="160" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-fria2" fillColor="#E8F5E9" archimateElement="proc-fria">
+        <bounds x="490" y="160" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-sandbox2" fillColor="#E3F2FD" archimateElement="proc-sandbox">
+        <bounds x="30" y="290" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-literacy2" fillColor="#E3F2FD" archimateElement="proc-literacy">
+        <bounds x="260" y="290" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-proc-gpai-reg2" fillColor="#E3F2FD" archimateElement="proc-gpai-reg">
+        <bounds x="490" y="290" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-5acfb6a0b45b43dcb3bb332fed6f4e67" archimateElement="app-risk-class">
+        <bounds x="30" y="437" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-4d4b001fa71c416280e17321d8bf34b9" source="id-5acfb6a0b45b43dcb3bb332fed6f4e67" target="do-proc-classify2" archimateRelationship="rel-app-risk-proc"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-b137a7e6bd834ef6a5522f3118da97ae" archimateElement="app-tech-doc-mgmt">
+        <bounds x="276" y="437" width="145" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-12b1ad433b2a460eb8c7decf009be3f9" source="id-b137a7e6bd834ef6a5522f3118da97ae" target="do-proc-conformity2" archimateRelationship="rel-app-techdoc-proc"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-b40b89e3c7314970a48c5a760f0621c0" archimateElement="app-eu-db">
+        <bounds x="504" y="437" width="169" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-fb38d85190ff44bd827459edf7e1271b" source="id-b40b89e3c7314970a48c5a760f0621c0" target="do-proc-registration2" archimateRelationship="rel-app-eudb-proc"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="07 - Implementation Timeline" id="view-timeline">
+      <child xsi:type="archimate:DiagramObject" id="do-con-timeline2" fillColor="#FFCCBC" archimateElement="con-timeline">
+        <bounds x="30" y="30" width="860" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch2-tl" fillColor="#FFCDD2" archimateElement="req-ch2">
+        <bounds x="30" y="160" width="250" height="100"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch5-tl" fillColor="#E3F2FD" archimateElement="req-ch5">
+        <bounds x="310" y="160" width="250" height="100"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-ch3-tl" fillColor="#FFF9C4" archimateElement="req-ch3">
+        <bounds x="590" y="160" width="300" height="100"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-req-art99-tl" fillColor="#FFCCBC" archimateElement="req-art99">
+        <bounds x="30" y="310" width="860" height="80"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="08 - Technology Architecture for Compliance" id="view-tech">
+      <child xsi:type="archimate:DiagramObject" id="do-tech-high-risk" fillColor="#FFF9C4" archimateElement="tech-high-risk-ai">
+        <bounds x="30" y="30" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-gpai" fillColor="#E3F2FD" archimateElement="tech-gpai-model">
+        <bounds x="260" y="30" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-training" fillColor="#F3E5F5" archimateElement="tech-training">
+        <bounds x="30" y="160" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-deployment" fillColor="#F3E5F5" archimateElement="tech-deployment">
+        <bounds x="260" y="160" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-audit" fillColor="#E8F5E9" archimateElement="tech-audit-log">
+        <bounds x="490" y="160" width="200" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-02d21ef59ea24ed9b96bf5f9a275155a" source="do-tech-audit" target="id-ac6754431c4943e0826bb5776b21d39b" archimateRelationship="rel-tech-auditlog-app"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-bias" fillColor="#E8F5E9" archimateElement="tech-bias">
+        <bounds x="30" y="290" width="200" height="80"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-cybersec" fillColor="#FFCDD2" archimateElement="tech-cybersecurity">
+        <bounds x="260" y="290" width="200" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-c839c2e9fb39431e919d4034423f43be" source="do-tech-cybersec" target="id-38d00e16f2fd46818114a99624cb0b35" archimateRelationship="rel-tech-cybersec-app"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-tech-override" fillColor="#FFF9C4" archimateElement="tech-override">
+        <bounds x="490" y="290" width="200" height="80"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d67e8c836c904e0b9936529a1ec47c36" source="do-tech-override" target="id-b445ff8dd7c44df29b724049b16335fe" archimateRelationship="rel-tech-override-app"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="do-appsvc-watermark2" fillColor="#BBDEFB" archimateElement="appsvc-watermark">
+        <bounds x="36" y="420" width="200" height="70"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-ac6754431c4943e0826bb5776b21d39b" targetConnections="id-02d21ef59ea24ed9b96bf5f9a275155a" archimateElement="app-logging">
+        <bounds x="732" y="437" width="157" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-b445ff8dd7c44df29b724049b16335fe" targetConnections="id-d67e8c836c904e0b9936529a1ec47c36" archimateElement="app-oversight-dashboard">
+        <bounds x="490" y="437" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-38d00e16f2fd46818114a99624cb0b35" targetConnections="id-c839c2e9fb39431e919d4034423f43be" archimateElement="app-pmm-system">
+        <bounds x="300" y="427" width="120" height="55"/>
+      </child>
+    </element>
+  </folder>
+  <purpose>The EU AI Act consists of 12 main titles. Each title contains a set of Articles.&#xD;
+https://artificialintelligenceact.eu/high-level-summary/&#xD;
+https://artificialintelligenceact.eu/ai-act-explorer/&#xD;
+https://artificialintelligenceact.eu/implementation-timeline/&#xD;
+https://artificialintelligenceact.eu/implementation-documents/&#xD;
+https://artificialintelligenceact.eu/assessment/eu-ai-act-compliance-checker/&#xD;
+&#xD;
+One command. Zero config. Full EU AI Act + GDPR compliance report in under 10 seconds.&#xD;
+https://github.com/ark-forge/mcp-eu-ai-act</purpose>
+</archimate:model>
