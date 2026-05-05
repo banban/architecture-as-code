@@ -79,6 +79,9 @@ Included project files:
 Typical validation flow:
 ```powershell
 npm install
+npm audit #Check for Known Vulnerabilities
+npm outdated # check for outdated packages
+npm update
 node --run check
 ```
 
@@ -86,6 +89,7 @@ Or run the checks individually:
 ```powershell
 node --run typecheck
 node --run lint
+node --test
 ```
 
 This uses the TypeScript compiler as a consistency check across the architecture artifacts without generating runtime output.
