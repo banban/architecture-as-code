@@ -1,25 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import {
-    BoundedContext,
-    CUSTOMER_TOPIC_NAME,
-    canonicalCustomerEventTypes,
-    type BillingProfileChanged,
-    type ContactMethod,
-    type CustomerCreated,
-    type CustomerEvent,
-    type CustomerIdentity,
-    type CustomerMerged,
-    type CustomerProfile,
-    type CustomerStatusChanged,
-    type CustomerUpdated,
-    type ExternalReference,
-    type PostalAddress,
-    type Publisher,
-    type ServiceProfileChanged,
-    type Subscriber,
-    type Subscription,
-    type Topic
-} from '../event-contracts.js';
+  BoundedContext,
+  CUSTOMER_TOPIC_NAME,
+  canonicalCustomerEventTypes,
+  type BillingProfileChanged,
+  type ContactMethod,
+  type CustomerCreated,
+  type CustomerEvent,
+  type CustomerIdentity,
+  type CustomerLifecycleStatus,
+  type CustomerMerged,
+  type CustomerProfile,
+  type CustomerStatusChanged,
+  type CustomerUpdated,
+  type ExternalReference,
+  type PostalAddress,
+  type Publisher,
+  type ServiceProfileChanged,
+  type Subscriber,
+  type Subscription,
+  type Topic
+} from '../event-contracts.ts';
 
 describe('Event Contracts', () => {
   describe('Constants', () => {
@@ -278,8 +279,10 @@ describe('Event Contracts', () => {
       ];
 
       expect(events).toHaveLength(2);
-      expect(events[0].eventType).toBe('customer.created');
-      expect(events[1].eventType).toBe('customer.updated');
+      expect(events[0]).toBeDefined();
+      expect(events[1]).toBeDefined();
+      expect(events[0]!.eventType).toBe('customer.created');
+      expect(events[1]!.eventType).toBe('customer.updated');
     });
   });
 

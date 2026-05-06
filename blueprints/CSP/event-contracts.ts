@@ -12,12 +12,14 @@ export type ISODateTime = string;
 
 export const CUSTOMER_TOPIC_NAME = "customer-topic" as const;
 
-export enum BoundedContext {
-  FrontOffice = "FrontOffice",
-  FinanceBilling = "FinanceBilling",
-  ServiceDelivery = "ServiceDelivery",
-  FutureSolution = "FutureSolution",
-}
+export const BoundedContext = {
+  FrontOffice: "FrontOffice",
+  FinanceBilling: "FinanceBilling",
+  ServiceDelivery: "ServiceDelivery",
+  FutureSolution: "FutureSolution",
+} as const;
+
+export type BoundedContext = (typeof BoundedContext)[keyof typeof BoundedContext];
 
 export interface ExternalReference {
   system: BoundedContext | string;

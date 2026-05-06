@@ -189,7 +189,7 @@ methodology for architecture development. However, not all phases are
 necessarily equally relevant to every project. The table below describes
 the usage of the ADM for this particular project.
 
-![](./images/media/image2.emf){width="3.0625in" height="3.25in"}
+![](./images/media/image2.png){width="3.0625in" height="3.25in"}
 
   ----------------------------------------------------------------------------
   **Phase**                 **In/Out**   **Notes**
