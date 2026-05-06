@@ -21,17 +21,17 @@ import {
   type CustomerCreated,
   type CustomerEvent,
   type CustomerEventTypeName,
+  type CustomerIdentity,
   type CustomerLifecycleStatus,
   type CustomerMerged,
+  type CustomerSegmentation,
   type CustomerStatusChanged,
   type CustomerUpdated,
-  type CustomerIdentity,
-  type CustomerSegmentation,
+  type ISODateTime,
   type PostalAddress,
   type ServiceProfileChanged,
   type UUID,
-  type ISODateTime,
-} from "./event-contracts.js";
+} from "./event-contracts.ts";
 
 /**
  * Front-office-owned aggregate. It excludes billing and service-owned attributes.

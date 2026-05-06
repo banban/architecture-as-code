@@ -76,20 +76,22 @@ Included project files:
 - `eslint.config.mjs`: lightweight linting for unused imports and TypeScript hygiene
 - the parent repo `.gitignore`: ignores local dependency and build artifacts
 
-Typical validation flow:
+npm validation flow:
 ```powershell
 npm install
+npm install typescript --save-dev
 npm audit #Check for Known Vulnerabilities
 npm outdated # check for outdated packages
 npm update
-node --run check
+npm test #shortcut defined in package.json to run the native runner or a third-party framework like Jest or Vitest
 ```
 
-Or run the checks individually:
+node validation flow (optional):
 ```powershell
+node --run check
 node --run typecheck
 node --run lint
-node --test
+#node --test # native test runner not used in this project
 ```
 
 This uses the TypeScript compiler as a consistency check across the architecture artifacts without generating runtime output.

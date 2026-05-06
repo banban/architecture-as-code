@@ -10,7 +10,7 @@ import {
   BoundedContext,
   type ISODateTime,
   type UUID,
-} from "./event-contracts.js";
+} from "./event-contracts.ts";
 
 export type AttributeGroup =
   | "CoreIdentity"

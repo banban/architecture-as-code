@@ -13,14 +13,6 @@
  * - show how systems remain decoupled while sharing customer changes
  */
 import {
-  BoundedContext,
-  CUSTOMER_TOPIC_NAME,
-  type CustomerEvent,
-  type CustomerEventTypeName,
-  type Subscriber,
-  type Topic,
-} from "./event-contracts.js";
-import {
   cspDataProtectionPolicy,
   customerOwnershipRules,
   evaluatePingPongRisk,
@@ -34,7 +26,15 @@ import {
   type PingPongGuardDecision,
   type PingPongGuardInput,
   type SharedAttributeUpdatePolicy,
-} from "./data-governance.js";
+} from "./data-governance.ts";
+import {
+  BoundedContext,
+  CUSTOMER_TOPIC_NAME,
+  type CustomerEvent,
+  type CustomerEventTypeName,
+  type Subscriber,
+  type Topic,
+} from "./event-contracts.ts";
 
 /**
  * Consumers update their own local read models or operational records.

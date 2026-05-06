@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
-    type CustomerEvent,
-} from '../event-contracts.js';
+  type CustomerEvent,
+} from '../event-contracts.ts';
 
 import {
-    CustomerEventRouter,
-    FrontOfficeRules,
-    type CustomerEventSubscriber,
-} from '../application-domain.js';
+  CustomerEventRouter,
+  FrontOfficeRules,
+  type CustomerEventSubscriber,
+} from '../application-domain.ts';
 
 // Mock event types for testing
 const mockCustomerCreatedEvent: CustomerEvent = {
@@ -79,9 +79,10 @@ describe('CustomerEventRouter', () => {
     router.register(mockSubscriber);
 
     // Verify subscriber is registered (internal state check via publish)
-    const subscribers = (router as any).subscribers.get('customer.created');
+    const subscribers = (router as unknown as { subscribers: Map<string, CustomerEventSubscriber[]> }).subscribers.get('customer.created');
+    expect(subscribers).toBeDefined();
     expect(subscribers).toHaveLength(1);
-    expect(subscribers[0]).toBe(mockSubscriber);
+    expect(subscribers?.[0]).toBe(mockSubscriber);
   });
 
   it('should publish events to subscribers', async () => {

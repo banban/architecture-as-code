@@ -10,7 +10,7 @@
  * - capture quality gates, security controls, and promotion rules as architecture
  * - keep delivery concerns explicit without binding the blueprint to one CI/CD vendor
  */
-import type { CustomerIntegrationArchitecture } from "./enterprise-architecture.js";
+import type { CustomerIntegrationArchitecture } from "./enterprise-architecture.ts";
 
 export type DeliveryEnvironmentName = "dev" | "test" | "prod";
 

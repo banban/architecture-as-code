@@ -1,24 +1,25 @@
-import { describe, expect, it } from 'vitest';
+import { assert, describe, it } from 'vitest';
 import {
     cspDataProtectionPolicy,
     customerOwnershipRules,
     evaluatePingPongRisk,
     externalPartnerAccessPolicies,
     sharedCustomerAttributeUpdatePolicies,
+    type AttributeGroup,
     type PingPongGuardInput,
-} from '../data-governance.js';
-import { BoundedContext } from '../event-contracts.js';
+} from '../data-governance.ts';
+import { BoundedContext } from '../event-contracts.ts';
 
 describe('Data Governance', () => {
   describe('customerOwnershipRules', () => {
     it('should have correct ownership rules', () => {
-      expect(customerOwnershipRules).toHaveLength(6);
+      assert.strictEqual(customerOwnershipRules.length, 6);
 
       const coreIdentityRule = customerOwnershipRules.find(
         (rule) => rule.attributeGroup === 'CoreIdentity'
       );
-      expect(coreIdentityRule?.authoritativeSystem).toBe(BoundedContext.FrontOffice);
-      expect(coreIdentityRule?.downstreamConsumers).toEqual([
+      assert.strictEqual(coreIdentityRule?.authoritativeSystem, BoundedContext.FrontOffice);
+      assert.deepStrictEqual(coreIdentityRule?.downstreamConsumers, [
         BoundedContext.FinanceBilling,
         BoundedContext.ServiceDelivery,
       ]);
@@ -26,38 +27,38 @@ describe('Data Governance', () => {
       const billingRule = customerOwnershipRules.find(
         (rule) => rule.attributeGroup === 'BillingData'
       );
-      expect(billingRule?.authoritativeSystem).toBe(BoundedContext.FinanceBilling);
+      assert.strictEqual(billingRule?.authoritativeSystem, BoundedContext.FinanceBilling);
     });
   });
 
   describe('cspDataProtectionPolicy', () => {
     it('should have required segregation and encryption', () => {
-      expect(cspDataProtectionPolicy.segregationOfSensitiveDataRequired).toBe(true);
-      expect(cspDataProtectionPolicy.separateSensitiveStoresPreferred).toBe(true);
-      expect(cspDataProtectionPolicy.encryptionKeyIsolationRequired).toBe(true);
+      assert.strictEqual(cspDataProtectionPolicy.segregationOfSensitiveDataRequired, true);
+      assert.strictEqual(cspDataProtectionPolicy.separateSensitiveStoresPreferred, true);
+      assert.strictEqual(cspDataProtectionPolicy.encryptionKeyIsolationRequired, true);
     });
 
     it('should have classifications for all data domains', () => {
-      expect(cspDataProtectionPolicy.classifications).toHaveLength(7);
+      assert.strictEqual(cspDataProtectionPolicy.classifications.length, 7);
 
       const piiClassification = cspDataProtectionPolicy.classifications.find(
         (c) => c.dataDomain === 'CustomerIdentity'
       );
-      expect(piiClassification?.sensitivity).toBe('PII');
-      expect(piiClassification?.encryptedAtRest).toBe(true);
-      expect(piiClassification?.encryptedInTransit).toBe(true);
-      expect(piiClassification?.tokenizationRecommended).toBe(true);
+      assert.strictEqual(piiClassification?.sensitivity, 'PII');
+      assert.strictEqual(piiClassification?.encryptedAtRest, true);
+      assert.strictEqual(piiClassification?.encryptedInTransit, true);
+      assert.strictEqual(piiClassification?.tokenizationRecommended, true);
     });
   });
 
   describe('externalPartnerAccessPolicies', () => {
     it('should have policies for all partner types', () => {
-      expect(externalPartnerAccessPolicies).toHaveLength(4);
+      assert.strictEqual(externalPartnerAccessPolicies.length, 4);
     });
 
     it('should require audit for all partners', () => {
       externalPartnerAccessPolicies.forEach((policy) => {
-        expect(policy.auditRequired).toBe(true);
+        assert.strictEqual(policy.auditRequired, true);
       });
     });
 
@@ -65,31 +66,32 @@ describe('Data Governance', () => {
       const governmentPolicy = externalPartnerAccessPolicies.find(
         (p) => p.partnerType === 'GovernmentRegulator'
       );
-      expect(governmentPolicy?.permittedDataClassifications).toEqual([
+      assert.deepStrictEqual(governmentPolicy?.permittedDataClassifications, [
         'Internal',
         'PII',
         'Restricted',
       ]);
-      expect(governmentPolicy?.consentRequired).toBe(false);
-      expect(governmentPolicy?.legalBasisRequired).toBe(true);
+      assert.strictEqual(governmentPolicy?.consentRequired, false);
+      assert.strictEqual(governmentPolicy?.legalBasisRequired, true);
     });
   });
 
   describe('sharedCustomerAttributeUpdatePolicies', () => {
     it('should have policies for shared attributes', () => {
-      expect(sharedCustomerAttributeUpdatePolicies).toHaveLength(3);
+      assert.strictEqual(sharedCustomerAttributeUpdatePolicies.length, 3);
     });
 
     it('should have correct policy for displayName', () => {
       const displayNamePolicy = sharedCustomerAttributeUpdatePolicies.find(
         (p) => p.attributePath === 'displayName'
       );
-      expect(displayNamePolicy?.primaryAuthority).toBe(BoundedContext.FrontOffice);
-      expect(displayNamePolicy?.allowedWriters).toEqual([
+      assert.ok(displayNamePolicy);
+      assert.strictEqual(displayNamePolicy.primaryAuthority, BoundedContext.FrontOffice);
+      assert.deepStrictEqual(displayNamePolicy.allowedWriters, [
         BoundedContext.FrontOffice,
         BoundedContext.FinanceBilling,
       ]);
-      expect(displayNamePolicy?.conflictResolution).toBe('PrimaryAuthorityWins');
+      assert.strictEqual(displayNamePolicy.conflictResolution, 'PrimaryAuthorityWins');
     });
   });
 
@@ -102,6 +104,12 @@ describe('Data Governance', () => {
       correlationId: 'test-correlation-id',
       changedAttributes: [],
       knownLineage: [],
+    };
+
+    const getDecision = (result: { decisions?: { action: string; reason: string }[] }) => {
+      assert.ok(result.decisions);
+      assert.ok(result.decisions.length > 0);
+      return result.decisions[0]!;
     };
 
     it('should allow publish for primary authority', () => {
@@ -118,9 +126,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(true);
-      expect(result.decisions[0].action).toBe('AllowPublish');
-      expect(result.decisions[0].reason).toBe('allowed_primary_authority');
+      assert.strictEqual(result.shouldPublish, true);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'AllowPublish');
+      assert.strictEqual(decision.reason, 'allowed_primary_authority');
     });
 
     it('should suppress publish for non-authoritative writer', () => {
@@ -138,9 +147,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(false);
-      expect(result.decisions[0].action).toBe('SuppressPublish');
-      expect(result.decisions[0].reason).toBe('blocked_not_authoritative_writer');
+      assert.strictEqual(result.shouldPublish, false);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'SuppressPublish');
+      assert.strictEqual(decision.reason, 'blocked_not_authoritative_writer');
     });
 
     it('should allow shared writer for shared attributes', () => {
@@ -159,9 +169,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(true);
-      expect(result.decisions[0].action).toBe('AllowPublish');
-      expect(result.decisions[0].reason).toBe('allowed_shared_writer');
+      assert.strictEqual(result.shouldPublish, true);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'AllowPublish');
+      assert.strictEqual(decision.reason, 'allowed_shared_writer');
     });
 
     it('should suppress republish to origin', () => {
@@ -180,9 +191,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(false);
-      expect(result.decisions[0].action).toBe('SuppressPublish');
-      expect(result.decisions[0].reason).toBe('blocked_republish_to_origin');
+      assert.strictEqual(result.shouldPublish, false);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'SuppressPublish');
+      assert.strictEqual(decision.reason, 'blocked_republish_to_origin');
     });
 
     it('should suppress stale timestamp', () => {
@@ -207,9 +219,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(false);
-      expect(result.decisions[0].action).toBe('SuppressPublish');
-      expect(result.decisions[0].reason).toBe('blocked_stale_timestamp');
+      assert.strictEqual(result.shouldPublish, false);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'SuppressPublish');
+      assert.strictEqual(decision.reason, 'blocked_stale_timestamp');
     });
 
     it('should escalate for manual review conflict resolution', () => {
@@ -227,9 +240,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(false);
-      expect(result.decisions[0].action).toBe('EscalateForReview');
-      expect(result.decisions[0].reason).toBe('manual_review_required');
+      assert.strictEqual(result.shouldPublish, false);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'EscalateForReview');
+      assert.strictEqual(decision.reason, 'manual_review_required');
     });
 
     it('should escalate when no ownership rule found', () => {
@@ -238,7 +252,7 @@ describe('Data Governance', () => {
         changedAttributes: [
           {
             attributePath: 'unknown.attribute',
-            attributeGroup: 'Unknown' as any,
+            attributeGroup: 'Unknown' as unknown as AttributeGroup,
             value: 'value',
             lastUpdatedAt: '2023-01-01T00:00:00Z',
           },
@@ -246,9 +260,10 @@ describe('Data Governance', () => {
       };
 
       const result = evaluatePingPongRisk(input);
-      expect(result.shouldPublish).toBe(false);
-      expect(result.decisions[0].action).toBe('EscalateForReview');
-      expect(result.decisions[0].reason).toBe('manual_review_required');
+      assert.strictEqual(result.shouldPublish, false);
+      const decision = getDecision(result);
+      assert.strictEqual(decision.action, 'EscalateForReview');
+      assert.strictEqual(decision.reason, 'manual_review_required');
     });
   });
 });
