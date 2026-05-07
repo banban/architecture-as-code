@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   type CustomerEvent,
-} from '../event-contracts.ts';
+} from '../src/event-contracts.ts';
 
 import {
   CustomerEventRouter,
   FrontOfficeRules,
   type CustomerEventSubscriber,
-} from '../application-domain.ts';
+} from '../src/application-domain.ts';
 
 // Mock event types for testing
 const mockCustomerCreatedEvent: CustomerEvent = {

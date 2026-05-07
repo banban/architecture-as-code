@@ -20,7 +20,7 @@ import {
   type Subscriber,
   type Subscription,
   type Topic
-} from '../event-contracts.ts';
+} from '../src/event-contracts.ts';
 
 describe('Event Contracts', () => {
   describe('Constants', () => {
