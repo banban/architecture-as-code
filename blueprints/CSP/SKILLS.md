@@ -19,11 +19,11 @@ The CSP folder contains:
 
 | File/artifact                  | Responsibility/Notes                                      |
 |-------------------------------|-----------------------------------------------------------|
-| `enterprise-architecture.ts`   | Enterprise integration, governance, customer context       |
-| `application-domain.ts`        | Bounded-context application responsibilities              |
-| `devsecops-domain.ts`          | SDLC, testing, security controls, delivery governance      |
-| `data-governance.ts`           | Data policies, retention, classification                   |
-| `event-contracts.ts`           | Canonical event schemas and contracts                      |
+| `src/enterprise-architecture.ts`   | Enterprise integration, governance, customer context       |
+| `src/application-domain.ts`        | Bounded-context application responsibilities              |
+| `src/devsecops-domain.ts`          | SDLC, testing, security controls, delivery governance      |
+| `src/data-governance.ts`           | Data policies, retention, classification                   |
+| `src/event-contracts.ts`           | Canonical event schemas and contracts                      |
 | `eslint.config.mjs`            | Linting configuration for code quality                     |
 | `tsconfig.json`                | TypeScript project configuration                           |
 | `package.json`                 | NPM dependencies and scripts                              |

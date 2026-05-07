@@ -1,14 +1,14 @@
 import { assert, describe, it } from 'vitest';
 import {
-    cspDataProtectionPolicy,
-    customerOwnershipRules,
-    evaluatePingPongRisk,
-    externalPartnerAccessPolicies,
-    sharedCustomerAttributeUpdatePolicies,
-    type AttributeGroup,
-    type PingPongGuardInput,
-} from '../data-governance.ts';
-import { BoundedContext } from '../event-contracts.ts';
+  cspDataProtectionPolicy,
+  customerOwnershipRules,
+  evaluatePingPongRisk,
+  externalPartnerAccessPolicies,
+  sharedCustomerAttributeUpdatePolicies,
+  type AttributeGroup,
+  type PingPongGuardInput,
+} from '../src/data-governance.ts';
+import { BoundedContext } from '../src/event-contracts.ts';
 
 describe('Data Governance', () => {
   describe('customerOwnershipRules', () => {

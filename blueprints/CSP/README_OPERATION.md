@@ -6,15 +6,15 @@ application design, governance, and operational delivery without tying the bluep
 
 ## How TypeScript Files Relate
 This project captures complementary views of the same system design:
-- `event-contracts.ts`: shared canonical event and topic contracts
-- `data-governance.ts`: shared ownership, sensitivity, and access policy model
-- `enterprise-architecture.ts`: enterprise integration view for cross-system contracts, ownership, governance, and extensibility rules.
-- `application-domain.ts`: front-office view repsponsible for development implementation.
-- `devsecops-domain.ts`: testing, security, observebility, and maintenance view.
+- `src/event-contracts.ts`: shared canonical event and topic contracts
+- `src/data-governance.ts`: shared ownership, sensitivity, and access policy model
+- `src/enterprise-architecture.ts`: enterprise integration view for cross-system contracts, ownership, governance, and extensibility rules.
+- `src/application-domain.ts`: front-office view repsponsible for development implementation.
+- `src/devsecops-domain.ts`: testing, security, observebility, and maintenance view.
 
 ### Enterprise Architecture File
 
-`enterprise-architecture.ts` defines:
+`src/enterprise-architecture.ts` defines:
 
 - bounded contexts
 - canonical customer identity and profile
@@ -28,7 +28,7 @@ This project captures complementary views of the same system design:
 
 ### Shared Contracts File
 
-`event-contracts.ts` defines:
+`src/event-contracts.ts` defines:
 
 - canonical event names
 - customer event envelopes and payloads
@@ -37,7 +37,7 @@ This project captures complementary views of the same system design:
 
 ### Shared Data Governance File
 
-`data-governance.ts` defines:
+`src/data-governance.ts` defines:
 
 - attribute ownership rules
 - data sensitivity classifications
@@ -47,7 +47,7 @@ This project captures complementary views of the same system design:
 
 ### Application Domain File
 
-`application-domain.ts` defines:
+`src/application-domain.ts` defines:
 
 - the front-office-owned customer aggregate
 - front-office commands and service ports
@@ -57,7 +57,7 @@ This project captures complementary views of the same system design:
 
 ### DevSecOps Domain File
 
-`devsecops-domain.ts` defines:
+`src/devsecops-domain.ts` defines:
 
 - CI/CD stages from planning and review through release
 - delivery environments across `dev`, `test`, and `prod`
@@ -79,7 +79,10 @@ Included project files:
 npm validation flow:
 ```powershell
 npm install
+# Install TypeScript as a dev dependency
 npm install typescript --save-dev
+#npm install --save-dev typescript @types/node
+
 npm audit #Check for Known Vulnerabilities
 npm outdated # check for outdated packages
 npm update
