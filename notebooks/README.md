@@ -18,10 +18,15 @@ Literate Architecture Documentation: By combining narrative, diagrams, and live 
 - [Visual Validation and Unit Testing](https://networktocode.com/blog/jupyter-notebooks-for-development/): You can perform seamless unit testing on architectural logic within a cell, generating immediate feedback on whether a proposed design meets specific constraints before it is committed to the main codebase
 
 ## Setup in VS code
-We use .ipynb files with Python core for notebook kernel combined with UV for dependencies management and virtual environments. Open VS Code in admin mode and run the command:
+We use .ipynb files with Python core for notebook kernel combined with UV for dependencies management and virtual environments. Open VS Code in admin mode and run the bash command:
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+or PowerShell
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
 Reopen VS Code in user mode and proceed with setup
 ```bash
 uv init
@@ -30,8 +35,17 @@ uv venv --seed
 Now, we are ready to work with Jupiter Notebooks. Every open VS code make sure you are using correct/default environment .venv:
 ```powershell
 .venv\Scripts\activate
-uv add ipython pandas numpy 
+
+#general libs fot notebooks
+uv add ipython pandas numpy python-dotenv ipywidgets
 uv add --dev pip ipykernel pypandoc "nbconvert[webpdf]"
+ 
+#privacy filters
+uv add transformers torch accelerate sentencepiece protobuf
+
+#optional for GPU acceleration
+uv add bitsandbytes 
+
 uv lock --upgrade
 uv sync
 uv tree
@@ -51,12 +65,12 @@ Check more examples here: https://mermaid.live/edit
 
 Every notebook can also be exported in different formats:  asciidoc, custom, html, latex', markdown, notebook, pdf, python, qtpdf, qtpng, rst, script, slides, webpdf.
 ```bash
-uv run jupyter nbconvert ./diagrams/mermaid.uv --to html --output-dir ./temp
+uv run jupyter nbconvert ./notebooks/mermaid.uv --to html --output-dir ./temp
 ```
 
 PDF is generated via latex. Some dependencies to be resolved first.
 ```bash
-uv run jupyter nbconvert ./diagrams/mermaid.ipynb --to pdf --engine webpdf --output-dir ./temp
+uv run jupyter nbconvert ./notebooks/mermaid.ipynb --to pdf --engine webpdf --output-dir ./temp
 ```
 
 You also can use other text-based diagram builders:

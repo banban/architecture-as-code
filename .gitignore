@@ -49,3 +49,5 @@ ENV/
 node_modules/
 dist/
 
+#Hugging Face cache
+.hf-cache

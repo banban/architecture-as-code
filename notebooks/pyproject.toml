@@ -1,0 +1,29 @@
+[project]
+name = "notebooks"
+version = "0.1.0"
+description = "Experiments"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "accelerate>=1.13.0",
+    "bitsandbytes>=0.49.2",
+    "ipython>=9.12.0",
+    "ipywidgets>=8.1.8",
+    "numpy>=2.4.4",
+    "pandas>=3.0.2",
+    "protobuf>=7.35.0",
+    "python-dotenv>=1.2.2",
+    "sentencepiece>=0.2.1",
+    "tokenizers>=0.22.2",
+    "torch>=2.12.0",
+    "transformers>=5.9.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "nbconvert[webpdf]>=7.17.1",
+    "pip>=26.0.1",
+    "pypandoc>=1.17",
+    "python-dotenv>=1.2.2",
+]
