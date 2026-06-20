@@ -46,6 +46,7 @@ uv add transformers torch accelerate sentencepiece protobuf
 #optional for GPU acceleration
 uv add bitsandbytes 
 
+uv run pip list --outdated
 uv lock --upgrade
 uv sync
 uv tree
