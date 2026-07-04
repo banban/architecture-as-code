@@ -1,6 +1,6 @@
 # Azure Integration Architecture
 
-This document synthesizes the architectural designs, cross-protocol strategies, and conceptual diagrams discussed for building an Enterprise Integration on Azure including Fabric, APIM, MCP, and Integration-First Protocols.
+This document synthesizes the architectural designs, cross-protocol strategies, and conceptual diagrams discussed for building an Enterprise Integration on Azure including Fabric, APIM, MCP, and Integration Protocols.
 
 ---
 
@@ -34,14 +34,14 @@ To handle dozens of concurrent control plane operations seamlessly, a hybrid arc
 
 ```mermaid
 graph TD
-    User[External Consumers / CI/CD Pipelines] -->|Unified REST Requests| APIM[1. Entryway Layer: Azure APIM]
+    User[External Consumers / CI/CD Pipelines] -->|Unified REST Requests| APIM[1. Entryway Layer:<br/>Azure APIM]
     
     subgraph Processing Layers
-        APIM -->|Sync / Long-Run Workflow| LogicApps[2. Orchestration Layer: Azure Logic Apps Standard]
-        APIM -->|Async / Fire-and-Forget| EventGrid[3. Choreography Layer: Azure Event Grid / Service Bus]
+        APIM -->|Sync / Long-Run Workflow| LogicApps[2. Orchestration Layer:<br/>Azure Logic Apps Standard]
+        APIM -->|Async / Fire-and-Forget| EventGrid[3. Choreography Layer:<br/>Azure Event Grid/Service Bus]
     end
     
-    LogicApps --> Execution[4. Execution Layer: Fabric REST APIs & Azure Resources]
+    LogicApps --> Execution[4. Execution Layer:<br/>Fabric REST APIs <br/>& Azure Resources]
     EventGrid --> Execution
     
     style APIM fill:#0072C6,stroke:#fff,stroke-width:2px,color:#fff
@@ -55,6 +55,39 @@ graph TD
 1.  **Entryway (Azure APIM):** Facade for internal backends. It masks complex system endpoints, enforces rate-limiting, and utilizes the *Asynchronous Request-Reply pattern* to instantly return an HTTP `202 Accepted` along with a status tracking link for long-running infrastructure actions.
 2.  **Orchestration (Azure Logic Apps Standard / Durable Functions):** Low-code state machines handle long polling loops and sequential dependencies (e.g., waiting for a Workspace creation confirmation before deploying code into it).
 3.  **Choreography (Azure Event Grid & Service Bus):** Used to scale operations out without tight coupling. Completed actions emit events (e.g., `WorkspaceProvisioned`) to an Event Grid Topic so downstream logging, audit, and Git-sync tools can trigger independently.
+
+### Event-Driven Messaging Roles
+
+Azure-native messaging can cover many common enterprise message and event architecture patterns without introducing additional marketplace brokers such as Kafka or RabbitMQ. The design choice should start from the communication semantics:
+
+| Component | Primary Role | Best Fit |
+| :--- | :--- | :--- |
+| **Service Bus Queue** | Durable point-to-point command or work queue. One consumer instance processes each message, with lock, retry, and dead-letter handling. | Reliable background work, workload leveling, long-running integration tasks, and asynchronous command processing. |
+| **Service Bus Topic and Subscriptions** | Durable publish/subscribe messaging. Each subscription receives its own copy and can filter messages independently. | Business events that multiple internal systems must process reliably, such as audit, provisioning, notification, and data synchronization flows. |
+| **Event Grid Topic** | Lightweight event routing and fan-out for reactive notifications. Pushes events to subscribers with filtering and retry behavior. | Cloud events, resource-state changes, near-real-time notifications, and triggering serverless workflows. |
+
+```mermaid
+flowchart TD
+    A[Integrate Event or Message] --> B{Is durable<br/>processing<br/>required?}
+
+    B -->|Yes| C{How many<br/>independent<br/>consumers?}
+    C -->|One worker or<br/>competing workers| D[Service Bus Queue]
+    C -->|Multiple business<br/>subscribers| E[Service Bus Topic<br/>and Subscriptions]
+
+    B -->|No, notify<br/>reactive subscribers| F{Is this<br/>mainly event<br/>notification?}
+    F -->|Azure resource event<br/>or lightweight fan-out| G[Event Grid Topic]
+    F -->|Needs replay, ordering,<br/>transactions, or dead-lettering| E
+
+    G --> H[Functions, Logic Apps,<br/>Webhooks, Automation]
+    D --> I[Worker, Function,<br/>Logic App Orchestrator]
+    E --> J[Audit, Sync, Notification,<br/>Provisioning Subscribers]
+
+    style D fill:#0072C6,stroke:#fff,stroke-width:2px,color:#fff
+    style E fill:#0072C6,stroke:#fff,stroke-width:2px,color:#fff
+    style G fill:#0072C6,stroke:#fff,stroke-width:2px,color:#fff
+```
+
+Service Bus is strongest when consumers need durable messages, competing consumers, ordered sessions, transactions, duplicate detection, scheduled delivery, or dead-letter queues. Event Grid is strongest when producers need broad event notification and reactive fan-out, especially across Azure services. Many integration designs use both: Event Grid announces that something happened, while Service Bus carries durable commands or business events that must be processed exactly once from the consumer's perspective.
 
 ---
 
@@ -79,7 +112,7 @@ graph LR
     end
 
     A -->|Strict JSON / Paths| B
-    B -->|LLM Context-Aware Prompting| C
+    B -->|LLM Context-Aware<br/>Prompting| C
 
     style A fill:#f9f9f9,stroke:#333,stroke-width:1px
     style B fill:#0072C6,stroke:#fff,stroke-width:2px,color:#fff
@@ -145,6 +178,8 @@ At a high level, Azure integration architectures are usually shaped by a small s
 5.  **Governance and security:** Ensure consistent policies, identity management, compliance, and auditability across the integration landscape.
 6.  **Observability:** Track health, latency, failures, and business outcomes so operations teams can respond quickly.
 7.  **Hybrid and boundary-aware integration:** Design differently for public-facing APIs, internal services, SaaS platforms, and on-premises systems.
+8.  **Contracts and versioning:** Treat API schemas, event payloads, and message formats as explicit contracts with versioning and compatibility rules.
+9.  **Reliability patterns:** Design for retries, idempotency, duplicate detection, poison messages, dead-letter handling, replay, and back-pressure.
 
 ### Simple Mental Model
 
@@ -161,6 +196,20 @@ flowchart LR
 
 This model shows that integration is not only about connecting endpoints, but also about making those connections secure, observable, and governable.
 
+### Well-Architected Pillars for AIA Implementation
+
+The [Azure Well-Architected Framework pillars](https://learn.microsoft.com/en-us/azure/well-architected/pillars) provide the fundamental principles for implementing Azure Integration Architecture. Each design decision should be tested against these pillars because integration workloads sit between systems, carry business-critical traffic, and often become the operational backbone for enterprise platforms.
+
+| Pillar | AIA Implementation Principle |
+| :--- | :--- |
+| **Reliability** | Design for resilient message delivery, retry policies, idempotent consumers, dead-letter handling, regional availability, graceful degradation, and recovery from downstream outages. |
+| **Security** | Protect every integration boundary with managed identities, least-privilege access, private connectivity where required, secret management, input validation, API policies, encryption, and audit trails. |
+| **Cost Optimization** | Match service tiers and broker patterns to actual workload needs, avoid unnecessary marketplace broker platforms where Service Bus or Event Grid is sufficient, and monitor consumption-based services for waste. |
+| **Operational Excellence** | Standardize deployment, configuration, versioning, observability, alerting, runbooks, incident response, and change control across APIs, workflows, event subscriptions, and data pipelines. |
+| **Performance Efficiency** | Use asynchronous hand-off, queue-based load leveling, horizontal scale, protocol choices such as gRPC where appropriate, caching, throttling, and load testing to meet latency and throughput targets. |
+
+These pillars also expose trade-offs. For example, adding durable messaging can improve reliability but increase latency and cost; private networking can strengthen security but add operational complexity; high-throughput event designs can improve performance but require stronger observability and back-pressure controls.
+
 ---
 
 ## 6. When to Use Azure Data Factory vs Microsoft Fabric Data Factory
@@ -174,9 +223,9 @@ Both services support data integration, but they are best suited to different pl
 
 ```mermaid
 flowchart LR
-    A[Choose Integration Platform] --> B{Primary Driver}
+    A[Choose<br/>Integration<br/>Platform] --> B{Primary<br/>Driver}
     B -->|Broad enterprise integration| C[Azure Data Factory]
-    B -->|Fabric-centric analytics platform| D[Microsoft Fabric Data Factory]
+    B -->|Fabric-centric<br/>analytics platform| D[Microsoft Fabric<br/>Data Factory]
 
     C --> E[Pros]
     C --> F[Cons]
@@ -184,20 +233,20 @@ flowchart LR
     D --> H[Cons]
 
     E --> E1[Strong enterprise reach]
-    E --> E2[Flexible across many systems]
-    E --> E3[Established Azure-native model]
+    E --> E2[Flexible across<br/>many systems]
+    E --> E3[Established<br/>Azure-native model]
 
     F --> F1[More platform sprawl]
     F --> F2[Requires more setup]
-    F --> F3[Less naturally tied to Fabric analytics]
+    F --> F3[Less naturally tied<br/>to Fabric analytics]
 
     G --> G1[Unified Fabric experience]
-    G --> G2[Tighter link to OneLake and analytics]
-    G --> G3[Lower friction for data teams]
+    G --> G2[Tighter link to OneLake<br/>and analytics]
+    G --> G3[Lower friction for<br/>data teams]
 
-    H --> H1[More aligned to Fabric ecosystem]
-    H --> H2[Less ideal for very broad hybrid scenarios]
-    H --> H3[Can feel narrower when the landscape is highly heterogeneous]
+    H --> H1[More aligned to<br/>Fabric ecosystem]
+    H --> H2[Less ideal for very<br/>broad hybrid scenarios]
+    H --> H3[Can feel narrower when<br/>landscape is<br/>highly heterogeneous]
 ```
 
 ### High-Level Comparison
