@@ -840,13 +840,13 @@ flowchart LR
 
 ---
 
-### 13.4 Core HCM plus Cornerstone talent pattern
+### 13.4 Worker Profile pattern
 
 ```mermaid
 flowchart LR
     HCM[Core HCM]
     INT[Integration Layer]
-    CS[Cornerstone]
+    CS[Personal Profile]
     LMS[Learning]
     SKILLS[Skills]
     PERF[Performance and Talent]
@@ -864,7 +864,7 @@ flowchart LR
 **Characteristics**
 
 - Core HCM owns worker and employment records
-- Cornerstone owns learning, skills, certification, and selected talent records
+- Personal Profile owns learning, skills, certification, and selected talent records
 - Worker, manager, OU, and status data are synchronised
 - Learning and skills outcomes may return to the enterprise data platform
 
@@ -885,7 +885,7 @@ flowchart LR
 | Payroll status and results | Payroll system |
 | Identity account | Identity platform / directory |
 | Access entitlements | Identity governance platform |
-| Learning catalogue and completion | LMS / Cornerstone |
+| Learning catalogue and completion | LMS |
 | Skills profile | Selected talent or skills platform |
 | HR service case | HR service-management platform |
 | Recruitment candidate | Applicant tracking system |
@@ -1585,42 +1585,20 @@ The decisive architectural requirement is the integrity of the worker lifecycle:
 
 ## 32. References
 
-1. Oracle, **REST API for Oracle Fusion Cloud HCM — Assignments**  
-   <https://docs.oracle.com/en/cloud/saas/human-resources/farws/api-public-workers-assignments.html>
+1. Oracle, **REST API for Oracle Fusion Cloud HCM — Worker API**  
+   <https://docs.oracle.com/en/cloud/saas/human-resources/farws/api-workers.html>
 
-2. Oracle, **REST API for Oracle Fusion Cloud HCM — Assignment resource and effective dates**  
-   <https://docs.oracle.com/en/cloud/saas/human-resources/farws/op-emps-empsuniqid-child-assignments-assignmentsuniqid-get.html>
-
-3. Oracle, **REST API for Oracle Fusion Cloud HCM — Assignment Managers**  
-   <https://docs.oracle.com/en/cloud/saas/human-resources/farws/op-workers-workersuniqid-child-workrelationships-periodofserviceid-child-assignments-assignmentsuniqid-child-managers-managersuniqid-get.html>
-
-4. Workday, **Developer API Overview**  
+2. Workday, **Developer API Overview**  
    <https://developer.workday.com/api-overview>
 
-5. Workday, **Business Process REST APIs**  
-   <https://developer.workday.com/documentation/GUID-e31b535f-7722-4f61-9795-a27ef9d78a86-enHYPHENus/BusinessProcessRESTAPIs>
+3. SAP, **Employee Central Overview**  
+   <https://help.sap.com/docs/successfactors-employee-central/implementing-employee-central-core/>
 
-6. SAP, **Employee Central Effective-Dated Entities**  
-   <https://help.sap.com/docs/successfactors-employee-central/implementing-employee-central-core/employee-central-effective-dated-entities>
+4. Cornerstone for Developers  
+   <https://csod.dev>
 
-7. SAP, **Effective Dating in SuccessFactors OData APIs**  
-   <https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/effective-dating>
-
-8. SAP, **Entities in Employee Central**  
-   <https://help.sap.com/docs/successfactors-employee-central/implementing-employee-central-core/entities-in-employee-central>
-
-9. Cornerstone, **Core and HR API Guide**  
-   <https://csod.dev/guides/core-hr/>
-
-10. Cornerstone, **Core and HR API Reference**  
-    <https://csod.dev/reference/core-hr/>
-
-11. Cornerstone, **Employee and Organisational Unit API**  
-    <https://csod.dev/guides/core-hr/employee-ou/>
-
-12. Cornerstone, **Employee Events Webhooks**  
-    <https://csod.dev/reference/webhooks/>
-
+5. Salesforce Employee Service Integrations API
+   <https://developer.salesforce.com/docs/industries/employeeservice>
 ---
 
 ## Appendix A — Glossary
