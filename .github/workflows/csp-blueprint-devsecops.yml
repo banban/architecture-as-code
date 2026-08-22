@@ -193,7 +193,7 @@ jobs:
         run: npm ci
 
       - name: Typecheck and lint
-        run: node --run check
+        run: npm run check --if-present
 
       - name: Secret scanning placeholder
         run: |
