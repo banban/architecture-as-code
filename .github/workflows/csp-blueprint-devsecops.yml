@@ -180,10 +180,10 @@ jobs:
         working-directory: ${{ env.BLUEPRINT_DIR }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
@@ -219,10 +219,10 @@ jobs:
         working-directory: ${{ env.BLUEPRINT_DIR }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
@@ -275,10 +275,10 @@ jobs:
       artifact_version: ${{ steps.artifact_metadata.outputs.artifact_version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
@@ -291,7 +291,9 @@ jobs:
         shell: bash
         run: |
           mkdir -p dist
-          cp *.ts *.md *.json *.mjs dist/
+          shopt -s nullglob
+          cp ./*.md ./*.json ./*.mjs dist/
+          cp ./src/*.ts ./unit/*.test.ts dist/
           printf '%s\n' "${{ needs.resolve-release-contract.outputs.artifact_version }}" > dist/ARTIFACT_VERSION.txt
 
       - name: Export artifact metadata
@@ -309,7 +311,7 @@ jobs:
           echo "Example: Sigstore cosign, GitHub artifact attestations, or enterprise signing services."
 
       - name: Upload immutable build artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ needs.resolve-release-contract.outputs.artifact_name }}
           path: ${{ env.BLUEPRINT_DIR }}/dist
